@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+<script>
+var tableObject = function(table){
+   this.table = table;
+   this.activeRow = -1;
+   this.nRows = 0;
+   this.rowsArray = new Array(); 
+}
+tableObject.prototype.eventHandle = function(txtObj, e){
+   if(e.keyCode == 13){
+      txtObj.value = this.getSelected();
+      this.down();
+      return;
+   }
+   if(e.keyCode == 40){ //going down
+      this.navigate('d');
+      return;
+   }
+   if(e.keyCode == 38){ //going up
+      this.navigate('u');
+      return;
+   }
+   string = txtObj.value;
+   this.down();
+   content = [string, "dog" + string,"cat" + string, "cow", "pig"];
+   this.addRows(content);
+}
+tableObject.prototype.getSelected = function(){
+   var selected = this.rowsArray[this.activeRow].id;
+   this.down();
+   return selected;
+}
+tableObject.prototype.addRow = function(content, j){
+   var afterLastRow = this.table.length;
+   var row = this.table.insertRow(afterLastRow);
+   row.setAttribute('id', j);
+   var cell = row.insertCell(0);
+   cell.appendChild(document.createTextNode(content));
+   cell.setAttribute('id', content);
+   this.rowsArray.unshift(cell);
+}
+tableObject.prototype.addRows = function(contentArray){
+   this.table.style.visibility = 'visible';
+   for(j in contentArray){
+      var content = contentArray[j];
+      this.addRow(content, j);
+   }
+   this.nRows = contentArray.length;
+}
+tableObject.prototype.down = function(){
+   this.table.style.visibility = 'hidden';
+   this.deleteRows();
+   this.activeRow = -1;
+   this.nRows = 0;
+   this.rowsArray = new Array();
+}
+tableObject.prototype.deleteRows = function(){
+  for(var i = this.table.rows.length; i > 0;i--){
+    this.table.deleteRow(i -1);
+  }
+}
+tableObject.prototype.navigate = function(dir){
+   if(this.activeRow > -1){
+      this.rowsArray[this.activeRow].style.background = "#fff";
+   }
+   if(dir == 'u'){
+      if(this.activeRow > -1){
+         this.activeRow--;
+      }
+   }
+   if(dir == 'd'){
+      if(this.activeRow < this.nRows -1){
+         this.activeRow++;
+      }
+   }
+   this.rowsArray[this.activeRow].style.background = "#8cf";
+}
+
+</script>
+</head>
+<body>
+   <table>
+      <tr>
+         <td><b>Orth:</b></td>
+         <td><input type="text" id="ortho" name="orth" size="30" onkeyup="table.eventHandle(this, event);" autocomplete="off" /></td>
+         <td><button type="button" onclick="">find</button></td>
+      </tr>
+      <tr>
+         <td>&nbsp;</td>
+         <td>
+            <table id='suggestions' cellspacing='0' cellpadding='0' style='border-width:1px;border-style:solid;border-color:#999;visibility:hidden; left: 500px; top: 200px; width: 222px;'>
+               <tbody>
+            </table>
+         </td>
+         <td>&nbsp;</td>
+      </tr>
+   </table>
+   <script>
+      table = new tableObject(document.getElementById('suggestions'));
+   </script>
+<hr>
+<address></address>
+<!-- hhmts start --> Last modified: Thu Apr 22 14:54:09 CEST 2010 <!-- hhmts end -->
+</body> </html>

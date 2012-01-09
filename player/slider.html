@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="all" />
+<link rel="stylesheet" href="http://static.jquery.com/ui/css/demo-docs-theme/ui.theme.css" type="text/css" media="all" />
+<script type='text/javascript' src='http://tekstlab.uio.no/glossa/js/jquery/jquery-1.4.3.min.js'></script>
+<script type='text/javascript' src='http://tekstlab.uio.no/glossa/js/jquery/jquery-ui-1.8.6.custom.min.js'></script>
+</head>
+
+<body>
+
+<style>
+#demo-frame > div.demo { padding: 10px !important; };
+</style>
+<script>
+$(function() {
+$( "#slider-range" ).slider({
+range: true,
+min: -10,
+max: 10,
+values: [ -1, 1 ],
+slide: function( event, ui ) {
+$( "#amount" ).val( "" + ui.values[ 0 ] + " to " + ui.values[ 1 ] );
+}
+});
+$( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
+" to " + $( "#slider-range" ).slider( "values", 1 ) );
+});
+</script>
+
+
+<h1>Ping!</h1>
+
+<div class="demo">
+
+  <p>
+  <label for="amount">Segment range:</label>
+  <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
+  </p>
+  <div id="slider-range"></div>
+<!--  class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" -->
+</div><!-- End demo -->
+<hr>
+<address></address>
+<!-- hhmts start --> Last modified: Fri Dec 10 16:13:59 CET 2010 <!-- hhmts end -->
+</body> </html>

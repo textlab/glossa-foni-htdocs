@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <title>JW API Example 1-2-0-0 - XHTML Validating JW FLV Media Player</title>
+        <style type="text/css">
+            #wrapper { position:absolute; left:64px; top:128px; width:320px; height:196px; background-color:#CCCC00; }
+        </style>
+        <script type="text/JavaScript" src="swfobject.js"></script>
+        <script type="text/JavaScript">
+        /* <![CDATA[ */
+        var start = 50;
+        var stop  = "55";
+        var player = null;
+        function playerReady(thePlayer) {
+            player = window.document[thePlayer.id];
+        }
+
+
+        function createPlayer() {
+            var flashvars = {
+                    file:"mp4:uio/hf/ilf/scandiasyn/landvik_03gm-04gk_800.mp4",
+                    streamer:"rtmp://stream-prod01.uio.no/vod/",
+                    autostart:"true",
+                    start:"50",
+                    duration:stop,
+                    image:"http://www.hf.uio.no/iln/om/organisasjon/tekstlab/BILDER/logo173.png"
+            }
+            var params = {
+                    allowfullscreen:"false",
+                    allowscriptaccess:"always",
+                    respectduration:"true",
+                    wmode:"opaque",
+                    menu:"false"
+            }
+            var attributes = {
+                    id:"player1zzz",
+                    name:"player1xxx"
+            }
+            swfobject.embedSWF("player.swf", "placeholder1", "320", "260", "9.0.115", false, flashvars, params, attributes);
+        }
+        /* ]]> */
+        </script>
+    </head>
+    <body onload="createPlayer();">
+            <div id="wrapper">
+                <div id="placeholder1"></div>
+            </div>
+      <a href="#" onclick="player.sendEvent('PLAY')">play/pause toggle</a><br />
+      <a href="#" onclick="player.sendEvent('STOP')">stop playing and buffering</a><br />
+      <a href="#" onclick="start++; player.sendEvent('SEEK', start)">seek absolute position (10th. second)</a><br />
+      <a href="#" onclick="player.sendEvent('VOLUME', 50)">set absolute volume 50%</a><br />
+      <span onclick="start-=0.1; player.sendEvent('SEEK', start);">&lt;</span>start
+      <span onclick="start+=0.1; player.sendEvent('SEEK', start);">&gt;</span>&nbsp;
+      <span onlick="stop+=1; player.sendEvent('LOAD','mp4:uio/hf/ilf/scandiasyn/landvik_03gm-04gk_800.mp4')">stop&gt;</span>     
+    </body>
+</html>

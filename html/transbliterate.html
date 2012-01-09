@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://www.google.com/jsapi">
+    </script>
+    <script type="text/javascript">
+var langs = new Array("en", "no", "jp", "es", "fr");
+var suffled;
+
+function getRandomElt(array){
+   var n = array.length - 1;
+   var j = Math.floor(Math.random()*(n));
+   return array[j];
+}
+function shuffleArray(array){
+   var translation = document.getElementById("translation");
+   var n = array.length;
+   var newArray = new Array;
+   var stop = 0;
+   for( elt in array ){
+     var j = Math.floor(Math.random()*(n));
+     while( stop < 100 && newArray[j] != undefined ){
+         stop++;
+         j = Math.floor(Math.random()*(n));
+     }
+     newArray[j] = array[elt];
+  }
+  return newArray;
+}
+function initialize() {
+   var text = document.getElementById("text").innerHTML;
+   google.language.detect(text,
+                          function(result) {
+                             if(!result.error && result.language) {
+                               google.language.translate(text,
+                                                         result.language,
+                                                         "en",
+                                                         function(result) {
+                                                            var translated = document.getElementById("translation");
+                                                            if (result.translation) { translated.innerHTML = result.translation; }
+                                                         }
+                               );
+                             }
+                          }
+                         );
+}
+
+
+function Res(){
+   this.res = "";
+   var stop = false;
+   this.catch = function(resoolt){ this.res = resoolt; if(!this.stop){this.ready();} else{this.go();}}
+   this.rep = function(){ return this.res; }
+   this.ready = function(){ this.stop=true;trans(this.res, 'ja', 'no', this); }
+   this.go = function(){document.getElementById('translation').innerHTML=this.rep();}
+}
+
+
+function trans(text, src, trg, obj){
+  var transl = obj;
+  google.language.translate(text, src, trg, function(result){transl.catch(result.translation)});
+//  return transl.rep();
+}
+
+
+var tmp;
+
+    google.load("language", "1");
+    function translate(node, text) {
+      var returnval;
+      var node = document.getElementById(node);
+      google.language.detect(text, function(result) {
+        if (!result.error && result.language) {
+          google.language.translate(text, result.language, "no",
+                                    function(result) {
+            if (result.translation) {
+//              node.innerHTML = result.translation;
+//                tmp = result.translation;
+//                alert(tmp);
+                returnval = result.translation;
+            }
+            else{ node.innerHTML = 'Woodwork' }
+          });
+        }
+      });
+     return "returnval";
+    }
+var obj;
+var tmp;
+var egg = 0;
+    </script>
+  </head>
+  <body>
+    <textarea style="width:400px; height:200px;" id="in"></textarea>
+    <input type="button" onclick="obj = new Res(); trans(document.getElementById('in').value, 'en', 'ja', obj);" value="1" />
+    <input type="button" onclick="shuffled = shuffleArray(langs);var src = shuffled.pop();var trg = shuffled.pop();obj = new Res(); trans(document.getElementById('in').value, 'en', trg, obj);" value="ping" />
+    <input type="button" onclick="alert(shuffleArray(langs));" value="moi"/>
+<!--
+    <input type="button" onclick="tmp = obj.rep(); trans(tmp, 'ja', 'no', obj);" value="2" />
+    <input type="button" onclick="document.getElementById('translation').innerHTML=obj.rep();" value="3"/>
+-->
+    <div id="translation"></div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+   
+   <title>Glossa - media</title>
+   
+   <link rel="stylesheet" type="text/css" href="player.css">
+   <link href="http://tekstlab.uio.no/glossa/html/tags.css" rel="stylesheet" type="text/css"></link>
+   <script type='text/javascript' src='../../js/swfobject15.js'></script>
+   <script type='text/javascript' src='player.ajax.js'></script>
+   <script language="JavaScript" src="http://tekstlab.uio.no/glossa/js/showtag.js" ></script>
+
+</head>
+<body onload="scrollbox = new divObject(document.getElementById('scrollbox'));pops = new popObject(document.getElementById('pops'));">
+<div id='mediaspace' class='video'>This text will be replaced</div>
+<div class='console'>
+  <table border='0' width='100%'>
+    <tr>
+      <td>
+	<span onclick="increaseContext('l');" style="cursor:pointer;">+</span>
+      </td>
+      <td>
+	<select id='leftSelect' onchange="expand('scandiasyn',25612,this.value,document.getElementById('rightSelect').value);">
+	  <option value='0'>0</option>
+	  <option value='1'>1</option>
+	  <option value='2'>2</option>
+	  <option value='3'>3</option>
+	  <option value='4'>4</option>
+	  <option value='5'>5</option>
+	  <option value='6'>6</option>
+	  <option value='7'>7</option>
+	  <option value='8'>8</option>
+	  <option value='9'>9</option>
+	  <option value='10'>10</option>
+	</select>
+      </td>
+      <td>
+      </td>
+      <td align='right'>
+	<select id='rightSelect' onchange="expand('scandiasyn',25612,document.getElementById('leftSelect').value,this.value);">
+	  <option value='0'>0</option>
+	  <option value='1'>1</option>
+	  <option value='2'>2</option>
+	  <option value='3'>3</option>
+	  <option value='4'>4</option>
+	  <option value='5'>5</option>
+	  <option value='6'>6</option>
+	  <option value='7'>7</option>
+	  <option value='8'>8</option>
+	  <option value='9'>9</option>
+	  <option value='10'>10</option>
+	</select>
+      </td>
+      <td align='right'>
+	<span onclick="increaseContext('r');" style="cursor:pointer;">+</span>
+      </td>
+    </tr>
+  </table>
+</div>
+<div id='scrollbox'></div>
+<div id='pops'></div>
+</body>
+</html>

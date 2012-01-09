@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.colorpicker.js" type="text/javascript"></script>
+    <script language="JavaScript" src="http://www.tekstlab.uio.no/scandiasyn/base/javascripts/coordinates.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    <script langauge="javascript" src="../js/map_v3.js"></script>
+    <link rel="stylesheet" href="jquery.colorpicker.css" type="text/css" media="screen"/>
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0px; padding: 0px }
+      #map_canvas { height: 100% }
+    </style>
+    <style>
+      div.legend{
+                border-width:3px;
+                border-style:solid;
+                border-color:rgb(230, 230, 230);
+                border-radius:5px;
+                -moz-border-radius:5px;
+                -webkit-border-radius:5px;
+                position: absolute;
+                top: 30px;
+                left: 670px;
+                background-color: rgb(250,250,250);
+                width: 140px;
+                height: 536px;
+      }
+    </style>
+    <script type="text/javascript">
+var map;
+function init(){
+     var latlng = new google.maps.LatLng(64.0, 3.0); //-34.397, 150.644
+     var myOptions = {
+                      zoom: 4,
+                      center: latlng,
+                      mapTypeId: google.maps.MapTypeId.ROADMAP
+     };
+     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+     for(var j in allLocations){ // the small dots, for all results
+           addMarker(allLocations[j]); 
+     }
+}
+    </script>
+    <script type="text/javascript">
+
+(function($){ var styleadded = false;
+              var styler = "<style type='text/css'>\n.jq-base{\nborder-radius:3px;\n-moz-border-radius:3px;\n-webkit-border-radius:3px;\ncolor:#FEFE00;\npadding:2px 4px;\nfont:9px verdana,arial,sans-serif;\nmargin:0 -1px;\nwhite-space: nowrap;\npadding: 2px 4px;\nvertical-align:middle;\n}\n</style>\n";
+	      $.fn.extend({ listing: function(options){ 
+		  var maxRows = 20;
+                  var n = 0;
+                  for (prop in options.elts) { //seems only way to get length
+                     n++;
+                  }
+		  var r = n%maxRows;
+		  var q = (n-r)/maxRows;
+		  left = 670;
+		  if(r>0){q++;}
+		  for(var i = 0; i < q; i++ ){
+                      $('body').append('<div class="legend" id="legend'+i+'" style="left:'+ (left+i*160) + 'px;"></div>');
+		  }
+		  var j = 0;
+		  for(var elt in options.elts){
+		      var id = elt;
+
+		      divI = Math.floor(j/maxRows);
+	              $('#legend'+divI).append('<a id="a_' + j + '">'+id+'</a>\n'); // removed a <br /> elt after the anchor // might change id to j!
+		      j++;
+		  }
+                  var id = -1;
+		  for(var elt in options.elts){
+		      id++;
+                      $('#a_'+id).colorpicker({label:"a_"+id,func: function(a, id){
+                                     addMarkers(a, id);
+		      }}); } },
+			    labels: function(options){
+				var pointer = {
+				    defaults:false,
+				    backgroundColor:"#CE0000" //this will only be used if labels are not supplied
+				}
+				opts = $.extend(defaults, options);
+				if(!styleadded){
+				//     $("head").append(styler); // IS THIS NEEDED AT ALL?
+                                     styleadded=true;
+				}
+				var labels={}
+				for(j in opts['labels']){
+				    labels[j.toLowerCase()]=opts['labels'][j];
+				}
+				if($.isEmptyObject(opts['labels'])){
+				    $(this).addClass("jq-base");
+				    $(this).css("backgroundColor",opts['backgroundColor']);
+				    if(opts['pointer']) $(this).css("cursor","pointer");
+				}
+				else{
+        			    $(this).each(function(){
+					var key = $(this).text().toLowerCase();
+					if(labels[key]) {
+					    $(this).addClass("jq-base");
+					    $(this).css("backgroundColor",labels[key]);
+					    if(opts['pointer']) $(this).css("cursor","pointer");
+					}
+        			    })
+					}
+			    }
+			  });
+	    })(jQuery);
+
+    </script>
+  </head>
+  <body onload="init();">
+
+    <div id="map_canvas" style="position: absolute; top: 30px; left: 10px; width: 650px; height: 540px; background-color: #666;"></div>
+
+    <div style='position:absolute;top:580px;left: 10px;width:650px;height:100px;' id='noCoords'></div>
+
+    <div style="margin: 5px;z-index: 11;position: absolute;cursor: pointer;left: 250px;top:30px;">
+      
+      <div style='float:left;'>
+
+	<div class='mapbuttonb' style='border-top-left-radius: 2px;border-bottom-left-radius: 2px;' id='locations' onclick="javascript:if(this.textContent == 'Show&nbsp;locations'){ showAll(); this.textContent = 'Hide&nbsp;locations'; }else{ clearMap();this.textContent = 'Show&nbsp;locations'; }">Hide&nbsp;locations</div>
+
+      </div>
+
+<!--      <div style='float:left;width:4px;'>&nbsp;</div> -->
+
+      <div style='float:left;'>
+
+	<div class='mapbuttonw' id='plots' onclick="javascript:if(this.textContent == 'Show&nbsp;markers'){ showPlots(); this.textContent = 'Hide&nbsp;markers'; }else{ hidePlots();this.textContent = 'Show&nbsp;markers'; }">Hide&nbsp;markers</div>
+
+      </div>
+
+<!--      <div style='float:left;width:4px;'>&nbsp;</div> -->
+
+      <div style='float:left;'>
+
+	<div class='mapbuttonb' style='border-bottom-right-radius: 2px;border-top-right-radius: 2px;' id='delete' onclick="javascript:removePlots();">Delete&nbsp;markers</div>
+
+      </div>
+
+    </div>
+    <script language="javascript">
+    $(document).ready(function(){
+       $(document).listing({
+           elts: tok_inf
+       });
+    });
+    </script>
+    <script language="javascript">
+// the data from the opener
+var tok_inf = window.opener.mapObj.tokInf;
+var inf_loc = window.opener.mapObj.infLoc;
+var allLocations = window.opener.mapObj.allLocs;
+var toksLocs = mapToks2Locs();
+init_loc_inf();
+    </script>
+  </body>
+</html>

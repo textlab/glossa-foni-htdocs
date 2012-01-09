@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></Script>
+	<script type="text/javascript" src="../js/jquery.label.js"></script>
+	<script type="text/javascript" src="../js/jquery.palett.js"></script>
+	<script type="text/javascript">
+	  
+          $(document).ready(function() {
+             $('.palett').colorpicker({
+                 size: 12,
+                 hide: false,
+	         colours: ["white", "red", "orange", "yellow", "green", "blue", "purple", "black"]
+             });
+          });
+	</script>
+	<style>
+	  .colorpicker-picker-span{
+	  display: block;
+	  width: 20px;
+	  height: 20px;
+	  float: left;
+	  border: 1px solid #000;
+	  margin-right: 2px;
+	  cursor: pointer;
+	  }
+
+	  .colorpicker-picker-info{ /* the title */
+	  padding: 0 0 2px;
+	  color: #fff;
+	  text-align: center;
+	  text-transform: uppercase;
+	  }
+
+	  .colorpicker-picker-span:hover { /* hover effect */
+	  border: 1px solid #fff;
+	  }
+
+	  .colorpicker-picker-span.active {
+	  border: 1px solid #fff;
+	  }
+
+	  .colorpicker-picker {
+	  background-color: #353534;
+	  padding: 5px;
+	  display: none;
+	  position: absolute;
+	  top: 0;
+	  -moz-border-radius: 5px;
+	  border-radius: 5px;
+	  box-shadow: 2px 2px 5px #111;
+	  -moz-box-shadow: 2px 2px 5px #111;
+	  -webkit-box-shadow: 2px 2px 5px #111;
+	  }
+
+	  .colorpicker-trigger {
+	  display: block;
+	  width: 10px;
+	  height: 10px;
+	  float: left;
+	  border: 1px solid #000;
+	  cursor: pointer;
+	  background-color: #808080;;
+	  }
+
+
+	  .colorpicker-wrap {
+	  font-family: Verdana, Arial, Geneva, sans-serif
+	  }
+
+	  .colorpicker-label {
+	  float: left;
+	  margin-right: 2px;
+	  }
+	</style>
+    </head>
+    <body>
+
+
+	<hr />
+
+	<div id="cake"></div>
+<script>
+/*
+  var a;
+  var divo = document.getElementById('cake');
+  for(var i in a = ['jeg', 'eg', 'i', 'ywksk']) {
+     var select = document.createElement('select');
+//     select.setAttribute("name", "mySelect");
+     select.setAttribute("id", "picker");
+     for(var j in colors = ['red', 'brown', 'orange', 'yellow', 'green', 'blue', 'purple', 'black']){
+        var option = document.createElement('option');
+        option.setAttribute("value", colors[j]);
+        option.setAttribute("text", colors[j]);
+        select.appendChild(option);
+     }
+     divo.appendChild(select);
+  }
+*/
+</script>
+	<a class="palett" id="imella" />
+        <a class="palett" id="imellom" />
+        <a class="palett" id="imidlo" />
+    </body>
+
+</html>
+
