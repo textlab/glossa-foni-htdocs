@@ -1,0 +1,610 @@
+var Menu;
+function reloadMenuRun_ru() {
+Menu['RUN_RU'] = new Hash(     1, new Hash(
+        'contents', '<nobr>&nbsp;options &#187;&nbsp;</nobr>',
+  	1, new Hash(
+       'contents', 'word &#187;&nbsp;',
+	    1, new Hash(
+         'contents', 'lemma form',
+	      'type', 'js',
+	      'uri', "addOpt('w','lemma','lemma form')"
+	   ),
+	    2, new Hash(
+         'contents', 'case sensitive',
+	      'type', 'js',
+	      'uri', "addOpt('w','case','case sensitive')"
+	   ),
+	    3, new Hash(
+         'contents', 'start of word',
+	      'type', 'js',
+	      'uri', "addOpt('w','start','start of word')"
+	   ),
+	    4, new Hash(
+         'contents', 'end of word',
+	      'type', 'js',
+	      'uri', "addOpt('w','end','end of word')"
+	   ),
+	    5, new Hash(
+         'contents', 'middle of word',
+	      'type', 'js',
+	      'uri', "addOpt('w','middle','middle of word')"
+	   ),
+	    6, new Hash(
+         'contents', 'exclude',
+	      'type', 'js',
+	      'uri', "addOpt('w','neg','exclude')"
+	   )
+),
+  	2, new Hash(
+       'contents', 'additional string &#187;&nbsp;',
+	    1, new Hash(
+         'contents', 'add word',
+	      'type', 'js',
+	      'uri', "addOpt('ADDSTRING','word','add word')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','word','add word')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','!word','!add word')"
+	      )
+	   ),
+	    2, new Hash(
+         'contents', 'add negated word',
+	      'type', 'js',
+	      'uri', "addOpt('ADDSTRING','!word','add negated word')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','!word','add negated word')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','!!word','!add negated word')"
+	      )
+	   ),
+	    3, new Hash(
+         'contents', 'add lemma',
+	      'type', 'js',
+	      'uri', "addOpt('ADDSTRING','lemma','add lemma')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','lemma','add lemma')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','!lemma','!add lemma')"
+	      )
+	   ),
+	    4, new Hash(
+         'contents', 'add negated lemma',
+	      'type', 'js',
+	      'uri', "addOpt('ADDSTRING','!lemma','add negated lemma')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','!lemma','add negated lemma')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('ADDSTRING','!!lemma','!add negated lemma')"
+	      )
+	   )
+),
+  	3, new Hash(
+       'contents', 'occurrences &#187;&nbsp;',
+	    1, new Hash(
+         'contents', 'zero or more',
+	      'type', 'js',
+	      'uri', "addOpt('occ','*','zero or more')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('occ','*','zero or more')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('occ','!*','!zero or more')"
+	      )
+	   ),
+	    2, new Hash(
+         'contents', 'one or more',
+	      'type', 'js',
+	      'uri', "addOpt('occ','+','one or more')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('occ','+','one or more')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('occ','!+','!one or more')"
+	      )
+	   ),
+	    3, new Hash(
+         'contents', 'zero or one',
+	      'type', 'js',
+	      'uri', "addOpt('occ','?','zero or one')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('occ','?','zero or one')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('occ','!?','!zero or one')"
+	      )
+	   )
+),
+	  4, new Hash(
+         'contents', '<br>'
+         ),
+  	5, new Hash(
+       'contents', 'Part of Speech &#187;&nbsp;',
+	    1, new Hash(
+         'contents', 'Noun',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Noun','Noun')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Noun','Noun')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Noun','!Noun')"
+	      )
+	   ),
+	    2, new Hash(
+         'contents', 'Verb',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Verb','Verb')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Verb','Verb')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Verb','!Verb')"
+	      )
+	   ),
+	    3, new Hash(
+         'contents', 'Adjective',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Adjective','Adjective')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Adjective','Adjective')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Adjective','!Adjective')"
+	      )
+	   ),
+	    4, new Hash(
+         'contents', 'Pronoun',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Pronoun','Pronoun')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Pronoun','Pronoun')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Pronoun','!Pronoun')"
+	      )
+	   ),
+	    5, new Hash(
+         'contents', 'Adverb',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Adverb','Adverb')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Adverb','Adverb')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Adverb','!Adverb')"
+	      )
+	   ),
+	    6, new Hash(
+         'contents', 'Adposition',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Adposition','Adposition')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Adposition','Adposition')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Adposition','!Adposition')"
+	      )
+	   ),
+	    7, new Hash(
+         'contents', 'Conjunction',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Conjunction','Conjunction')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Conjunction','Conjunction')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Conjunction','!Conjunction')"
+	      )
+	   ),
+	    8, new Hash(
+         'contents', 'Numeral',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Numeral','Numeral')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Numeral','Numeral')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Numeral','!Numeral')"
+	      )
+	   ),
+	    9, new Hash(
+         'contents', 'Particle',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Particle','Particle')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Particle','Particle')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Particle','!Particle')"
+	      )
+	   ),
+	    10, new Hash(
+         'contents', 'Interjection',
+	      'type', 'js',
+	      'uri', "addOpt('pos','Interjection','Interjection')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('pos','Interjection','Interjection')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('pos','!Interjection','!Interjection')"
+	      )
+	   )
+),
+  	6, new Hash(
+       'contents', 'features (nouns) &#187;&nbsp;',
+	    1, new Hash(
+         'contents', 'Proper noun',
+	      'type', 'js',
+	      'uri', "addOpt('type','proper','Proper noun')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('type','proper','Proper noun')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('type','!proper','!Proper noun')"
+	      )
+	   ),
+	    2, new Hash(
+         'contents', 'Common noun',
+	      'type', 'js',
+	      'uri', "addOpt('type','common','Common noun')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('type','common','Common noun')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('type','!common','!Common noun')"
+	      )
+	   ),
+	  3, new Hash(
+         'contents', '<br><center><b>GENDER</b></center>'
+         ),
+	    4, new Hash(
+         'contents', 'masculine',
+	      'type', 'js',
+	      'uri', "addOpt('degr~dia','masculine','masculine')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','masculine','masculine')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','!masculine','!masculine')"
+	      )
+	   ),
+	    5, new Hash(
+         'contents', 'feminine',
+	      'type', 'js',
+	      'uri', "addOpt('degr~dia','feminine','feminine')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','feminine','feminine')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','!feminine','!feminine')"
+	      )
+	   ),
+	    6, new Hash(
+         'contents', 'neuter',
+	      'type', 'js',
+	      'uri', "addOpt('degr~dia','neuter','neuter')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','neuter','neuter')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','!neuter','!neuter')"
+	      )
+	   ),
+	    7, new Hash(
+         'contents', 'common',
+	      'type', 'js',
+	      'uri', "addOpt('degr~dia','common','common')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','common','common')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('degr~dia','!common','!common')"
+	      )
+	   ),
+	  8, new Hash(
+         'contents', '<br><center><b>NUMBER</b></center>'
+         ),
+	    9, new Hash(
+         'contents', 'plural',
+	      'type', 'js',
+	      'uri', "addOpt('tense~defin','plural','plural')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('tense~defin','plural','plural')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('tense~defin','!plural','!plural')"
+	      )
+	   ),
+	    10, new Hash(
+         'contents', 'singular',
+	      'type', 'js',
+	      'uri', "addOpt('tense~defin','singular','singular')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('tense~defin','singular','singular')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('tense~defin','!singular','!singular')"
+	      )
+	   ),
+	  11, new Hash(
+         'contents', '<br><center><b>CASE</b></center>'
+         ),
+	    12, new Hash(
+         'contents', 'nominative',
+	      'type', 'js',
+	      'uri', "addOpt('mood~case','nominative','nominative')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','nominative','nominative')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','!nominative','!nominative')"
+	      )
+	   ),
+	    13, new Hash(
+         'contents', 'genitive',
+	      'type', 'js',
+	      'uri', "addOpt('mood~case','genitive','genitive')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','genitive','genitive')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','!genitive','!genitive')"
+	      )
+	   ),
+	    14, new Hash(
+         'contents', 'dative',
+	      'type', 'js',
+	      'uri', "addOpt('mood~case','dative','dative')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','dative','dative')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','!dative','!dative')"
+	      )
+	   ),
+	    15, new Hash(
+         'contents', 'accusative',
+	      'type', 'js',
+	      'uri', "addOpt('mood~case','accusative','accusative')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','accusative','accusative')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','!accusative','!accusative')"
+	      )
+	   ),
+	    16, new Hash(
+         'contents', 'locative',
+	      'type', 'js',
+	      'uri', "addOpt('mood~case','locative','locative')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','locative','locative')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','!locative','!locative')"
+	      )
+	   ),
+	    17, new Hash(
+         'contents', 'instrumental',
+	      'type', 'js',
+	      'uri', "addOpt('mood~case','instrumental','instrumental')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','instrumental','instrumental')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','!instrumental','!instrumental')"
+	      )
+	   ),
+	    18, new Hash(
+         'contents', 'vocative',
+	      'type', 'js',
+	      'uri', "addOpt('mood~case','vocative','vocative')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','vocative','vocative')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('mood~case','!vocative','!vocative')"
+	      )
+	   ),
+	  19, new Hash(
+         'contents', '<br><center><b>ANIMACY</b></center>'
+         ),
+	    20, new Hash(
+         'contents', 'animate',
+	      'type', 'js',
+	      'uri', "addOpt('person~type2','yes','animate')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('person~type2','yes','animate')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('person~type2','!yes','!animate')"
+	      )
+	   ),
+	    21, new Hash(
+         'contents', 'inanimate',
+	      'type', 'js',
+	      'uri', "addOpt('person~type2','no','inanimate')"
+,
+       1, new Hash(
+            'contents', 'choose',
+	         'type', 'js',
+	         'uri', "addOpt('person~type2','no','inanimate')"
+	      ),
+	      2, new Hash(
+            'contents', 'exclude',
+	         'type', 'js',
+	         'uri', "addOpt('person~type2','!no','!inanimate')"
+	      )
+	   )
+) ));
+
+}

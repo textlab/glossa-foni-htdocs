@@ -1,0 +1,290 @@
+<!DOCTYPE html "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example</title>
+    <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAABOQZp7gkH59Jdv6kfvOgMRQYPi-Hp0DOMqQTFM9AoSBoOW8SyxSMtSp1H3Novb0kQR0YJOqH2WJ53w&sensor=true"
+            type="text/javascript"></script>
+    <script type="text/javascript">
+var countries = {
+    'Norway' : {
+	lat : '65.5',
+	lng : '17.5',
+	zom : '4'
+    },
+    'Sweden' : {
+	lat : '62.5',
+	lng : '16.5',
+	zom : '4'
+    },
+    'Finland' : {
+	lat : '66.5',
+	lng : '26.5',
+	zom : '4'
+    },
+    'Denmark' : {
+	lat : '56.5',
+	lng : '10.5',
+	zom : '6'
+    },
+    'Faroe' : {
+	lat : '61.9',
+	lng : '-6.8',
+	zom : '8'
+    },
+    'Iceland' : {
+	lat : '65.5',
+	lng : '-18',
+	zom : '5'
+    },
+    'Nordic' : {
+	lat : '',
+	lng : '',
+	zom : ''
+    }    
+}
+var coordinates = {
+    'Åseral': {
+        lat: '58.745407',
+        lng: '7.514648'
+    },
+    'Alvdal': {
+        lat: '62.123152',
+        lng: '10.632019'
+    },
+    'Botnhamn': {
+        lat: '69.509775',
+        lng: '17.899475'
+    },
+    'Brekkom': {
+        lat: '61.474407',
+        lng: '10.233936'
+    },
+    'Drevsjø': {
+        lat: '61.89406',
+        lng: '12.033377'
+    },
+    'Evje': {
+        lat: '58.673368',
+        lng: '7.871704'
+    },
+    'Gausdal': {
+        lat: '61.344737',
+        lng: '9.902802'
+    },
+    'Hjartdal': {
+        lat: '59.76746',
+        lng: '8.786316'
+    },
+    'Hyllestad': {
+        lat: '61.247781',
+        lng: '5.369568'
+    },
+    'Jevnaker': {
+        lat: '60.322868',
+        lng: '10.450745'
+    },
+    'Jølster': {
+        lat: '61.650771',
+        lng: '6.517639'
+    },
+    'Kåfjord': {
+        lat: '69.670449',
+        lng: '21.011353'
+    },
+    'Kalvåg': {
+        lat: '61.771458',
+        lng: '4.879475'
+    },
+    'Kirkenær': {
+        lat: '61.513649',
+        lng: '10.177202'
+    },
+    'Kirkesdalen': {
+        lat: '62.947738',
+        lng: '4.610824'
+    },
+    'Kristiansand': {
+        lat: '58.232211',
+        lng: '8.065338'
+    },
+    'Kvam': {
+        lat: '60.537021',
+        lng: '6.278687'
+    },
+    'Landvik': {
+        lat: '58.34928',
+        lng: '8.529081'
+    },
+    'Langesund': {
+        lat: '59.004771',
+        lng: '9.753542'
+    },
+    'Lom': {
+        lat: '62.150109',
+        lng: '8.838501'
+    },
+    'Luster': {
+        lat: '61.76013',
+        lng: '7.728882'
+    },
+    'Lyngdal': {
+        lat: '58.225704',
+        lng: '7.119141'
+    },
+    'Medby': {
+        lat: '68.916162',
+        lng: '17.738113'
+    },
+    'Mefjordvær': {
+        lat: '69.524552',
+        lng: '17.443199'
+    },
+    'Meråker': {
+        lat: '63.56812',
+        lng: '11.8927'
+    },
+    'Nissedal': {
+        lat: '59.164668',
+        lng: '8.665466'
+    },
+    'Sirdal': {
+        lat: '59.344395',
+        lng: '7.201538'
+    },
+    'Skreia': {
+        lat: '60.657999',
+        lng: '10.94367'
+    },
+    'Stange': {
+        lat: '60.879681',
+        lng: '11.326904'
+    },
+    'Stryn': {
+        lat: '62.06016',
+        lng: '6.858215'
+    },
+    'Tinn': {
+        lat: '60.047018',
+        lng: '8.739624'
+    },
+    'Todalen': {
+        lat: '62.819175',
+        lng: '8.702545'
+    },
+    'Valle': {
+        lat: '59.372391',
+        lng: '7.67395'
+    },
+    'Vang': {
+        lat: '61.286071',
+        lng: '8.701172'
+    },
+    'Vegårshei': {
+        lat: '58.834358',
+        lng: '8.929138'
+    },
+    'Vennesla': {
+        lat: '58.42473',
+        lng: '8.12439'
+    },
+    'Vinje': {
+        lat: '59.95501',
+        lng: '8.10791'
+    }
+};
+var coor = {
+    'Åseral': {
+        lat: '58.745407',
+        lng: '7.514648'
+    },
+    'Alvdal': {
+        lat: '62.123152',
+        lng: '10.632019'
+    },
+    'Botnhamn': {
+        lat: '69.509775',
+        lng: '17.899475'
+    }
+}
+
+var current;
+var map;
+
+function init2(){
+
+      var i = 0;
+      for( var j in coordinates ){
+        var loc = j;
+        var locs = document.getElementById("locs");
+        locs.options[i++]=new Option(j, j, false, false);
+      }
+    }
+
+
+function init3(){
+
+      var i = 0;
+      for( var j in countries ){
+        var loc = j;
+        var locs = document.getElementById("locs");
+        locs.options[i++]=new Option(j, j, false, false);
+      }
+    }
+
+function focuz(){
+      var loc = document.getElementById("locs").value;
+      current = loc;
+      var late = countries[loc]['lat'];
+      var lnge = countries[loc]['lng'];
+      var zome =  countries[loc]['zom'];
+      alert(countries[loc]['zom']);
+      map = new GMap2(document.getElementById("map_canvas"));
+      map.setCenter(new GLatLng(late,lnge), zome);
+}
+function move(){
+      var loc = document.getElementById("locs").value;
+      current = loc;
+      initialize(coordinates[loc]['lat'],coordinates[loc]['lng']);
+    }
+
+    function initialize(lati, long) {
+      map = new GMap2(document.getElementById("map_canvas"));
+
+//     map.setCenter(new GLatLng(65.5,17.5), 4) //norway
+//     map.setCenter(new GLatLng(62.5,16.5), 4)  //sweden
+//     map.setCenter(new GLatLng(66.5,26.5), 4)  //finland
+//     map.setCenter(new GLatLng(56.5,10.5), 6)  //denmark
+//     map.setCenter(new GLatLng(61.9,-6.8), 8)  //faroe
+//     map.setCenter(new GLatLng(65.5,-18), 5) //iceland
+     map.setCenter(new GLatLng(65.5,4), 3) //nordic
+     var bounds = map.getBounds();
+     var southWest = bounds.getSouthWest();
+     var northEast = bounds.getNorthEast();
+
+     var lngSpan = northEast.lng() - southWest.lng();
+     var latSpan = northEast.lat() - southWest.lat();
+//     var point = new GLatLng(lati,long);
+//     map.addOverlay(new GMarker(point));
+     init3();
+   }
+
+
+
+  function animate() {
+    map.zoomIn();
+    map.panTo(new GLatLng(coordinates[current]['lat'],coordinates[current]['lng']));
+  }
+    </script>
+  </head>
+  <body onload="initialize(58.745407, 7.514648)" onunload="GUnload()">
+    <form name="aform">
+    <select id="locs" name="places" onchange="focuz();">
+    </select>
+    <input type="button" onclick="animate();" />
+    </form>
+    <!-- usually 500x300 -->
+    <div id="map_canvas" style="width: 340px; height: 420px"></div> <!--norway -->
+    </body>
+</html>

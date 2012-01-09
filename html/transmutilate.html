@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <script type="text/javascript" src="http://www.google.com/jsapi">
+    </script>
+    <script type="text/javascript">
+function initialize() {
+   var text = document.getElementById("text").innerHTML;
+   google.language.detect(text,
+                          function(result) {
+                             if(!result.error && result.language) {
+                               google.language.translate(text,
+                                                         result.language,
+                                                         "en",
+                                                         function(result) {
+                                                            var translated = document.getElementById("translation");
+                                                            if (result.translation) { translated.innerHTML = result.translation; }
+                                                         }
+                               );
+                             }
+                          }
+                         );
+}
+
+
+function Text(txt){
+   this.text = txt;
+   this.done =  function(){alert("Done:" + this.text);}
+   this.trans = function(trg){
+                       var txt = this.text;
+                       google.language.detect(txt,
+                                              function(result){
+                                                 alert('second:' + txt);
+                                                 if(!result.error && result.lanuage){
+                                                    alert(txt);
+                                                    google.language.translate(txt,
+                                                                              result.language,
+                                                                              trg,
+                                                                              function(result){
+                                                                                 if(result.translation){ this.text = result.translation; this.done(); }
+                                                                              }
+                                                                             );
+                                                 }
+                                                 else{alert('Bugel:' + this.text + ':::src:' + result.language + ':::trg:' + trg);}
+                                              } 
+                                             );
+
+   }
+}
+
+var textObj = new Text("the fat cat shat on the mat");
+
+function trans(){
+   var trg = "no";
+   textObj.trans(trg);
+}
+
+
+var tmp;
+
+    google.load("language", "1");
+    function translate(node, text) {
+      var returnval;
+      var node = document.getElementById(node);
+      google.language.detect(text, function(result) {
+        if (!result.error && result.language) {
+          google.language.translate(text, result.language, "no",
+                                    function(result) {
+            if (result.translation) {
+//              node.innerHTML = result.translation;
+//                tmp = result.translation;
+//                alert(tmp);
+                returnval = result.translation;
+            }
+            else{ node.innerHTML = 'Woodwork' }
+          });
+        }
+      });
+     return "returnval";
+    }
+var obj;
+var tmp;
+    </script>
+  </head>
+  <body>
+    <textarea style="width:400px; height:200px;" id="in"></textarea>
+    <input type="button" onclick="trans();" value="1" />
+    <div id="translation"></div>
+  </body>
+</html>

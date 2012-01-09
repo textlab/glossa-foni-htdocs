@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></Script>
+	<script type="text/javascript" src="../js/jquery.label.js"></script>
+	<script type="text/javascript" src="../js/jquery.colorpicker.js"></script>
+	<script type="text/javascript">
+	  
+          $(document).ready(function() {
+             $('.picker').colorpicker({
+                 size: 12,
+                 label: 'Label: ',
+                 hide: true
+             });
+          });
+	</script>
+	<style>
+	  .colorpicker-picker-span{
+	  display: block;
+	  width: 20px;
+	  height: 20px;
+	  float: left;
+	  border: 1px solid #000;
+	  margin-right: 2px;
+	  cursor: pointer;
+	  }
+
+	  .colorpicker-picker-info{ /* the title */
+	  padding: 0 0 2px;
+	  color: #fff;
+	  text-align: center;
+	  text-transform: uppercase;
+	  }
+
+	  .colorpicker-picker-span:hover { /* hover effect */
+	  border: 1px solid #fff;
+	  }
+
+	  .colorpicker-picker-span.active {
+	  border: 1px solid #fff;
+	  }
+
+	  .colorpicker-picker {
+	  background-color: #353534;
+	  padding: 5px;
+	  display: none;
+	  position: absolute;
+	  top: 0;
+	  -moz-border-radius: 5px;
+	  border-radius: 5px;
+	  box-shadow: 2px 2px 5px #111;
+	  -moz-box-shadow: 2px 2px 5px #111;
+	  -webkit-box-shadow: 2px 2px 5px #111;
+	  }
+
+	  .colorpicker-trigger {
+	  display: block;
+	  width: 10px;
+	  height: 10px;
+	  float: left;
+	  border: 1px solid #000;
+	  cursor: pointer;
+	  background-color: #808080;;
+	  }
+
+
+	  .colorpicker-wrap {
+	  font-family: Verdana, Arial, Geneva, sans-serif
+	  }
+
+	  .colorpicker-label {
+	  float: left;
+	  margin-right: 2px;
+	  }
+	</style>
+    </head>
+    <body>
+
+        <h2>Labels on the fly</h2>
+        <p>&nbsp;</p>
+        <table width="80%" border="0" cellpadding="5" cellspacing="0">
+            <tr>
+                <th style="text-align: left" width="30">&nbsp;</th>
+                <th style="text-align: left" width="30">#</th>
+                <th style="text-align: left">Title</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>1</td>
+                <td>
+                    <p>Go to bed. You are already late to sleep. <br><span class="label">Overdue</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>2</td>
+                <td>
+                    <p>Study on Appcelerator Titanium. Make sure everything works properly. <br><span class="label">Done</span> <span class="label">Learning</span></p>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"/></td>
+                <td>3</td>
+                <td>
+                    <p>Study on how to develop jQuery plugins. <br><span class="label">Pending</span> <span class="label">Pending</span></p>
+                </td>
+            </tr>
+        </table>
+
+
+        <script type="text/javascript">
+            
+
+            $(document).ready(function(){
+                $(".label").jQLabel({ "pointer":true,
+                                      "labels":{"Done":"#2C5700",
+                                               "Pending":"#FF9E00",
+                                               "Learning":"#009ECE",
+                                               "Overdue":"#CE0000"
+                                         }
+                                     });
+            })
+        </script>
+	<hr />
+
+	<div id="cake"></div>
+<script>
+/*
+  var a;
+  var divo = document.getElementById('cake');
+  for(var i in a = ['jeg', 'eg', 'i', 'ywksk']) {
+     var select = document.createElement('select');
+//     select.setAttribute("name", "mySelect");
+     select.setAttribute("id", "picker");
+     for(var j in colors = ['red', 'brown', 'orange', 'yellow', 'green', 'blue', 'purple', 'black']){
+        var option = document.createElement('option');
+        option.setAttribute("value", colors[j]);
+        option.setAttribute("text", colors[j]);
+        select.appendChild(option);
+     }
+     divo.appendChild(select);
+  }
+*/
+</script>
+
+	<span class="label">A test</span></p>
+<!-- $colors = array("red" => "#f00", "brown" => "#630", "orange" => "#f44", "yellow" => "#fc0", "green" => "#090", "blue" => "#00c", "purple" => "#850aff", "black" => "#000"); -->
+	<select id="picker" class="picker" onchange="alert(this.value);">
+	  <option value="white">white</option>
+	  <option value="red" >red</option>
+	  <option value="brown">brown</option>
+	  <option value="orange">orange</option>
+	  <option value="yellow">yellow</option>
+	  <option value="green"  selected="selected">green</option>
+	  <option value="blue">blue</option>
+	  <option value="purple">purple</option>
+	  <option value="black">black</option>
+	</select>
+	<select id="pocker" class="picker" onchange="alert(this.value);">
+	  <option value="white">white</option>
+	  <option value="red" >red</option>
+	  <option value="brown">brown</option>
+	  <option value="orange">orange</option>
+	</select>
+    </body>
+
+</html>
+

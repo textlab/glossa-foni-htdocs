@@ -1,0 +1,9 @@
+*~
+*#
+backup
+*.bak
+*htaccess*
+download
+gml
+phons
+./html/mediaplayer/tinn.mov
