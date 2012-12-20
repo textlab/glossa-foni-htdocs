@@ -179,6 +179,7 @@ $audio_file = $arr[0];
 $context = "SELECT id,begin,end FROM $table WHERE id >= " . $lower_bound . " AND id <= " . $upper_bound .
            " AND audio_file = '" . $audio_file  . "';"; 
 
+#print "<script>alert('" . $context . "');</script>";
 #print "<script>alert('" . $audio_file . "');</script>";
 $fn =filename($audio_file, $video, $corpus);
 #print "<script>alert('" . $corpus . " - " . $movie_loc . $fn . "');</script>";

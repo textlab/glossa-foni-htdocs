@@ -57,33 +57,38 @@ $texts["no"]["sorry"] = "<h4>Beklager, ingen opplysninger om informant <i>%s</i>
 
 $tid  = $_GET['tid'];
 $corpus = "";
-print "<!--\n";
+print "<!--\nThe \$_POST stuff\n";
 foreach (array_keys($_POST) as $key) {
+  print "\n";
+  if (preg_match( '/corpus$/', $key ) ){ $corpus = $_POST[$key]; continue; }
+  if(!preg_match("/meta/", $key)){ continue;}
+  print "KEY:" . $key . " => " . "VALUE:" . $_POST[$key] . "\n";
+  if (preg_match('/^meta_mode/', $key)){ 
+    print "$key -> $_POST[$key]\n";
+    preg_match('/[^_]+$/', $key, $matches);
+    $operators[$matches[0]] = $_POST[$key]; //${$key};
+    print "\$operators[" . $matches[0] ."]  = " . $_POST[$key] . "\n";
+    continue;
+  }
 
-    if (ereg('^meta_mode', $key)){ 
-      print "$key -> $_POST[$key]\n";
-      preg_match('/[^_]+$/', $key, $matches);
-      $operators[$matches[0]] = $_POST[$key]; //${$key};
-      //      print "\$operators[" . $matches[0] ."]  = " . $_POST[$key] . "\n";
-    }
 
-    if ( ereg( 'corpus$', $key ) ){ $corpus = $_POST[$key]; }
+  if (preg_match('/^meta_value/', $key)){ 
+    
+    preg_match('/[^:]+$/', $key, $matches);
+	
+    preg_match('/^([^\_]+)\_([^\_]+)$/', $matches[0], $rest);
+    $not_of_interest = $rest[0];
+    $table = $rest[1];
+    $column = $rest[2];
+    print "imploding with $key -> $_POST[$key]\n";
+    $value = implode(",", $_POST[$key]);
+    print "imploded value: $value\n";
+    if(!$value){ $value = $_POST[$key];  }
+	
+    #	$columns[$table . "." . $column]  = $value ; 
+    $columns[$column]  = $value ; 
 
-    if (ereg('^meta_value', $key)){ 
-
-	preg_match('/[^:]+$/', $key, $matches);
-
-	preg_match('/^([^\_]+)\_([^\_]+)$/', $matches[0], $rest);
-	$not_of_interest = $rest[0];
-	$table = $rest[1];
-	$column = $rest[2];
-
-	$value = join(",", $_POST[$key]);
-	if(!$value){ $value = $_POST[$key];  }
-
-	$columns[$column]  = $value ; 
-
-    }
+  }
 
 }
 print "-->\n";
@@ -93,8 +98,8 @@ $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 
 while(!feof($file)){
     $line = fgets($file);
-    if (ereg('^\#', $line)){ continue; }
-    $split = split('=', $line);
+    if (preg_match('/^\#/', $line)){ continue; }
+    $split = preg_split('/=/', $line);
     $conf_array[trim($split[0])] = trim($split[1]);
 }
 
@@ -111,9 +116,9 @@ $meta = $conf_array["meta_author"];
 $alias = $conf_array["meta_author_alias"];
 
 $meta_string = preg_replace ( "/ /", ",", $meta );
-$meta = split(" ", $meta);
+$meta = preg_split("/ /", $meta);
 
-$alias = split("[,\t]", $alias);
+$alias = preg_split("/[,\t]/", $alias);
 
 $table = strtoupper($corpus)."author";
 
@@ -131,7 +136,7 @@ $number_of_informants = "SELECT COUNT(tid), COUNT(distinct place), COUNT(distinc
 if($corpus == 'nota'){$number_of_informants = "SELECT COUNT(tid) FROM $table";}
 
 $first = 1;
-print "<!-- PING -->";
+
 foreach (array_keys($columns) as $key){
   print "<!-- HERE: $key -> $operators[$key] -->\n";
     $value = "";
@@ -159,7 +164,7 @@ $wcs = $profiles;
 
 
 $wcs = preg_replace("/SELECT .+ FROM/", "SELECT SUM(wc) FROM", $wcs);
-//print "<b>$wcs</b><br />";
+print "<b>$wcs</b><br />";
 $total = mysql_query($total);
 
 $total = mysql_fetch_row($total);

@@ -35,7 +35,7 @@ document.write("<input id='delRowsButton' type='button' value='delete phrase' on
       <span class="txt2"><script language="javascript">document.write(strings[language]['rand'])</script> <input type="checkbox" name="query_results_random"></input></span><br>
       <span class="txt2"><nobr><script language="javascript">document.write(strings[language]['fastcut'])</script> <input type="checkbox" name="query_results_fastcut" checked></input><nobr></span>
       <?php
-       if($_GET['corpus'] == 'scandiasyn' or $_GET['corpus'] == 'scandiademo' or $_GET['corpus'] == 'taus'){
+       if($_GET['corpus'] == 'scandiasyn' or $_GET['corpus'] == 'scandiademo' or $_GET['corpus'] == 'taus' or $_GET['corpus'] == 'sls' or $_GET['corpus'] == 'amerikanorsk'){
 ?>
      </td>
      <td align="right">
@@ -44,11 +44,20 @@ document.write("<input id='delRowsButton' type='button' value='delete phrase' on
       <span class="txt2">Both <input type='radio' name='atttype' id='atttype' value='x' /></span>
 <?php
        }
+       elseif($_GET['corpus'] == 'skriv'){
+?>
+     </td>
+     <td align="right">
+      <span class="txt2">Corrected <input type='radio' name='atttype' id='atttype' value='0' /></span><br />
+      <span class="txt2">Original <input type='radio' name='atttype' id='atttype' value='2' /></span><br />
+      <span class="txt2">Both <input type='radio' name='atttype' id='atttype' value='x' checked='true' /></span>
+<?php
+       }
      ?>
      </td>
 <?php
        $corpus = $_GET['corpus'];
-if($corpus != 'kven' and $corpus != 'nota' and $corpus != 'upus2' and $corpus != 'upus' and $corpus != 'scandiasyn' and $corpus != 'scandiademo' and $corpus != 'taus' and $corpus != 'demo' and $corpus != 'engl2')
+if($corpus != 'kven' and $corpus != 'nota' and $corpus != 'upus2' and $corpus != 'upus' and $corpus != 'scandiasyn' and $corpus != 'scandiademo' and $corpus != 'taus' and $corpus != 'demo' and $corpus != 'engl2' and $corpus != 'sls' and $corpus != 'amerikanorsk')
 	   {
 ?>
      <td valign="top" style="padding-left:30px">

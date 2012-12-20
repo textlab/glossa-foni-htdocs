@@ -346,6 +346,12 @@ function ReloadMenu(language) {
        if (language == 'POLITIKK') {
                reloadMenuPolitikk();
        }
+       else if (language == 'SUBTITLES_NO') {
+               reloadMenuSubtitles_no();
+       }
+       else if (language == 'SUBTITLES_EN') {
+               reloadMenuSubtitles_en();
+       }
        else if (language == 'HULA') {
                reloadMenuHula();
        }
@@ -418,6 +424,9 @@ function ReloadMenu(language) {
        else if (language == 'RUN_DE') {
                reloadMenuRun_de();
        }
+       else if (language == 'ELEVTEKSTER') {
+               reloadMenuElevtekster();
+       }
        else if (language == 'BOKMAL') {
                reloadMenuBokmal();
        }
@@ -456,6 +465,12 @@ function ReloadMenu(language) {
        }
        else if (language == 'SCANDIASYN') {
                reloadMenuScandiasyn();
+       }
+       else if (language == 'AMERIKANORSK') {
+               reloadMenuAmerikanorsk();
+       }
+       else if (language == 'SLS') {
+               reloadMenuSLS();
        }
        else if (language == 'SCANDIADEMO') {
                reloadMenuScandiademo();
@@ -525,6 +540,9 @@ function ReloadMenu(language) {
     }
 		else if (language == 'DAMOS') {
         reloadMenuDamos();
+    }
+		else if (language == 'SKRIV') {
+        reloadMenuSkriv();
     }
 
 
