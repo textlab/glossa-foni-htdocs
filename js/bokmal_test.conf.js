@@ -4,7 +4,7 @@ var languageOpts = new Array;
 languageOpts = [['BOKMAL_TEST', 'Norsk']];
 conf['charset'] = 'ISO-8859-1';
 conf['type'] = 'monolingual';
-conf['title'] = 'Search the LKB';
+conf['title'] = 'Search the LBK';
 conf['corpus_name'] = 'Lexicograpic corpus for Norwegian Bokmål';
 var language='en';
 
