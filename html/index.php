@@ -1,9 +1,14 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"  "http://www.w3.org/TR/REC-html40/strict.dtd">
 <html>
  <head>
 <?php 
-
+$test = False;
+if($_GET['test'] == 'true'){$test = True;}
 if ( $_GET['corpus'] == 'run' ){
+?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
+	}
+elseif ( $_GET['corpus'] == 'subtitles' ){
 ?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
 	}
 elseif ( $_GET['corpus'] == 'quran_mono' ){
@@ -25,6 +30,9 @@ elseif ( $_GET['corpus'] == 'politikk' ){
 ?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
 	}
 elseif ( $_GET['corpus'] == 'hula' ){
+?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
+	}
+elseif ( $_GET['corpus'] == 'skriv' ){
 ?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
 	}
 elseif ( $_GET['corpus'] == 'mak' ) {
@@ -50,7 +58,7 @@ if(!$uilang){
     $uilang = 'no';
 }
 if($corpus == 'ruija'){$_GET['corpus'] = 'kven';$corpus = 'kven';}
-if($corpus == 'scandiasyn' || $corpus == 'scandiademo' || $corpus == 'kven' || $corpus == 'omc4' || $corpus == 'taus' || $corpus == 'engl2' || $corpus == 'run'){ $uilang = 'en'; }
+if($corpus == 'scandiasyn' || $corpus == 'amerikanorsk' || $corpus == 'scandiademo' || $corpus == 'kven' || $corpus == 'omc4' || $corpus == 'taus' || $corpus == 'engl2' || $corpus == 'run' || $corpus == 'sls' || $corpus == 'subtitles'){ $uilang = 'en'; }
 
 ?>
  <!--<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css">-->
@@ -76,6 +84,10 @@ var a = "<meta http-equiv='Content-Type' content='text/html;charset=" + charset 
 
 if ( $corpus == 'hula' ) {
   echo "<script language='javascript' src='" . $htmlRoot . "/js/hula.js'></script>";
+}
+elseif ( $corpus == 'subtitles' ) {
+  echo "<script language='javascript' src='" . $htmlRoot . "/js/subtitles_no.js'></script>";
+  echo "<script language='javascript' src='" . $htmlRoot . "/js/subtitles_en.js'></script>";
 }
 elseif ( $corpus == 'politikk' ) {
   echo "<script language='javascript' src='" . $htmlRoot . "/js/politikk.js'></script>";
@@ -141,6 +153,16 @@ elseif ($corpus == 'scandiasyn') {
   echo "<script language='javascript' src='" . $htmlRoot . "/js/scandiasyn.js'></script>";
   echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
 }
+elseif ($corpus == 'amerikanorsk') {
+  echo "<script type='text/javascript' src='" . $htmlRoot ."js/extras.js'></script>";
+  echo "<script language='javascript' src='" . $htmlRoot . "/js/amerikanorsk.js'></script>";
+  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
+}
+elseif ($corpus == 'sls') {
+  echo "<script type='text/javascript' src='" . $htmlRoot ."js/extras.js'></script>";
+  echo "<script language='javascript' src='" . $htmlRoot . "/js/sls.js'></script>";
+  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
+}
 elseif ($corpus == 'scandiademo') {
   echo "<script language='javascript' src='" . $htmlRoot . "/js/scandiademo.js'></script>";
 
@@ -160,6 +182,9 @@ elseif ($corpus == 'bigbrother' ) {
 elseif ($corpus == 'taus') {
   echo "<script language='javascript' src='" . $htmlRoot . "/js/taus.js'></script>";
 
+}
+elseif ( $corpus == 'elevtekster' ) {
+  echo "<script language='javascript' src='" . $htmlRoot . "/js/elevtekster.js'></script>";
 }
 elseif ( $corpus == 'bokmal' ) {
   echo "<script language='javascript' src='" . $htmlRoot . "/js/bokmal.js'></script>";
@@ -234,6 +259,10 @@ elseif ( $corpus == 'uncorpora' ) {
 elseif ( $corpus == 'damos' ) {
   echo "<script language='javascript' src='" . $htmlRoot . "/js/damos.js'></script>";
 }
+elseif ( $corpus == 'skriv' ) {
+  echo "<script language='javascript' src='" . $htmlRoot . "/js/skriv.js'></script>";
+
+}
 
 
 ?>
@@ -263,7 +292,7 @@ elseif ( $corpus == 'damos' ) {
  <?php echo "<a id='annotations' target='_blank' href='" . $cgiRoot . "/annotation_sets.cgi?corpus=" . $corpus . "'>my&nbsp;annotations</a> | "; ?>
 
  <?php
- if($corpus=='engl2' || $corpus=='kven' || $corpus=='nota' || $corpus=='upus' || $corpus=='scandiasyn' || $corpus=='scandiademo' || $corpus=='upus2' || $corpus=='demo' || $corpus=='bigbrother'){
+ if($corpus=='engl2' || $corpus=='kven' || $corpus=='nota' || $corpus=='upus' || $corpus=='scandiasyn' || $corpus == 'amerikanorsk' || $corpus=='sls' || $corpus=='scandiademo' || $corpus=='upus2' || $corpus=='demo' || $corpus=='bigbrother'){
      echo "<span id='statistics'>statistics</span>&nbsp;|&nbsp;";
      echo "<span id='full_query'>full&nbsp;query</span>&nbsp|&nbsp";
  }
@@ -305,12 +334,14 @@ elseif ( $corpus == 'damos' ) {
 <tr>
 <td>
 
-
-<form action="
- <?php echo $cgiRoot ?>
-/query_dev.cgi" method="POST" onSubmit='submitForm(); return false'  onReset="hideAll()">
-
-
+<?php
+if($test){
+  echo "<form action=\"$cgiRoot/query_dev.joel.cgi\" method=\"POST\" onSubmit=\"submitForm(); return false\"  onReset=\"hideAll()\">\n";
+}
+else{
+  echo "<form action=\"$cgiRoot/query_dev.cgi\" method=\"POST\" onSubmit=\"submitForm(); return false\"  onReset=\"hideAll()\">\n";
+}
+?>
 <!-- 
         !!!!  tabellstrukturen i glossa_text.inc bУИr vУІre uavhengig .... 
 -->
@@ -361,6 +392,9 @@ elseif ( $corpus == 'damos' ) {
 if ( $corpus == 'politikk' ) {
   include("politikk.inc");
 }
+elseif ( $corpus == 'subtitles' ) {
+  include("hula.inc");
+}
 elseif ( $corpus == 'hula' ) {
   include("hula.inc");
 }
@@ -385,8 +419,14 @@ elseif ( $corpus == 'nota') {
 elseif ( $corpus == 'demo') {
   include("demo.inc");
 }
-elseif ( $corpus == 'scandiasyn' || $corpus == 'scandiademo' ) {
+elseif ( $corpus == 'amerikanorsk') {
+  include("amerikanorsk.inc");
+}
+elseif ( $corpus == 'scandiasyn' || $corpus == 'scandiademo') {
   include("scandiasyn.inc");
+}
+elseif ( $corpus == 'sls' ) {
+  include("sls.inc");
 }
 elseif ( $corpus == 'kven' ) {
   include("kven.inc");
@@ -405,6 +445,9 @@ elseif ( $corpus == 'upus2' ) {
 }
  elseif ( $corpus == 'taus' ) {
   include("taus.inc");
+}
+elseif ( $corpus == 'elevtekster' ) {
+  include("elevtekster.inc");
 }
 elseif ( $corpus == 'bokmal' ) {
   include("bokmal.inc");
@@ -440,6 +483,9 @@ elseif ( $corpus == 'musikk' ) {
 elseif ( $corpus == 'mme' ) {
   include("mme.inc");
 }
+elseif ( $corpus == 'skriv' ) {
+  include("skriv.inc");
+}
 
 ?>
 
@@ -462,8 +508,13 @@ elseif ( $corpus == 'mme' ) {
 
 ?>
 <?php
-
- if($corpus == 'kven' || $corpus=='nota' || $corpus=='upus' || $corpus=='scandiasyn' || $corpus=='scandiademo' || $corpus=='upus2' || $corpus=='demo' || $corpus=='bigbrother' || $corpus == 'taus' || $corpus == 'engl2'){
+    if($test){
+      ?>
+      <script>alert('test');</script>
+				<input type="button" id="show_texts_alt" onClick="setAction('profiles.dev.php');" value="<?php /*echo $lang[$uilang]['show_texts']*/ echo "Show Test" ?>" /><br><br>
+      <?php
+    }
+ if($corpus == 'kven' || $corpus=='nota' || $corpus=='upus' || $corpus=='scandiasyn' || $corpus == 'amerikanorsk' || $corpus=='scandiademo' || $corpus=='sls' || $corpus=='upus2' || $corpus=='demo' || $corpus=='bigbrother' || $corpus == 'taus' || $corpus == 'engl2'){
 ?>
    <input type="button" id="show_texts_alt" onClick="setAction('profiles.php');" value="<?php /*echo $lang[$uilang]['show_texts']*/ echo "Show informants" ?>" /><br><br>
 <?php
@@ -474,12 +525,14 @@ elseif ( $corpus == 'mme' ) {
    <input type="button" id="show_external_database" onClick="window.open('http://www.nevmenandr.net/run/');" value="Show external text list" /><br><br>
 <?php
 	 }
+ elseif($corpus == 'skriv') {}
  else{
 ?>
 <input type="button" id="show_texts" onClick="setAction('<?php echo $cgiRoot; ?>/meta_direct.cgi');" value="<?php echo $lang[$uilang]['show_texts'] ?>" /><br><br>
 <?php
 	 }
 //if($corpus != 'nota'){
+  if($corpus != 'skriv') {
 ?>
 <input type="button" id="save_subcorpus" onClick="setAction('<?php echo $cgiRoot ?>/meta_save_choose.cgi');" 
 <?php 
@@ -490,15 +543,18 @@ elseif ( $corpus == 'mme' ) {
  />
 
 <?php
+  }
 //}
 ?>
 <br><br>
 
 <?php
 //if($corpus != 'nota' and $corpus != 'demo'){
+  if($corpus != 'skriv'){
     echo "<a id='choose_subcorpus' href='" . $cgiRoot . "subcorpus_choose.cgi?corpus=" . $corpus . "'>";
  echo $lang[$uilang]['choose_subcorpus'];
     echo "</a>";
+  }
 //}
 ?>
 </td></tr>
@@ -576,7 +632,7 @@ This version of Glossa is undergoing development.
 <?php
   if($uilang != 'no'){
 ?>
-Glossa does not work correctly in Safari.<br />
+<!-- Glossa does not work correctly in Safari.<br /> -->
 Please report bugs and errors <a href="https://nettskjema.uio.no/answer.html?fid=40969&lang=no" target="_blank">here</a><br /><br />
 <?php}
   else{
@@ -644,6 +700,12 @@ elseif ( $corpus == 'demo' ) {
 elseif ( $corpus == 'scandiasyn' || $corpus == 'scandiasyn' ) {
   include("scandiasyn_cred.inc");
 }
+elseif ( $corpus == 'amerikanorsk' ) {
+  include("amerikanorsk_cred.inc");
+}
+elseif ( $corpus == 'sls' ) {
+  include("sls_cred.inc");
+}
 elseif ( $corpus == 'kven' ) {
   include("kven_cred.inc");
 }
@@ -664,6 +726,9 @@ elseif ( $corpus == 'euro_news_fr3' ) {
 }
 elseif ( $corpus == 'euro_news_fr4' ) {
   include("euro_news_fr4_cred.inc");
+}
+elseif ( $corpus == 'skriv' ) {
+  include("skriv_cred.inc");
 }
 ?>
 

@@ -72,6 +72,11 @@ table.res{
 	background-color:#fff;
 }
   </style>
+  <?php
+  if ($_GET['corpus'] == "skriv") {
+    print ('<meta http-equiv="content-type" content="text/html; charset=utf-8">');
+  }
+  ?>
 </head>
 <body onunload="GUnload()">
 
@@ -95,8 +100,8 @@ $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 
 while(!feof($file)){
     $line = fgets($file);
-    if (ereg('^\#', $line)){ continue; }
-    $split = split('=', $line);
+    if (preg_match('/^\#/', $line)){ continue; }
+    $split = preg_split('/=/', $line);
     $conf_array[trim($split[0])] = trim($split[1]);
 }
 
@@ -120,11 +125,15 @@ $meta = $conf_array["meta_author"];
 $alias = $conf_array["meta_author_alias"];
 
 $meta_string = preg_replace ( "/ /", ",", $meta );
-$meta = split("/ /", $meta);
+$meta = preg_split("/ /", $meta);
 
-$alias = split("[,\t]", $alias);
+$alias = preg_split("/[,\t]+/", $alias);
 
 $table = strtoupper($corpus)."author";
+
+if ($corpus == "skriv") {
+  $table = strtoupper($corpus)."text";
+}
 
 $session = mysql_connect ($dbhost . ':/var/lib/mysql/mysql.sock', $user, $pass)
      or die ('I cannot connect to the database using because: '
@@ -149,15 +158,21 @@ if(!$profile){
 
 }
 else{
-    print "<table>\n<tr>\n<td valign='top'>\n";
+    if ($corpus != "skriv") {
+      print "<table>\n<tr>\n<td valign='top'>\n";
+    }
     print "<table border='0' cellspacing='0'>\n";
     $row = 0;
     foreach ($alias as $val){
 
+        if (ucfirst($val) == "Elevnummer") {
+            $student_code_row = $row;
+        }
 	print "<tr><td><b>" . ucfirst($val) . "</b></td><td><span id='td" . $row++ . "'></span></td></tr>\n";
 
     }
     print "</table>\n";
+    if ($corpus != "skriv") {
 ?>
     </td>
     <td>
@@ -170,9 +185,14 @@ else{
     </tr>
     </table>
 <?php
+    }
+
     $row = 0;
 ?><script language="javascript"><?php
     foreach ( $profile as $col ){
+      if ($row == $student_code_row) {
+        $student_code = $col;
+      }
 ?>
 
 	td = document.getElementById('td<?php echo $row++ ?>');
@@ -180,6 +200,13 @@ else{
 <?php
     }
 ?></script><?php
+
+  // SKRIV
+  $questionnaire = "michalkk/skriv/sporreskjema/$student_code.txt";
+  if (file_exists("/var/www/html/$questionnaire")) {
+    print "<a href=\"#\" onclick=\"window.open('/$questionnaire', '_blank')\">Sp&oslash;rreskjema</a>";
+  }
+
     /*
     $profile = join("</td>\n<td>", $profile);
     print "<td>" . $profile . "</td>\n";

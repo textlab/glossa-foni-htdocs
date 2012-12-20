@@ -270,6 +270,7 @@ function move(loc){
 function initialize(lati, long) {
     map = new GMap2(document.getElementById("map_canvas"));
     map.setCenter(new GLatLng(62.5,17.5), 3); //65.5, 17.5
+    if(long < 0){  map.setCenter(new GLatLng(37.0625,-95.677068), 4);  }
     var bounds = map.getBounds();
     var southWest = bounds.getSouthWest();
     var northEast = bounds.getNorthEast();
@@ -280,6 +281,7 @@ function initialize(lati, long) {
     //    init2();
 }
 function init() {
+
     map = new GMap2(document.getElementById("map_canvas"));
     map.setCenter(new GLatLng(65.5,17.5), 4);
     /*

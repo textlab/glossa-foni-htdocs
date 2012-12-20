@@ -32,8 +32,9 @@
     </style>
     <script type="text/javascript">
 var map;
-function init(){
-     var latlng = new google.maps.LatLng(64.0, 3.0); //-34.397, 150.644
+function init(lt,lg){
+
+     var latlng = new google.maps.LatLng(lt, lg); //-34.397, 150.644
      var myOptions = {
                       zoom: 4,
                       center: latlng,
@@ -112,7 +113,7 @@ function init(){
 
     </script>
   </head>
-  <body onload="init();">
+  <body onload="">
 
     <div id="map_canvas" style="position: absolute; top: 30px; left: 10px; width: 650px; height: 540px; background-color: #666;"></div>
 
@@ -155,8 +156,11 @@ function init(){
 var tok_inf = window.opener.mapObj.tokInf;
 var inf_loc = window.opener.mapObj.infLoc;
 var allLocations = window.opener.mapObj.allLocs;
+var initLat = window.opener.mapObj.lat;
+var initLng = window.opener.mapObj.lng;
 var toksLocs = mapToks2Locs();
 init_loc_inf();
+init(initLat,initLng);
     </script>
   </body>
 </html>
