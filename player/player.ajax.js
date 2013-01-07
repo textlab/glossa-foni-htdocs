@@ -69,7 +69,7 @@ popObject.prototype.popDivs = function(arr){
     for(var i in arr){
 	var pop = document.createElement("div");
 	pop.className = "tag";
-	pop.setAttribute("id", i);
+	pop.setAttribute("id", "player"+i);
 	//	pop.setAttribute("style", "background:#999;color:#000;");
 	inner = "";
 	for(var att in arr[i]){
@@ -156,12 +156,12 @@ function refDiv(ref){
     return div;
 }
 function createSpan(i, content){
-    var over = "showTag(arguments[0], "+i+")";
-    var out  = "hideTag("+i+")"
+    var over = "showTag(arguments[0], player"+i+")";
+    var out  = "hideTag(player"+i+")"
     var span = document.createElement("span");
     span.innerHTML = content + "&nbsp;";
-    span.onmouseover = function(){ showTag(arguments[0], i) };
-    span.onmouseout = function(){ hideTag(i) };
+    span.onmouseover = function(){ showTag(arguments[0], "player"+i) };
+    span.onmouseout = function(){ hideTag("player"+i) };
     //    span.setAttribute("onmouseover", over);
     //span.setAttribute("onmouseout", out);
     span.style.marginLeft = '5px';
@@ -172,7 +172,7 @@ function createSpan(i, content){
 function createPlayer(movie_loc, start, duration){
     //    alert('movie_loc: '+movie_loc+', start: '+start+', duration: '+duration);
     var d = duration - start;
-    //        alert('movie_loc: '+movie_loc+', start: '+start+', stop: '+duration+', dur: '+d);
+    //            alert('movie_loc:---> '+movie_loc+', start: '+start+', stop: '+duration+', dur: '+d);
     //    alert('DUR: '+d);
     jwplayer("player").setup({
 	        flashplayer: "http://tekstlab.uio.no/glossa/player/player.swf",
@@ -295,7 +295,7 @@ function stateChanged(){
       //var Obj = JSON.parse(response); //for  some reason this doesn't work in IE
       var Obj = jQuery.parseJSON(response);
       var mp4 = Obj.mov.movie_loc;
-      //alert("MP4: "+mp4);
+      //            alert("MP4: "+mp4);
       var start = Obj.mov.start;
       var stop = Obj.mov.stop;
       document.getElementById('timecodes').innerHTML = "start: "+start+ ", stop: "+stop;
