@@ -45,14 +45,20 @@ else{
 ?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1"><?php
 }
 
-  // ** initialize Glossa ** //  
-  $htmlRoot = 'http://tekstlab.uio.no/glossa/';
-  $cgiRoot = 'http://tekstlab.uio.no/cgi-bin/glossa/';
-  $corpus = $_GET['corpus'];
-  $uilang = $_GET['uilang'];
-  $def_base_corpus = strtoupper($corpus);
-  $subcorpus = $_GET['subcorpus'];
-  include("glossa.inc");
+// include shared functions
+include("glossa.inc");
+
+/* 
+   initialize Glossa 
+   set up corpus var, base urls and paths
+*/
+// this file sets up site specific settings
+include('index.inc');
+// params
+$corpus = sanitizeParameter($_GET['corpus']);
+$uilang = sanitizeParameter($_GET['uilang']);
+$def_base_corpus = strtoupper($corpus);
+$subcorpus = sanitizeParameter($_GET['subcorpus']);
 
 if(!$uilang){
     $uilang = 'no';

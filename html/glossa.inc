@@ -1,5 +1,26 @@
 <?php
 
+/*
+  Extracts the root URI from the URL of the page in the HTTP header.
+  Strips of the trailing 'html/index.php' components.
+
+  Not reusable outside the html directory.
+ */
+function getGlossaRootURI() {
+  $path = $_SERVER["REQUEST_URI"];
+  $root = join('/', array_slice(explode('/', $path), 0, -2));
+
+  return $root;
+}
+
+/*
+  Simple sanitization of a given request parameter.
+  TODO: Do this properly with a library function or similar
+ */
+function sanitizeParameter($param) {
+  return ereg_replace("[^A-Za-z0-9]", "", $param);
+}
+
 // * initialize * //
 
 
