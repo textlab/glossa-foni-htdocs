@@ -1,7 +1,7 @@
 
 //showList(2,'heisann');
 
-function showList(No,String,Label1,Hits,Label2,Corpus,Max,atttype,player) {
+function showList(No,String,Label1,Hits,Label2,Corpus,Max,atttype,player, cgiRoot) {
 
     //        var atttype = "";
         if( arguments.length > 7){ atttype = "&atttype=" + atttype; }
