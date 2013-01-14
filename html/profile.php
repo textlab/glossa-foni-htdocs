@@ -81,9 +81,8 @@ table.res{
 <body onunload="GUnload()">
 
 <?php
-
-  // INIT
-
+include('glossa.inc')
+include('index.inc')
 
 $texts["no"]["tit"] = "<h4>Informasjon om informant <i>%s</i> i %skorpuset</h4>\n";
 $texts["en"]["tit"] = "<h4>Informant details for <i>%s</i> in the %s corpus</h4>\n";
@@ -94,9 +93,9 @@ $texts["no"]["sorry"] = "<h4>Beklager, ingen opplysninger om informant <i>%s</i>
 $tid  = $_GET['tid'];
 $corpus  = $_GET['corpus'];
 
-$conf = "/hf/foni/tekstlab/glossa-0.7/dat/$corpus/cgi.conf";
+$conf = "$configdir/$corpus/cgi.conf";
 
-$file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
+$file = fopen($conf, "r") or exit ("Kan ikke Ã¥pne konfigurasjonsfila: $conf");
 
 while(!feof($file)){
     $line = fgets($file);
@@ -116,10 +115,10 @@ if($conf_array["lang"] == 'no'){
 }
 else{print "<h4>Informant details for <i>$tid</i> in the " . ucfirst($corpus) . " corpus</h4>\n";}
 
-$database = $conf_array["db_name"];
-$user = $conf_array["db_uname"];
-$pass = $conf_array["db_pwd"];
-$dbhost = $conf_array["db_host"];
+$database = $base_config["db_name"];
+$user = $base_config["db_uname"];
+$pass = $base_config["db_pwd"];
+$dbhost = $base_config["db_host"];
 
 $meta = $conf_array["meta_author"];
 $alias = $conf_array["meta_author_alias"];

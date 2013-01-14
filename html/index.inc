@@ -1,29 +1,35 @@
 <?php
 
-// What is this used for ? This is not in the foni code
+// TODO enable this
 /*
-$config_file = '../../../cgi-bin/glossa/paths.conf';
+  This sets up the path to the corpora and database configuration.
+  $base_config is sourced from paths.conf.
+*/
+include('paths.inc');
+
 $comment = "#";
+
+if ($config_file == '') { exit(1); }
 
 $fp = fopen($config_file, "r");
 
 while (!feof($fp)) {
   $line = trim(fgets($fp));
   if ($line && !ereg("^$comment", $line)) {
-    $pieces = split("[ \t]+", $line);
+    $pieces = split("=", $line);
     $option = trim($pieces[0]);
     $value = trim($pieces[1]);
-    $config_values[$option] = $value;
+    $base_config[$option] = $value;
   }
 }
 
 fclose($fp);
-*/
+
 
 // set up paths
 $root = getGlossaRootURI();
 
-$configdir = $config_values['conf'];
+$configdir = $config_values['config_dir'];
 $htmlRoot = $root;
 $cgiRoot = '/cgi-bin' . $root;
 $favicon = '/favicon.ico';

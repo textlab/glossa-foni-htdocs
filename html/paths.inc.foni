@@ -1,0 +1,6 @@
+<?php
+
+// path to Glossa global config
+$config_file = '/var/www/cgi-bin/glossa/paths.conf';
+
+?>

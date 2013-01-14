@@ -48,6 +48,8 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
  </head>
  <body>
 <?php
+include('glossa.inc')
+include('index.inc')
 
 $texts["no"]["tit"] = "<h4>Informasjon om informant <i>%s</i> i %skorpuset</h4>\n";
 $texts["en"]["tit"] = "<h4>Informant details for <i>%s</i> in the %s corpus</h4>\n";
@@ -92,7 +94,7 @@ foreach (array_keys($_POST) as $key) {
 
 }
 print "-->\n";
-$conf = "/hf/foni/tekstlab/glossa-0.7/dat/$corpus/cgi.conf";
+$conf = "$configdir/$corpus/cgi.conf";
 
 $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 
@@ -107,10 +109,10 @@ fclose($file);
 
 $lang = $conf_array["lang"];
 
-$database = $conf_array["db_name"];
-$user = $conf_array["db_uname"];
-$pass = $conf_array["db_pwd"];
-$dbhost = $conf_array["db_host"];
+$database = $base_config["db_name"];
+$user = $base_config["db_uname"];
+$pass = $base_config["db_pwd"];
+$dbhost = $base_config["db_host"];
 
 $meta = $conf_array["meta_author"];
 $alias = $conf_array["meta_author_alias"];

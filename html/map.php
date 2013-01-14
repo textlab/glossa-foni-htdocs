@@ -74,13 +74,15 @@ table.res{
   <div id="legend" style="position: absolute; top: 10px; left: 670px; background-color: azure; width: 160px; height: 540px;"><b>Legend</b><br /><br /></div>
 
 <?php
+include('glossa.inc')
+include('index.inc')
 
 // gets
 $infs  = $_GET['informants'];
 $corpus  = $_GET['corpus'];
 
 //conf
-$conf = "/hf/foni/tekstlab/glossa-0.7/dat/$corpus/cgi.conf";
+$conf = "$configdir/$corpus/cgi.conf";
 $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 while(!feof($file)){
     $line = fgets($file);
@@ -89,10 +91,10 @@ while(!feof($file)){
     $conf_array[trim($split[0])] = trim($split[1]);
 }
 fclose($file);
-$database = $conf_array["db_name"];
-$user = $conf_array["db_uname"];
-$pass = $conf_array["db_pwd"];
-$dbhost = $conf_array["db_host"];
+$database = $base_config["db_name"];
+$user = $base_config["db_uname"];
+$pass = $base_config["db_pwd"];
+$dbhost = $base_config["db_host"];
 
 //init
 $table = strtoupper($corpus)."author";

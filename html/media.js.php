@@ -1,5 +1,6 @@
 <?php
-  // INIT
+include('glossa.inc')
+include('index.inc')
 
 $id  = $_GET['line_key']; // the sql-table key for the segment returned by CQP
 $video = $_GET['video'];
@@ -19,7 +20,7 @@ $size= $right + $left;
 
 $corpus = $_GET['corpus'];
 
-$conf = "/hf/foni/tekstlab/glossa-0.7/dat/$corpus/cgi.conf";
+$conf = "$configdir/$corpus/cgi.conf";
 
 $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 
@@ -31,10 +32,10 @@ while(!feof($file)){
 }
 fclose($file);
 
-$database = $conf_array["db_name"];
-$user = $conf_array["db_uname"];
-$pass = $conf_array["db_pwd"];
-$dbhost = $conf_array["db_host"];
+$database = $base_config["db_name"];
+$user = $base_config["db_uname"];
+$pass = $base_config["db_pwd"];
+$dbhost = $base_config["db_host"];
 $cqp_atts = split(" ", $conf_array['corpus_attributes']);
 
 $movie_loc = $conf_array["media_url"];

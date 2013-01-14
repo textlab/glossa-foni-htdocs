@@ -1,5 +1,6 @@
 <?php
-  // INIT
+include('glossa.inc')
+include('index.inc')
 
 $id  = $_GET['line_key']; // the sql-table key for the segment returned by CQP
 $size = $_GET['size']; // context width
@@ -22,7 +23,7 @@ $corpus = $_GET['corpus'];
 
 #if  ($corpus == 'demo'){ $corpus = 'nota'; }
 
-$conf = "/hf/foni/tekstlab/glossa-0.7/dat/$corpus/cgi.conf";
+$conf = "$configdir/$corpus/cgi.conf";
 
 $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 
@@ -38,9 +39,9 @@ fclose($file);
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"  "http://www.w3.org/TR/REC-html40/strict.dtd">
 <html>
  <head>
-<script language="JavaScript" src=<?php echo "\"" . $conf_array['htmlRoot'] . "js/showtag.js\"" ?> ></script>
-  <script language="JavaScript" src=<?php echo "\"" . $conf_array['htmlRoot'] . "js/AC_QuickTime.js\"" ?> ></script>
-  <script type="text/javascript" src=<?php echo "\"" . $conf_array['htmlRoot'] . "js/QT.js\"" ?> ></script>
+<script language="JavaScript" src=<?php echo "\"" . $htmlRoot . "js/showtag.js\"" ?> ></script>
+  <script language="JavaScript" src=<?php echo "\"" . $htmlRoot . "js/AC_QuickTime.js\"" ?> ></script>
+  <script type="text/javascript" src=<?php echo "\"" . $htmlRoot . "js/QT.js\"" ?> ></script>
   <script language="JavaScript" type="text/javascript">
   var ladjust = 1;
   var radjust  = 1;
@@ -51,7 +52,7 @@ fclose($file);
       sp.innerHTML = document.QTplayer.GetEndTime();
   }
   </script>
-  <link href=<?php echo "\"" . $conf_array['htmlRoot'] . "html/tags.css\"" ?> rel="stylesheet" type="text/css"></link>
+  <link href=<?php echo "\"" . $htmlRoot . "html/tags.css\"" ?> rel="stylesheet" type="text/css"></link>
   <style>
 body {
     margin: 0px 0px 0px 0px;
@@ -143,10 +144,10 @@ div.pointr{
   </style>
 <?php
 
-$database = $conf_array["db_name"];
-$user = $conf_array["db_uname"];
-$pass = $conf_array["db_pwd"];
-$dbhost = $conf_array["db_host"];
+$database = $base_config["db_name"];
+$user = $base_config["db_uname"];
+$pass = $base_config["db_pwd"];
+$dbhost = $base_config["db_host"];
 $cqp_atts = split(" ", $conf_array['corpus_attributes']);
 
 //echo "$dbhost, $user";
