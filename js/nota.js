@@ -1015,16 +1015,6 @@ function reloadMenuNota() {
 								   )
 						       ),
 					  21, new Hash(
-						       'contents', 'pron/det',
-						       'type', 'js',
-						       'uri', "addOpt('pos','pron/det','pron/det')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!pron/det','!pron/det')"
-								   )
-						       ),
-					  22, new Hash(
 						       'contents', 'sbu',
 						       'type', 'js',
 						       'uri', "addOpt('pos','sbu','sbu')",
@@ -1034,7 +1024,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!sbu','!sbu')"
 								   )
 						       ),
-					  23, new Hash(
+					  22, new Hash(
 						       'contents', 'sbu:adv',
 						       'type', 'js',
 						       'uri', "addOpt('pos','sbu:adv','sbu:adv')",
@@ -1044,7 +1034,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!sbu:adv','!sbu:adv')"
 								   )
 						       ),
-					  24, new Hash(
+					  23, new Hash(
 						       'contents', 'sbu:prep',
 						       'type', 'js',
 						       'uri', "addOpt('pos','sbu:prep','sbu:prep')",
@@ -1054,7 +1044,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!sbu:prep','!sbu:prep')"
 								   )
 						       ),
-					  25, new Hash(
+					  24, new Hash(
 						       'contents', 'subst',
 						       'type', 'js',
 						       'uri', "addOpt('pos','subst','subst')",
@@ -1064,7 +1054,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!subst','!subst')"
 								   )
 						       ),
-					  26, new Hash(
+					  25, new Hash(
 						       'contents', 'subst:adj',
 						       'type', 'js',
 						       'uri', "addOpt('pos','subst:adj','subst:adj')",
@@ -1074,7 +1064,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!subst:adj','!subst:adj')"
 								   )
 						       ),
-					  27, new Hash(
+					  26, new Hash(
 						       'contents', 'sånn',
 						       'type', 'js',
 						       'uri', "addOpt('pos','sånn','sånn')",
@@ -1084,7 +1074,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!sånn','!sånn')"
 								   )
 						       ),
-					  28, new Hash(
+					  27, new Hash(
 						       'contents', 'ukjent',
 						       'type', 'js',
 						       'uri', "addOpt('pos','ukjent','ukjent')",
@@ -1094,7 +1084,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!ukjent','!ukjent')"
 								   )
 						       ),
-					  29, new Hash(
+					  28, new Hash(
 						       'contents', 'verb',
 						       'type', 'js',
 						       'uri', "addOpt('pos','verb','verb')",
@@ -1104,7 +1094,7 @@ function reloadMenuNota() {
 								   'uri', "addOpt('pos','!verb','!verb')"
 								   )
 						       ),
-					  30, new Hash(
+					  29, new Hash(
 						       'contents', 'verb:subst',
 						       'type', 'js',
 						       'uri', "addOpt('pos','verb:subst','verb:subst')",

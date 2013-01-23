@@ -15,5 +15,6 @@
   <li><a target="_blank" href="http://www.tekstlab.uio.no/nota/scandiasyn/">Transcription guidelines, translation lists, etc</a></li>
   <li><a target="_blank" href="http://www.tekstlab.uio.no/nota/scandiasyn/kart.html">Recording locations</a></li>
   <li><a target="_blank" href="transcriptions/scandiasyn">Transcriptions</a></li>
+  <li><a target="_blank" href="http://www.tekstlab.uio.no/nota/scandiasyn/help/">News: Search Interface Documentation</a></li>
 </ul>
 </div>

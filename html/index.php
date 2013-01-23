@@ -525,7 +525,6 @@ elseif ( $corpus == 'skriv' ) {
    <input type="button" id="show_external_database" onClick="window.open('http://www.nevmenandr.net/run/');" value="Show external text list" /><br><br>
 <?php
 	 }
- elseif($corpus == 'skriv') {}
  else{
 ?>
 <input type="button" id="show_texts" onClick="setAction('<?php echo $cgiRoot; ?>/meta_direct.cgi');" value="<?php echo $lang[$uilang]['show_texts'] ?>" /><br><br>

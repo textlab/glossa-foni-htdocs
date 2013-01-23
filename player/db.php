@@ -65,6 +65,7 @@ $context = "SELECT id,begin,end FROM $table WHERE id >= " . $lower_bound . " AND
 $fn =filename($audio_file, $video, $corpus);
 #print "<script>alert('$corpus - $fn')</script>";
 if($corpus == 'bigbrother'){$movie_loc .= "BB/$fn";}
+elseif($corpus == 'demo'){$movie_loc .= "nota/$fn";}
 elseif($corpus == 'nor1107'){$movie_loc .= "scandiasyn/$fn";}
 else{$movie_loc .= "$corpus/$fn";}
 
@@ -123,7 +124,7 @@ $stop = mysql_query($stop);
 $stop = mysql_fetch_array($stop);
 $stop = $stop[0];
 
-$createPlayer = "parent.createPlayer('$movie_loc', '$start', '$stop');parent.setSelect('$left','$right');";
+#$createPlayer = "parent.createPlayer('$movie_loc', '$start', '$stop');parent.setSelect('$left','$right');";
 
 $mov_vars = array('movie_loc' => $movie_loc, 'start' => $start, 'stop' => $stop);
 $result = array();
@@ -160,7 +161,7 @@ function filename( $file, $vid, $corp ){
 	$file = "BB_" . $file;
     }
     if ($vid == 'false'){ return "audio/" . $file . ".mov"; }
-    if($corp == 'nota' || $corp == 'upus'){return $file."_800kbps.mp4";}
+    if($corp == 'nota' || $corp == 'upus' || $corp == 'demo'){return $file."_800kbps.mp4";}
     return $file."_800.mp4";
 }
 
