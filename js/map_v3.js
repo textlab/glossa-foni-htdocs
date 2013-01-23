@@ -61,7 +61,7 @@ function addMarkers(color,tok){
 	markerSets.remove(tok);
 	return;
     }
-    var locas = toksLocs[tok];
+    var locas = toksLocs[tok]; //toksLocs[tok] is.. an Array!
     var i = 0;
     var noCoords = new Array();
     markerSets.add(tok, locas, color); // need to use this to remove, also!!!

@@ -4,7 +4,7 @@ function reloadMenuTaus() {
         new Hash(
 		 1, new Hash('contents', '<nobr>criteria&#187;&nbsp;</nobr>',
 			     1, new Hash(
-					 'contents', 'word &#187;&nbsp;',
+					 'contents', 'word',
 					 1, new Hash(
 						     'contents', 'lemma',
 						     'type', 'js',
@@ -64,6 +64,16 @@ function reloadMenuTaus() {
 								  'type', 'js',
 								  'uri', "addOpt('start','!start','!start')"
 								  )
+						      ),
+					 12, new Hash(
+						      'contents', 'segment final',
+						      'type', 'js',
+						      'uri', "addOpt('start','stop','end')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('start','!stop','!end')"
+								  )
 						      )
 					 ),
 			     2, new Hash(
@@ -114,388 +124,133 @@ function reloadMenuTaus() {
 								 )
 						     )
 					 ),
-			     3, new Hash(
-					  'contents', 'pos &#187;',
-					  1, new Hash(
-						      'contents', '(spm)',
-						      'type', 'js',
-						      'uri', "addOpt('pos','(spm)','(spm)')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!(spm)','!(spm)')"
-								  )
-						      ),
-					  2, new Hash(
-						      'contents', 'adj',
-						      'type', 'js',
-						      'uri', "addOpt('pos','adj','adj')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!adj','!adj')"
-								  )
-						      ),
-					  3, new Hash(
-						      'contents', 'adv',
-						      'type', 'js',
-						      'uri', "addOpt('pos','adv','adv')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!adv','!adv')"
-								  )
-						      ),
-					  4, new Hash(
-						      'contents', 'cbl',
-						      'type', 'js',
-						      'uri', "addOpt('pos','cbl','cbl')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!cbl','!cbl')"
-								  )
-						      ),
-					  5, new Hash(
-						      'contents', 'det',
-						      'type', 'js',
-						      'uri', "addOpt('pos','det','det')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!det','!det')"
-								  )
-						      ),
-					  6, new Hash(
-						      'contents', 'inf-merke',
-						      'type', 'js',
-						      'uri', "addOpt('pos','inf-merke','inf-merke')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!inf-merke','!inf-merke')"
-								  )
-						      ),
-					  7, new Hash(
-						      'contents', 'interj',
-						      'type', 'js',
-						      'uri', "addOpt('pos','interj','interj')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!interj','!interj')"
-								  )
-						      ),
-					  8, new Hash(
-						       'contents', 'konj',
-						       'type', 'js',
-						       'uri', "addOpt('pos','konj','konj')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!konj','!konj')"
-								   )
-						       ),
-					  9, new Hash(
-						       'contents', 'pause',
-						       'type', 'js',
-						       'uri', "addOpt('pos','pause','pause')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!pause','!pause')"
-								   )
-						       ),
-					  10, new Hash(
-						       'contents', 'pause2',
-						       'type', 'js',
-						       'uri', "addOpt('pos','pause2','pause2')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!pause2','!pause2')"
-								   )
-						       ),
-					  11, new Hash(
-						       'contents', 'prep',
-						       'type', 'js',
-						       'uri', "addOpt('pos','prep','prep')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!prep','!prep')"
-								   )
-						       ),
-					  12, new Hash(
-						       'contents', 'pron',
-						       'type', 'js',
-						       'uri', "addOpt('pos','pron','pron')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!pron','!pron')"
-								   )
-						       ),
-					  13, new Hash(
-						       'contents', 'pron/det',
-						       'type', 'js',
-						       'uri', "addOpt('pos','pron/det','pron/det')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!pron/det','!pron/det')"
-								   )
-						       ),
-					  14, new Hash(
-						       'contents', 'sbu',
-						       'type', 'js',
-						       'uri', "addOpt('pos','sbu','sbu')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!sbu','!sbu')"
-								   )
-						       ),
-					  15, new Hash(
-						       'contents', 'subst',
-						       'type', 'js',
-						       'uri', "addOpt('pos','subst','subst')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!subst','!subst')"
-								   )
-						       ),
-					  16, new Hash(
-						       'contents', 'subst:adj',
-						       'type', 'js',
-						       'uri', "addOpt('pos','subst:adj','subst:adj')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!subst:adj','!subst:adj')"
-								   )
-						       ),
-					  17, new Hash(
-						       'contents', 'sånn',
-						       'type', 'js',
-						       'uri', "addOpt('pos','sånn','sånn')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!sånn','!sånn')"
-								   )
-						       ),
-					  18, new Hash(
-						       'contents', 'ukjent',
-						       'type', 'js',
-						       'uri', "addOpt('pos','ukjent','ukjent')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!ukjent','!ukjent')"
-								   )
-						       ),
-					  19, new Hash(
-						       'contents', 'verb',
-						       'type', 'js',
-						       'uri', "addOpt('pos','verb','verb')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!verb','!verb')"
-								   )
-						       ),
-					  20, new Hash(
-						       'contents', 'verb:subst',
-						       'type', 'js',
-						       'uri', "addOpt('pos','verb:subst','verb:subst')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!verb:subst','!verb:subst')"
-								   )
-						       ),
-					  21, new Hash(
-						      'contents', 'ambiguous',
-						      'type', 'js',
-						      'uri', "addOpt('pos','ambiguous','ambiguous')",
-						      1, new Hash(
-								  'contents', 'adv:interj',
-								  'type', 'js',
-								  'uri', "addOpt('pos','adv:interj','adv:interj')",
-								  1, new Hash(
-									      'contents', 'exclude',
-									      'type', 'js',
-									      'uri', "addOpt('pos','!adv:interj','!adv:interj')"
-									      )
-								  ),
-						      2, new Hash(
-								  'contents', 'adv:sbu',
-								  'type', 'js',
-								  'uri', "addOpt('pos','adv:sbu','adv:sbu')",
-								  1, new Hash(
-									      'contents', 'exclude',
-									      'type', 'js',
-									      'uri', "addOpt('pos','!adv:sbu','!adv:sbu')"
-									      )
-								  ),
-						      3, new Hash(
-								   'contents', 'konj:adv',
-								   'type', 'js',
-								   'uri', "addOpt('pos','konj:adv','konj:adv')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!konj:adv','!konj:adv')"
-									       )
-								   ),
-						      4, new Hash(
-								   'contents', 'konj:prep:adv',
-								   'type', 'js',
-								   'uri', "addOpt('pos','konj:prep:adv','konj:prep:adv')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!konj:prep:adv','!konj:prep:adv')"
-									       )
-								   ),
-						      5, new Hash(
-								   'contents', 'konj:sbu',
-								   'type', 'js',
-								   'uri', "addOpt('pos','konj:sbu','konj:sbu')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!konj:sbu','!konj:sbu')"
-									       )
-								   ),
-						      6, new Hash(
-								   'contents', 'konj:sbu:adv',
-								   'type', 'js',
-								   'uri', "addOpt('pos','konj:sbu:adv','konj:sbu:adv')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!konj:sbu:adv','!konj:sbu:adv')"
-									       )
-								   ),
-						      7, new Hash(
-								   'contents', 'konj:sbu:det',
-								   'type', 'js',
-								   'uri', "addOpt('pos','konj:sbu:det','konj:sbu:det')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!konj:sbu:det','!konj:sbu:det')"
-									       )
-								  ),
-						      8, new Hash(
-								   'contents', 'prep:sbu',
-								   'type', 'js',
-								   'uri', "addOpt('pos','prep:sbu','prep:sbu')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!prep:sbu','!prep:sbu')"
-									       )
-								   ),
-						      9, new Hash(
-								   'contents', 'sbu:adv',
-								   'type', 'js',
-								   'uri', "addOpt('pos','sbu:adv','sbu:adv')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!sbu:adv','!sbu:adv')"
-									       )
-								   ),
-						      10, new Hash(
-								   'contents', 'sbu:prep',
-								   'type', 'js',
-								   'uri', "addOpt('pos','sbu:prep','sbu:prep')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!sbu:prep','!sbu:prep')"
-									       )
-								   ),
-						      11, new Hash(
-								   'contents', 'subst:adj',
-								   'type', 'js',
-								   'uri', "addOpt('pos','subst:adj','subst:adj')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!subst:adj','!subst:adj')"
-									       )
-								   ),
-						      12, new Hash(
-								   'contents', 'verb:subst',
-								   'type', 'js',
-								   'uri', "addOpt('pos','verb:subst','verb:subst')",
-								   1, new Hash(
-									       'contents', 'exclude',
-									       'type', 'js',
-									       'uri', "addOpt('pos','!verb:subst','!verb:subst')"
-									       )
-								   )
-						       )
-					  ),
 			     
-			     4, new Hash(
-					 'contents', 'num &#187;',
+			     3, new Hash(
+					 'contents', 'num',
 					 1, new Hash(
-						     'contents', 'ent',
+						     'contents', 'pl',
 						     'type', 'js',
-						     'uri', "addOpt('num','ent','ent')",
+						     'uri', "addOpt('num','pl','pl')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('num','!ent','!ent')"
+								 'uri', "addOpt('num','!pl','!pl')"
 								 )
 						     ),
 					 2, new Hash(
-						     'contents', 'ent_fl',
+						     'contents', 'sg',
 						     'type', 'js',
-						     'uri', "addOpt('num','ent_fl','ent_fl')",
+						     'uri', "addOpt('num','sg','sg')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('num','!ent_fl','!ent_fl')"
+								 'uri', "addOpt('num','!sg','!sg')"
 								 )
 						     ),
 					 3, new Hash(
-						     'contents', 'ent_l',
+						     'contents', 'sg:l',
 						     'type', 'js',
-						     'uri', "addOpt('num','ent_l','ent_l')",
+						     'uri', "addOpt('num','sg:l','sg:l')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('num','!ent_l','!ent_l')"
+								 'uri', "addOpt('num','!sg:l','!sg:l')"
 								 )
 						     ),
 					 4, new Hash(
-						     'contents', 'fl',
+						     'contents', 'sg:pl',
 						     'type', 'js',
-						     'uri', "addOpt('num','fl','fl')",
+						     'uri', "addOpt('num','sg:pl','sg:pl')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('num','!fl','!fl')"
+								 'uri', "addOpt('num','!sg:pl','!sg:pl')"
+								 )
+						     )
+					 ),
+			     4, new Hash(
+					 'contents', 'case',
+					 1, new Hash(
+						     'contents', 'acc',
+						     'type', 'js',
+						     'uri', "addOpt('case','acc','acc')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('case','!acc','!acc')"
+								 )
+						     ),
+					 2, new Hash(
+						     'contents', 'acc:subj',
+						     'type', 'js',
+						     'uri', "addOpt('case','acc:subj','acc:subj')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('case','!acc:subj','!acc:subj')"
+								 )
+						     ),
+					 3, new Hash(
+						     'contents', 'dat',
+						     'type', 'js',
+						     'uri', "addOpt('case','dat','dat')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('case','!dat','!dat')"
+								 )
+						     ),
+					 4, new Hash(
+						     'contents', 'gen',
+						     'type', 'js',
+						     'uri', "addOpt('case','gen','gen')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('case','!gen','!gen')"
+								 )
+						     ),
+					 5, new Hash(
+						     'contents', 'nom',
+						     'type', 'js',
+						     'uri', "addOpt('case','nom','nom')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('case','!nom','!nom')"
+								 )
+						     ),
+					 6, new Hash(
+						     'contents', 'nom:acc',
+						     'type', 'js',
+						     'uri', "addOpt('case','nom:acc','nom:acc')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('case','!nom:acc','!nom:acc')"
+								 )
+						     ),
+					 7, new Hash(
+						     'contents', 'nom:obj',
+						     'type', 'js',
+						     'uri', "addOpt('case','nom:obj','nom:obj')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('case','!nom:obj','!nom:obj')"
 								 )
 						     )
 					 ),
 			     5, new Hash(
-					 'contents', 'degr &#187;',
+					 'contents', 'degr',
 					 1, new Hash(
-						     'contents', 'komp',
+						     'contents', 'comp',
 						     'type', 'js',
-						     'uri', "addOpt('degr','komp','komp')",
+						     'uri', "addOpt('degr','comp','comp')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('degr','!komp','!komp')"
+								 'uri', "addOpt('degr','!comp','!comp')"
 								 )
 						     ),
 					 2, new Hash(
@@ -520,321 +275,185 @@ function reloadMenuTaus() {
 						     )
 					 ),
 			     6, new Hash(
-					 'contents', 'case &#187;',
+					 'contents', 'nlex',
 					 1, new Hash(
-						     'contents', 'akk',
+						     'contents', 'back-click',
 						     'type', 'js',
-						     'uri', "addOpt('case','akk','akk')",
+						     'uri', "addOpt('nlex','back-click','back-click')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('case','!akk','!akk')"
+								 'uri', "addOpt('nlex','!back-click','!back-click')"
 								 )
 						     ),
 					 2, new Hash(
-						     'contents', 'akk_subj',
+						     'contents', 'breathing',
 						     'type', 'js',
-						     'uri', "addOpt('case','akk_subj','akk_subj')",
+						     'uri', "addOpt('nlex','breathing','breathing')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('case','!akk_subj','!akk_subj')"
+								 'uri', "addOpt('nlex','!breathing','!breathing')"
 								 )
 						     ),
 					 3, new Hash(
-						     'contents', 'gen',
+						     'contents', 'burping',
 						     'type', 'js',
-						     'uri', "addOpt('case','gen','gen')",
+						     'uri', "addOpt('nlex','burping','burping')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('case','!gen','!gen')"
+								 'uri', "addOpt('nlex','!burping','!burping')"
 								 )
 						     ),
 					 4, new Hash(
-						     'contents', 'nom',
+						     'contents', 'click',
 						     'type', 'js',
-						     'uri', "addOpt('case','nom','nom')",
+						     'uri', "addOpt('nlex','click','click')",
 						     1, new Hash(
 								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('case','!nom','!nom')"
+	                                'type', 'js',
+								 'uri', "addOpt('nlex','!click','!click')"
 								 )
 						     ),
 					 5, new Hash(
-						     'contents', 'nom:akk',
+						     'contents', 'coughing',
 						     'type', 'js',
-						     'uri', "addOpt('case','nom:akk','nom:akk')",
+						     'uri', "addOpt('nlex','coughing','coughing')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('case','!nom:akk','!nom:akk')"
+								 'uri', "addOpt('nlex','!coughing','!coughing')"
 								 )
 						     ),
 					 6, new Hash(
-						     'contents', 'nom_obj',
+						     'contents', 'draws-breath',
 						     'type', 'js',
-						     'uri', "addOpt('case','nom_obj','nom_obj')",
+						     'uri', "addOpt('nlex','draws-breath','draws-breath')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('case','!nom_obj','!nom_obj')"
-								 )
-						     )
-					 ),
-			     7, new Hash(
-					 'contents', 'gender &#187;',
-					 1, new Hash(
-						     'contents', 'fem',
-						     'type', 'js',
-						     'uri', "addOpt('gender','fem','fem')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('gender','!fem','!fem')"
-								 )
-						     ),
-					 2, new Hash(
-						     'contents', 'm:f',
-						     'type', 'js',
-						     'uri', "addOpt('gender','m:f','m:f')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('gender','!m:f','!m:f')"
-								 )
-						     ),
-					 3, new Hash(
-						     'contents', 'mask',
-						     'type', 'js',
-						     'uri', "addOpt('gender','mask','mask')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('gender','!mask','!mask')"
-								 )
-						     ),
-					 4, new Hash(
-						     'contents', 'mask_fem',
-						     'type', 'js',
-						     'uri', "addOpt('gender','mask_fem','mask_fem')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('gender','!mask_fem','!mask_fem')"
-								 )
-						     ),
-					 5, new Hash(
-						     'contents', 'mask_fem_n&oslash;yt',
-						     'type', 'js',
-						     'uri', "addOpt('gender','mask_fem_nøyt','mask_fem_nøyt')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('gender','!mask_fem_nøyt','!mask_fem_nøyt')"
-								 )
-						     ),
-					 6, new Hash(
-						     'contents', 'mask_n&oslash;yt',
-						     'type', 'js',
-						     'uri', "addOpt('gender','mask_nøyt','mask_nøyt')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('gender','!mask_nøyt','!mask_nøyt')"
+								 'uri', "addOpt('nlex','!draws-breath','!draws-breath')"
 								 )
 						     ),
 					 7, new Hash(
-						     'contents', 'n&oslash;yt',
+						     'contents', 'farting',
 						     'type', 'js',
-						     'uri', "addOpt('gender','nøyt','nøyt')",
+						     'uri', "addOpt('nlex','farting','farting')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('gender','!nøyt','!nøyt')"
-								 )
-						     )
-					 ),
-			     8, new Hash(
-					 'contents', 'nlex &#187;',
-					 1, new Hash(
-						     'contents', 'avbrudd',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','avbrudd','avbrudd')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!avbrudd','!avbrudd')"
-								 )
-						     ),
-					 2, new Hash(
-						     'contents', 'bakre_klikkelyd',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','bakre_klikkelyd','bakre_klikkelyd')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!bakre_klikkelyd','!bakre_klikkelyd')"
-								 )
-						     ),
-					 3, new Hash(
-						     'contents', 'fremre_klikkelyd',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','fremre_klikkelyd','fremre_klikkelyd')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!fremre_klikkelyd','!fremre_klikkelyd')"
-								 )
-						     ),
-					 4, new Hash(
-						     'contents', 'gjesping',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','gjesping','gjesping')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!gjesping','!gjesping')"
-								 )
-						     ),
-					 5, new Hash(
-						     'contents', 'hosting',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','hosting','hosting')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!hosting','!hosting')"
-								 )
-						     ),
-					 6, new Hash(
-						     'contents', 'klikkelyd',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','klikkelyd','klikkelyd')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!klikkelyd','!klikkelyd')"
-								 )
-						     ),
-					 7, new Hash(
-						     'contents', 'knipsing',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','knipsing','knipsing')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!knipsing','!knipsing')"
+								 'uri', "addOpt('nlex','!farting','!farting')"
 								 )
 						     ),
 					 8, new Hash(
-						     'contents', 'kremting',
+						     'contents', 'front-click',
 						     'type', 'js',
-						     'uri', "addOpt('nlex','kremting','kremting')",
+						     'uri', "addOpt('nlex','front-click','front-click')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('nlex','!kremting','!kremting')"
+								 'uri', "addOpt('nlex','!front-click','!front-click')"
 								 )
 						     ),
 					 9, new Hash(
-						     'contents', 'kyssing',
+						     'contents', 'groaning',
 						     'type', 'js',
-						     'uri', "addOpt('nlex','kyssing','kyssing')",
+						     'uri', "addOpt('nlex','groaning','groaning')",
 						     1, new Hash(
 								 'contents', 'exclude',
 								 'type', 'js',
-								 'uri', "addOpt('nlex','!kyssing','!kyssing')"
+								 'uri', "addOpt('nlex','!groaning','!groaning')"
 								 )
 						     ),
 					 10, new Hash(
-						      'contents', 'labial_frikativ',
+						      'contents', 'hawking',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','labial_frikativ','labial_frikativ')",
+						      'uri', "addOpt('nlex','hawking','hawking')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!labial_frikativ','!labial_frikativ')"
+								  'uri', "addOpt('nlex','!hawking','!hawking')"
 								  )
 						      ),
 					 11, new Hash(
-						      'contents', 'labial_vibrant',
+						      'contents', 'interruption',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','labial_vibrant','labial_vibrant')",
+						      'uri', "addOpt('nlex','interruption','interruption')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!labial_vibrant','!labial_vibrant')"
+								  'uri', "addOpt('nlex','!interruption','!interruption')"
 								  )
 						      ),
 					 12, new Hash(
-						      'contents', 'latter',
+						      'contents', 'kissing',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','latter','latter')",
+						      'uri', "addOpt('nlex','kissing','kissing')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!latter','!latter')"
+								  'uri', "addOpt('nlex','!kissing','!kissing')"
 								  )
 						      ),
 					 13, new Hash(
-						      'contents', 'leende',
+						      'contents', 'labial-fricative',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','leende','leende')",
+						      'uri', "addOpt('nlex','labial-fricative','labial-fricative')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!leende','!leende')"
+								  'uri', "addOpt('nlex','!labial-fricative','!labial-fricative')"
 								  )
 						      ),
 					 14, new Hash(
-						      'contents', 'lydmalende_ord',
+						      'contents', 'labial-vibrant',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','lydmalende_ord','lydmalende_ord')",
+						      'uri', "addOpt('nlex','labial-vibrant','labial-vibrant')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!lydmalende_ord','!lydmalende_ord')"
+								  'uri', "addOpt('nlex','!labial-vibrant','!labial-vibrant')"
 								  )
 						      ),
 					 15, new Hash(
-						      'contents', 'nysing',
+						      'contents', 'laughing',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','nysing','nysing')",
+						      'uri', "addOpt('nlex','laughing','laughing')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!nysing','!nysing')"
+								  'uri', "addOpt('nlex','!laughing','!laughing')"
 								  )
 						      ),
 					 16, new Hash(
-						      'contents', 'plystring',
+						      'contents', 'laughter',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','plystring','plystring')",
+						      'uri', "addOpt('nlex','laughter','laughter')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!plystring','!plystring')"
+								  'uri', "addOpt('nlex','!laughter','!laughter')"
 								  )
 						      ),
 					 17, new Hash(
-						      'contents', 'pusting',
+						      'contents', 'onomatopoetic',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','pusting','pusting')",
+						      'uri', "addOpt('nlex','onomatopoetic','onomatopoetic')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!pusting','!pusting')"
+								  'uri', "addOpt('nlex','!onomatopoetic','!onomatopoetic')"
 								  )
 						      ),
 					 18, new Hash(
-						      'contents', 'raping',
+						      'contents', 'screaming',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','raping','raping')",
+						      'uri', "addOpt('nlex','screaming','screaming')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!raping','!raping')"
+								  'uri', "addOpt('nlex','!screaming','!screaming')"
 								  )
 						      ),
 					 19, new Hash(
@@ -848,108 +467,141 @@ function reloadMenuTaus() {
 								  )
 						      ),
 					 20, new Hash(
-						      'contents', 'skriking',
+						      'contents', 'sighing',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','skriking','skriking')",
+						      'uri', "addOpt('nlex','sighing','sighing')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!skriking','!skriking')"
+								  'uri', "addOpt('nlex','!sighing','!sighing')"
 								  )
 						      ),
 					 21, new Hash(
-						      'contents', 'snufsing',
+						      'contents', 'singing',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','snufsing','snufsing')",
+						      'uri', "addOpt('nlex','singing','singing')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!snufsing','!snufsing')"
+								  'uri', "addOpt('nlex','!singing','!singing')"
 								  )
 						      ),
 					 22, new Hash(
-						      'contents', 'stavet',
+						      'contents', 'snapping',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','stavet','stavet')",
+						      'uri', "addOpt('nlex','snapping','snapping')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!stavet','!stavet')"
+								  'uri', "addOpt('nlex','!snapping','!snapping')"
 								  )
 						      ),
 					 23, new Hash(
-						      'contents', 'stoonning',
+						      'contents', 'sneezing',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','stønning','stønning')",
+						      'uri', "addOpt('nlex','sneezing','sneezing')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!stønning','!stønning')"
+								  'uri', "addOpt('nlex','!sneezing','!sneezing')"
 								  )
 						      ),
 					 24, new Hash(
-						      'contents', 'sugelyd',
+						      'contents', 'sniffing',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','sugelyd','sugelyd')",
+						      'uri', "addOpt('nlex','sniffing','sniffing')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!sugelyd','!sugelyd')"
+								  'uri', "addOpt('nlex','!sniffing','!sniffing')"
 								  )
 						      ),
 					 25, new Hash(
-						      'contents', 'sukking',
+						      'contents', 'spelled',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','sukking','sukking')",
+						      'uri', "addOpt('nlex','spelled','spelled')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!sukking','!sukking')"
+								  'uri', "addOpt('nlex','!spelled','!spelled')"
 								  )
 						      ),
 					 26, new Hash(
-						      'contents', 'synging',
+						      'contents', 'sucking sound',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','synging','synging')",
+						      'uri', "addOpt('nlex','sucking sound','sucking sound')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!synging','!synging')"
+								  'uri', "addOpt('nlex','!sucking sound','!sucking sound')"
 								  )
 						      ),
 					 27, new Hash(
-						      'contents', 'trekker_pusten',
+						      'contents', 'unclear',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','trekker_pusten','trekker_pusten')",
+						      'uri', "addOpt('nlex','unclear','unclear')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!trekker_pusten','!trekker_pusten')"
+								  'uri', "addOpt('nlex','!unclear','!unclear')"
 								  )
 						      ),
 					 28, new Hash(
-						      'contents', 'uforståelig',
+						      'contents', 'uninterpretable',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','uforståelig','uforståelig')",
+						      'uri', "addOpt('nlex','uninterpretable','uninterpretable')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!uforståelig','!uforståelig')"
+								  'uri', "addOpt('nlex','!uninterpretable','!uninterpretable')"
 								  )
 						      ),
 					 29, new Hash(
-						      'contents', 'uklart',
+						      'contents', 'whistling',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','uklart','uklart')",
+						      'uri', "addOpt('nlex','whistling','whistling')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!uklart','!uklart')"
+								  'uri', "addOpt('nlex','!whistling','!whistling')"
+								  )
+						      ),
+					 30, new Hash(
+						      'contents', 'yawning',
+						      'type', 'js',
+						      'uri', "addOpt('nlex','yawning','yawning')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('nlex','!yawning','!yawning')"
 								  )
 						      )
 					 ),
-			     9, new Hash(
-					 'contents', 'pers &#187;',
+			     7, new Hash(
+					 'contents', 'voice',
+					 1, new Hash(
+						     'contents', 'act',
+						     'type', 'js',
+						     'uri', "addOpt('voice','act','act')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('voice','!act','!act')"
+								 )
+						     ),
+					 2, new Hash(
+						     'contents', 'mid',
+						     'type', 'js',
+						     'uri', "addOpt('voice','mid','mid')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('voice','!mid','!mid')"
+								 )
+						     )
+					 ),
+			     8, new Hash(
+					 'contents', 'pers',
 					 1, new Hash(
 						     'contents', '1.',
 						     'type', 'js',
@@ -981,29 +633,9 @@ function reloadMenuTaus() {
 								 )
 						     )
 					 ),
-			     10, new Hash(
-					 'contents', 'temp &#187;',
+			     9, new Hash(
+					 'contents', 'temp',
 					 1, new Hash(
-						     'contents', 'imp',
-						     'type', 'js',
-						     'uri', "addOpt('temp','imp','imp')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('temp','!imp','!imp')"
-								 )
-						     ),
-					 2, new Hash(
-						     'contents', 'inf',
-						     'type', 'js',
-						     'uri', "addOpt('temp','inf','inf')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('temp','!inf','!inf')"
-								 )
-						     ),
-					 3, new Hash(
 						     'contents', 'inf:imp',
 						     'type', 'js',
 						     'uri', "addOpt('temp','inf:imp','inf:imp')",
@@ -1013,7 +645,17 @@ function reloadMenuTaus() {
 								 'uri', "addOpt('temp','!inf:imp','!inf:imp')"
 								 )
 						     ),
-					 4, new Hash(
+					 2, new Hash(
+						     'contents', 'past',
+						     'type', 'js',
+						     'uri', "addOpt('temp','past','past')",
+						     1, new Hash(
+								 'contents', 'exclude',
+								 'type', 'js',
+								 'uri', "addOpt('temp','!past','!past')"
+								 )
+						     ),
+					 3, new Hash(
 						     'contents', 'perf-part',
 						     'type', 'js',
 						     'uri', "addOpt('temp','perf-part','perf-part')",
@@ -1023,7 +665,7 @@ function reloadMenuTaus() {
 								 'uri', "addOpt('temp','!perf-part','!perf-part')"
 								 )
 						     ),
-					 5, new Hash(
+					 4, new Hash(
 						     'contents', 'pres',
 						     'type', 'js',
 						     'uri', "addOpt('temp','pres','pres')",
@@ -1033,7 +675,7 @@ function reloadMenuTaus() {
 								 'uri', "addOpt('temp','!pres','!pres')"
 								 )
 						     ),
-					 6, new Hash(
+					 5, new Hash(
 						     'contents', 'pres:inf',
 						     'type', 'js',
 						     'uri', "addOpt('temp','pres:inf','pres:inf')",
@@ -1043,7 +685,7 @@ function reloadMenuTaus() {
 								 'uri', "addOpt('temp','!pres:inf','!pres:inf')"
 								 )
 						     ),
-					 7, new Hash(
+					 6, new Hash(
 						     'contents', 'pret',
 						     'type', 'js',
 						     'uri', "addOpt('temp','pret','pret')",
@@ -1053,7 +695,7 @@ function reloadMenuTaus() {
 								 'uri', "addOpt('temp','!pret','!pret')"
 								 )
 						     ),
-					 8, new Hash(
+					 7, new Hash(
 						     'contents', 'pret:perf-part',
 						     'type', 'js',
 						     'uri', "addOpt('temp','pret:perf-part','pret:perf-part')",
@@ -1064,72 +706,29 @@ function reloadMenuTaus() {
 								 )
 						     )
 					 ),
-			     11, new Hash(
-					  'contents', 'def &#187;',
+			     10, new Hash(
+					  'contents', 'descr',
 					  1, new Hash(
-						      'contents', 'be',
+						      'contents', 'comment',
 						      'type', 'js',
-						      'uri', "addOpt('defn','be','be')",
+						      'uri', "addOpt('descr','comment','comment')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('defn','!be','!be')"
+								  'uri', "addOpt('descr','!comment','!comment')"
 								  )
 						      ),
 					  2, new Hash(
-						      'contents', 'ub',
+						      'contents', 'mu',
 						      'type', 'js',
-						      'uri', "addOpt('defn','ub','ub')",
+						      'uri', "addOpt('descr','mu','mu')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('defn','!ub','!ub')"
+								  'uri', "addOpt('descr','!mu','!mu')"
 								  )
 						      ),
 					  3, new Hash(
-						      'contents', 'ub_be',
-						      'type', 'js',
-						      'uri', "addOpt('defn','ub_be','ub_be')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('defn','!ub_be','!ub_be')"
-								  )
-						      )
-					  ),
-			     12, new Hash(
-					  'contents', 'descr &#187;',
-					  1, new Hash(
-						      'contents', 'gjespende',
-						      'type', 'js',
-						      'uri', "addOpt('descr','gjespende','gjespende')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('descr','!gjespende','!gjespende')"
-								  )
-						      ),
-					  2, new Hash(
-						      'contents', 'kommentar',
-						      'type', 'js',
-						      'uri', "addOpt('descr','kommentar','kommentar')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('descr','!kommentar','!kommentar')"
-								  )
-						      ),
-					  3, new Hash(
-						      'contents', 'me',
-						      'type', 'js',
-						      'uri', "addOpt('descr','me','me')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('descr','!me','!me')"
-								  )
-						      ),
-					  4, new Hash(
 						      'contents', 'x',
 						      'type', 'js',
 						      'uri', "addOpt('descr','x','x')",
@@ -1138,11 +737,449 @@ function reloadMenuTaus() {
 								  'type', 'js',
 								  'uri', "addOpt('descr','!x','!x')"
 								  )
+						      ),
+					  4, new Hash(
+						      'contents', 'o',
+						      'type', 'js',
+						      'uri', "addOpt('descr','o','o')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('descr','!o','!o')"
+								  )
 						      )
 					  ),
-			     
+			     11, new Hash(
+					  'contents', 'defn',
+					  1, new Hash(
+						      'contents', 'defn',
+						      'type', 'js',
+						      'uri', "addOpt('defn','def','defn')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('defn','!def','!defn')"
+								  )
+						      ),
+					  2, new Hash(
+						      'contents', 'indef',
+						      'type', 'js',
+						      'uri', "addOpt('defn','indef','indef')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('defn','!indef','!indef')"
+								  )
+						      ),
+					  3, new Hash(
+						      'contents', 'indef:def',
+						      'type', 'js',
+						      'uri', "addOpt('defn','indef:def','indef:def')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('defn','!indef:def','!indef:def')"
+								  )
+						      )
+					  ),
+			     12, new Hash(
+					  'contents', 'mood',
+					  1, new Hash(
+						      'contents', 'imp',
+						      'type', 'js',
+						      'uri', "addOpt('mood','imp','imp')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('mood','!imp','!imp')"
+								  )
+						      ),
+					  2, new Hash(
+						      'contents', 'ind',
+						      'type', 'js',
+						      'uri', "addOpt('mood','ind','ind')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('mood','!ind','!ind')"
+								  )
+						      ),
+					  3, new Hash(
+						      'contents', 'inf',
+						      'type', 'js',
+						      'uri', "addOpt('mood','inf','inf')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('mood','!inf','!inf')"
+								  )
+						      ),
+					  4, new Hash(
+						      'contents', 'past-part',
+						      'type', 'js',
+						      'uri', "addOpt('mood','past-part','past-part')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('mood','!past-part','!past-part')"
+								  )
+						      ),
+					  5, new Hash(
+						      'contents', 'pres-part',
+						      'type', 'js',
+						      'uri', "addOpt('mood','pres-part','pres-part')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('mood','!pres-part','!pres-part')"
+								  )
+						      ),
+					  6, new Hash(
+						      'contents', 'subjunctive',
+						      'type', 'js',
+						      'uri', "addOpt('mood','subjunctive','subjunctive')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('mood','!subjunctive','!subjunctive')"
+								  )
+						      ),
+					  7, new Hash(
+						      'contents', 'supine',
+						      'type', 'js',
+						      'uri', "addOpt('mood','supine','supine')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('mood','!supine','!supine')"
+								  )
+						      )
+					  ),
 			     13, new Hash(
-					  'contents', 'type &#187;',
+					  'contents', 'pos',
+					  1, new Hash(
+						      'contents', '(spm)',
+						      'type', 'js',
+						      'uri', "addOpt('pos','(spm)','(spm)')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!(spm)','!(spm)')"
+								  )
+						      ),
+					  2, new Hash(
+						      'contents', 'adj',
+						      'type', 'js',
+						      'uri', "addOpt('pos','adj','adj')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!adj','!adj')"
+								  )
+						      ),
+					  3, new Hash(
+						      'contents', 'adv',
+						      'type', 'js',
+						      'uri', "addOpt('pos','adv','adv')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!adv','!adv')"
+								  )
+						      ),
+					  4, new Hash(
+						      'contents', 'adv:interj',
+						      'type', 'js',
+						      'uri', "addOpt('pos','adv:interj','adv:interj')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!adv:interj','!adv:interj')"
+								  )
+						      ),
+					  5, new Hash(
+						      'contents', 'adv:subjunc',
+						      'type', 'js',
+						      'uri', "addOpt('pos','adv:subjunc','adv:subjunc')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!adv:subjunc','!adv:subjunc')"
+								  )
+						      ),
+					  6, new Hash(
+						      'contents', 'cbl',
+						      'type', 'js',
+						      'uri', "addOpt('pos','cbl','cbl')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!cbl','!cbl')"
+								  )
+						      ),
+					  7, new Hash(
+						      'contents', 'conj',
+						      'type', 'js',
+						      'uri', "addOpt('pos','conj','conj')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!conj','!conj')"
+								  )
+						      ),
+					  8, new Hash(
+						      'contents', 'conj:adv',
+						      'type', 'js',
+						      'uri', "addOpt('pos','conj:adv','conj:adv')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!conj:adv','!conj:adv')"
+								  )
+						      ),
+					  9, new Hash(
+						      'contents', 'conj:prep:adv',
+						      'type', 'js',
+						      'uri', "addOpt('pos','conj:prep:adv','conj:prep:adv')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('pos','!conj:prep:adv','!conj:prep:adv')"
+								  )
+						      ),
+					  10, new Hash(
+						       'contents', 'conj:subjunc',
+						       'type', 'js',
+						       'uri', "addOpt('pos','conj:subjunc','conj:subjunc')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!conj:subjunc','!conj:subjunc')"
+								   )
+						       ),
+					  11, new Hash(
+						       'contents', 'conj:subjunc:adv',
+						       'type', 'js',
+						       'uri', "addOpt('pos','conj:subjunc:adv','conj:subjunc:adv')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!conj:subjunc:adv','!conj:subjunc:adv')"
+								   )
+						       ),
+					  12, new Hash(
+						       'contents', 'conj:subjunc:det',
+						       'type', 'js',
+						       'uri', "addOpt('pos','conj:subjunc:det','conj:subjunc:det')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!conj:subjunc:det','!conj:subjunc:det')"
+								   )
+						       ),
+					  13, new Hash(
+						       'contents', 'det',
+						       'type', 'js',
+						       'uri', "addOpt('pos','det','det')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!det','!det')"
+								   )
+						       ),
+					  14, new Hash(
+						       'contents', 'foreign',
+						       'type', 'js',
+						       'uri', "addOpt('pos','foreign','foreign')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!foreign','!foreign')"
+								   )
+						       ),
+					  15, new Hash(
+						       'contents', 'inf-marker',
+						       'type', 'js',
+						       'uri', "addOpt('pos','inf-marker','inf-marker')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!inf-marker','!inf-marker')"
+								   )
+						       ),
+					  16, new Hash(
+						       'contents', 'interj',
+						       'type', 'js',
+						       'uri', "addOpt('pos','interj','interj')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!interj','!interj')"
+								   )
+						       ),
+					  17, new Hash(
+						       'contents', 'noun',
+						       'type', 'js',
+						       'uri', "addOpt('pos','noun','noun')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!noun','!noun')"
+								   )
+						       ),
+					  18, new Hash(
+						       'contents', 'noun:adj',
+						       'type', 'js',
+						       'uri', "addOpt('pos','noun:adj','noun:adj')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!noun:adj','!noun:adj')"
+								   )
+						       ),
+					  19, new Hash(
+						       'contents', 'num',
+						       'type', 'js',
+						       'uri', "addOpt('pos','num','num')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!num','!num')"
+								   )
+						       ),
+					  20, new Hash(
+						       'contents', 'pause',
+						       'type', 'js',
+						       'uri', "addOpt('pos','pause','pause')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!pause','!pause')"
+								   )
+						       ),
+					  21, new Hash(
+						       'contents', 'pause2',
+						       'type', 'js',
+						       'uri', "addOpt('pos','pause2','pause2')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!pause2','!pause2')"
+								   )
+						       ),
+					  22, new Hash(
+						       'contents', 'prep',
+						       'type', 'js',
+						       'uri', "addOpt('pos','prep','prep')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!prep','!prep')"
+								   )
+						       ),
+					  23, new Hash(
+						       'contents', 'prep:subjunc',
+						       'type', 'js',
+						       'uri', "addOpt('pos','prep:subjunc','prep:subjunc')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!prep:subjunc','!prep:subjunc')"
+								   )
+						       ),
+					  24, new Hash(
+						       'contents', 'pron',
+						       'type', 'js',
+						       'uri', "addOpt('pos','pron','pron')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!pron','!pron')"
+								   )
+						       ),
+					  25, new Hash(
+						       'contents', 'pron:det',
+						       'type', 'js',
+						       'uri', "addOpt('pos','pron:det','pron:det')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!pron:det','!pron:det')"
+								   )
+						       ),
+					  26, new Hash(
+						       'contents', 'subjunc',
+						       'type', 'js',
+						       'uri', "addOpt('pos','subjunc','subjunc')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!subjunc','!subjunc')"
+								   )
+						       ),
+					  27, new Hash(
+						       'contents', 'subjunc:adv',
+						       'type', 'js',
+						       'uri', "addOpt('pos','subjunc:adv','subjunc:adv')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!subjunc:adv','!subjunc:adv')"
+								   )
+						       ),
+					  28, new Hash(
+						       'contents', 'subjunc:prep',
+						       'type', 'js',
+						       'uri', "addOpt('pos','subjunc:prep','subjunc:prep')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!subjunc:prep','!subjunc:prep')"
+								   )
+						       ),
+					  29, new Hash(
+						       'contents', 'sånn-word',
+						       'type', 'js',
+						       'uri', "addOpt('pos','sånn-word','sånn-word')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!sånn-word','!sånn-word')"
+								   )
+						       ),
+					  30, new Hash(
+						       'contents', 'unknown',
+						       'type', 'js',
+						       'uri', "addOpt('pos','unknown','unknown')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!unknown','!unknown')"
+								   )
+						       ),
+					  31, new Hash(
+						       'contents', 'verb',
+						       'type', 'js',
+						       'uri', "addOpt('pos','verb','verb')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!verb','!verb')"
+								   )
+						       ),
+					  32, new Hash(
+						       'contents', 'verb:noun',
+						       'type', 'js',
+						       'uri', "addOpt('pos','verb:noun','verb:noun')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('pos','!verb:noun','!verb:noun')"
+								   )
+						       )
+					  ),
+			     14, new Hash(
+					  'contents', 'type',
 					  1, new Hash(
 						      'contents', '(pres-part)',
 						      'type', 'js',
@@ -1154,26 +1191,46 @@ function reloadMenuTaus() {
 								  )
 						      ),
 					  2, new Hash(
-						      'contents', 'appell',
+						      'contents', 'abbrev',
 						      'type', 'js',
-						      'uri', "addOpt('type','appell','appell')",
+						      'uri', "addOpt('type','abbrev','abbrev')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('type','!appell','!appell')"
+								  'uri', "addOpt('type','!abbrev','!abbrev')"
 								  )
 						      ),
 					  3, new Hash(
-						      'contents', 'appell_ubøy',
+						      'contents', 'alpha',
 						      'type', 'js',
-						      'uri', "addOpt('type','appell_ubøy','appell_ubøy')",
+						      'uri', "addOpt('type','alpha','alpha')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('type','!appell_ubøy','!appell_ubøy')"
+								  'uri', "addOpt('type','!alpha','!alpha')"
 								  )
 						      ),
 					  4, new Hash(
+						      'contents', 'cm-noun',
+						      'type', 'js',
+						      'uri', "addOpt('type','cm-noun','cm-noun')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('type','!cm-noun','!cm-noun')"
+								  )
+						      ),
+					  5, new Hash(
+						      'contents', 'dat:past',
+						      'type', 'js',
+						      'uri', "addOpt('type','dat:past','dat:past')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('type','!dat:past','!dat:past')"
+								  )
+						      ),
+					  6, new Hash(
 						      'contents', 'dem',
 						      'type', 'js',
 						      'uri', "addOpt('type','dem','dem')",
@@ -1183,57 +1240,127 @@ function reloadMenuTaus() {
 								  'uri', "addOpt('type','!dem','!dem')"
 								  )
 						      ),
-					  5, new Hash(
-						      'contents', 'fork',
-						      'type', 'js',
-						      'uri', "addOpt('type','fork','fork')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('type','!fork','!fork')"
-								  )
-						      ),
-					  6, new Hash(
-						      'contents', 'forst',
-						      'type', 'js',
-						      'uri', "addOpt('type','forst','forst')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('type','!forst','!forst')"
-								  )
-						      ),
 					  7, new Hash(
-						      'contents', 'fyll',
+						      'contents', 'gov-acc',
 						      'type', 'js',
-						      'uri', "addOpt('type','fyll','fyll')",
+						      'uri', "addOpt('type','gov-acc','gov-acc')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('type','!fyll','!fyll')"
+								  'uri', "addOpt('type','!gov-acc','!gov-acc')"
 								  )
 						      ),
 					  8, new Hash(
-						      'contents', 'hum',
+						      'contents', 'gov-dat',
 						      'type', 'js',
-						      'uri', "addOpt('type','hum','hum')",
+						      'uri', "addOpt('type','gov-dat','gov-dat')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('type','!hum','!hum')"
+								  'uri', "addOpt('type','!gov-dat','!gov-dat')"
 								  )
 						      ),
 					  9, new Hash(
-						      'contents', 'kvant',
+						      'contents', 'gov-en',
 						      'type', 'js',
-						      'uri', "addOpt('type','kvant','kvant')",
+						      'uri', "addOpt('type','gov-en','gov-en')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('type','!kvant','!kvant')"
+								  'uri', "addOpt('type','!gov-en','!gov-en')"
 								  )
 						      ),
 					  10, new Hash(
+						       'contents', 'hesit',
+						       'type', 'js',
+						       'uri', "addOpt('type','hesit','hesit')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!hesit','!hesit')"
+								   )
+						       ),
+					  11, new Hash(
+						       'contents', 'hum',
+						       'type', 'js',
+						       'uri', "addOpt('type','hum','hum')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!hum','!hum')"
+								   )
+						       ),
+					  12, new Hash(
+						       'contents', 'intensifier',
+						       'type', 'js',
+						       'uri', "addOpt('type','intensifier','intensifier')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!intensifier','!intensifier')"
+								   )
+						       ),
+					  13, new Hash(
+						       'contents', 'no-case',
+						       'type', 'js',
+						       'uri', "addOpt('type','no-case','no-case')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!no-case','!no-case')"
+								   )
+						       ),
+					  14, new Hash(
+						       'contents', 'nom:pres',
+						       'type', 'js',
+						       'uri', "addOpt('type','nom:pres','nom:pres')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!nom:pres','!nom:pres')"
+								   )
+						       ),
+					  15, new Hash(
+						       'contents', 'noun-uninflected',
+						       'type', 'js',
+						       'uri', "addOpt('type','noun-uninflected','noun-uninflected')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!noun-uninflected','!noun-uninflected')"
+								   )
+						       ),
+					  16, new Hash(
+						       'contents', 'numeric',
+						       'type', 'js',
+						       'uri', "addOpt('type','numeric','numeric')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!numeric','!numeric')"
+								   )
+						       ),
+					  17, new Hash(
+						       'contents', 'other-name',
+						       'type', 'js',
+						       'uri', "addOpt('type','other-name','other-name')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!other-name','!other-name')"
+								   )
+						       ),
+					  18, new Hash(
+						       'contents', 'percent',
+						       'type', 'js',
+						       'uri', "addOpt('type','percent','percent')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!percent','!percent')"
+								   )
+						       ),
+					  19, new Hash(
 						       'contents', 'pers',
 						       'type', 'js',
 						       'uri', "addOpt('type','pers','pers')",
@@ -1243,7 +1370,27 @@ function reloadMenuTaus() {
 								   'uri', "addOpt('type','!pers','!pers')"
 								   )
 						       ),
-					  11, new Hash(
+					  20, new Hash(
+						       'contents', 'pers-name',
+						       'type', 'js',
+						       'uri', "addOpt('type','pers-name','pers-name')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!pers-name','!pers-name')"
+								   )
+						       ),
+					  21, new Hash(
+						       'contents', 'place-name',
+						       'type', 'js',
+						       'uri', "addOpt('type','place-name','place-name')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!place-name','!place-name')"
+								   )
+						       ),
+					  22, new Hash(
 						       'contents', 'poss',
 						       'type', 'js',
 						       'uri', "addOpt('type','poss','poss')",
@@ -1253,17 +1400,7 @@ function reloadMenuTaus() {
 								   'uri', "addOpt('type','!poss','!poss')"
 								   )
 						       ),
-					  12, new Hash(
-						       'contents', 'pres-part',
-						       'type', 'js',
-						       'uri', "addOpt('type','pres-part','pres-part')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!pres-part','!pres-part')"
-								   )
-						       ),
-					  13, new Hash(
+					  23, new Hash(
 						       'contents', 'prop',
 						       'type', 'js',
 						       'uri', "addOpt('type','prop','prop')",
@@ -1273,7 +1410,27 @@ function reloadMenuTaus() {
 								   'uri', "addOpt('type','!prop','!prop')"
 								   )
 						       ),
-					  14, new Hash(
+					  24, new Hash(
+						       'contents', 'q',
+						       'type', 'js',
+						       'uri', "addOpt('type','q','q')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!q','!q')"
+								   )
+						       ),
+					  25, new Hash(
+						       'contents', 'quant',
+						       'type', 'js',
+						       'uri', "addOpt('type','quant','quant')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!quant','!quant')"
+								   )
+						       ),
+					  26, new Hash(
 						       'contents', 'refl',
 						       'type', 'js',
 						       'uri', "addOpt('type','refl','refl')",
@@ -1283,7 +1440,17 @@ function reloadMenuTaus() {
 								   'uri', "addOpt('type','!refl','!refl')"
 								   )
 						       ),
-					  15, new Hash(
+					  27, new Hash(
+						       'contents', 'rel',
+						       'type', 'js',
+						       'uri', "addOpt('type','rel','rel')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!rel','!rel')"
+								   )
+						       ),
+					  28, new Hash(
 						       'contents', 'res',
 						       'type', 'js',
 						       'uri', "addOpt('type','res','res')",
@@ -1293,21 +1460,138 @@ function reloadMenuTaus() {
 								   'uri', "addOpt('type','!res','!res')"
 								   )
 						       ),
-					  16, new Hash(
-						       'contents', 'sp',
+					  29, new Hash(
+						       'contents', 'strong',
 						       'type', 'js',
-						       'uri', "addOpt('type','sp','sp')",
+						       'uri', "addOpt('type','strong','strong')",
 						       1, new Hash(
 								   'contents', 'exclude',
 								   'type', 'js',
-								   'uri', "addOpt('type','!sp','!sp')"
+								   'uri', "addOpt('type','!strong','!strong')"
+								   )
+						       ),
+					  30, new Hash(
+						       'contents', 'uninflected',
+						       'type', 'js',
+						       'uri', "addOpt('type','uninflected','uninflected')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!uninflected','!uninflected')"
+								   )
+						       ),
+					  31, new Hash(
+						       'contents', 'weak',
+						       'type', 'js',
+						       'uri', "addOpt('type','weak','weak')",
+						       1, new Hash(
+								   'contents', 'exclude',
+								   'type', 'js',
+								   'uri', "addOpt('type','!weak','!weak')"
 								   )
 						       )
 					  ),
-
-			     14, new Hash(
-						     'contents', 'phonetic',
-						     'type', 'js',
-						     'uri', "addOpt('w','phon','phonetic')"
+			     15, new Hash(
+					  'contents', 'segment',
+					  1, new Hash(
+						      'contents', 'start',
+						      'type', 'js',
+						      'uri', "addOpt('start','start','start')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('start','!start','!start')"
+								  )
+						      )
+					  ),
+			     16, new Hash(
+					  'contents', 'gender',
+					  1, new Hash(
+						      'contents', 'fem',
+						      'type', 'js',
+						      'uri', "addOpt('gender','fem','fem')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!fem','!fem')"
+								  )
+						      ),
+					  2, new Hash(
+						      'contents', 'm:f',
+						      'type', 'js',
+						      'uri', "addOpt('gender','m:f','m:f')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!m:f','!m:f')"
+								  )
+						      ),
+					  3, new Hash(
+						      'contents', 'masc',
+						      'type', 'js',
+						      'uri', "addOpt('gender','masc','masc')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!masc','!masc')"
+								  )
+						      ),
+					  4, new Hash(
+						      'contents', 'masc:fem',
+						      'type', 'js',
+						      'uri', "addOpt('gender','masc:fem','masc:fem')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!masc:fem','!masc:fem')"
+								  )
+						      ),
+					  5, new Hash(
+						      'contents', 'masc:fem:neut',
+						      'type', 'js',
+						      'uri', "addOpt('gender','masc:fem:neut','masc:fem:neut')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!masc:fem:neut','!masc:fem:neut')"
+								  )
+						      ),
+					  6, new Hash(
+						      'contents', 'masc:neut',
+						      'type', 'js',
+						      'uri', "addOpt('gender','masc:neut','masc:neut')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!masc:neut','!masc:neut')"
+								  )
+						      ),
+					  7, new Hash(
+						      'contents', 'neut',
+						      'type', 'js',
+						      'uri', "addOpt('gender','neut','neut')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!neut','!neut')"
+								  )
+						      ),
+					  8, new Hash(
+						      'contents', 'unspec',
+						      'type', 'js',
+						      'uri', "addOpt('gender','unspec','unspec')",
+						      1, new Hash(
+								  'contents', 'exclude',
+								  'type', 'js',
+								  'uri', "addOpt('gender','!unspec','!unspec')"
+								  )
+						      )
+					  ),
+			     17, new Hash(
+					  'contents', 'phonetic',
+					  'type', 'js',
+					  'uri', "addOpt('w','phon','phonetic')"
 					  )		
-			     ));}
+
+			     ))
+	;}

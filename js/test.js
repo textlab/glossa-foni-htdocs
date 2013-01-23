@@ -1,3 +1,79 @@
+(function($){ var styleadded = false;
+    var styler = "<style type='text/css'>\n.jq-base{\nborder-radius:3px;\n-moz-border-radius:3px;\n-webkit-border-radius:3px;\ncolor:#FEFE00;\npadding:2px 4px;\nfont:9px verdana,arial,sans-serif;\nmargin:0 -1px;\nwhite-space: nowrap;\npadding: 2px 4px;\nvertical-align:middle;\n}\n</style>\n";
+    $.fn.extend({
+	    listing:
+	       function(options){ 
+	          var maxRows = 20;
+		  var n = 0;
+		  for (prop in options.elts) { //seems only way to get length
+		      n++;
+		  }
+		  var r = n%maxRows;
+		  var q = (n-r)/maxRows;
+		  left = 670;
+		  if(r>0){q++;}
+		  for(var i = 0; i < q; i++ ){
+		      $('body').append('<div class="legend" id="legend'+i+'" style="left:'+ (left+i*160) + 'px;"></div>');
+		  }
+		  var j = 0;
+		  for(var elt in options.elts){
+		      var id = elt;
+		      divI = Math.floor(j/maxRows);
+		      $('#legend'+divI).append('<a id="a_' + j + '">'+id+'</a>\n'); // removed a <br /> elt after the anchor // might change id to j!
+		      j++;
+		  }
+		  var id = -1;
+		  for(var elt in options.elts){
+		      id++;
+		      $('#a_'+id).colorpicker({
+			      label: "a_"+id,
+			      func: function(a, id){
+				  alert("a: "+a+", id: "+id) ;
+				  addMarkers(a, id);
+			      }
+			  });
+		  }
+	       },
+	    labels:
+	       function(options){
+		   var pointer = {
+		       defaults:false,
+		       backgroundColor:"#CE0000" //this will only be used if labels are not supplied
+		   }
+		   opts = $.extend(defaults, options);
+		   if(!styleadded){
+		    //     $("head").append(styler); // IS THIS NEEDED AT ALL?
+		       styleadded=true;
+		   }
+		   var labels={}
+		   for(j in opts['labels']){
+		       labels[j.toLowerCase()]=opts['labels'][j];
+		   }
+		   if($.isEmptyObject(opts['labels'])){
+		       $(this).addClass("jq-base");
+		       $(this).css("backgroundColor",opts['backgroundColor']);
+		       if(opts['pointer']) $(this).css("cursor","pointer");
+		   }
+		   else{
+		       $(this).each(
+				    function(){
+					var key = $(this).text().toLowerCase();
+					if(labels[key]) {
+					    $(this).addClass("jq-base");
+					    $(this).css("backgroundColor",labels[key]);
+					    if(opts['pointer']) $(this).css("cursor","pointer");
+					}
+				    }
+				   )
+		   }
+	       }
+	});
+})(jQuery);
+
+
+
+
+
 var Menu;
 function reloadMenuTest() {
   Menu['TEST'] = new Hash(     1, new Hash(
