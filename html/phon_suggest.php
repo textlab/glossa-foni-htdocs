@@ -1,5 +1,6 @@
 
 <?php
+
 include('glossa.inc')
 include('index.inc')
 
@@ -8,6 +9,7 @@ $q = $_GET['q'];
 $orth = $_GET['orth'];
 if($q){
   $conf = "$configdir/$corpus/cgi.conf";
+
   $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
   while(!feof($file)){
     $line = fgets($file);
@@ -15,10 +17,12 @@ if($q){
     $split = split('=', $line);
     $conf_array[trim($split[0])] = trim($split[1]);
   }
+
   $database = $base_config["db_name"];
   $user = $base_config["db_uname"];
   $pass = $base_config["db_pwd"];
   $dbhost = $base_config["db_host"];
+
   $session = mysql_connect ($dbhost . ':/var/lib/mysql/mysql.sock', $user, $pass)
     or die ('I cannot connect to the database because my toes really hurt and I '
 	    . mysql_error());

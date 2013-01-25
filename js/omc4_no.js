@@ -1342,17 +1342,17 @@ Menu['OMC4_NO'] = new Hash(     1, new Hash(
 	    6, new Hash(
          'contents', 'perfect participle',
 	      'type', 'js',
-	      'uri', "addOpt('type','perf~part~v','perfect participle')"
+	      'uri', "addOpt('person~type2','pcp2','perfect participle')"
 ,
        1, new Hash(
             'contents', 'velg',
 	         'type', 'js',
-	         'uri', "addOpt('type','perf~part~v','perfect participle')"
+	         'uri', "addOpt('person~type2','pcp2','perfect participle')"
 	      ),
 	      2, new Hash(
             'contents', 'utelukk',
 	         'type', 'js',
-	         'uri', "addOpt('type','!perf~part~v','!perfect participle')"
+	         'uri', "addOpt('person~type2','pcp2','!perfect participle')"
 	      )
 	   ),
 	    7, new Hash(

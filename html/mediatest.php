@@ -1,4 +1,5 @@
 <?php
+
 include('glossa.inc')
 include('index.inc')
 

@@ -83,6 +83,7 @@ $corpus  = $_GET['corpus'];
 
 //conf
 $conf = "$configdir/$corpus/cgi.conf";
+
 $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 while(!feof($file)){
     $line = fgets($file);
@@ -91,6 +92,7 @@ while(!feof($file)){
     $conf_array[trim($split[0])] = trim($split[1]);
 }
 fclose($file);
+
 $database = $base_config["db_name"];
 $user = $base_config["db_uname"];
 $pass = $base_config["db_pwd"];

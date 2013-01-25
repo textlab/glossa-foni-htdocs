@@ -102,6 +102,7 @@ table.res{
   <div style='float:right;width:150px;height:30px;' id='noCoords'></div>
 
 <?php
+
 include('glossa.inc')
 include('index.inc')
 
@@ -111,6 +112,7 @@ $corpus  = $_GET['corpus'];
 
 //conf
 $conf = "$configdir/dat/$corpus/cgi.conf";
+
 $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 while(!feof($file)){
     $line = fgets($file);
@@ -124,6 +126,7 @@ $database = $base_config["db_name"];
 $user = $base_config["db_uname"];
 $pass = $base_config["db_pwd"];
 $dbhost = $base_config["db_host"];
+
 $tmp_dir = $conf_array["tmp_dir"];
 $tmp_file = $tmp_dir . "tok_inf" . $index . ".tmp";
 $file = fopen($tmp_file, "r") or exit ("Can't open file: $tmp_file");;

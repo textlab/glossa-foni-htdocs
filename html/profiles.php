@@ -48,6 +48,7 @@ table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSo
  </head>
  <body>
 <?php
+
 include('glossa.inc')
 include('index.inc')
 
@@ -94,6 +95,7 @@ foreach (array_keys($_POST) as $key) {
 
 }
 print "-->\n";
+
 $conf = "$configdir/$corpus/cgi.conf";
 
 $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");

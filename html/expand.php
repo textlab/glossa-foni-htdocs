@@ -148,6 +148,7 @@ $database = $base_config["db_name"];
 $user = $base_config["db_uname"];
 $pass = $base_config["db_pwd"];
 $dbhost = $base_config["db_host"];
+
 $cqp_atts = split(" ", $conf_array['corpus_attributes']);
 
 //echo "$dbhost, $user";

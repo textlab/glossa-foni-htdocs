@@ -337,16 +337,6 @@ function reloadMenuScandiasyn() {
 								 )
 						     ),
 					 7, new Hash(
-						     'contents', 'farting',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','farting','farting')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!farting','!farting')"
-								 )
-						     ),
-					 8, new Hash(
 						     'contents', 'front-click',
 						     'type', 'js',
 						     'uri', "addOpt('nlex','front-click','front-click')",
@@ -356,7 +346,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('nlex','!front-click','!front-click')"
 								 )
 						     ),
-					 9, new Hash(
+					 8, new Hash(
 						     'contents', 'groaning',
 						     'type', 'js',
 						     'uri', "addOpt('nlex','groaning','groaning')",
@@ -366,7 +356,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('nlex','!groaning','!groaning')"
 								 )
 						     ),
-					 10, new Hash(
+					 9, new Hash(
 						      'contents', 'hawking',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','hawking','hawking')",
@@ -376,7 +366,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!hawking','!hawking')"
 								  )
 						      ),
-					 11, new Hash(
+					 10, new Hash(
 						      'contents', 'interruption',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','interruption','interruption')",
@@ -386,7 +376,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!interruption','!interruption')"
 								  )
 						      ),
-					 12, new Hash(
+					 11, new Hash(
 						      'contents', 'kissing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','kissing','kissing')",
@@ -396,7 +386,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!kissing','!kissing')"
 								  )
 						      ),
-					 13, new Hash(
+					 12, new Hash(
 						      'contents', 'labial-fricative',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','labial-fricative','labial-fricative')",
@@ -406,7 +396,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!labial-fricative','!labial-fricative')"
 								  )
 						      ),
-					 14, new Hash(
+					 13, new Hash(
 						      'contents', 'labial-vibrant',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','labial-vibrant','labial-vibrant')",
@@ -416,7 +406,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!labial-vibrant','!labial-vibrant')"
 								  )
 						      ),
-					 15, new Hash(
+					 14, new Hash(
 						      'contents', 'laughing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','laughing','laughing')",
@@ -426,7 +416,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!laughing','!laughing')"
 								  )
 						      ),
-					 16, new Hash(
+					 15, new Hash(
 						      'contents', 'laughter',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','laughter','laughter')",
@@ -436,7 +426,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!laughter','!laughter')"
 								  )
 						      ),
-					 17, new Hash(
+					 16, new Hash(
 						      'contents', 'onomatopoetic',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','onomatopoetic','onomatopoetic')",
@@ -446,7 +436,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!onomatopoetic','!onomatopoetic')"
 								  )
 						      ),
-					 18, new Hash(
+					 17, new Hash(
 						      'contents', 'screaming',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','screaming','screaming')",
@@ -456,7 +446,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!screaming','!screaming')"
 								  )
 						      ),
-					 19, new Hash(
+					 18, new Hash(
 						      'contents', 'sibilant',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sibilant','sibilant')",
@@ -466,7 +456,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sibilant','!sibilant')"
 								  )
 						      ),
-					 20, new Hash(
+					 19, new Hash(
 						      'contents', 'sighing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sighing','sighing')",
@@ -476,7 +466,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sighing','!sighing')"
 								  )
 						      ),
-					 21, new Hash(
+					 20, new Hash(
 						      'contents', 'singing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','singing','singing')",
@@ -486,7 +476,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!singing','!singing')"
 								  )
 						      ),
-					 22, new Hash(
+					 21, new Hash(
 						      'contents', 'snapping',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','snapping','snapping')",
@@ -496,7 +486,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!snapping','!snapping')"
 								  )
 						      ),
-					 23, new Hash(
+					 22, new Hash(
 						      'contents', 'sneezing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sneezing','sneezing')",
@@ -506,7 +496,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sneezing','!sneezing')"
 								  )
 						      ),
-					 24, new Hash(
+					 23, new Hash(
 						      'contents', 'sniffing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sniffing','sniffing')",
@@ -516,7 +506,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sniffing','!sniffing')"
 								  )
 						      ),
-					 25, new Hash(
+					 24, new Hash(
 						      'contents', 'spelled',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','spelled','spelled')",
@@ -526,17 +516,17 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!spelled','!spelled')"
 								  )
 						      ),
-					 26, new Hash(
+					 25, new Hash(
 						      'contents', 'sucking sound',
 						      'type', 'js',
-						      'uri', "addOpt('nlex','sucking sound','sucking sound')",
+						      'uri', "addOpt('nlex','sucking-sound','sucking-sound')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('nlex','!sucking sound','!sucking sound')"
+								  'uri', "addOpt('nlex','!sucking-sound','!sucking-sound')"
 								  )
 						      ),
-					 27, new Hash(
+					 26, new Hash(
 						      'contents', 'unclear',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','unclear','unclear')",
@@ -546,7 +536,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!unclear','!unclear')"
 								  )
 						      ),
-					 28, new Hash(
+					 27, new Hash(
 						      'contents', 'uninterpretable',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','uninterpretable','uninterpretable')",
@@ -556,7 +546,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!uninterpretable','!uninterpretable')"
 								  )
 						      ),
-					 29, new Hash(
+					 28, new Hash(
 						      'contents', 'whistling',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','whistling','whistling')",
@@ -566,7 +556,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!whistling','!whistling')"
 								  )
 						      ),
-					 30, new Hash(
+					 29, new Hash(
 						      'contents', 'yawning',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','yawning','yawning')",

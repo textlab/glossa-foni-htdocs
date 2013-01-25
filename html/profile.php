@@ -81,6 +81,7 @@ table.res{
 <body onunload="GUnload()">
 
 <?php
+
 include('glossa.inc')
 include('index.inc')
 
