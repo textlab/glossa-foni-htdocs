@@ -29,7 +29,7 @@ fclose($fp);
 // set up paths
 $root = getGlossaRootURI();
 
-$configdir = $config_values['config_dir'];
+$configdir = $base_config['config_dir'];
 $htmlRoot = $root;
 $cgiRoot = '/cgi-bin' . $root;
 $favicon = '/favicon.ico';

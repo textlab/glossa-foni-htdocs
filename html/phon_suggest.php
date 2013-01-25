@@ -1,8 +1,8 @@
 
 <?php
 
-include('glossa.inc')
-include('index.inc')
+include('glossa.inc');
+include('index.inc');
 
 $corpus = $_GET['corpus'];
 $q = $_GET['q'];

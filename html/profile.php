@@ -82,8 +82,8 @@ table.res{
 
 <?php
 
-include('glossa.inc')
-include('index.inc')
+include('glossa.inc');
+include('index.inc');
 
 $texts["no"]["tit"] = "<h4>Informasjon om informant <i>%s</i> i %skorpuset</h4>\n";
 $texts["en"]["tit"] = "<h4>Informant details for <i>%s</i> in the %s corpus</h4>\n";

@@ -74,8 +74,9 @@ table.res{
   <div id="legend" style="position: absolute; top: 10px; left: 670px; background-color: azure; width: 160px; height: 540px;"><b>Legend</b><br /><br /></div>
 
 <?php
-include('glossa.inc')
-include('index.inc')
+
+include('glossa.inc');
+include('index.inc');
 
 // gets
 $infs  = $_GET['informants'];

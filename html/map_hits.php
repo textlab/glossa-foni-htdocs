@@ -103,8 +103,8 @@ table.res{
 
 <?php
 
-include('glossa.inc')
-include('index.inc')
+include('glossa.inc');
+include('index.inc');
 
 // gets
 $index  = $_GET['informants'];
