@@ -1,6 +1,7 @@
 <?php
-include('glossa.inc')
-include('index.inc')
+
+include('glossa.inc');
+include('index.inc');
 
 $id  = $_GET['line_key']; // the sql-table key for the segment returned by CQP
 $size = $_GET['size']; // context width
