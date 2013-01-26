@@ -7,12 +7,20 @@
 
 
 <?php
-  // ** initialize Glossa ** //  
-  $htmlRoot = 'http://omilia.uio.no/glossa/';
-  $cgiRoot = 'http://omilia.uio.no/cgi-bin/glossa/';
-  $corpus = $_GET['corpus'];
-  $subcorpus = $_GET['subcorpus'];
-  include("glossa.inc");
+
+// include shared functions
+include("glossa.inc");
+
+/* 
+  initialize Glossa 
+  set up corpus var, base urls and paths
+*/
+// this file sets up site specific settings
+include('index.inc');
+
+$corpus = $_GET['corpus'];
+$subcorpus = $_GET['subcorpus'];
+
 ?>
 
 <?php printJsHead();   // ** Glossa ** //   ?>
