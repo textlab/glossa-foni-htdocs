@@ -18,7 +18,8 @@ function getGlossaRootURI() {
   TODO: Do this properly with a library function or similar
  */
 function sanitizeParameter($param) {
-  return ereg_replace("[^A-Za-z0-9]", "", $param);
+  // return ereg_replace("[^A-Za-z0-9]", "", $param);
+  return pg_escape_string($param);
 }
 
 // * initialize * //
