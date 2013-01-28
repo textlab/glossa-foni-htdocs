@@ -8,7 +8,7 @@
  */
 function getGlossaRootURI() {
   $path = $_SERVER["REQUEST_URI"];
-  $root = join('/', array_slice(explode('/', $path), 0, -2));
+  $root = join('/', array_slice(explode('/', $path), 0, -2)) . '/';
 
   return $root;
 }

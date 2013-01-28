@@ -155,17 +155,17 @@ elseif ($corpus == 'upus2' ) {
 
 }
 elseif ($corpus == 'scandiasyn') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."js/extras.js'></script>";
+  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
   echo "<script language='javascript' src='" . $htmlRoot . "/js/scandiasyn.js'></script>";
   echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
 }
 elseif ($corpus == 'amerikanorsk') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."js/extras.js'></script>";
+  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
   echo "<script language='javascript' src='" . $htmlRoot . "/js/amerikanorsk.js'></script>";
   echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
 }
 elseif ($corpus == 'sls') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."js/extras.js'></script>";
+  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
   echo "<script language='javascript' src='" . $htmlRoot . "/js/sls.js'></script>";
   echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
 }
