@@ -1,50 +1,42 @@
+<?php
+
+/**
+ * Retrieves a value from the json config for the various corpora.
+ *
+ * @param string $corpus_name The name of the corpus as specified by Glossa.
+ * @param string $key         The config key (e.g. "charset", "js", etc.)
+ *
+ * @return Either the value for the key from the specified corpus name
+ * (if both corpus name and key exists), or the value for the key from
+ * the default corpus config (if either the corpus name or the key is
+ * unknown).
+ */
+function get_corpus_config($corpus_name, $key) {
+    $conf_all = json_decode(file_get_contents('index_config.json'), true);
+
+    // Retrieve corpus configuration for $corpus_name or 'default'
+    $conf_corpus = array_key_exists($corpus_name, $conf_all) ?
+        $conf_all[$corpus_name] : $conf_all['default'];
+
+    $conf_value = array_key_exists($key, $conf_corpus) ?
+        $conf_corpus[$key] : $conf_all['default'][$key];
+
+    return $conf_value;
+}
+
+function print_corpus_charset($corpus_name) {
+    print get_corpus_config($corpus_name, 'charset');
+}
+
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"  "http://www.w3.org/TR/REC-html40/strict.dtd">
 <html>
- <head>
-<?php 
-$test = False;
-if($_GET['test'] == 'true'){$test = True;}
-if ( $_GET['corpus'] == 'run' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'subtitles' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'quran_mono' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'quran_parallel' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'uncorpora' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'japanese_test' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'japanese_s_test' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'politikk' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'hula' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'skriv' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'mak' ) {
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-5"><?php
-}
-elseif ( $_GET['corpus'] == 'latvian' ) {
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=CP1257"><?php
-}
-else{
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1"><?php
-}
+    <head>
+        <META HTTP-EQUIV="Content-Type"
+              CONTENT="text/html; charset=<?php print_corpus_charset($_GET['corpus']); ?>">
 
+<?php
 // include shared functions
 include("glossa.inc");
 
