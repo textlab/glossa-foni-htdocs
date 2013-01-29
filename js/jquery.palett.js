@@ -44,7 +44,6 @@
             var info = $('<div class="colorpicker-picker-info"></div>');
             var clear = $('<div style="clear:both;"></div>');
             return this.each(function() { // obj is the selected element, in this case <select>
-//                obj = $('#'+txt);
 		obj = $(this);
 		alert('eaching.. ' + obj.attr('id') );
 		for(var i in options.colours){
@@ -53,10 +52,6 @@
                     colors[i].value = options.colours[i];
 		}
                 create_wrap();
-		/*
-                if (options.label != '')
-                    create_label();
-		*/
 		create_label(txt);
                 create_trigger();
                 create_picker();
@@ -106,16 +101,7 @@
                     picker.append('<span class="colorpicker-picker-span ' + (colors[i].color == $(obj).children(":selected").text() ? ' active' : '') + '" rel="' + colors[i].value + '" style="background-color: #' + colors[i].color + '; width: ' + options.size + 'px; height: ' + options.size + 'px;"></span>');
                 }
                 trigger.css('background-color', '#'+$(obj).children(":selected").text());
-/*
-                info.text('#'+$(obj).children(":selected").text());
-                picker.children(".colorpicker-picker-span").hover(function() {
-                    info.text('#' + $(this).attr('rel'));
-                }, function() {
-                    info.text('#' + picker.children('.colorpicker-picker-span.active').attr('rel'));
-                });
-*/
                 picker.delegate(".colorpicker-picker-span", "click", function() {
-//                    info.text('#' + $(this).attr('rel'));
                     $(obj).val($(this).attr('rel'));
                     $(obj).change();
                     picker.children('.colorpicker-picker-span.active').removeClass('active');

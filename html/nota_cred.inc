@@ -7,23 +7,17 @@
 </a>
 </td>
 <td>
-<!--<strong>Norsk talespr&aring;kskorpus<br />Oslodelen<strong>-->
 <strong>Norwegian speech corpus<br />Oslodelen<strong>
 </td>
 </tr>
 <tr><td colspan="2">&nbsp;</td></tr>
 <tr>
 <td valign="center">
-Developed at <!-- <a href='http://www.hf.uio.no/tekstlab/'>The Text Laboratory</a>. -->
+Developed at 
 </td>
 <td align="left">
 <a target="_blank" href='http://www.hf.uio.no/tekstlab'><img style='border-style: none' src='http://omilia.uio.no/img/logo.png' /></a>
 </td>
 </tr>
-<!--
-<tr>
-<td colspan="2"><a href="http://omilia.uio.no/nota">Click here for the old NoTa interface.</a></td>
-</tr>
--->
 </table>
 </div>

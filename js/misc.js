@@ -106,20 +106,19 @@ function toggleSelectAll (truefalse) {
 }
 
 function submitForm() {
+    var w = 630, h = 1200;
 
-         var w = 630, h = 1200;
-         if (window.screen) {
-               w = window.screen.availWidth;
-               h = window.screen.availHeight;
-         }   
+    if (window.screen) {
+        w = window.screen.availWidth;
+        h = window.screen.availHeight;
+    }   
 
-	var ran_number=Math.round(Math.random()*4000000);
-	document.forms[0].target=ran_number;
-	mywin=window.open('',ran_number,'resizable=yes,menubar=yes,scrollbars=yes,toolbar=yes,location=no,directories=no,screenX=5,screenY=5,width='+w+',height='+h);
-	toggleSelectAll(true);
-	document.forms[0].submit();
-	//toggleSelectAll(false);
-
+	  var ran_number=Math.round(Math.random()*4000000);
+	  document.forms[0].target=ran_number;
+	  mywin=window.open('', ran_number, 'resizable=yes,menubar=yes,scrollbars=yes,'
+                      + 'toolbar=yes,location=no,directories=no,screenX=5,screenY=5,width='+w+',height='+h);
+	  toggleSelectAll(true);
+	  document.forms[0].submit();
 }
 
 function submitFormSets(newValue) {

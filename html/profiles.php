@@ -60,7 +60,9 @@ $texts["no"]["sorry"] = "<h4>Beklager, ingen opplysninger om informant <i>%s</i>
 
 $tid  = $_GET['tid'];
 $corpus = "";
+
 print "<!--\nThe \$_POST stuff\n";
+
 foreach (array_keys($_POST) as $key) {
   print "\n";
   if (preg_match( '/corpus$/', $key ) ){ $corpus = $_POST[$key]; continue; }
@@ -94,6 +96,7 @@ foreach (array_keys($_POST) as $key) {
   }
 
 }
+
 print "-->\n";
 
 $conf = "$configdir/$corpus/cgi.conf";
@@ -178,16 +181,8 @@ $wcs = mysql_query($wcs);
 $wcs = mysql_fetch_row($wcs);
 
 $nelts = count($meta);
-
-for($j = 0; $j < $nelts; $j++){
-#  print(" $meta[$j], ucfirst($alias[$j])");
-#    if($j < $nelts){print ",\n";}
-}
-for($j = 0; $j < $nelts; $j++){
-#    printf("$meta[$j]");
-#    if($j < $nelts){print ",\n";}
-}
 ?>
+
 <?php
 if($corpus == 'kven'){$corpus = 'ruija';}
 print "<b>Word count for selected informants: $wcs[0] (total for " . ucfirst($corpus) . " corpus: $total[0])</b>";
@@ -214,13 +209,8 @@ if($corpus != 'nota'){
   if($count[2] == 1){$countries = "country";}
   print " from ". $count[1] . " " . $places . " in " . $count[2] . " " . $countries;
  }
-print "</b><br />\n";
-#foreach ($profile as $value){
-  
-#  print "<td>$value</td>\n";
-  
-#}
 
+print "</b><br />\n";
 
 if(!$profile){
 

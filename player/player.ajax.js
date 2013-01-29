@@ -13,12 +13,6 @@ script3.src = 'http://tekstlab.uio.no/glossa/player/jwplayer.js';
 script3.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script3);
 
-/*
-var script4 = document.createElement('script');
-script4.src = 'http://tekstlab.uio.no/glossa/js/slider.js';
-script4.type = 'text/javascript';
-document.getElementsByTagName('head')[0].appendChild(script4);
-*/
 var media;
 
 var corpusMedia = function(corpus, key, video){
@@ -30,31 +24,31 @@ var corpusMedia = function(corpus, key, video){
     slider = new sliderObject('slider-range','amountl','amountr', corpus, key, this.videop);
     return this;
 }
-corpusMedia.prototype.start = function(){
-    //    alert(this.corpus +","+ this.key+","+ slider.start * -1+","+slider.stop);
+
+corpusMedia.prototype.start = function() {
     if(this.corpus == 'nor1107'){
-	expand(this.corpus, this.key, 0,100, this.videop);
-	return;
+	      expand(this.corpus, this.key, 0,100, this.videop);
+	      return;
     }
+
     if(this.corpus == 'nor_test'){
-	this.corpus = 'nor1107';
-	expand('nor1107', this.key, 0,100, this.videop);
-	return;
+	      this.corpus = 'nor1107';
+	      expand('nor1107', this.key, 0,100, this.videop);
+	      return;
     }
+
     expand(this.corpus, this.key, slider.start * -1,slider.stop, this.videop);
 }
+
 corpusMedia.prototype.test = function(){
     alert(1);
 }
-function shebang(corpus, key, video){
-    //    scrollbox = new divObject(document.getElementById('scrollbox'));
-    //    pops = new popObject(document.getElementById('pops'));
-    //    slider = new sliderObject('slider-range','amountl','amountr', corpus, key);
-    //    alert('start');
+
+function shebang(corpus, key, video) {
     window.media = new corpusMedia(corpus, key, video);
-    //    alert(media.corpus);
     window.media.start();
-   return media;
+
+    return media;
 }
 
 var scrollbox;
@@ -62,28 +56,32 @@ var pops;
 var popObject = function(div){
     this.pops = div;
 }
-popObject.prototype.popDivs = function(arr){
-    while (this.pops.hasChildNodes()) {//remove all existing pops
-	this.pops.removeChild(this.pops.lastChild);
+
+popObject.prototype.popDivs = function(arr) {
+    //remove all existing pops
+    while (this.pops.hasChildNodes()) {
+	      this.pops.removeChild(this.pops.lastChild);
     }
+
     for(var i in arr){
-	var pop = document.createElement("div");
-	pop.className = "tag";
-	pop.setAttribute("id", "player"+i);
-	//	pop.setAttribute("style", "background:#999;color:#000;");
-	inner = "";
-	for(var att in arr[i]){
-	    inner += "<b>" + att + ": </b><i>" + arr[i][att] + "</i><br />";
-	}
-	pop.innerHTML = inner;
-	this.pops.appendChild(pop);
+	      var pop = document.createElement("div");
+	      pop.className = "tag";
+	      pop.setAttribute("id", "player"+i);
+	      inner = "";
+
+	      for(var att in arr[i]){
+	          inner += "<b>" + att + ": </b><i>" + arr[i][att] + "</i><br />";
+	      }
+
+	      pop.innerHTML = inner;
+	      this.pops.appendChild(pop);
     }
 }
+
 var divObject = function(div){
     this.div = div;
     this.id = div.id;
 }
-//    textbox.addRow(Obj.divs.spans[1].ref,Obj.divs.spans[1].spans);
 
 var autoCue = {};
 var finalRow = 0;
@@ -126,24 +124,31 @@ divObject.prototype.addRow = function(i, row, j){
 	this.addRow(i,row,j+1);
     }
 }
-divObject.prototype.addRow_old = function(i, row){
+
+divObject.prototype.addRow_old = function(i, row) {
     var ref = row.ref;
     var seg = row.spans;
     var line = document.createElement("div");
     line.className = 'line';
-    //   line.setAttribute('class', 'line');
-    if(!i){i='0';}
+
+    if (!i) {
+        i='0';
+    }
+
     line.setAttribute('id', 'cp-'+i);
     var r = refDiv(ref);
     var text = segDiv();
+
     for(var i in seg){
-	var span = createSpan(i, seg[i]); 
-	text.appendChild(span);
+	      var span = createSpan(i, seg[i]); 
+	      text.appendChild(span);
     }
+
     line.appendChild(r);
     line.appendChild(text);
     this.div.appendChild(line);
 }
+
 function segDiv(){
     var div = document.createElement("div");
     div.className = "text";
@@ -155,47 +160,50 @@ function refDiv(ref){
     div.className = "ref";
     return div;
 }
-function createSpan(i, content){
+
+function createSpan(i, content) {
     var over = "showTag(arguments[0], player"+i+")";
     var out  = "hideTag(player"+i+")"
     var span = document.createElement("span");
     span.innerHTML = content + "&nbsp;";
-    span.onmouseover = function(){ showTag(arguments[0], "player"+i) };
-    span.onmouseout = function(){ hideTag("player"+i) };
-    //    span.setAttribute("onmouseover", over);
-    //span.setAttribute("onmouseout", out);
+    span.onmouseover = function() {
+        showTag(arguments[0], "player"+i);
+    };
+    
+    span.onmouseout = function() {
+        hideTag("player"+i);
+    };
+
     span.style.marginLeft = '5px';
-    //    span.setAttribute("style", "margin-left: 5px");
+
     return span;
-    //    document.body.appendChild(spanTag);
 }
-function createPlayer(movie_loc, start, duration){
-    //    alert('movie_loc: '+movie_loc+', start: '+start+', duration: '+duration);
+
+function createPlayer(movie_loc, start, duration) {
     var d = duration - start;
-    //            alert('movie_loc:---> '+movie_loc+', start: '+start+', stop: '+duration+', dur: '+d);
-    //    alert('DUR: '+d);
     jwplayer("player").setup({
-	        flashplayer: "http://tekstlab.uio.no/glossa/player/player.swf",
-		file: movie_loc,
-		streamer:"rtmp://stream-prod01.uio.no/vod/",
-		height:300,
-		width:400,
-		start:start,
-		duration:duration,
-		respectduration:true,
-		controlbar:"none",
-		autostart:true,
-		icons:false,
-		volume:100,
-		allowscriptaccess:"never",
-		bufferlength:1,
-		stretching:"uniform",
-		wmode:"opaque",
-		allowfullscreen:false,
-		windowless:true,
-		image:"http://www.hf.uio.no/iln/om/organisasjon/tekstlab/BILDER/logo173.png"
-	});
+	      flashplayer: "http://tekstlab.uio.no/glossa/player/player.swf",
+		    file: movie_loc,
+		    streamer:"rtmp://stream-prod01.uio.no/vod/",
+		    height:300,
+		    width:400,
+		    start:start,
+		    duration:duration,
+		    respectduration:true,
+		    controlbar:"none",
+		    autostart:true,
+		    icons:false,
+		    volume:100,
+		    allowscriptaccess:"never",
+		    bufferlength:1,
+		    stretching:"uniform",
+		    wmode:"opaque",
+		    allowfullscreen:false,
+		    windowless:true,
+		    image:"http://www.hf.uio.no/iln/om/organisasjon/tekstlab/BILDER/logo173.png"
+	  });
 }
+
 function playerReady(obj) {
      player = document.getElementById(obj['id']);
      player.addModelListener('TIME', 'timeHandler')
@@ -251,14 +259,13 @@ function increaseContext(direction){
     createPlayer(movie, start, duration);
 }
 
-function expand(corpus,i,l,r,video){
+function expand(corpus,i,l,r,video) {
     xmlhttp=GetXmlHttpObject();
     if (xmlhttp==null){
-	alert ("Browser does not support HTTP Request");
-	return;
+	      alert ("Browser does not support HTTP Request");
+	      return;
     }
 
-    //    var url="db.php?corpus=scandiasyn&line_key=148196&left="+l+"&right="+r+"&video=1";
     var url="http://tekstlab.uio.no/glossa/player/db.php?corpus="+corpus+"&line_key="+i+"&left="+l+"&right="+r+"&video="+video;
     url=url+"&sid="+Math.random();
     xmlhttp.open("GET",url,true);
@@ -266,7 +273,6 @@ function expand(corpus,i,l,r,video){
     xmlhttp.send(null);
 }
 
-//document.getElementById('php').src = 'db.php?corpus=scandiasyn&line_key=178196&left='+l+'&right='+r+'&video=1';
 function setSelect(left, right){
     document.getElementById('leftSelect').selectedIndex = left;
     document.getElementById('rightSelect').selectedIndex = right;
@@ -288,27 +294,24 @@ function GetXmlHttpObject(){
     }
   return null;
 }
-function stateChanged(){
-  if (xmlhttp.readyState==4){
-      response =  xmlhttp.responseText;
-      //           var Obj = eval('(' + response + ')'); // don't wanna do this, looks well dodgy
-      //var Obj = JSON.parse(response); //for  some reason this doesn't work in IE
-      var Obj = jQuery.parseJSON(response);
-      var mp4 = Obj.mov.movie_loc;
-      //            alert("MP4: "+mp4);
-      var start = Obj.mov.start;
-      var stop = Obj.mov.stop;
-      document.getElementById('timecodes').innerHTML = "start: "+start+ ", stop: "+stop;
-      //      alert('start: '+start+', stop: '+stop);
-      divs = Obj.divs;
-      //      console.log(Obj.divs[0]);
-      //console.log(Obj);
-      scrollbox.addRows(Obj.divs.spans);
-      pops.popDivs(Obj.divs.pops);
-      createPlayer(mp4, start, stop);
-      return;
-  }
+
+function stateChanged() {
+    if (xmlhttp.readyState==4){
+        response =  xmlhttp.responseText;
+        var Obj = jQuery.parseJSON(response);
+        var mp4 = Obj.mov.movie_loc;
+        var start = Obj.mov.start;
+        var stop = Obj.mov.stop;
+        document.getElementById('timecodes').innerHTML = "start: "+start+ ", stop: "+stop;
+        divs = Obj.divs;
+        scrollbox.addRows(Obj.divs.spans);
+        pops.popDivs(Obj.divs.pops);
+        createPlayer(mp4, start, stop);
+
+        return;
+    }
 }
+
 // init select options left and right select
 function initSelect(n){
     var sOptions = {};

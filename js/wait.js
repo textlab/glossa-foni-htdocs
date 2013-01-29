@@ -31,8 +31,6 @@ function writeIt() {
 }
 
 function stopWait() {
-//   	object = document.getElementById("waiting");
-//   	object.innerHTML='';
-	Html="";
-	Finished=1;
+	  Html="";
+	  Finished=1;
 }

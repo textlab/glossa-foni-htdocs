@@ -185,7 +185,8 @@ function findPhons(str, orth){
     xmlhttp.open("GET",url,true);
     xmlhttp.send(null);
 }
-function stateChanged(){
+
+function stateChanged() {
   if (xmlhttp.readyState==4){
     text = xmlhttp.responseText;
     if(!done){
@@ -193,7 +194,6 @@ function stateChanged(){
       return;
     }
     orderResults(text);
-    //    document.getElementById("matches").innerHTML= text;
   }
 }
 
@@ -234,13 +234,13 @@ function GetXmlHttpObject(){
     }
   return null;
 }
-function writeToField(col, row, text){
+
+function writeToField(col, row, text) {
   window.top.document.getElementById("string_"+col+"_"+row).value = text;
   window.top.document.getElementById('layer1').style.visibility = 'hidden';
   var select = window.top.document.getElementById('0_1_select');
   select.options[select.options.length]  = new Option( 'phonetic','w_phon');
   select.style.visibility = 'visible';
-  //  addOpt('w','phon','phonetic');
 }
 
   </script>

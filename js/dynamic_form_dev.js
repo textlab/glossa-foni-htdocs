@@ -5,91 +5,91 @@ var fullQuery;
 var languageSelected = new Array;
 
 function writeWidgetTokenRow() {
-
     curRow++;
 
     var Html = 
-      	"<table style='background-color:#efefef;border-width:1px;border-style:outset;border-color:#afaeae;padding:10px' id='tokenrow_" + curRow + "'>";
+      	"<table style='background-color:#efefef;border-width:1px;border-style:outset;border-color:#afaeae;padding:10px' " +
+        "id='tokenrow_" + curRow + "'>";
 
     if (conf['type'] == 'multilingual') {
-
-	Html += "<tr><td colspan=6> <select title='Choose language of corpus. ' onChange=\"setLanguage(this.selectedIndex,'" + curRow + "')\" id='language" + curRow + "' name='phrase_" + curRow + "_corpus'>";
+	      Html += "<tr><td colspan=6> <select title='Choose language of corpus. ' " +
+            "onChange=\"setLanguage(this.selectedIndex,'" + curRow + "')\" id='language" + curRow + "' name='phrase_" +
+            curRow + "_corpus'>";
 
         for (var k=0;k<languageOpts.length;k++) {		
        	    Html += "<option value='" + languageOpts[k][0] + "'";
-	    if (k == curRow) { 
-		Html += " selected";
-		languageSelected[curRow]=[languageOpts[k][0]];
-	    }
-	    Html += ">" + languageOpts[k][1] + "</option>";
-	}
-	
-	if (curRow > 5) { languageSelected[curRow]=languageOpts[0][0] }
-	    
-       	    Html += "</select>";
 
+            if (k == curRow) { 
+		            Html += " selected";
+		            languageSelected[curRow]=[languageOpts[k][0]];
+	          }
+	          Html += ">" + languageOpts[k][1] + "</option>";
+	      }
+	      
+	      if (curRow > 5) {
+            languageSelected[curRow]=languageOpts[0][0];
+        }
+	      
+       	Html += "</select>";
 
-
- 	if (languageSelected[curRow] != languageSelected[0]) {
-	    Html += "&nbsp; <select title='Choose search mode' id='language1' name='phrase_" + curRow + "_mode' onChange='addTargetLangs()'>"
-       		+ "<option value='match' selected></option>"
-       		+ "<option value='match'>match (default)</option>"
-       		+ "<option value='exclude'>exclude</option>"
-              //   + "<option value='highlight'>highlight</option>"
-       		+ "</select>";
-	    
-	    Html += "<br><input type='checkbox' name='phrase_" + curRow + "_optalign' />optional alignment";
-	}
-	
-	var languageSeen=0;
+ 	      if (languageSelected[curRow] != languageSelected[0]) {
+	          Html += "&nbsp; <select title='Choose search mode' id='language1' name='phrase_" + curRow
+                + "_mode' onChange='addTargetLangs()'>"
+       		      + "<option value='match' selected></option>"
+       		      + "<option value='match'>match (default)</option>"
+       		      + "<option value='exclude'>exclude</option>"
+       		      + "</select>";
+	          
+	          Html += "<br><input type='checkbox' name='phrase_" + curRow + "_optalign' />optional alignment";
+	      }
+	      
+	      var languageSeen=0;
         for (var k=0;k<languageSelected.length-1;k++) {		
-			// var Tmp = languageSelected[k] + ":::" + languageSelected[curRow];
-			// alert(Tmp);
-	    if (languageSelected[k] == languageSelected[curRow]) {
-		languageSeen=1;
-	    } 
-	}		
-	
-	Html += "</td><td id='connectwith_" + curRow + "' style='display:";
-	
-	if (languageSeen) { Html += "block" }
-	    else { Html += "none" }
-		
-		Html += "'> <select title='Choose logical connection to phrases of the same corpus' name='phrase_" + curRow + "_connectBool'>"
-	    + "<option value='and' selected>&nbsp;</option>"
+	          if (languageSelected[k] == languageSelected[curRow]) {
+		            languageSeen=1;
+	          } 
+	      }		
+	      
+	      Html += "</td><td id='connectwith_" + curRow + "' style='display:";
+	      
+	      if (languageSeen) {
+            Html += "block";
+        }
+	      else {
+            Html += "none";
+        }
+		    
+		    Html += "'> <select title='Choose logical connection to phrases of the same corpus' name='phrase_" + curRow
+            + "_connectBool'>"
+	          + "<option value='and' selected>&nbsp;</option>"
             + "<option value='and'>AND (default)</option>"
             + "<option value='or'>OR</option>"
             + "</select></td></tr>";
-	
+	      
     }
     else {
-	Html += "<tr><td></td></tr>";
+	      Html += "<tr><td></td></tr>";
         languageSelected[curRow]=languageOpts[0][0];
     }
-    
 
     if (fullQuery != 'yes') {
-	Html += "<tr><td></td>"
-	    //	    + "<td style='float:left'><nobr><input type='button' id='addbutton_' value='legg til' onClick='writeWidgetToken(" + curRow + ")'></input><br>"
-	    //	    + "<input type='button' id='delbutton_" + curRow + "'  value='fjern' onClick='delWidgetToken(" + curRow + ")'></input></nobr></td>"
-	    + "<td style='float:left'><nobr><input type='button' value='+' onClick='writeWidgetToken(" + curRow + ")'></input><br>"
-	    + "<input type='button' id='delbutton_" + curRow + "'  value='-' onClick='delWidgetToken(" + curRow + ")'></input></nobr></td>"
-
-	    + "</tr></table>"
-	    + "<input type='hidden' name='phrase_number' value='" + curRow + "'></input>";
-
+	      Html += "<tr><td></td>"
+	          + "<td style='float:left'><nobr><input type='button' value='+' onClick='writeWidgetToken(" + curRow
+            + ")'></input><br>"
+	          + "<input type='button' id='delbutton_" + curRow + "'  value='-' onClick='delWidgetToken(" + curRow
+            + ")'></input></nobr></td>"
+	          + "</tr></table>"
+	          + "<input type='hidden' name='phrase_number' value='" + curRow + "'></input>";
     }
-
-
 
     if (conf['type'] == 'multilingual') {	
- 	Html += "<input type='hidden' id='base_corpus' name='phrase_" + curRow + "_corpus' value='" + languageOpts[curRow][0] + "'></input>";
+ 	      Html += "<input type='hidden' id='base_corpus' name='phrase_" + curRow
+            + "_corpus' value='" + languageOpts[curRow][0] + "'></input>";
     }
     else {
-	Html += "<input type='hidden' id='base_corpus' name='phrase_" + curRow + "_corpus' value='" + languageOpts[0][0] + "'></input>";
+	      Html += "<input type='hidden' id='base_corpus' name='phrase_" + curRow + "_corpus' value='"
+            + languageOpts[0][0] + "'></input>";
     }
-    
-    
 
     var queryTable = document.getElementById('query_table');	
     var tableRow = queryTable.insertRow(curRow);
@@ -98,23 +98,22 @@ function writeWidgetTokenRow() {
     tableCell.innerHTML = Html;
     
     tableCounter[curRow] = 0;	
-    
 
     if (fullQuery == 'yes') {
-	Html += "<textarea id=\"fullQuery_" + curRow + "\" name=\"fullQuery_" + curRow + "_string\" cols=\"30\" rows=\"3\"></textarea>";
-	Html += "<input type='hidden' name='phrase_number' value='" + curRow + "'></input>";
-	tableCell.innerHTML = Html;
+	      Html += "<textarea id=\"fullQuery_" + curRow + "\" name=\"fullQuery_" + curRow
+            + "_string\" cols=\"30\" rows=\"3\"></textarea>";
+	      Html += "<input type='hidden' name='phrase_number' value='" + curRow + "'></input>";
+	      tableCell.innerHTML = Html;
     }
     else {
-	writeWidgetToken(curRow);
+	      writeWidgetToken(curRow);
     }
     
     if (curRow == 1) {
-	var objectIdButton = "delRowsButton";
-	var button = document.getElementById(objectIdButton);
-	button.disabled=false;
+	      var objectIdButton = "delRowsButton";
+	      var button = document.getElementById(objectIdButton);
+	      button.disabled=false;
     }
-    
 }
 
 function setLanguage(langIndex,row) {
@@ -196,38 +195,51 @@ function delWidgetToken(row) {
 function chars(textfield,div,chr){
     document.getElementById(textfield).value+=chr;document.getElementById(div).style.display='none'
 }
-function phon_suggest(field){
-    //    window.open("phon_suggest.php?corpus=scandiasyn");
+
+function phon_suggest(field) {
     document.getElementById('phoney').style.visibility = "visible";
 }
 
-//if((conf['corpus_name'] == 'Scandinavian Dialect Corpus'){
-//	<div>
-//}
-
-function specialChars(row, col){
+function specialChars(row, col) {
     var textfield = "string_" + row + "_" + col;
     var div = "chars_" + row + "_" + col;
     var left = 92 + (col - 1) * 168; //92 --- 168
-    var html
-	//	= "<div class=\"domMenu_menuElement\" style=\"width:40px;position:absolute;left:" + left + "px;top:89px\">"
-	= "<div class=\"domMenu_menuElement\" style=\"width:40px;position:relative;left:0px;top:-42px;\">"
-	+ "   <span style=\"cursor:pointer;\" onmouseover=\"document.getElementById('" + div + "').style.display='block'\" onMouseOut=\"document.getElementById('" + div + "').style.display='none'\">זרו&#x2026;&#187;&nbsp;</span>"
-	+ "   <div  class=\"domMenu_menuElement\" id=\"" + div + "\" style=\"height:60px;width:60px;background:#fff;display:none\" onmouseout=\"document.getElementById('" + div + "').style.display='none';\" onmouseover=\"document.getElementById('" + div + "').style.display='block'\">"
-	+ "      <table><tr>"
-	+ "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div + "', 'ז')\">ז</span></td>"
-	+ "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div + "', 'ר')\">ר</span></td>"
-	+ "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div + "', 'ו')\">ו</span></td></tr>"
-	+ "      <tr><td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div + "', 'ה')\">ה</span>"
-	+ "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div + "', 'צ')\">צ</span></td>"
-	+ "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div + "', 'נ')\">נ</span></td></tr>"
-	+ "      <tr><td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div + "', '‏')\">‏</span></td></tr></table>"
-	+ "   </div>"
-    	+ "</div>";
-	//	+ "   <div class=\"domMenu_menuElement\" style=\"width:42px;\"><span onClick=\"phon_suggest('" + textfield + "');\">phonetic</span></div>";
+    var html	= "<div class=\"domMenu_menuElement\" style=\"width:40px;position:relative;left:0px;top:-42px;\">"
+	      + "   <span style=\"cursor:pointer;\" onmouseover=\"document.getElementById('" + div
+        + "').style.display='block'\" onMouseOut=\"document.getElementById('" + div
+        + "').style.display='none'\">זרו&#x2026;&#187;&nbsp;</span>"
+	      + "   <div  class=\"domMenu_menuElement\" id=\"" + div
+        + "\" style=\"height:60px;width:60px;background:#fff;display:none\" onmouseout=\"document.getElementById('" + div
+        + "').style.display='none';\" onmouseover=\"document.getElementById('" + div
+        + "').style.display='block'\">"
+	      + "      <table><tr>"
+	      + "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" "
+        + "onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div
+        + "', 'ז')\">ז</span></td>"
+	      + "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" "
+        + "onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div
+        + "', 'ר')\">ר</span></td>"
+	      + "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" "
+        + "onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div
+        + "', 'ו')\">ו</span></td></tr>"
+	      + "      <tr><td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" "
+        + "onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div
+        + "', 'ה')\">ה</span>"
+	      + "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" "
+        + "onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div
+        + "', 'צ')\">צ</span></td>"
+	      + "      <td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" "
+        + "onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div
+        + "', 'נ')\">נ</span></td></tr>"
+	      + "      <tr><td><span style=\"cursor:pointer;color:#000;\" onMouseOver=\"this.style.background='#fbb';\" "
+        + "onMouseOut=\"this.style.background='#fff';\" onclick=\"chars('" + textfield + "', '" + div
+        + "', '‏')\">‏</span></td></tr></table>"
+	      + "   </div>"
+    	  + "</div>";
+
     return html;
 }
-//document.getElementById('0_1_select').options = new Option("oops",1);
+
 function phonHelp(row, col){
     var textfield = "string_" + row + "_" + col;
     html = "<span onclick=\"setVisible('layer1');getPhonHelp(" + row + ", " + col + ");return false\" class=\"domMenu_menuElement\">phon</span>"; //was -10 & 38
@@ -237,8 +249,8 @@ function phonHelp(row, col){
 function getPhonHelp(row, col){
     document.getElementById('phonetics').src = "http://www.tekstlab.uio.no/glossa/html/phon_suggest.php?corpus=scandiasyn&col=" + col +"&row=" + row;
 }
-function writeWidgetToken(row) {
 
+function writeWidgetToken(row) {
     var languageSel = languageSelected[row];
 
     tableCounter[row]++;
@@ -247,20 +259,23 @@ function writeWidgetToken(row) {
 
     var objectIdButton = "delbutton_" + row;	
     var button = document.getElementById(objectIdButton);
+    
     if (col == 2) {
-	button.disabled=false;
+	      button.disabled=false;
     }
+
     if (col == 1) {
-	button.disabled=true;
+	      button.disabled=true;
     }
     
     tableId="tokenrow_"+row;
     var tableRow = document.getElementById(tableId);
+
     if (domLib_isSafari) {
- 	var tableCell = tableRow.rows[0].insertCell(col);
+ 	      var tableCell = tableRow.rows[0].insertCell(col);
     }
     else {
-	var tableCell = tableRow.rows[1].insertCell(col);
+	      var tableCell = tableRow.rows[1].insertCell(col);
     }
     
     var Html = "<table border='0'><tr>";
@@ -268,75 +283,64 @@ function writeWidgetToken(row) {
     var Display="block";
     
     if (col > 1) {
-	Html += 
+	      Html += 
   	    "<td valign='top'>"
             +  strings[language]['interval'] + ":<br>"
-	    + "<input name=\"token_" + row + "_" + col + "_intmin\" "
-	    +   "id=\"int_" + row + "_" + col + "_words_min\" "
-	    +   "type=\"text\" size=\"1\"></input>" + strings[language]['min'] + "<br>"
-	    + "<input name=\"token_" + row + "_" + col + "_intmax\" "
-	    +   "id=\"int_" + row + "_" + col + "_words_max\" "
-	    +   "type=\"text\" size=\"1\"></input>" + strings[language]['max']
-	    + "</td>";
+	          + "<input name=\"token_" + row + "_" + col + "_intmin\" "
+	          +   "id=\"int_" + row + "_" + col + "_words_min\" "
+	          +   "type=\"text\" size=\"1\"></input>" + strings[language]['min'] + "<br>"
+	          + "<input name=\"token_" + row + "_" + col + "_intmax\" "
+	          +   "id=\"int_" + row + "_" + col + "_words_max\" "
+	          +   "type=\"text\" size=\"1\"></input>" + strings[language]['max']
+	          + "</td>";
     }
     
     var menuName = "menu_" + row + "_" + col;
-    
-
 
     ReloadMenu(languageSel);
     domMenu_data.set(menuName, Menu[languageSel]);
     
     domMenu_settings.set(menuName, new Hash(
-    					    'menuBarWidth', '0%'
-					    ));
+    		'menuBarWidth', '0%'
+		));
     
     var cell=row + "_" + col;
     Html += "<td onMouseOver=\"Cell='" + cell + "'\" valign='top'>"
- 	+ "<input onSelect=\"Cell='" + cell + "'\" type=\"TEXT\" id=\"string_" + row + "_" + col + "\" name=\"token_" + row + "_" + col + "_string\" size=\"12\"></input>"
-	+ (conf['corpus_name'] == 'Nordic Dialect Corpus' ?  specialChars(row, col) : (conf['corpus_name'] == 'NoTa' ? specialChars(row, col) : ''))
-	+ "<div id='" + menuName + "'></div>" + (conf['corpus_name'] == 'Scandinavian Dialect Corpus' ? phonHelp(row,col) : '')
-	+ "<select onMouseOver=\"Cell='" + cell + "'\" name=\"token_"  + row + "_" + col + "_atts\" id=\""  + row + "_" + col + "_select\" style='display:none' multiple size=2 onDblClick=\"remOpt(this)\">"
-	+ "</select>"
-	+ "</td>"
-	+ "</tr></table>";
-    //    Html += specialChars(row, col);
-    //    alert(Html);
+ 	      + "<input onSelect=\"Cell='" + cell + "'\" type=\"TEXT\" id=\"string_" + row + "_" + col
+        + "\" name=\"token_" + row + "_" + col + "_string\" size=\"12\"></input>"
+	      + (conf['corpus_name'] == 'Nordic Dialect Corpus' ?
+           specialChars(row, col) : (conf['corpus_name'] == 'NoTa' ?
+                                     specialChars(row, col) : ''))
+	      + "<div id='" + menuName + "'></div>" + (conf['corpus_name'] == 'Scandinavian Dialect Corpus' ? phonHelp(row,col) : '')
+	      + "<select onMouseOver=\"Cell='" + cell + "'\" name=\"token_"  + row + "_" + col
+        + "_atts\" id=\""  + row + "_" + col + "_select\" style='display:none' multiple size=2 onDblClick=\"remOpt(this)\">"
+	      + "</select>"
+	      + "</td>"
+	      + "</tr></table>";
     
     tableCell.vAlign="top";
     tableCell.innerHTML = Html;
 
     domMenu_activate(menuName);
-    
-
 }
-
-
-
 
 function changeMenu (row,languageName) {
-
     for (var k=0;k<tableCounter[row];k++) {		
-	
-	var j=k+1;
-	
-	  // set row language
-	
-	  // set menu
-	var menuName = "menu_" + row + "_" + j;
+	      var j=k+1;
+	      
+	      // set row language
+	      
+	      // set menu
+	      var menuName = "menu_" + row + "_" + j;
 
-	var menuAnch = document.getElementById(menuName);
-	menuAnch.innerHTML="";
+	      var menuAnch = document.getElementById(menuName);
+	      menuAnch.innerHTML="";
 
-	ReloadMenu(languageName);
-	domMenu_data.set(menuName, Menu[languageName]);
+	      ReloadMenu(languageName);
+	      domMenu_data.set(menuName, Menu[languageName]);
         domMenu_activate(menuName);
-	
     }
-    
 }
-
-
 
 function ReloadMenu(language) {
 
@@ -543,11 +547,5 @@ function ReloadMenu(language) {
     }
 		else if (language == 'SKRIV') {
         reloadMenuSkriv();
-    }
-
-
-
-
-    
-       
+    }       
 }

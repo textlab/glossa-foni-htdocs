@@ -262,7 +262,6 @@ function init2(){
 }
 
 function move(loc){
-    //    var loc = document.getElementById("locs").value;
     current = loc;
     initialize(coordinates[loc]['lat'],coordinates[loc]['lng']);
 }
@@ -278,32 +277,11 @@ function initialize(lati, long) {
     var latSpan = northEast.lat() - southWest.lat();
     var point = new GLatLng(lati,long);
     map.addOverlay(new GMarker(point));
-    //    init2();
 }
-function init() {
 
+function init() {
     map = new GMap2(document.getElementById("map_canvas"));
     map.setCenter(new GLatLng(65.5,17.5), 4);
-    /*
-    GEvent.addListener(map,"click", function(overlay, latlng) {     
-	    if (latlng) { 
-		var myHtml = "The GPoint value is: " + map.fromLatLngToDivPixel(latlng) + " at zoom level " + map.getZoom();
-		map.openInfoWindow(latlng, myHtml);
-	    }
-	});
-    map.addControl(new GSmallMapControl());
-    map.addControl(new GMapTypeControl()); 
-    */
-   /*
-    var bounds = map.getBounds();
-    var southWest = bounds.getSouthWest();
-    var northEast = bounds.getNorthEast();
-    var lngSpan = northEast.lng() - southWest.lng();
-    var latSpan = northEast.lat() - southWest.lat();
-    var point = new GLatLng(lati,long);
-    map.addOverlay(new GMarker(point));
-    init2();
-    */
 }
 
 function animate(){

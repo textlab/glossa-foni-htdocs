@@ -8,13 +8,10 @@ ol { margin:5px 0 15px 16px; padding:0; list-style-type:square; }
     position:absolute;
     top:0px;
       left:400px;
-      /*      width:73%; */
       height:338px;
       background:#eee;
-      /*overflow: -moz-scrollbars-vertical;*/
       overflow-x: hidden;
       overflow-y:scroll;
-      /*     overflow:scroll; */
   }
 #timecodes{
     margin: 0px 3px;
@@ -26,9 +23,7 @@ ol { margin:5px 0 15px 16px; padding:0; list-style-type:square; }
     -moz-border-radius:3px 3px 3px 3px;
     border:1px solid #ddd;
     font-size:12px;
-/*    font-family: 'comic sans ms'; */
     height:20px;
-      /*    width:700px;*/
     margin-right:2px;
     background:#def;
 }
@@ -86,8 +81,3 @@ ol { margin:5px 0 15px 16px; padding:0; list-style-type:square; }
     border:0px solid #f00;
     bottom:3;
 }
-/*
-           <div style="float:left;width:24px;position:absolute;left:6px;bottom:3;"><input type="text" id="amountl" style="border:0; color:#ff2200; font-weight:bold;width:24px;background:#000;" /></div>
-           <div style="float:left;position:absolute;left:194px;width:12px;height:16px;cursor:pointer;border:0px solid #f00;bottom:3;" onclick="alert(player);player.start();"><img src="http://tekstlab.uio.no/glossa/player/Button-Play-icon.png" style="align:bottom;" /></div>
-           <div style="float:right;width:24px;position:absolute;left:378px;bottom:3;"><input type="text" id="amountr" style="border:0; color:#ff2200; font-weight:bold;background:#000;width:20px;" /></div>
-*/

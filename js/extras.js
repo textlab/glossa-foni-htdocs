@@ -8,48 +8,49 @@ function setVisible(obj){
     obj = document.getElementById(obj);
     obj.style.visibility = (obj.style.visibility == 'visible') ? 'hidden' : 'visible';
 }
-function placeIt(obj){
-    alert("OBJ: "+obj);
-	obj = document.getElementById(obj);
-	if (document.documentElement)
-	{
-		theLeft = document.documentElement.scrollLeft;
-		theTop = document.documentElement.scrollTop;
-	}
-	else if (document.body)
-	{
-		theLeft = document.body.scrollLeft;
-		theTop = document.body.scrollTop;
-	}
-	theLeft += x;
-	theTop += y;
-	obj.style.left = theLeft + 'px' ;
-	obj.style.top = theTop + 'px' ;
-	setTimeout("placeIt('layer1')",500);
-}
-//window.onscroll = setTimeout("placeIt('layer1')",500);
 
+function placeIt(obj) {
+    alert("OBJ: "+obj);
+	  obj = document.getElementById(obj);
+	  if (document.documentElement)
+	  {
+		    theLeft = document.documentElement.scrollLeft;
+		    theTop = document.documentElement.scrollTop;
+	  }
+	  else if (document.body)
+	  {
+		    theLeft = document.body.scrollLeft;
+		    theTop = document.body.scrollTop;
+	  }
+	  theLeft += x;
+	  theTop += y;
+	  obj.style.left = theLeft + 'px' ;
+	  obj.style.top = theTop + 'px' ;
+	  setTimeout("placeIt('layer1')",500);
+}
 
 // the content
-  var xmlhttp;
+var xmlhttp;
   
-  function suggest(str){
+function suggest(str) {
     
-  }
-  function findPhons(str){
+}
+
+function findPhons(str) {
     xmlhttp=GetXmlHttpObject();
+
     if (xmlhttp==null){
-      alert ("Browser does not support HTTP Request");
-      return;
+        alert ("Browser does not support HTTP Request");
+        return;
     }
+
     var url="phon_suggest.php?corpus=scandiasyn";
     url=url+"&q="+str;
     url=url+"&sid="+Math.random();
-    //  alert(url);
     xmlhttp.onreadystatechange=stateChanged;
     xmlhttp.open("GET",url,true);
     xmlhttp.send(null);
-  }
+}
 
 function stateChanged(){
   if (xmlhttp.readyState==4){
@@ -69,6 +70,7 @@ function GetXmlHttpObject(){
     }
   return null;
 }
+
 function writeToField(col, row, text){
   window.top.document.getElementById("string_"+col+"_"+row).value += text;
 }

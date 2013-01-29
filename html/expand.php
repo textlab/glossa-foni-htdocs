@@ -168,8 +168,6 @@ mysql_select_db ($database, $session);
 
 $mov = "SELECT audio_file FROM $table WHERE id = $id";          //vid
 
-#print "<script>alert('$mov');</script>";
-
 $lower_bound = $id - $left;#$id - $size;
 $upper_bound = $id + $right;#$id + $size;
 
@@ -182,74 +180,67 @@ $audio_file = $arr[0];
 $context = "SELECT id,begin,end FROM $table WHERE id >= " . $lower_bound . " AND id <= " . $upper_bound .
            " AND audio_file = '" . $audio_file  . "';"; 
 
-#print "<script>alert('" . $context . "');</script>";
-#print "<script>alert('" . $audio_file . "');</script>";
 $fn =filename($audio_file, $video, $corpus);
-#print "<script>alert('" . $corpus . " - " . $movie_loc . $fn . "');</script>";
-
-#bigbrother - rtsp://lillestroem.uio.no/hf/ilf/BB/lyd/BB_d10.mov
-#bigbrother - rtsp://lillestroem.uio.no/hf/ilf/BB/BB_d10_800.mov
 
 $res = mysql_query($context);
 $lower_fixed = 0;
 $begin = 0;
 $end = 10000;
 
-while( $row = mysql_fetch_array($res) ){
+while ( $row = mysql_fetch_array($res) ) {
 
-# check all segments are from same transcription
-# ie, context size could overlap transcription boundary.
-#.. could it?!? even when you check that audio_file is correct?
+  // check all segments are from same transcription
+  // ie, context size could overlap transcription boundary.
+  // .. could it?!? even when you check that audio_file is correct?
 
-    $lid = $row["id"];
+  $lid = $row["id"];
 
-    if(!$lower_fixed){ #check lower_bound first
+  // check lower_bound first
+  if (!$lower_fixed) {
 
-	if( $lid >= $lower_bound ){ $lower_bound = $lid; $begin = $row["begin"]; }
+      if ( $lid >= $lower_bound ) {
+        $lower_bound = $lid; $begin = $row["begin"];
+      }
 
-	$lower_fixed = 1;
-    }
+      $lower_fixed = 1;
+  }
 
-    $upper_bound = $lid;
-    $end = $row["end"];
-
+  $upper_bound = $lid;
+  $end = $row["end"];
 }
 
-# need to make an adjustment. if lower_bound - 1.end > lower_bound.begin, then this should also be played. same for upper_bound
+// need to make an adjustment. if lower_bound - 1.end > lower_bound.begin,
+// then this should also be played. same for upper_bound
 $previousend = "SELECT audio_file, end FROM $table WHERE id = " . ($lower_bound - 1) . ";";
 $nextbegin = "SELECT audio_file, begin FROM $table WHERE id = " . ($lower_bound + 1) . ";";
 
-
 $res = mysql_query($previousend);
 $row = mysql_fetch_array($res);
-if( $row["end"] > $begin and $row["audio_file"] == $audio_file){ $lower_bound -= 1; }
-#print "<script>alert('begin: (" . $begin . "), end: " . $row["end"] . "');</script>";
+
+if ( $row["end"] > $begin and $row["audio_file"] == $audio_file) {
+  $lower_bound -= 1;
+}
+
 $res = mysql_query($nextbegin);
 $row = mysql_fetch_array($res);
-#if( $row["begin"] < $end  and $row["audio_file"] == $audio_file ){ $upper_bound += 1;print "<script>alert('low: " . $lower_bound . ", up: " . $upper_bound. " " . $row["audio_file"] . " " . $audio_file . "');</script>";}
+
 
 ?>
 
 <body>
 
-
 <?php
 
        // TEXT ____________________
 
-if($mode != 'nest'){
+if ($mode != 'nest') {
+  $segs = "SELECT * FROM $table WHERE audio_file = '$audio_file' AND id >= $lower_bound AND id <= $upper_bound";
 
-    $segs = "SELECT * FROM $table WHERE audio_file = '$audio_file' AND id >= $lower_bound AND id <= $upper_bound";
-
-    $segs = mysql_query($segs);
+  $segs = mysql_query($segs);
     
-    $stringy = db2html($segs);
+  $stringy = db2html($segs);
  
-
-    print "<div class=\"txt\">" . $stringy . "</div>";
-
-//print $divs;
-
+  print "<div class=\"txt\">" . $stringy . "</div>";
 }
 
 if($mode == 'nest'){
@@ -266,12 +257,7 @@ if($mode == 'nest'){
  <?php 
 }
 
-      // !TEXT ____________________
-
-
-
-
-     // VIDEO
+// VIDEO
 
 if($mode != 'text'){
 
@@ -284,58 +270,29 @@ if($mode != 'text'){
     $QTstop = mysql_fetch_array($QTstop);
     $QTstop = $QTstop[0];
 ?>
-<script>
-   // alert(<?php echo "'start: $QTstart, stop: $QTstop'" ?>);
-</script>
-<?php
 
-#    $QTstart = sec2QTcode($QTstart);
-#    $QTstop = sec2QTcode($QTstop);
+<?php
    echo "QQTTssttaarrtt: $QTstart";
     $QTstart = secs2hhmmssff($QTstart);
     $QTstop = secs2hhmmssff($QTstop);
-
 ?>
+
 <div class="mov">
-<!--
-<script language="javascript" type="text/javascript">
-
-    var mov = <?php echo "'$movie_loc$fn'";?>;
-    QT_WriteOBJECT( mov, '320', '256', '', 'EnableJavaScript', 'True', 'emb#NAME' , 'movie1' , 'obj#id' , 'movie1') ;
-
-</script>
--->
-
 
 <object  CLASSID='clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B' 
 width='320' height='256' CODEBASE='http://www.apple.com/qtactivex/qtplugin.cab' 
 id='QTplayer'>
 
-<param name='qtsrc' value=<?php
-
-
-echo "'$movie_loc$fn'";
-
-?>>
-
-<param name='starttime' value=<?php
-
-echo "'$QTstart'";
-
-?>>
-<param name='endtime' value=<?php
-
-echo "'$QTstop'";
-
-?>>
+<param name='qtsrc' value=<?php echo "'$movie_loc$fn'"; ?>
+<param name='starttime' value=<?php echo "'$QTstart'"; ?>
+<param name='endtime' value=<?php echo "'$QTstop'"; ?>
 <param name='autoplay' value='true'>
 <param name='loop' value='false'>
 <param name='controller' value='true'>
-<embed src='http://lillestroem.uio.no/hf/ilf/test.mov' qtsrc=<?php
-     
-     echo "'$movie_loc$fn' starttime='$QTstart' endtime='$QTstop'";
-
-?> width='320' height='256' autoplay='true' loop='false' controller='true' pluginspage='http://www.apple.com/quicktime/' name='QTplayer'>
+<embed src='http://lillestroem.uio.no/hf/ilf/test.mov'
+   qtsrc=<?php echo "'$movie_loc$fn' starttime='$QTstart' endtime='$QTstop'"; ?>
+   width='320' height='256' autoplay='true' loop='false' controller='true'
+   pluginspage='http://www.apple.com/quicktime/' name='QTplayer'>
 </embed>
 </object><br />
 
@@ -438,12 +395,11 @@ echo "'$QTstop'";
        }
        // !VIDEO
 ?>
+
 <script language="JavaScript" type="text/javascript">
-//initQT(document.QTplayer);
 indi('start4', '#1a1', 'lr');
 indi('stop4', '#c11', 'lr');
 restart(document.QTplayer, 0);
-
 times();
 </script>
 
@@ -451,29 +407,41 @@ times();
 
 <?php
 
-function filename( $fn, $vid, $corp ){
+function filename( $fn, $vid, $corp ) {
+  $pat = "/^[A-Z]*_/";
+  $fn = preg_replace ( $pat, "", $fn );
+  $pat = "/\.wav/i";
+  $fn = preg_replace ( $pat, "", $fn);
 
-    $pat = "/^[A-Z]*_/";
-    $fn = preg_replace ( $pat, "", $fn );
-    $pat = "/\.wav/i";
-    $fn = preg_replace ( $pat, "", $fn);
-    if($corp == 'bigbrother'){ 
-	$pat = "/_[A-Z]+$/";
-	$fn = preg_replace($pat, "", $fn);
-	$fn = "BB_" . $fn;
+  if ($corp == 'bigbrother') { 
+    $pat = "/_[A-Z]+$/";
+    $fn = preg_replace($pat, "", $fn);
+    $fn = "BB_" . $fn;
+  }
+
+  if ($corp == 'kven') {
+    return $fn . ".mov";
+  }
+
+  if ($corp == 'taus') {
+    return $fn . ".mov";
+  }
+
+  if (!$vid) {
+    if ($corp == "engl2") {
+      return "" . $fn . ".MOV";
     }
-    if($corp == 'kven'){return $fn . ".mov"; }
-    if($corp == 'taus'){ return $fn . ".mov"; }
-    if (!$vid){
-      if($corp == "engl2"){
-	return "" . $fn . ".MOV";
-      }
-      return "lyd/" . $fn . ".mov"; }
-#    print "<script>alert('" . $fn . "');</script>";
-    if( $corp == 'nota' || $corp == 'upus2' || $corp == 'demo' ||  $corp == 'upus'){return $fn . "_320kbps.mov";}
-    return $fn."_800.mov";
-    return $fn."_320kbps.mov";
 
+    return "lyd/" . $fn . ".mov";
+  }
+
+  if ( $corp == 'nota' || $corp == 'upus2' || $corp == 'demo' ||  $corp == 'upus') {
+    return $fn . "_320kbps.mov";
+  }
+
+  return $fn."_800.mov";
+
+  return $fn."_320kbps.mov";
 }
 
 function secs2hhmmssff($sex){
@@ -487,59 +455,80 @@ function secs2hhmmssff($sex){
     return sprintf("%02d:%02d:%02d:%02d",$h,$m,$s,$f);
 }
 
-function sec2QTcode($sex){ // converts second 
-                           // to QuickTime code.
-    $split = split("\.", $sex);
-    $h = $split[0] / 3600;
-    $m = $split[0] % 3600;
-    $s = $m % 60;
-    $m = $m / 60;
-    $d = $split[1];
-    if ( preg_match( "/d\d$/", $d ) ){ $d = $d . "0"; } // must be three digits.
-    $d = floor($d / (1000/30));
-    return sprintf("%02d:%02d:%02d:%02d",$h,$m,$s,$d);
+// converts second 
+// to QuickTime code.
+function sec2QTcode($sex) {
+  $split = split("\.", $sex);
+  $h = $split[0] / 3600;
+  $m = $split[0] % 3600;
+  $s = $m % 60;
+  $m = $m / 60;
+  $d = $split[1];
+  // must be three digits.
+  if ( preg_match( "/d\d$/", $d ) ) {
+    $d = $d . "0";
+  }
 
+  $d = floor($d / (1000/30));
+
+  return sprintf("%02d:%02d:%02d:%02d",$h,$m,$s,$d);
 }
-function db2html($rows){
-    global $cqp_atts;
-    global $id;
-    $j = 0;
-    $table = "<table border=\"0\" width='100%%' class=\"res\">\n%s\n</table>\n";
-    $tr    = "<tr valign='top' bgcolor='%s'>\n<td>%s</td>\n<td><span style='color:%s;font-weight:%s'>%s</span></td>\n</tr>\n";
-    $color = "#000";
-    $bgcolor = "#ffffff";
-    $last_ref = 0;
-    $fill = "";
-    $weight = "normal";
 
-    $divs = "";
-    while($row=mysql_fetch_array($rows)){
-	$pretty = "";
-	$ref=$row["ref"];
-	$begin=$row["begin"];
-	$end=$row["end"];
+function db2html($rows) {
+  global $cqp_atts;
+  global $id;
+  $j = 0;
+  $table = "<table border=\"0\" width='100%%' class=\"res\">\n%s\n</table>\n";
+  $tr    = "<tr valign='top' bgcolor='%s'>\n<td>%s</td>\n<td><span style='color:%s;font-weight:%s'>%s</span></td>\n</tr>\n";
+  $color = "#000";
+  $bgcolor = "#ffffff";
+  $last_ref = 0;
+  $fill = "";
+  $weight = "normal";
 
-	$seg = $row["seg"];
-	$toks = split("]", $seg);
-	foreach($toks as $tok){
-	    $divs .= popdiv($j, $tok, $cqp_atts);
-	    $pretty .= span ($j++, $tok);
-	}
-	if($ref != $last_ref){
-	    if($bgcolor == "#ffffff"){$bgcolor="#ffffff";}
-	    else{$bgcolor="#ffffff";}	    
-	}
-	if($row["id"] == $id){$color = "#a00";$weight = "bold";}
-	else{$color = "#000";$weight = "normal";}
-	$fill .= sprintf($tr, $bgcolor, $ref, $color, $weight, $pretty);
-	//		$fill .= "<tr valign='top' bgcolor='$bgcolor'>\n<td>$ref</td>".
-	//	    "<td><font color='$color'>$seg</font></td>\n</tr>\n";
-	$last_ref = $ref;
+  $divs = "";
+
+  while ($row=mysql_fetch_array($rows)) {
+	  $pretty = "";
+    $ref=$row["ref"];
+    $begin=$row["begin"];
+    $end=$row["end"];
+
+    $seg = $row["seg"];
+    $toks = split("]", $seg);
+
+    foreach ($toks as $tok) {
+      $divs .= popdiv($j, $tok, $cqp_atts);
+      $pretty .= span ($j++, $tok);
+	  }
+
+    if ($ref != $last_ref) {
+      if ($bgcolor == "#ffffff") {
+        $bgcolor="#ffffff";
+      }
+      else {
+        $bgcolor="#ffffff";
+      }	    
+	  }
+
+	  if ($row["id"] == $id) {
+      $color = "#a00";
+      $weight = "bold";
+    }
+    else {
+      $color = "#000";
+      $weight = "normal";
     }
 
-    $table =  sprintf($table, $fill);
-    return $table . "\n" . $divs;
+    $fill .= sprintf($tr, $bgcolor, $ref, $color, $weight, $pretty);
+   	$last_ref = $ref;
+  }
+
+  $table =  sprintf($table, $fill);
+
+  return $table . "\n" . $divs;
 }
+
 function popdiv($i, $tok, $atts){
 
     $tok = preg_replace("/^\[/", "", $tok);
