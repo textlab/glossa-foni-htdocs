@@ -223,7 +223,7 @@
             "scandiademo.js"
         ],
         "inc" : ["scandiasyn.inc"] ,
-        "inc" : ["sls.inc"],
+
         "credentials" : "scandiasyn_cred.inc"
     },
     "skriv" : {
@@ -302,6 +302,7 @@
     "default" : {
         "charset" : "ISO-8859-1",
         "credentials" : "test_cred.inc",
+        "uilang" : "no",
         "js" : [],
         "inc" : []
     }   

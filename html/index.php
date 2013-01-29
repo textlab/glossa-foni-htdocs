@@ -52,11 +52,9 @@ $uilang = sanitizeParameter($_GET['uilang']);
 $def_base_corpus = strtoupper($corpus);
 $subcorpus = sanitizeParameter($_GET['subcorpus']);
 
-if(!$uilang){
-    $uilang = 'no';
-}
 if($corpus == 'ruija'){$_GET['corpus'] = 'kven';$corpus = 'kven';}
-if($corpus == 'scandiasyn' || $corpus == 'amerikanorsk' || $corpus == 'scandiademo' || $corpus == 'kven' || $corpus == 'omc4' || $corpus == 'taus' || $corpus == 'engl2' || $corpus == 'run' || $corpus == 'sls' || $corpus == 'subtitles'){ $uilang = 'en'; }
+
+$uilang = get_corpus_config($corpus, 'uilang');
 
 ?>
  <!--<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css">-->
