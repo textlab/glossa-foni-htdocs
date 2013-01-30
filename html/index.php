@@ -28,13 +28,18 @@ function print_corpus_charset($corpus_name) {
     print get_corpus_config($corpus_name, 'charset');
 }
 
-function print_corpus_menu_scripts($corpus_name, $htmlroot) {
-#  global $htmlroot;
+function print_corpus_menu_scripts($corpus_name, $html_root) {
   $script_names = get_corpus_config($corpus_name, 'js');
-  print "HTMLROOT: " . $htmlroot;
   foreach ($script_names as $fn) {
-    print "<script language='javascript' src='" . $htmlroot . "/js/" . $fn . "'></script>";
+    print "<script language='javascript' src='" . $html_root . "/js/" . $fn . "'></script>";
   }
+}
+
+function include_corpus_tables($corpus_name) {
+    $inc_names = get_corpus_config($corpus_name, 'inc');
+    foreach ($inc_names as $fn) {
+        include($fn);
+    }
 }
 
 ?>
@@ -203,111 +208,7 @@ else{
 -->
 <tr><td style="background-color:#efefef;border-width:1px;border-style:solid;border-color:#afaeae" valign="top">
 
-<?php 
-
-
-
-if ( $corpus == 'politikk' ) {
-  include("politikk.inc");
-}
-elseif ( $corpus == 'subtitles' ) {
-  include("hula.inc");
-}
-elseif ( $corpus == 'hula' ) {
-  include("hula.inc");
-}
-elseif ( $corpus == 'test' ) {
-  include("test.inc");
-}
-elseif ( $corpus == 'omc' ) {
-  include("omc.inc");
-}
-elseif ( $corpus == 'omc4' ) {
-  include("omc.inc");
-}
-elseif ( $corpus == 'run' ) {
-  include("run.inc");
-}
-elseif ( $corpus == 'sami' ) {
-
-}
-elseif ( $corpus == 'nota') {
-  include("nota.inc");
-}
-elseif ( $corpus == 'demo') {
-  include("demo.inc");
-}
-elseif ( $corpus == 'amerikanorsk') {
-  include("amerikanorsk.inc");
-}
-elseif ( $corpus == 'scandiasyn' || $corpus == 'scandiademo') {
-  include("scandiasyn.inc");
-}
-elseif ( $corpus == 'sls' ) {
-  include("sls.inc");
-}
-elseif ( $corpus == 'kven' ) {
-  include("kven.inc");
-}
-elseif ( $corpus == 'engl2' ) {
-  include("engl2.inc");
-}
-elseif ( $corpus == 'bigbrother' ) {
-  include("bigbrother.inc");
-}
- elseif ( $corpus == 'upus' ) { 
-  include("upus.inc");
-}
-elseif ( $corpus == 'upus2' ) {
-  include("upus2.inc");
-}
- elseif ( $corpus == 'taus' ) {
-  include("taus.inc");
-}
-elseif ( $corpus == 'elevtekster' ) {
-  include("elevtekster.inc");
-}
-elseif ( $corpus == 'bokmal' ) {
-  include("bokmal.inc");
-}
-elseif ( $corpus == 'bokmal_test' ) {
-  include("bokmal_test.inc");
-}
-elseif ( $corpus == 'samno' ) {
-  include("samno.inc");
-}
-
-elseif ( $corpus == 'bul' ) {
-  include("bul.inc");
-}
-elseif ( $corpus == 'euro_news_fr1' ) {
-  include("euro_news_fr1.inc");
-}
-elseif ( $corpus == 'euro_news_fr2' ) {
-  include("euro_news_fr2.inc");
-}
-elseif ( $corpus == 'usenet' ) {
-  include("usenet.inc");
-}
-elseif ( $corpus == 'mak' ) {
-  include("mak.inc");
-}
-elseif ( $corpus == 'latvian' ) {
-  include("latvian.inc");
-}
-elseif ( $corpus == 'musikk' ) {
-  include("musikk.inc");
-}
-elseif ( $corpus == 'mme' ) {
-  include("mme.inc");
-}
-elseif ( $corpus == 'skriv' ) {
-  include("skriv.inc");
-}
-
-?>
-
-
+<?php include_corpus_tables($corpus); ?>
 
 </td>
 
