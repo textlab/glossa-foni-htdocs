@@ -162,7 +162,8 @@
     },
     "scandiademo" : { 
         "uilang"      : "en",
-        "js"          : [ "scandiademo.js" ]
+        "js"          : [ "scandiademo.js" ],
+        "inc"         : [ "scandiasyn.inc" ]
     },
     "scandiasyn" : {
         "uilang"      : "en",
@@ -183,6 +184,7 @@
     "sls" : { 
         "uilang"      : "en",
         "js"          : [ "extras.js", "sls.js" ],
+        "inc"         : [ "sls.inc" ],
         "credentials" : [ "sls_cred.inc" ],
         "css"         : [ "extras.css" ]
     },
