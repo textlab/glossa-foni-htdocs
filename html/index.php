@@ -42,6 +42,13 @@ function include_corpus_tables($corpus_name) {
     }
 }
 
+function include_corpus_credentials($corpus_name) {
+    $credentials_names = get_corpus_config($corpus_name, 'credentials');
+    foreach ($credentials_names as $fn) {
+        include($fn);
+    }
+}
+
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"  "http://www.w3.org/TR/REC-html40/strict.dtd">
@@ -190,13 +197,6 @@ else{
     </script>
      </td>
 </tr>
-
-
-
-
-
-
-
 
 <?php if(strpos($corpus, 'euro_news_fr') === false) { ?>
 
@@ -374,81 +374,7 @@ Please report bugs and errors <a href="https://nettskjema.uio.no/answer.html?fid
 </td>
 <td valign='top'>
 
-<?php
-
-if ( $corpus == 'test' ) {
-  include("test_cred.inc");
-}
-elseif ( $corpus == 'omc' ) {
-  include("omc_cred.inc");
-}
-elseif ( $corpus == 'omc4' ) {
-  include("omc_cred.inc");
-}
-elseif ( $corpus == 'run' ) {
-  include("run_cred.inc");
-}
-elseif ( $corpus == 'sami' ) {
-
-}
-elseif ( $corpus == 'bokmal' ) {
-
-}
-elseif ( $corpus == 'samno' ) {
-  include("samno_cred.inc");
-}
-elseif ( $corpus == 'upus' ) {
-  include("upus_cred.inc");
-}
-elseif ( $corpus == 'taus' ) {
-  include("taus_cred.inc");
-}
-
-elseif ( $corpus == 'snakkis' ) {
-  include("snakkis_cred.inc");
-}
-
-elseif ( $corpus == 'nota') {
-  include("nota_cred.inc");
-}
-
-elseif ( $corpus == 'demo' ) {
-  include("demo_cred.inc");
-}
-elseif ( $corpus == 'scandiasyn' || $corpus == 'scandiasyn' ) {
-  include("scandiasyn_cred.inc");
-}
-elseif ( $corpus == 'amerikanorsk' ) {
-  include("amerikanorsk_cred.inc");
-}
-elseif ( $corpus == 'sls' ) {
-  include("sls_cred.inc");
-}
-elseif ( $corpus == 'kven' ) {
-  include("kven_cred.inc");
-}
-elseif ( $corpus == 'engl2' ) {
-  include("engl2_cred.inc");
-}
-elseif ( $corpus == 'bigbrother' ) {
-  include("bigbrother_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr1' ) {
-  include("euro_news_fr1_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr2' ) {
-  include("euro_news_fr2_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr3' ) {
-  include("euro_news_fr3_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr4' ) {
-  include("euro_news_fr4_cred.inc");
-}
-elseif ( $corpus == 'skriv' ) {
-  include("skriv_cred.inc");
-}
-?>
+<?php include_corpus_credentials($corpus); ?>
 
 </td>
 </tr>
