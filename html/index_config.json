@@ -13,11 +13,13 @@
     },
     "bokmal" : {
         "js"          : [ "bokmal.js" ],
-        "inc"         : [ "bokmal.inc" ] 
+        "inc"         : [ "bokmal.inc" ],
+        "credentials" : [ "bokmal_cred.inc" ]
     },
     "bokmal_test" : {
         "js"          : [ "bokmal_test.js" ],
-        "inc"         : [ "bokmal_test.inc" ] 
+        "inc"         : [ "bokmal_test.inc" ],
+        "credentials" : [ "bokmal_cred.inc" ] 
     },
     "bul" : {
         "js"          : [ "bul.js" ],
