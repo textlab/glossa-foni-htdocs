@@ -1,148 +1,108 @@
 {
     "amerikanorsk" : {
-        "uilang" : "en",
-        "inc" : ["amerikanorsk.inc"],
-        "credentials" : "amerikanorsk_cred.inc"
+        "uilang"      : "en",
+        "js"          : [ "extras.js", "amerikanorsk.js"  ],
+        "inc"         : [ "amerikanorsk.inc" ],
+        "credentials" : [ "amerikanorsk_cred.inc" ],
+        "css"         : [ "extras.css" ]
     },
     "bigbrother" : {
-        "js" : [
-            "bigbrother.js"
-        ],
-        "inc" : ["bigbrother.inc"],
-        "credentials" : "bigbrother_cred.inc"
+        "js"          : [ "bigbrother.js" ],
+        "inc"         : [ "bigbrother.inc" ],
+        "credentials" : [ "bigbrother_cred.inc" ]
     },
     "bokmal" : {
-        "js" : [
-            "bokmal.js"
-        ],
-        "inc" : ["bokmal.inc"] 
+        "js"          : [ "bokmal.js" ],
+        "inc"         : [ "bokmal.inc" ] 
     },
     "bokmal_test" : {
-        "js" : [
-            "bokmal_test.js"
-        ],
-        "inc" : ["bokmal_test.inc"] 
+        "js"          : [ "bokmal_test.js" ],
+        "inc"         : [ "bokmal_test.inc" ] 
     },
     "bul" : {
-        "js" : [
-            "bul.js"
-        ],
-        "inc" : ["bul.inc"] 
+        "js"          : [ "bul.js" ],
+        "inc"         : [ "bul.inc" ] 
     },
     "damos" : {
-        "js" : [
-            "damos.js"
-        ]
+        "js"          : [ "damos.js" ]
     },
     "demo" : {
-        "js" : [
-            "demo.js"
-        ],
-        "inc" : ["demo.inc"],
-        "credentials" : "demo_cred.inc"
+        "js"          : [ "demo.js" ],
+        "inc"         : [ "demo.inc" ],
+        "credentials" : [ "demo_cred.inc" ]
     },
     "elevtekster" : {
-        "js" : [
-            "elevtekster.js"
-        ],
-        "inc" : ["elevtekster.inc"] 
+        "js"          : [ "elevtekster.js" ],
+        "inc"         : [ "elevtekster.inc" ] 
     },
     "engl2" : {
-        "uilang" : "en",
-        "js" : [
-            "engl2.js"
-        ],
-        "inc" : ["engl2.inc"],
-        "credentials" : "engl2_cred.inc"
+        "uilang"      : "en",
+        "js"          : [ "engl2.js" ],
+        "inc"         : [ "engl2.inc" ],
+        "credentials" : [ "engl2_cred.inc" ]
     },
     "euro_news_fr1" : {
-        "js" : [
-            "euro_news_fr1.js"
-        ],
-        "inc" : ["euro_news_fr1.inc"],
-        "credentials" : "euro_news_fr1_cred.inc"
+        "js"          : [ "euro_news_fr1.js" ],
+        "inc"         : [ "euro_news_fr1.inc" ],
+        "credentials" : [ "euro_news_fr1_cred.inc" ]
     },
     "euro_news_fr2" : {
-        "js" : [
-            "euro_news_fr2.js"
-        ],
-        "inc" : ["euro_news_fr2.inc"],
-        "credentials" : "euro_news_fr2_cred.inc"
+        "js"          : [ "euro_news_fr2.js" ],
+        "inc"         : [ "euro_news_fr2.inc" ],
+        "credentials" : [ "euro_news_fr2_cred.inc" ]
     },
     "euro_news_fr3" : {
-        "js" : [
-            "euro_news_fr3.js"
-        ],
-        "credentials" : "euro_news_fr3_cred.inc"
+        "js"          : [ "euro_news_fr3.js" ],
+        "credentials" : [ "euro_news_fr3_cred.inc" ]
     },
     "euro_news_fr4" : {
-        "js" : [
-            "euro_news_fr4.js"
-        ],
-        "credentials" : "euro_news_fr4_cred.inc"
+        "js"          : [ "euro_news_fr4.js" ],
+        "credentials" : [ "euro_news_fr4_cred.inc" ]
     },
     "hula" : { 
-        "charset" : "UTF-8",
-        "js" : [
-            "hula.js"
-        ],
-        "inc" : ["hula.inc"] 
+        "charset"     : "UTF-8",
+        "js"          : [ "hula.js" ],
+        "inc"         : [ "hula.inc" ] 
     },
     "japanese_test" : {
-        "charset" : "UTF-8",
-        "js" : [
-            "japanese_test.js"
-        ]
+        "charset"     : "UTF-8",
+        "js"          : [ "japanese_test.js" ]
     },
     "japanese_s_test" : { 
-        "charset" : "UTF-8",
-        "js" : [
-            "japanese_s_test.js"
-        ]
+        "charset"     : "UTF-8",
+        "js"          : [ "japanese_s_test.js" ]
     },
     "kven" : {
-        "uilang" : "en",
-        "js" : [
-            "kven.js"
-        ],
-        "inc" : ["kven.inc"],
-        "credentials" : "kven_cred.inc"
+        "uilang"      : "en",
+        "js"          : [ "kven.js" ],
+        "inc"         : [ "kven.inc" ],
+        "credentials" : [ "kven_cred.inc" ]
     },
     "latvian" : {
-        "charset" : "CP1257",
-        "js" : [
-            "latvian.js"
-        ],
-        "inc" : ["latvian.inc"] 
+        "charset"     : "CP1257",
+        "js"          : [ "latvian.js" ],
+        "inc"         : [ "latvian.inc" ] 
     },
     "mak" : {
-        "charset" : "ISO-8859-5",
-        "js" : [
-            "mak.js"
-        ],
-        "inc" : ["mak.inc"] 
+        "charset"     : "ISO-8859-5",
+        "js"          : [ "mak.js" ],
+        "inc"         : [ "mak.inc" ] 
     },
     "musikk" : {
-        "js" : [
-            "musikk.js"
-        ],
-        "inc" : ["musikk.inc"] 
+        "js"          : [ "musikk.js" ],
+        "inc"         : [ "musikk.inc" ] 
     },
     "mme" : {
-        "js" : [
-            "mme.js"
-        ],
-        "inc" : ["mme.inc"] 
+        "js"          : [ "mme.js" ],
+        "inc"         : [ "mme.inc" ] 
     },
     "nota" : {
-        "js" : [
-            "nota.js"
-        ],
-        "inc" : ["nota.inc"],
-        "credentials" : "nota_cred.inc"
+        "js"          : [ "nota.js" ],
+        "inc"         : [ "nota.inc" ],
+        "credentials" : [ "nota_cred.inc" ]
     },
     "omc" : {
-        "js" : [
+        "js"          : [
             "omc_en.js",
             "omc_fr.js",
             "omc_de.js",
@@ -150,12 +110,12 @@
             "omc_no.js",
             "omc_po.js"
         ],
-        "inc" : ["omc.inc"],
-        "credentials" : "omc_cred.inc"
+        "inc"         : [ "omc.inc" ],
+        "credentials" : [ "omc_cred.inc" ]
     },
     "omc4" : {
-        "uilang" : "en",
-        "js" : [
+        "uilang"      : "en",
+        "js"          : [
             "omc4_en.js",
             "omc4_fr.js",
             "omc4_de.js",
@@ -163,31 +123,24 @@
             "omc4_no.js",
             "omc4_po.js"
         ],
-        "inc" : ["omc.inc"],
-        "credentials" : "omc_cred.inc"
+        "inc"         : [ "omc.inc" ],
+        "credentials" : [ "omc_cred.inc" ]
     },
     "politikk" : { 
-        "charset" : "UTF-8",
-        "js" : [
-            "politikk.js"
-        ],
-        "inc" : ["politikk.inc"] 
+        "charset"     : "UTF-8",
+        "js"          : [ "politikk.js" ],
+        "inc"         : [ "politikk.inc" ] 
     },
     "quran_mono" : {
-        "js" : [
-            "quran_mono.js"
-        ]
+        "js"          : [ "quran_mono.js" ]
     },
     "quran_parallel" : {
-        "js" : [
-            "quran_mono.js",
-            "quran_eng.js"
-        ]
+        "js"          : [ "quran_mono.js", "quran_eng.js" ]
     },
     "run" : {
-        "charset" : "UTF-8",
-        "uilang" : "en",
-        "js" : [
+        "charset"     : "UTF-8",
+        "uilang"      : "en",
+        "js"          : [
             "run_no.js",
             "run_ru.js",
             "run_en.js",
@@ -199,76 +152,63 @@
             "run_se.js",
             "run_de.js"
         ],
-        "inc" : ["run.inc"],
-        "credentials" : "run_cred.inc"
+        "inc"         : [ "run.inc" ],
+        "credentials" : [ "run_cred.inc" ]
     },
     "samno" : {
-        "js" : [
-            "samno_samisk.js",
-            "samno_norsk.js"
-        ],
-        "inc" : ["samno.inc"],
-        "credentials" : "samno_cred.inc"
+        "js"          : [ "samno_samisk.js", "samno_norsk.js" ],
+        "inc"         : [ "samno.inc" ],
+        "credentials" : [ "samno_cred.inc" ]
     },
-    "scandiademo" : { "uilang" : "en" },
+    "scandiademo" : { 
+        "uilang"      : "en",
+        "js"          : [ "scandiademo.js" ]
+    },
     "scandiasyn" : {
-        "uilang" : "en",
-        "js" : [
+        "uilang"      : "en",
+        "js"          : [
             "extras.js",
-            "scandiasyn.js",
-            "extras.js",
-            "amerikanorsk.js",
-            "extras.js",
-            "sls.js",
-            "scandiademo.js"
+            "scandiasyn.js"
         ],
-        "inc" : ["scandiasyn.inc"] ,
-
-        "credentials" : "scandiasyn_cred.inc"
+        "inc"         : [ "scandiasyn.inc" ] ,
+        "credentials" : [ "scandiasyn_cred.inc" ],
+        "css"         : [ "extras.css" ]
     },
     "skriv" : {
-        "charset" : "UTF-8",
-        "js" : [
-            "skriv.js"
-        ]
-        ,
-        "inc" : ["skriv.inc"],
-        "credentials" : "skriv_cred.inc"
+        "charset"     : "UTF-8",
+        "js"          : [ "skriv.js" ],
+        "inc"         : [ "skriv.inc" ],
+        "credentials" : [ "skriv_cred.inc" ]
     },
     "sls" : { 
-        "uilang" : "en",
-        "credentials" : "sls_cred.inc" 
+        "uilang"      : "en",
+        "js"          : [ "extras.js", "sls.js" ],
+        "credentials" : [ "sls_cred.inc" ],
+        "css"         : [ "extras.css" ]
     },
     "snakkis" : {
-        "credentials" : "snakkis_cred.inc" 
+        "credentials" : [ "snakkis_cred.inc" ]
     },
     "subtitles" : {
-        "charset" : "UTF-8",
-        "uilang" : "en",
-        "js" : [
-            "subtitles_no.js",
-            "subtitles_en.js"
-        ],
-        "inc" : ["hula.inc"] 
+        "charset"     : "UTF-8",
+        "uilang"      : "en",
+        "js"          : [ "subtitles_no.js", "subtitles_en.js" ],
+        "inc"         : [ "hula.inc" ] 
     },
     "taus" : {
-        "uilang" : "en",
-        "js" : [
-            "taus.js"
-        ],
-        "inc" : ["taus.inc"],
-        "credentials" : "taus_cred.inc"
+        "uilang"      : "en",
+        "js"          : [ "taus.js" ],
+        "inc"         : [ "taus.inc" ],
+        "credentials" : [ "taus_cred.inc" ]
     },
     "test" : {
-        "js" : [
-            "test.js"
-        ],
-        "inc" : ["test.inc"],
-        "credentials" : ["test_cred.inc"]
+        "js"          : [ "test.js" ],
+        "inc"         : [ "test.inc" ],
+        "credentials" : [ "test_cred.inc" ]
     },
     "uncorpora" : {
-        "charset" : "UTF-8",
-        "js" : [
+        "charset"     : "UTF-8",
+        "js"          : [
             "uncorpora_ar.js",
             "uncorpora_en.js",
             "uncorpora_es.js",
@@ -278,33 +218,27 @@
         ]
     },
     "upus" : {
-        "js" : [
-            "upus.js"
-        ],
-        "inc" : ["upus.inc"],
-        "credentials" : "upus_cred.inc"
+        "js"          : [ "upus.js" ],
+        "inc"         : [ "upus.inc" ],
+        "credentials" : [ "upus_cred.inc" ]
     },
     "upus2" : {
-        "js" : [
-            "upus2.js"
-        ],
-        "inc" : ["upus2.inc"] 
+        "js"          : [ "upus2.js" ],
+        "inc"         : [ "upus2.inc" ] 
     },
     "usenet" : {
-        "js" : [
-            "usenet.js"
-        ],
-        "inc" : ["usenet.inc"] 
+        "js"          : [ "usenet.js" ],
+        "inc"         : [ "usenet.inc" ] 
     },
     "quran_mono" : { "charset" : "UTF-8" },
     "quran_parallel" : { "charset" : "UTF-8" },
 
     "default" : {
-        "charset" : "ISO-8859-1",
-        "credentials" : "test_cred.inc",
-        "uilang" : "no",
-        "js" : [],
-        "inc" : []
+        "charset"     : "ISO-8859-1",
+        "credentials" : [ "test_cred.inc" ],
+        "uilang"      : "no",
+        "js"          : [],
+        "inc"         : []
     }   
 }
 
