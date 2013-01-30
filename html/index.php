@@ -28,6 +28,15 @@ function print_corpus_charset($corpus_name) {
     print get_corpus_config($corpus_name, 'charset');
 }
 
+function print_corpus_menu_scripts($corpus_name, $htmlroot) {
+#  global $htmlroot;
+  $script_names = get_corpus_config($corpus_name, 'js');
+  print "HTMLROOT: " . $htmlroot;
+  foreach ($script_names as $fn) {
+    print "<script language='javascript' src='" . $htmlroot . "/js/" . $fn . "'></script>";
+  }
+}
+
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"  "http://www.w3.org/TR/REC-html40/strict.dtd">
@@ -74,194 +83,7 @@ var a = "<meta http-equiv='Content-Type' content='text/html;charset=" + charset 
 
 </script>
 
-<?php 
-
-// * get menus * // 
-
-if ( $corpus == 'hula' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/hula.js'></script>";
-}
-elseif ( $corpus == 'subtitles' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/subtitles_no.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/subtitles_en.js'></script>";
-}
-elseif ( $corpus == 'politikk' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/politikk.js'></script>";
-}
-elseif ( $corpus == 'test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/test.js'></script>";
-}
-elseif ( $corpus == 'omc' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_fr.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_de.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_nl.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_no.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_po.js'></script>";
-
-}
-elseif ( $corpus == 'omc4' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_fr.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_de.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_nl.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_no.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_po.js'></script>";
-}
-elseif ( $corpus == 'run' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_no.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_ru.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_bg.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_bc.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_pl.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_fr.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_it.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_se.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_de.js'></script>";
-}
-elseif ( $corpus == 'sami' ) {
-
-}
-elseif ($corpus == 'nota' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/nota.js'></script>";
-
-}
-elseif ($corpus == 'demo' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/demo.js'></script>";
-
-}
-elseif ($corpus == 'upus' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/upus.js'></script>";
-
-}
-elseif ($corpus == 'upus2' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/upus2.js'></script>";
-
-}
-elseif ($corpus == 'scandiasyn') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/scandiasyn.js'></script>";
-  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
-}
-elseif ($corpus == 'amerikanorsk') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/amerikanorsk.js'></script>";
-  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
-}
-elseif ($corpus == 'sls') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/sls.js'></script>";
-  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
-}
-elseif ($corpus == 'scandiademo') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/scandiademo.js'></script>";
-
-}
-elseif ($corpus == 'kven') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/kven.js'></script>";
-
-}
-elseif ($corpus == 'engl2') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/engl2.js'></script>";
-
-}
-elseif ($corpus == 'bigbrother' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bigbrother.js'></script>";
-  
-}
-elseif ($corpus == 'taus') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/taus.js'></script>";
-
-}
-elseif ( $corpus == 'elevtekster' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/elevtekster.js'></script>";
-}
-elseif ( $corpus == 'bokmal' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bokmal.js'></script>";
-
-}
-elseif ( $corpus == 'bokmal_test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bokmal_test.js'></script>";
-
-}
-elseif ( $corpus == 'samno' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/samno_samisk.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/samno_norsk.js'></script>";
-
-}
-elseif ( $corpus == 'bul' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bul.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr1' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr1.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr2' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr2.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr3' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr3.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr4' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr4.js'></script>";
-}
-elseif ( $corpus == 'usenet' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/usenet.js'></script>";
-}
-elseif ( $corpus == 'mak' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/mak.js'></script>";
-}
-elseif ( $corpus == 'latvian' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/latvian.js'></script>";
-}
-elseif ( $corpus == 'musikk' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/musikk.js'></script>";
-
-}
-elseif ( $corpus == 'mme' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/mme.js'></script>";
-
-}
-elseif ( $corpus == 'quran_mono' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/quran_mono.js'></script>";
-
-}
-elseif ( $corpus == 'quran_parallel' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/quran_mono.js'></script>";
-	echo "<script language='javascript' src='" . $htmlRoot . "/js/quran_eng.js'></script>";
-
-}
-elseif ( $corpus == 'japanese_test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/japanese_test.js'></script>";
-
-}
-elseif ( $corpus == 'japanese_s_test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/japanese_s_test.js'></script>";
-
-}
-elseif ( $corpus == 'uncorpora' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_ar.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_es.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_fr.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_ru.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_zh.js'></script>";
-}
-elseif ( $corpus == 'damos' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/damos.js'></script>";
-}
-elseif ( $corpus == 'skriv' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/skriv.js'></script>";
-
-}
-
-
-?>
+<?php print_corpus_menu_scripts($corpus, $htmlRoot); ?>
 
  <script language="javascript">
   var player_type = 'flash';
