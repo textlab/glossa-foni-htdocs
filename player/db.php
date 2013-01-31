@@ -74,45 +74,38 @@ $lower_fixed = 0;
 $begin = 0;
 $end = 10000;
 
-while( $row = mysql_fetch_array($res) ){
+while( $row = mysql_fetch_array($res) ) {
+  // check all segments are from same transcription
+  // ie, context size could overlap transcription boundary.
+  // .. could it?!? even when you check that audio_file is correct?
 
-# check all segments are from same transcription
-# ie, context size could overlap transcription boundary.
-#.. could it?!? even when you check that audio_file is correct?
+  $lid = $row["id"];
 
-    $lid = $row["id"];
-
-    if(!$lower_fixed){ #check lower_bound first
-
-	if( $lid >= $lower_bound ){ # lower_bound = id - left
-	  $lower_bound = $lid; $begin = $row["begin"]; # begin = timecode for segment start
-	}
-
-	$lower_fixed = 1;
+  // check lower_bound first
+  if(!$lower_fixed) {
+    // lower_bound = id - left
+    if( $lid >= $lower_bound ) {
+      // begin = timecode for segment start
+      $lower_bound = $lid; $begin = $row["begin"]; 
     }
 
-    $upper_bound = $lid;
-    $end = $row["end"];
+    $lower_fixed = 1;
+  }
+
+  $upper_bound = $lid;
+  $end = $row["end"];
 
 }
 
-# need to make an adjustment. if lower_bound - 1.end > lower_bound.begin, then this should also be played. same for upper_bound
+// need to make an adjustment. if lower_bound - 1.end > lower_bound.begin, then this should also be played. same for upper_bound
 $previousend = "SELECT end,audio_file FROM $table WHERE id = " . ($lower_bound - 1) . ";";
 $nextbegin = "SELECT begin,audio_file FROM $table WHERE id = " . ($upper_bound + 1) . ";";
 
-
 $res = mysql_query($previousend);
 $row = mysql_fetch_array($res);
-if( ($row["end"] > $begin) || ($row["audio_file"] == $audio_file)){
-  #$lower_bound -= 1; 
-}
 
 $res = mysql_query($nextbegin);
 $row = mysql_fetch_array($res);
-if( ($row["begin"] < $end) || ($row["audio_file"] == $audio_file)){ 
-
-  #$upper_bound += 1;
- }
 
 $stringy = "";
 $start = "SELECT begin FROM $table WHERE id = $lower_bound";
@@ -123,8 +116,6 @@ $start = $start[0];
 $stop = mysql_query($stop);
 $stop = mysql_fetch_array($stop);
 $stop = $stop[0];
-
-#$createPlayer = "parent.createPlayer('$movie_loc', '$start', '$stop');parent.setSelect('$left','$right');";
 
 $mov_vars = array('movie_loc' => $movie_loc, 'start' => $start, 'stop' => $stop);
 $result = array();
@@ -137,17 +128,10 @@ $result['mov'] = $mov_vars;
 $result['divs'] = $stringy;
 $result['test'] = $test;
 
-//echo("<script>alert('left: $left, right: $right');</script>");
-//echo("<script>alert(\"" . $createPlayer . "\");</script>");
-//echo("<script>" . $createPlayer . "</script>");
-
-#echo json_encode($stringy);
-#for($j = 0; $j < count($stringy); $j++){echo $stringy[$j] . "-" . $j . "<br>";}
-
 echo json_encode($result);
 
 
-#### e, infine, le funzioni ####
+// #### e, infine, le funzioni ####
 
 function filename( $file, $vid, $corp ){
 
@@ -165,37 +149,43 @@ function filename( $file, $vid, $corp ){
     return $file."_800.mp4";
 }
 
-function db2html($rows,$corp){
+function db2html($rows,$corp) {
   global $cqp_atts;
   global $id;
   $j = 0;
   $divs = array();
   $pops = array();
   $counter = 0;
+
   while($row=mysql_fetch_array($rows)){
     $spans = array();
     $pretty = "";
     $ref=$row["ref"];
     $begin=$row["begin"];
     $end=$row["end"];
-#    $seg = iconv("ISO-8859-1", "UTF-8", $row["seg"]);
-#    $seg = $row["seg"];
+
     if($corp == 'nor1107'){
       $seg = $row["seg"];
     }
     else{
       $seg = iconv("ISO-8859-1", "UTF-8", $row["seg"]);
     }
+
     $toks = split("]", $seg);
+
     foreach($toks as $tok){
       $pops[$j] = att_val_array($j, $tok, $cqp_atts);
       $spans[$j++] = span($tok);
     }
+
     $divs['spans'][$coundter++] = array('ref' => $ref, 'spans' => $spans, 'begin' => $begin, 'end' => $end);
   }
+
   $divs['pops'] = $pops;
+
   return $divs;
 }
+
 function att_val_array($i, $tok, $atts){
   $tok = preg_replace("/^\[/", "", $tok);
   $vals = split("\|", $tok);
@@ -215,4 +205,5 @@ function span($tok){
     $tok = preg_replace("/\|$/", "", $tok);
     return $tok;
 }
+
 ?>

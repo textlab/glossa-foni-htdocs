@@ -1,10 +1,11 @@
 var conf = new Array;
 
 var languageOpts = new Array;
-languageOpts = [['QURAN_MONO', 'Arabic']];
+languageOpts = [['SKRIV', 'Norsk']];
+conf['charset'] = 'UTF-8';
 conf['type'] = 'monolingual';
-conf['title'] = 'TEST';
-conf['corpus_name'] = 'Arabic test corpus';
+conf['title'] = 'Search the student writing corpus';
+conf['corpus_name'] = 'SKRIV-korpuset';
 var language='en';
 
 var cgiRoot = 'http://tekstlab.uio.no/cgi-bin/glossa/';

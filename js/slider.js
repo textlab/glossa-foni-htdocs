@@ -1,12 +1,3 @@
-/*
-<html><body>
-<input name="sliderValue" id="sliderValue4h" type="Text" size="3" onChange="A_SLIDERS[3].f_setValue(this.value)">
-<input name="Submit" type="button" value="Submit" onClick="javascript:alert('You have selected '+document.getElementById('sliderValue4h').value);">
-
- 
-
-<script>
-*/
 function slider (a_init, a_tpl)
 {
     this.f_setValue = f_sliderSetValue;
@@ -226,25 +217,22 @@ function f_sliderError (n_id, s_message) {
 get_element = document.all ?
     function (s_id) { return document.all[s_id] } :
     function (s_id) { return document.getElementById(s_id) };
-/*
-</script>
 
-<script language="JavaScript">
-*/
-	var A_TPL4h = {
-	'b_vertical' : false,
-	'b_watch': true,
-	'n_controlWidth': 100,
-	'n_controlHeight': 16,
-	'n_sliderWidth': 17,
-	'n_sliderHeight': 16,
-	'n_pathLeft' : 0,
-	'n_pathTop' : 0,
-	'n_pathLength' : 83,
-	's_imgControl': 'images/slider/background.gif',
-	's_imgSlider': 'images/slider/handle.gif',
-	'n_zIndex': 1
-	};
+var A_TPL4h = {
+	  'b_vertical' : false,
+	  'b_watch': true,
+	  'n_controlWidth': 100,
+	  'n_controlHeight': 16,
+	  'n_sliderWidth': 17,
+	  'n_sliderHeight': 16,
+	  'n_pathLeft' : 0,
+	  'n_pathTop' : 0,
+	  'n_pathLength' : 83,
+	  's_imgControl': 'images/slider/background.gif',
+	  's_imgSlider': 'images/slider/handle.gif',
+	  'n_zIndex': 1
+};
+
 var A_INIT4h = {
     's_form' : 0,
     's_name': 'sliderValue4h',
@@ -254,8 +242,4 @@ var A_INIT4h = {
     'n_step' : 1
 };
     
-    new slider(A_INIT4h, A_TPL4h);
-/*
-</script>
-</body></html>
-*/
+new slider(1A_INIT4h, A_TPL4h);

@@ -199,31 +199,21 @@ else{
         td.innerHTML = '<?php echo $col ?>';
 <?php
     }
-?></script><?php
+?>
+</script>
+    <?php
 
-  // SKRIV
-  $questionnaire = "michalkk/skriv/sporreskjema/$student_code.txt";
-  if (file_exists("/var/www/html/$questionnaire")) {
-    print "<a href=\"#\" onclick=\"window.open('/$questionnaire', '_blank')\">Sp&oslash;rreskjema</a>";
-  }
-
-    /*
-    $profile = join("</td>\n<td>", $profile);
-    print "<td>" . $profile . "</td>\n";
-    */
-/*
-
-foreach ($profile as $value){
-
-    print "<td>$value</td>\n";
-
+    // SKRIV
+    $questionnaire = "michalkk/skriv/sporreskjema/$student_code.txt";
+    if (file_exists("/var/www/html/$questionnaire")) {
+      print "<a href=\"#\" onclick=\"window.open('/$questionnaire', '_blank')\">Sp&oslash;rreskjema</a>";
+    }
 }
-*/
-//    print "</tr>\n<table>\n";
- }
+
 if($loc){
   $loc = iconv("ISO-8859-1", "UTF-8", $loc);
 ?>
+
 <script language="javascript">
   var loca = <?php echo "\"$loc\""; ?>;
   if(coordinates[loca]){
@@ -233,8 +223,10 @@ if($loc){
     move(loca);
   }
 </script>
+
 <?php
 }
 ?>
+
 </body>
 </html>

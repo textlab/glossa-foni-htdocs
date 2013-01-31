@@ -5,7 +5,6 @@ Developed by  <a href='http://www.hf.ntnu.no/hf/adm/forskning/prosjekter/UPUS'>T
 <br><br>
 <a href='http://www.hf.ntnu.no/hf/adm/forskning/prosjekter/UPUS'>
   <img style='border-style: none' src='img/upus_small.jpg' />  
-  <!--<img style='border-style: none' src='http://www.hf.ntnu.no/hf/adm/forskning/prosjekter/UPUS/grafikk/UPUSturkis.gif' />-->
 </a>
 
 <br><br>

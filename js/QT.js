@@ -11,71 +11,82 @@ var offset_left=0;
 var offset_right=0;
 var inited = 0;
 
-//alert("start: "+start+", end: "+end);
-//var start = mov.GetStartTime();
-//var end = mov.GetEndTime();
-function initQT_(mov){
-   intv = intvSize(movLength(mov),10);
-   start = mov.GetStartTime();
-   end =   mov.GetEndTime();
-   //   alert("intv: "+intv+", start: "+start+", end: "+end);
+function initQT_(mov) {
+    intv = intvSize(movLength(mov),10);
+    start = mov.GetStartTime();
+    end =   mov.GetEndTime();
 }
 
-function movLength(mov){
-   return mov.GetEndTime() - mov.GetStartTime() ;
+function movLength(mov) {
+    return mov.GetEndTime() - mov.GetStartTime() ;
 }
-function intvSize(time, intvs){
-  return Math.ceil(time/intvs);
+
+function intvSize(time, intvs) {
+    return Math.ceil(time/intvs);
 }
-function restart(mov, x){
-    //            alert(mov.GetStartTime() +" ---- "+ mov.GetEndTime())
-   if(!inited){inited = 1; initQT(mov);}
-   mov.Stop();
-//   var start = mov.GetStartTime()+x;
-//   var end = mov.GetEndTime();
-   var offset=intv*x;
-   var newstart = start+offset;
-   //   alert("offset: "+offset+", Duration: "+(end-newstart));
-   if(newstart>=end){return;}
-   mov.SetStartTime(newstart);
-   mov.Rewind();
-   mov.Play();
+
+function restart(mov, x) {
+    if (!inited) {
+        inited = 1; initQT(mov);
+    }
+
+    mov.Stop();
+    var offset=intv*x;
+    var newstart = start+offset;
+
+    if (newstart>=end) {
+        return;
+    }
+
+    mov.SetStartTime(newstart);
+    mov.Rewind();
+    mov.Play();
 }
-function reend(mov, x){
-   if(!inited){inited = 1; initQT(mov);}
-   mov.Stop();
-//   var start = mov.GetStartTime();
-//   var end = mov.GetEndTime()+x;
-   var newend = end+intv*x;
-//   alert("Duration: "+(newend-start));
-   if(start>=newend){return;}
-   mov.SetEndTime(newend);
-   mov.Rewind();
-   mov.Play();
+
+function reend(mov, x) {
+    if (!inited) {
+        inited = 1;
+        initQT(mov);
+    }
+    
+    mov.Stop();
+    var newend = end+intv*x;
+
+    if (start>=newend) {
+        return;
+    }
+
+    mov.SetEndTime(newend);
+    mov.Rewind();
+    mov.Play();
 }
-function replay(mov){
-   mov.Stop();
-   mov.Rewind();
-   mov.Play();
+
+function replay(mov) {
+    mov.Stop();
+    mov.Rewind();
+    mov.Play();
 }
-function indi(id, colour, dir){
-    //    alert("indi" + id + " colour:" + colour + " dir:" +dir);
-   var regexp = /\d+/;
-   var regexp2 = /\D+/;
-   var root = id.replace(regexp, "");
-   var i = id.replace(regexp2, "");
-   var bgcolour;
-   for(var j=0; j<9; j++){
-	if(dir=='lr'){
-	   if(j>i){bgcolour="#fff"}
-           else{bgcolour="#777"}
+
+function indi(id, colour, dir) {
+    var regexp = /\d+/;
+    var regexp2 = /\D+/;
+    var root = id.replace(regexp, "");
+    var i = id.replace(regexp2, "");
+    var bgcolour;
+
+    for (var j=0; j<9; j++) {
+	      if(dir=='lr'){
+	          if(j>i){bgcolour="#fff"}
+            else{bgcolour="#777"}
         }
-	if(dir=='rl'){
-	   if(j<i){bgcolour="#fff"}
-           else{bgcolour="#777"}
+	      if(dir=='rl'){
+	          if(j<i){bgcolour="#fff"}
+            else{bgcolour="#777"}
         }
-	document.getElementById(root+j).style.background=bgcolour;
-   }
-   var el=document.getElementById(id);
-       el.style.background=colour;
+
+	      document.getElementById(root+j).style.background=bgcolour;
+    }
+
+    var el=document.getElementById(id);
+    el.style.background=colour;
 }

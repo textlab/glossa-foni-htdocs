@@ -6,7 +6,6 @@ var labels = new Array("lang",
 		       "full_query",
 		       "help",
 		       "save_subcorpus",
-		       //"show_text_list",
 		       "show_texts",
 		       "full_query",
 		       "search",
@@ -58,26 +57,22 @@ span["rep"]=1;
 span["genre"]=1;
 span["regexp"]=1;
 
-
-function toggleLang(){
+function toggleLang() {
     var label;
     var button;
     var suff= "";
     if(lingo == "no"){ lingo = "en";  }
     else { lingo = "no";  }
     for(var j = 0; j < labels.length; j++){
-	//	alert(label);
-	label = labels[j];
-	if(span[label]){ suff = "_span"; }
-	else{ suff = "";  }
-	var elt = document.getElementById(label+suff);
-	if(buttons[label]){
-	    //	     alert(label);
-	    elt.value = strings[lingo][label];
-	}
-	else{
-	    //	    alert(label+suff+": label: "+label+" suff: "+suff);
-	    elt.firstChild.nodeValue = strings[lingo][label];
-	}
+	      label = labels[j];
+	      if(span[label]){ suff = "_span"; }
+	      else{ suff = "";  }
+	      var elt = document.getElementById(label+suff);
+	      if(buttons[label]){
+	          elt.value = strings[lingo][label];
+	      }
+	      else{
+	          elt.firstChild.nodeValue = strings[lingo][label];
+	      }
     }
 }

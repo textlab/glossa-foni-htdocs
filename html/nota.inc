@@ -24,7 +24,6 @@
 <table>
 <hr>
  <tr>
-<!--  <td valign="top"><script language="javascript">writeWidgetFromTo('age','alder', 'hidden')</script>    </td> -->
   <td valign="top"><script language="javascript">writeWidgetCheck('agegroup','aldersgruppe', 'hidden')</script> </td>
   <td valign="top"><script language="javascript">writeWidgetCheck('sex','kjønn', 'hidden')</script> </td>
  </tr>

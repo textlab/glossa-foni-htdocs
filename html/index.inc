@@ -15,8 +15,8 @@ $fp = fopen($config_file, "r");
 
 while (!feof($fp)) {
   $line = trim(fgets($fp));
-  if ($line && !ereg("^$comment", $line)) {
-    $pieces = split("=", $line);
+  if ($line && !preg_match("/^$comment/i", $line)) {
+    $pieces = explode("=", $line);
     $option = trim($pieces[0]);
     $value = trim($pieces[1]);
     $base_config[$option] = $value;

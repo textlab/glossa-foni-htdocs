@@ -81,7 +81,6 @@
             }
 
             function create_label() {
-//		alert("creating: " + $(obj).attr('innerHTML'));
                 label.text($(obj).attr('innerHTML')); // orig. id // just changed from innerText.. we'll see
                 label.click(function() {
                     trigger.click()
@@ -115,8 +114,6 @@
                     $(this).addClass('active');
 		    var col = $(this).css('background-color');
                     trigger.css('background-color', $(this).css('background-color'));
-//		    options.func($(this).attr('rel'), $(obj).attr('id'));
-//		    options.func($(this).attr('rel'), $(obj).attr('innerHTML')); //20110812 was innerText. It seems this does not work in FireFox, only every other browser!
 		    options.func($(this).attr('rel'), $(obj).attr('textContent')); //20110812 or perhaps I should use textContent. According to w3 this is the DOM standard..
 		    picker.fadeOut('fast');
                 });

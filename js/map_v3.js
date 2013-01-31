@@ -68,13 +68,15 @@ function addMarkers(color,tok){
     report(markerSets.missing);
     return;
 }
-function makeMessage(loc, tok){
+
+function makeMessage(loc, tok) {
     var infs1 = loc_inf[loc];
     var infs2 = tok_inf[tok];
     var infs = intersection(infs1, infs2);
-    //    infs = infs.join(", ");
+
     return "Location: " + loc + "<br />Phonetic: " + tok + "<br />Informants: " + profileLink(infs);
 }
+
 function report(arr){ // for reporting all missing coordinates
     var empty = true;
     if(arr[0] == undefined){
@@ -88,15 +90,21 @@ function report(arr){ // for reporting all missing coordinates
     }
 
 }
-function profileLink(arr){ //profile.php?tid=boda_om1&corpus=scandiasyn
+
+// profile.php?tid=boda_om1&corpus=scandiasyn
+function profileLink(arr) { 
     var corpus = 'scandiasyn';
     var str = "";
-    for(var i in arr){
-	str += "<span style=\"font-weight:bold;cursor:pointer;color:green;\" onclick=\"window.open('http://tekstlab.uio.no/glossa//html/profile.php?tid=" + arr[i] + "&corpus=" + corpus +"');\">" + arr[i] +"</span>&nbsp;";
+
+    for(var i in arr) {
+	      str += "<span style=\"font-weight:bold;cursor:pointer;color:green;\" "
+            + "onclick=\"window.open('http://tekstlab.uio.no/glossa//html/profile.php?tid=" + arr[i]
+            + "&corpus=" + corpus +"');\">" + arr[i] +"</span>&nbsp;";
     }
+
     return str;
-    //    return "<span style=\"font-weight:bold;cursor:pointer;color:green;\" onclick=\"window.open('http://tekstlab.uio.no/glossa//html/profile.php?tid=" + tid + "&corpus=" + corpus +"');\">" + tid +"</span>";
 }
+
 function intersection(arr1, arr2){
     var is = new Array();
     for(j in arr1){
@@ -167,7 +175,9 @@ var MarkerSets = function(){
 	}
     }
 };
+
 var markerSets = new MarkerSets();
+
 // MarkerSet - an object for groups of markers of same colour.
 
 /*
@@ -181,74 +191,75 @@ var MarkerSet = function(locas, tok, color){
     this.markers = [];      // array for all google marker objects in this set
     this.noCoords = [];
 };
+
 MarkerSet.infoWindow = null; // init class variable her.
-MarkerSet.prototype.createMarker = function(latlng, map, color, contentString, loc){
+
+MarkerSet.prototype.createMarker = function(latlng, map, color, contentString, loc) {
     var image = new google.maps.MarkerImage(
         "http://tekstlab.uio.no/glossa/html/img/mm_20_" + color + ".png",
-	//	"http://labs.google.com/ridefinder/images/mm_20_" + color + ".png", //url
-	new google.maps.Size(8,13), // size
-	new google.maps.Point(0,0),   // origin
-	new google.maps.Point(4,13),   // anchor
-	new google.maps.Size(8,13)
+	      new google.maps.Size(8,13), // size
+	      new google.maps.Point(0,0),   // origin
+	      new google.maps.Point(4,13),   // anchor
+	      new google.maps.Size(8,13)
     );
+
     var shadow = new google.maps.MarkerImage(
         "http://tekstlab.uio.no/glossa/html/img/mm_20_shadow.png",
-					     //	"http://labs.google.com/ridefinder/images/mm_20_shadow.png",
-	new google.maps.Size(12,16),
-	new google.maps.Point(0,0),   // origin
-	new google.maps.Point(4,13),   // anchor
-	new google.maps.Size(12,16)
+	      new google.maps.Size(12,16),
+	      new google.maps.Point(0,0),   // origin
+	      new google.maps.Point(4,13),   // anchor
+	      new google.maps.Size(12,16)
     );
+
     var infowindow = new google.maps.InfoWindow({
-	content: contentString
+	      content: contentString
     });
+
     var marker = new google.maps.Marker({
-	position: latlng, 
-	map: map,
-	icon: image,
-//	click:
-	shadow: shadow,
-	animation: google.maps.Animation.DROP,
-	title: loc
+	      position: latlng, 
+	      map: map,
+	      icon: image,
+        //	click:
+	      shadow: shadow,
+	      animation: google.maps.Animation.DROP,
+	      title: loc
     });
+
     google.maps.event.addListener(marker, 'click', function() {
-	    if(MarkerSet.infoWindow != null){
-		MarkerSet.infoWindow.close();
-	    }
-	MarkerSet.infoWindow = infowindow;
-	infowindow.open(map,marker);
-	});
+	      if(MarkerSet.infoWindow != null){
+		        MarkerSet.infoWindow.close();
+	      }
+
+	      MarkerSet.infoWindow = infowindow;
+	      infowindow.open(map,marker);
+	  });
 
     return marker;
 };
 
-MarkerSet.prototype.closeInfoWindow = function(){
+MarkerSet.prototype.closeInfoWindow = function() {
     for(var j in this.markers){
-	alert('closing: '+this.markers[j].title);
-	if(this.markers[j].infoWindow){
-	    alert('i have an infowindow!');
-	    this.markers[j].infoWindow.close();
-	}
-/*
-	if(this.infoWindow){
-	    this.infoWindow.close();
-	}
-*/
+	      alert('closing: '+this.markers[j].title);
+	      if(this.markers[j].infoWindow){
+	          alert('i have an infowindow!');
+	          this.markers[j].infoWindow.close();
+	      }
     }
 };
 
-MarkerSet.prototype.add = function(){
-    for(loc in this.locations){  //was i in this.location, but seeing as how i'm now using properties, ie alta=1...
-	if(!coordinates[loc]){
-	    this.noCoord(loc);
-	    continue;
-	}
-	var lat = coordinates[loc]['lat'];
-	var lng = coordinates[loc]['lng'];
-	var latlng = new google.maps.LatLng(lat,lng);
-	var marker = this.createMarker(latlng,map,this.color,makeMessage(loc,this.tok), loc);
-	this.markers.push(marker);
-//	map.addOverlay(marker);
+MarkerSet.prototype.add = function() {
+    //was i in this.location, but seeing as how i'm now using properties, ie alta=1...
+    for(loc in this.locations){  
+	      if(!coordinates[loc]){
+	          this.noCoord(loc);
+	          continue;
+	      }
+
+	      var lat = coordinates[loc]['lat'];
+	      var lng = coordinates[loc]['lng'];
+	      var latlng = new google.maps.LatLng(lat,lng);
+	      var marker = this.createMarker(latlng,map,this.color,makeMessage(loc,this.tok), loc);
+	      this.markers.push(marker);
     }
 };
 
@@ -265,11 +276,11 @@ MarkerSet.prototype.show = function(){
     }
 };
 
-MarkerSet.prototype.remove = function(){
+MarkerSet.prototype.remove = function() {
     for(j in this.markers){
-//	map.removeOverlay(this.markers[j]);
-	this.markers[j].setMap(null);
+	      this.markers[j].setMap(null);
     }
+
     this.markers = [];
 };
 
@@ -287,19 +298,19 @@ function hidePlots(){
 function showPlots(){
     markerSets.show();
 }
+
 function clearMap() {
     for(var j in allMarkers){
-	allMarkers[j].setMap(null);
+	      allMarkers[j].setMap(null);
     }
-//    map.clearOverlays();
-//    $('.colorpicker-trigger').css('background-color', '#ddd');
-    //  allSwitchesOff();
 } 
+
 function showAll(){
     for(var j in allLocations){
 	addMarker(allLocations[j]);
     }
 }
+
 function toggleBounce(maker) { // NOT IN USE
   if (marker.getAnimation() != null) {
     marker.setAnimation(null);

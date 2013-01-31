@@ -21,8 +21,6 @@ function printDisplayOptions() {
 }
 
 function writeWidgetDoubleTable(widgetId, widgetName, defaultPosition) {
-
-    //alert(widgetId + " " + widgetName + " " + defaultPosition);
     var selected = widgetContent[widgetId].selected;
     var unselected = widgetContent[widgetId].unselected;
     var tableName = widgetContent[widgetId].tablename;
@@ -33,159 +31,161 @@ function writeWidgetDoubleTable(widgetId, widgetName, defaultPosition) {
     if (listLen > 7) { listLen = 7 } 
     if (listLen < 3) { listLen = 3 } 
 
-    if (unselected.length > 0) { defaultPosition="visible" }
+    if (unselected.length > 0) {
+        defaultPosition="visible";
+    }
 
-        //
-        //      ** selected **
-        // 
-
-
+    //      ** selected **
     var HTML='';
-	
+	  
     if (defaultPosition == 'hidden') {
-	HTML +=  "<div style='display:block' id='" + widgetId + "_show' " + "onClick=\"changeVisibility('" + widgetId + "_show','none');changeVisibility('" + widgetId + "','block');\"><nobr><span class='txt' id='"+widgetId+"_span'>"  + widgetName + "</span><img src='../html/img/plus.gif' /></nobr>&nbsp;&nbsp;</div>"
-	    + "<div  style='display:none' class='doubleTableTable' id='" + widgetId + "'>";
+	      HTML +=  "<div style='display:block' id='" + widgetId
+            + "_show' " + "onClick=\"changeVisibility('" + widgetId
+            + "_show','none');changeVisibility('" + widgetId
+            + "','block');\"><nobr><span class='txt' id='" + widgetId
+            + "_span'>"  + widgetName + "</span><img src='../html/img/plus.gif' /></nobr>&nbsp;&nbsp;</div>"
+	          + "<div  style='display:none' class='doubleTableTable' id='" + widgetId + "'>";
     }
     else {
-	HTML +=  "<div style='display:none' id='" + widgetId + "_show' " + "onClick=\"changeVisibility('" + widgetId + "_show','none');changeVisibility('" + widgetId + "','block');\"><nobr><span class='txt' id='"+widgetId+"_span'>" + widgetName + "</span><img src='../html/img/plus.gif' /></nobr>&nbsp;&nbsp;</div>"
-	    + "<div  style='display:block' class='doubleTableTable' id='" + widgetId + "'>";
+	      HTML +=  "<div style='display:none' id='" + widgetId
+            + "_show' " + "onClick=\"changeVisibility('" + widgetId
+            + "_show','none');changeVisibility('" + widgetId
+            + "','block');\"><nobr><span class='txt' id='" + widgetId
+            + "_span'>" + widgetName + "</span><img src='../html/img/plus.gif' /></nobr>&nbsp;&nbsp;</div>"
+	          + "<div  style='display:block' class='doubleTableTable' id='" + widgetId + "'>";
     }
-    HTML += "<div id='" + widgetId + "_show' " + "onClick=\"changeVisibility('" + widgetId + "_show','block');changeVisibility('" + widgetId + "','none');resetDoubleTable('" + widgetId + "');\"><nobr><span class='txt2' id='_span"+widgetId+"'>" + widgetName + "</span><img src='../html/img/minus.gif' /></nobr>&nbsp;&nbsp;</div>"
-	+ "<table><tr><td valign='top'>"
-	+ "<select id=\'" + widgetId + "-selected' name=\'" + widgetId + "-selected[]' multiple "
-	+ "size='" + listLen + "'" 
-	+ "ondblclick=\"moveSelected(\'" + widgetId + "-selected\',\'" + widgetId + "-unselected\');\">";
+    HTML += "<div id='" + widgetId + "_show' " + "onClick=\"changeVisibility('" + widgetId
+        + "_show','block');changeVisibility('" + widgetId + "','none');resetDoubleTable('" + widgetId
+        + "');\"><nobr><span class='txt2' id='_span"+widgetId+"'>" + widgetName
+        + "</span><img src='../html/img/minus.gif' /></nobr>&nbsp;&nbsp;</div>"
+	      + "<table><tr><td valign='top'>"
+	      + "<select id=\'" + widgetId + "-selected' name=\'" + widgetId + "-selected[]' multiple "
+	      + "size='" + listLen + "'" 
+	      + "ondblclick=\"moveSelected(\'" + widgetId + "-selected\',\'" + widgetId + "-unselected\');\">";
 
     for(var i=0;i<selected.length;i++) {
-	var optionValue=selected[i][0];
-	var optionName=selected[i][0];
-	
-	if (selected[i].length == 2) {
-	    optionName=selected[i][1];
-	}
-	HTML += "<option title='" + optionValue + "' value='" + optionValue + "'>" + optionName + "</option>";    
+	      var optionValue=selected[i][0];
+	      var optionName=selected[i][0];
+	      
+	      if (selected[i].length == 2) {
+	          optionName=selected[i][1];
+	      }
+
+        HTML += "<option title='" + optionValue + "' value='" + optionValue + "'>" + optionName + "</option>";    
     }
+
     HTML += "</select>";
-    
 
-        
-        //
-        //      ** buttons **
-        // 
-
+    //      ** buttons **
     HTML += "</td><td valign='top'><br>"
-	+ "<span onclick=\"moveSelected(\'" + widgetId + "-selected\',\'" + widgetId + "-unselected\')\">[&#8250;]</span>"
-	+ "<br>"
-	+ "<span onclick=\"moveSelected(\'" + widgetId + "-unselected\',\'" + widgetId + "-selected\')\">[&#8249;]</span>"
-	+ "<br></td>";
+	      + "<span onclick=\"moveSelected(\'" + widgetId + "-selected\',\'" + widgetId + "-unselected\')\">[&#8250;]</span>"
+	      + "<br>"
+	      + "<span onclick=\"moveSelected(\'" + widgetId + "-unselected\',\'" + widgetId + "-selected\')\">[&#8249;]</span>"
+	      + "<br></td>";
 
-
-
-        //
-        //      ** unselected **
-        // 
-
-
+    //      ** unselected **
     HTML += "<td valign='top'>"
-	+ "<select id=\'" + widgetId + "-unselected' multiple "
-	+ "name='meta_values_" + widgetId + "::" + tableName + "." + colName + "[]' size='" + listLen + "'"
-	+ "ondblclick=\"moveSelected(\'" + widgetId + "-unselected\',\'" + widgetId + "-selected\');\">";
+	      + "<select id=\'" + widgetId + "-unselected' multiple "
+	      + "name='meta_values_" + widgetId + "::" + tableName + "." + colName + "[]' size='" + listLen + "'"
+	      + "ondblclick=\"moveSelected(\'" + widgetId + "-unselected\',\'" + widgetId + "-selected\');\">";
 
     for(var i=0;i<unselected.length;i++) {
-	var optionName;
-	if (selected[i][1]) {
-	    optionName=unselected[i][1];
-	}
-	else {
-	    optionName=unselected[i][0];
-	}
-	HTML += "<option value='" + unselected[i][0] + "'>" + optionName + "</option>";    
+	      var optionName;
+
+	      if (selected[i][1]) {
+	          optionName=unselected[i][1];
+	      }
+	      else {
+	          optionName=unselected[i][0];
+	      }
+
+	      HTML += "<option value='" + unselected[i][0] + "'>" + optionName + "</option>";    
     }
+
     HTML += "</select><br>";
     HTML += "<select name='meta_mode_" + widgetId + "'>";
     HTML += "<option value='LIKE'>" + strings[language]['choose'] + "</option><option value='NOT LIKE'";
+
     if (mode == 'NOT LIKE') {
-	HTML += " selected";
+	      HTML += " selected";
     }
+
     HTML += ">" + strings[language]['exclude'] + "</option></select>";
-    
-    
-    
+        
     HTML += "</div></td></tr></table>";	
     
     document.write(HTML);
 
     var idAll= widgetId + "-alle";
+
     if (widgetContent[idAll]) {   
-	var selected_all = widgetContent[idAll].selected;	
+	      var selected_all = widgetContent[idAll].selected;	
     }
     
     var detailsName = widgetName + " (" + strings[language]['details'] + ")";
     
     if (selected_all) {
-	// document.write('<br>');
-	writeWidgetDoubleTable(idAll, detailsName, 'hidden');
+	  	  writeWidgetDoubleTable(idAll, detailsName, 'hidden');
     }
     
     document.write("</div>");
-
-
 }
 
 function writeWidgetFromTo(widgetId, widgetName, defaultPosition, note) {
-
     // temporary fix ... that doesn't work
-    
-    //    alert ("wid: "+widgetId+" - wn: "+widgetName);
+	  widgetContent['pubdate']=new Array();
+	  widgetContent['pubdate'].tablename="text";
+	  widgetContent['pubdate'].colname="pubdate";
 
-            
-	 widgetContent['pubdate']=new Array();
-	 widgetContent['pubdate'].tablename="text";
-	 widgetContent['pubdate'].colname="pubdate";
+	  widgetContent['age']= new Array();
+	  widgetContent['age'].tablename="author";
+	  widgetContent['age'].colname="age";
 
-	 widgetContent['age']= new Array();
-	 widgetContent['age'].tablename="author";
-	 widgetContent['age'].colname="age";
+	  widgetContent['time']= new Array();
+	  widgetContent['time'].tablename="text";
+	  widgetContent['time'].colname="time";
 
-	 widgetContent['time']= new Array();
-	 widgetContent['time'].tablename="text";
-	 widgetContent['time'].colname="time";
+	  var tableName = widgetContent[widgetId].tablename;
+	  var colName = widgetContent[widgetId].colname;
 
+    var selected = widgetContent[widgetId].selected;
 
-	 var tableName = widgetContent[widgetId].tablename;
-	 var colName = widgetContent[widgetId].colname;
+    var HTML='';
 
-        var selected = widgetContent[widgetId].selected;
-
-        var HTML='';
-
-	 if (defaultPosition == 'hidden') {
-
-	     HTML +=  "<div style='display:block' id='" + widgetId + "_show' " + "onClick=\"changeVisibility('" + widgetId + "_show','none');changeVisibility('" + widgetId + "','block');\"><span class='txt' id='" + widgetId  + "_span'>" + widgetName + "</span><img src='../html/img/plus.gif' />&nbsp;&nbsp;</div>"
-		 + "<div  style='display:none' class='doubleTableTable' id='" + widgetId + "'>"
-		 }
-	 else {
-	     
-	     HTML +=  "<div style='display:none' id='" + widgetId + "_show' " + "onClick=\"changeVisibility('" + widgetId + "_show','none');changeVisibility('" + widgetId + "','block');\"><span class='txt2' id='" + widgetId  + "_span'>" + widgetName + "</span><img src='../html/img/plus.gif' />&nbsp;&nbsp;</div>"
-		 + "<div  style='display:block' class='doubleTableTable' id='" + widgetId + "'>"
-		 }
-	 
-	 HTML += "<div id='" + widgetId + "_show' " + "onClick=\"resetFromTo('" + widgetId + "'); changeVisibility('" + widgetId + "_show','block');changeVisibility('" + widgetId + "','none');\"><span class='txt2' id='" + widgetId  + "_span'>" + widgetName + "</span><img src='../html/img/minus.gif' />&nbsp;&nbsp;</div>";
-	 
-	 
-	 HTML += "<input id='" + widgetId + "-from' name='meta_values_" + widgetId + "::" + tableName + "." + colName + "' size='4'></input> " + strings[language]['from'] + "<br>";
-	 
-	 
-	 HTML += "<input id='" + widgetId + "-to' name='meta_values_" + widgetId + "::" + tableName + "." + colName + "' size='4'></input> " + strings[language]['to'] + "<br>";
-	 HTML += "<input name='meta_mode_" + widgetId + "' type='hidden' value='range'></HTML>";
-	 
-	 
-	 //	 input += "<strong>"+note+"</strong>";
-	 HTML += "</div></div>";
-	 
-	 //	 alert(HTML);
-	 document.write(HTML);
-	 
+	  if (defaultPosition == 'hidden') {
+	      HTML +=  "<div style='display:block' id='" + widgetId
+            + "_show' " + "onClick=\"changeVisibility('" + widgetId
+            + "_show','none');changeVisibility('" + widgetId
+            + "','block');\"><span class='txt' id='" + widgetId
+            + "_span'>" + widgetName
+            + "</span><img src='../html/img/plus.gif' />&nbsp;&nbsp;</div>"
+		        + "<div  style='display:none' class='doubleTableTable' id='" + widgetId + "'>"
+		}
+	  else {
+	      HTML +=  "<div style='display:none' id='" + widgetId
+            + "_show' " + "onClick=\"changeVisibility('" + widgetId
+            + "_show','none');changeVisibility('" + widgetId
+            + "','block');\"><span class='txt2' id='" + widgetId
+            + "_span'>" + widgetName
+            + "</span><img src='../html/img/plus.gif' />&nbsp;&nbsp;</div>"
+		        + "<div  style='display:block' class='doubleTableTable' id='" + widgetId + "'>"
+		}
+	  
+	  HTML += "<div id='" + widgetId + "_show' " + "onClick=\"resetFromTo('" + widgetId
+        + "'); changeVisibility('" + widgetId + "_show','block');changeVisibility('" + widgetId
+        + "','none');\"><span class='txt2' id='" + widgetId + "_span'>" + widgetName
+        + "</span><img src='../html/img/minus.gif' />&nbsp;&nbsp;</div>";
+	  
+	  HTML += "<input id='" + widgetId + "-from' name='meta_values_" + widgetId + "::" + tableName
+        + "." + colName + "' size='4'></input> " + strings[language]['from'] + "<br>";
+	  
+	  HTML += "<input id='" + widgetId + "-to' name='meta_values_" + widgetId
+        + "::" + tableName + "." + colName + "' size='4'></input> " + strings[language]['to'] + "<br>";
+	  HTML += "<input name='meta_mode_" + widgetId + "' type='hidden' value='range'></HTML>";
+	  
+	  HTML += "</div></div>";
+	  
+	  document.write(HTML);
 }
 
 function writeWidgetCheck(widgetId, widgetName, defaultPosition) {
