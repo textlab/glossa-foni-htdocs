@@ -1,3 +1,13 @@
+/*
+  TODO
+
+  Urls in this file should point to the correct htmlRoot.
+
+  Since this script is called from urls in cgi-bin we can't use relative
+  urls and htmlRoot must be inject in every function that uses urls.
+
+*/
+
 var script1 = document.createElement('script');
 script1.src = 'http://tekstlab.uio.no/glossa/js/jquery/jquery-1.4.3.min.js';
 script1.type = 'text/javascript';
