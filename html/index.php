@@ -1,50 +1,63 @@
+<?php
+
+/**
+ * Retrieves a value from the json config for the various corpora.
+ *
+ * @param string $corpus_name The name of the corpus as specified by Glossa.
+ * @param string $key         The config key (e.g. "charset", "js", etc.)
+ *
+ * @return Either the value for the key from the specified corpus name
+ * (if both corpus name and key exists), or the value for the key from
+ * the default corpus config (if either the corpus name or the key is
+ * unknown).
+ */
+function get_corpus_config($corpus_name, $key) {
+    $conf_all = json_decode(file_get_contents('index_config.json'), true);
+
+    // Retrieve corpus configuration for $corpus_name or 'default'
+    $conf_corpus = array_key_exists($corpus_name, $conf_all) ?
+        $conf_all[$corpus_name] : $conf_all['default'];
+
+    $conf_value = array_key_exists($key, $conf_corpus) ?
+        $conf_corpus[$key] : $conf_all['default'][$key];
+
+    return $conf_value;
+}
+
+function print_corpus_charset($corpus_name) {
+    print get_corpus_config($corpus_name, 'charset');
+}
+
+function print_corpus_menu_scripts($corpus_name, $html_root) {
+  $script_names = get_corpus_config($corpus_name, 'js');
+  foreach ($script_names as $fn) {
+    print "<script language='javascript' src='" . $html_root . "/js/" . $fn . "'></script>";
+  }
+}
+
+function include_corpus_tables($corpus_name) {
+    $inc_names = get_corpus_config($corpus_name, 'inc');
+    foreach ($inc_names as $fn) {
+        include($fn);
+    }
+}
+
+function include_corpus_credentials($corpus_name) {
+    $credentials_names = get_corpus_config($corpus_name, 'credentials');
+    foreach ($credentials_names as $fn) {
+        include($fn);
+    }
+}
+
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"  "http://www.w3.org/TR/REC-html40/strict.dtd">
 <html>
- <head>
-<?php 
-$test = False;
-if($_GET['test'] == 'true'){$test = True;}
-if ( $_GET['corpus'] == 'run' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'subtitles' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'quran_mono' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'quran_parallel' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'uncorpora' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'japanese_test' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'japanese_s_test' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'politikk' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'hula' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'skriv' ){
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"><?php
-	}
-elseif ( $_GET['corpus'] == 'mak' ) {
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-5"><?php
-}
-elseif ( $_GET['corpus'] == 'latvian' ) {
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=CP1257"><?php
-}
-else{
-?><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1"><?php
-}
+    <head>
+        <META HTTP-EQUIV="Content-Type"
+              CONTENT="text/html; charset=<?php print_corpus_charset($_GET['corpus']); ?>">
 
+<?php
 // include shared functions
 include("glossa.inc");
 
@@ -60,11 +73,9 @@ $uilang = sanitizeParameter($_GET['uilang']);
 $def_base_corpus = strtoupper($corpus);
 $subcorpus = sanitizeParameter($_GET['subcorpus']);
 
-if(!$uilang){
-    $uilang = 'no';
-}
 if($corpus == 'ruija'){$_GET['corpus'] = 'kven';$corpus = 'kven';}
-if($corpus == 'scandiasyn' || $corpus == 'amerikanorsk' || $corpus == 'scandiademo' || $corpus == 'kven' || $corpus == 'omc4' || $corpus == 'taus' || $corpus == 'engl2' || $corpus == 'run' || $corpus == 'sls' || $corpus == 'subtitles'){ $uilang = 'en'; }
+
+$uilang = get_corpus_config($corpus, 'uilang');
 
 ?>
  <!--<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css">-->
@@ -84,194 +95,7 @@ var a = "<meta http-equiv='Content-Type' content='text/html;charset=" + charset 
 
 </script>
 
-<?php 
-
-// * get menus * // 
-
-if ( $corpus == 'hula' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/hula.js'></script>";
-}
-elseif ( $corpus == 'subtitles' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/subtitles_no.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/subtitles_en.js'></script>";
-}
-elseif ( $corpus == 'politikk' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/politikk.js'></script>";
-}
-elseif ( $corpus == 'test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/test.js'></script>";
-}
-elseif ( $corpus == 'omc' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_fr.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_de.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_nl.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_no.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc_po.js'></script>";
-
-}
-elseif ( $corpus == 'omc4' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_fr.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_de.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_nl.js'></script>";
-
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_no.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/omc4_po.js'></script>";
-}
-elseif ( $corpus == 'run' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_no.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_ru.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_bg.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_bc.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_pl.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_fr.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_it.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_se.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/run_de.js'></script>";
-}
-elseif ( $corpus == 'sami' ) {
-
-}
-elseif ($corpus == 'nota' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/nota.js'></script>";
-
-}
-elseif ($corpus == 'demo' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/demo.js'></script>";
-
-}
-elseif ($corpus == 'upus' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/upus.js'></script>";
-
-}
-elseif ($corpus == 'upus2' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/upus2.js'></script>";
-
-}
-elseif ($corpus == 'scandiasyn') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/scandiasyn.js'></script>";
-  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
-}
-elseif ($corpus == 'amerikanorsk') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/amerikanorsk.js'></script>";
-  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
-}
-elseif ($corpus == 'sls') {
-  echo "<script type='text/javascript' src='" . $htmlRoot ."/js/extras.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/sls.js'></script>";
-  echo "<link rel='stylesheet' type='text/css' href='" . $htmlRoot . "/html/extras.css' />";
-}
-elseif ($corpus == 'scandiademo') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/scandiademo.js'></script>";
-
-}
-elseif ($corpus == 'kven') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/kven.js'></script>";
-
-}
-elseif ($corpus == 'engl2') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/engl2.js'></script>";
-
-}
-elseif ($corpus == 'bigbrother' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bigbrother.js'></script>";
-  
-}
-elseif ($corpus == 'taus') {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/taus.js'></script>";
-
-}
-elseif ( $corpus == 'elevtekster' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/elevtekster.js'></script>";
-}
-elseif ( $corpus == 'bokmal' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bokmal.js'></script>";
-
-}
-elseif ( $corpus == 'bokmal_test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bokmal_test.js'></script>";
-
-}
-elseif ( $corpus == 'samno' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/samno_samisk.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/samno_norsk.js'></script>";
-
-}
-elseif ( $corpus == 'bul' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/bul.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr1' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr1.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr2' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr2.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr3' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr3.js'></script>";
-}
-elseif ( $corpus == 'euro_news_fr4' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/euro_news_fr4.js'></script>";
-}
-elseif ( $corpus == 'usenet' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/usenet.js'></script>";
-}
-elseif ( $corpus == 'mak' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/mak.js'></script>";
-}
-elseif ( $corpus == 'latvian' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/latvian.js'></script>";
-}
-elseif ( $corpus == 'musikk' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/musikk.js'></script>";
-
-}
-elseif ( $corpus == 'mme' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/mme.js'></script>";
-
-}
-elseif ( $corpus == 'quran_mono' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/quran_mono.js'></script>";
-
-}
-elseif ( $corpus == 'quran_parallel' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/quran_mono.js'></script>";
-	echo "<script language='javascript' src='" . $htmlRoot . "/js/quran_eng.js'></script>";
-
-}
-elseif ( $corpus == 'japanese_test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/japanese_test.js'></script>";
-
-}
-elseif ( $corpus == 'japanese_s_test' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/japanese_s_test.js'></script>";
-
-}
-elseif ( $corpus == 'uncorpora' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_ar.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_en.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_es.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_fr.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_ru.js'></script>";
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/uncorpora_zh.js'></script>";
-}
-elseif ( $corpus == 'damos' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/damos.js'></script>";
-}
-elseif ( $corpus == 'skriv' ) {
-  echo "<script language='javascript' src='" . $htmlRoot . "/js/skriv.js'></script>";
-
-}
-
-
-?>
+<?php print_corpus_menu_scripts($corpus, $htmlRoot); ?>
 
  <script language="javascript">
   var player_type = 'flash';
@@ -374,13 +198,6 @@ else{
      </td>
 </tr>
 
-
-
-
-
-
-
-
 <?php if(strpos($corpus, 'euro_news_fr') === false) { ?>
 
 <!--
@@ -391,111 +208,7 @@ else{
 -->
 <tr><td style="background-color:#efefef;border-width:1px;border-style:solid;border-color:#afaeae" valign="top">
 
-<?php 
-
-
-
-if ( $corpus == 'politikk' ) {
-  include("politikk.inc");
-}
-elseif ( $corpus == 'subtitles' ) {
-  include("hula.inc");
-}
-elseif ( $corpus == 'hula' ) {
-  include("hula.inc");
-}
-elseif ( $corpus == 'test' ) {
-  include("test.inc");
-}
-elseif ( $corpus == 'omc' ) {
-  include("omc.inc");
-}
-elseif ( $corpus == 'omc4' ) {
-  include("omc.inc");
-}
-elseif ( $corpus == 'run' ) {
-  include("run.inc");
-}
-elseif ( $corpus == 'sami' ) {
-
-}
-elseif ( $corpus == 'nota') {
-  include("nota.inc");
-}
-elseif ( $corpus == 'demo') {
-  include("demo.inc");
-}
-elseif ( $corpus == 'amerikanorsk') {
-  include("amerikanorsk.inc");
-}
-elseif ( $corpus == 'scandiasyn' || $corpus == 'scandiademo') {
-  include("scandiasyn.inc");
-}
-elseif ( $corpus == 'sls' ) {
-  include("sls.inc");
-}
-elseif ( $corpus == 'kven' ) {
-  include("kven.inc");
-}
-elseif ( $corpus == 'engl2' ) {
-  include("engl2.inc");
-}
-elseif ( $corpus == 'bigbrother' ) {
-  include("bigbrother.inc");
-}
- elseif ( $corpus == 'upus' ) { 
-  include("upus.inc");
-}
-elseif ( $corpus == 'upus2' ) {
-  include("upus2.inc");
-}
- elseif ( $corpus == 'taus' ) {
-  include("taus.inc");
-}
-elseif ( $corpus == 'elevtekster' ) {
-  include("elevtekster.inc");
-}
-elseif ( $corpus == 'bokmal' ) {
-  include("bokmal.inc");
-}
-elseif ( $corpus == 'bokmal_test' ) {
-  include("bokmal_test.inc");
-}
-elseif ( $corpus == 'samno' ) {
-  include("samno.inc");
-}
-
-elseif ( $corpus == 'bul' ) {
-  include("bul.inc");
-}
-elseif ( $corpus == 'euro_news_fr1' ) {
-  include("euro_news_fr1.inc");
-}
-elseif ( $corpus == 'euro_news_fr2' ) {
-  include("euro_news_fr2.inc");
-}
-elseif ( $corpus == 'usenet' ) {
-  include("usenet.inc");
-}
-elseif ( $corpus == 'mak' ) {
-  include("mak.inc");
-}
-elseif ( $corpus == 'latvian' ) {
-  include("latvian.inc");
-}
-elseif ( $corpus == 'musikk' ) {
-  include("musikk.inc");
-}
-elseif ( $corpus == 'mme' ) {
-  include("mme.inc");
-}
-elseif ( $corpus == 'skriv' ) {
-  include("skriv.inc");
-}
-
-?>
-
-
+<?php include_corpus_tables($corpus); ?>
 
 </td>
 
@@ -661,81 +374,7 @@ Please report bugs and errors <a href="https://nettskjema.uio.no/answer.html?fid
 </td>
 <td valign='top'>
 
-<?php
-
-if ( $corpus == 'test' ) {
-  include("test_cred.inc");
-}
-elseif ( $corpus == 'omc' ) {
-  include("omc_cred.inc");
-}
-elseif ( $corpus == 'omc4' ) {
-  include("omc_cred.inc");
-}
-elseif ( $corpus == 'run' ) {
-  include("run_cred.inc");
-}
-elseif ( $corpus == 'sami' ) {
-
-}
-elseif ( $corpus == 'bokmal' ) {
-
-}
-elseif ( $corpus == 'samno' ) {
-  include("samno_cred.inc");
-}
-elseif ( $corpus == 'upus' ) {
-  include("upus_cred.inc");
-}
-elseif ( $corpus == 'taus' ) {
-  include("taus_cred.inc");
-}
-
-elseif ( $corpus == 'snakkis' ) {
-  include("snakkis_cred.inc");
-}
-
-elseif ( $corpus == 'nota') {
-  include("nota_cred.inc");
-}
-
-elseif ( $corpus == 'demo' ) {
-  include("demo_cred.inc");
-}
-elseif ( $corpus == 'scandiasyn' || $corpus == 'scandiasyn' ) {
-  include("scandiasyn_cred.inc");
-}
-elseif ( $corpus == 'amerikanorsk' ) {
-  include("amerikanorsk_cred.inc");
-}
-elseif ( $corpus == 'sls' ) {
-  include("sls_cred.inc");
-}
-elseif ( $corpus == 'kven' ) {
-  include("kven_cred.inc");
-}
-elseif ( $corpus == 'engl2' ) {
-  include("engl2_cred.inc");
-}
-elseif ( $corpus == 'bigbrother' ) {
-  include("bigbrother_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr1' ) {
-  include("euro_news_fr1_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr2' ) {
-  include("euro_news_fr2_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr3' ) {
-  include("euro_news_fr3_cred.inc");
-}
-elseif ( $corpus == 'euro_news_fr4' ) {
-  include("euro_news_fr4_cred.inc");
-}
-elseif ( $corpus == 'skriv' ) {
-  include("skriv_cred.inc");
-}
-?>
+<?php include_corpus_credentials($corpus); ?>
 
 </td>
 </tr>
