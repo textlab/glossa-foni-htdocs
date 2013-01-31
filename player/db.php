@@ -16,8 +16,8 @@ $file = fopen($conf, "r") or exit ("Kan ikke åpne the goddam konfigurasjonsfila:
 
 while(!feof($file)){
     $line = fgets($file);
-    if (ereg('^\#', $line)){ continue; }
-    $split = split('=', $line);
+    if (preg_replace('/^\#/i', $line)){ continue; }
+    $split = explode('=', $line);
     $conf_array[trim($split[0])] = trim($split[1]);
 }
 fclose($file);
@@ -26,7 +26,7 @@ $database = $conf_array["db_name"];
 $user = $conf_array["db_uname"];
 $pass = $conf_array["db_pwd"];
 $dbhost = $conf_array["db_host"];
-$cqp_atts = split(" ", $conf_array['corpus_attributes']);
+$cqp_atts = explode(" ", $conf_array['corpus_attributes']);
 
 $movie_loc = $conf_array["media_url"];
 $movie_loc = "mp4:uio/hf/ilf/";
@@ -171,7 +171,7 @@ function db2html($rows,$corp) {
       $seg = iconv("ISO-8859-1", "UTF-8", $row["seg"]);
     }
 
-    $toks = split("]", $seg);
+    $toks = explode("]", $seg);
 
     foreach($toks as $tok){
       $pops[$j] = att_val_array($j, $tok, $cqp_atts);
@@ -188,7 +188,7 @@ function db2html($rows,$corp) {
 
 function att_val_array($i, $tok, $atts){
   $tok = preg_replace("/^\[/", "", $tok);
-  $vals = split("\|", $tok);
+  $vals = explode("\|", $tok);
   $arr = array();
   for($j = 0; $j < count($vals); $j++){
     if(!$vals[$j]){continue;}

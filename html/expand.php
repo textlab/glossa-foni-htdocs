@@ -30,8 +30,8 @@ $file = fopen($conf, "r") or exit ("Kan ikke åpne konfigurasjonsfila: $conf");
 
 while(!feof($file)){
     $line = fgets($file);
-    if (ereg('^\#', $line)){ continue; }
-    $split = split('=', $line);
+    if (preg_match('/^\#/i', $line)){ continue; }
+    $split = explode('=', $line);
     $conf_array[trim($split[0])] = trim($split[1]);
 }
 fclose($file);
@@ -150,7 +150,7 @@ $user = $base_config["db_uname"];
 $pass = $base_config["db_pwd"];
 $dbhost = $base_config["db_host"];
 
-$cqp_atts = split(" ", $conf_array['corpus_attributes']);
+$cqp_atts = explode(" ", $conf_array['corpus_attributes']);
 
 //echo "$dbhost, $user";
 
@@ -458,7 +458,7 @@ function secs2hhmmssff($sex){
 // converts second 
 // to QuickTime code.
 function sec2QTcode($sex) {
-  $split = split("\.", $sex);
+  $split = explode("\.", $sex);
   $h = $split[0] / 3600;
   $m = $split[0] % 3600;
   $s = $m % 60;
@@ -495,7 +495,7 @@ function db2html($rows) {
     $end=$row["end"];
 
     $seg = $row["seg"];
-    $toks = split("]", $seg);
+    $toks = explode("]", $seg);
 
     foreach ($toks as $tok) {
       $divs .= popdiv($j, $tok, $cqp_atts);
@@ -533,7 +533,7 @@ function popdiv($i, $tok, $atts){
 
     $tok = preg_replace("/^\[/", "", $tok);
 
-    $vals = split("\|", $tok);
+    $vals = explode("\|", $tok);
     
     $div = "<div id=\"%d\" class=\"tag\">%s</div>\n";
 
