@@ -5,12 +5,20 @@
 Utviklet av Seksjon for leksikografi <br>
 (avdeling for Bokmål) ved Insitutt for <br>
 lingvistiske og nordiske studier, UiO; <br> 
-sammen med  <a href='http://www.hf.uio.no/tekstlab/'>Tekstlaboratoriet</a>.
+sammen med
+<a href='http://www.hf.uio.no/tekstlab/'>
+  Tekstlaboratoriet
+</a>.
+
+<br>
+<br>
+
+<a href='http://www.hf.uio.no/tekstlab'>
+  <img style='border-style: none' src='img/logo.png' />
+</a> 
+
 <br><br>
 
- <?php echo "<a href='http://www.hf.uio.no/tekstlab'><img style='border-style: none' src='" . $htmlRoot . "/img/logo.png' /></a>"; ?> 
-
-<br><br>
-
- <?php echo "<a href='http://www.hf.uio.no/iln'><img style='border-style: none' src='" . $htmlRoot . "/img/logo-uio.png' /></a>"; ?> 
-
+<a href='http://www.hf.uio.no/iln'>
+  <img style='border-style: none' src='img/logo-uio.png' />
+</a>
