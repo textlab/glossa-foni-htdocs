@@ -42,13 +42,6 @@ function include_corpus_tables($corpus_name) {
     }
 }
 
-function include_corpus_credentials($corpus_name) {
-    $credentials_names = get_corpus_config($corpus_name, 'credentials');
-    foreach ($credentials_names as $fn) {
-        include($fn);
-    }
-}
-
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"  "http://www.w3.org/TR/REC-html40/strict.dtd">
@@ -342,7 +335,7 @@ Multilingual Dictionary
 ?>
 <tr>
 <td valign="top">
-<img src="http://omilia.uio.no/img/tri.png" alt="caution"><br />
+<img src="img/tri.png" alt="caution"><br />
 <!-- Denne Glossaversjonen er under utvikling.<br /> -->
 This version of Glossa is undergoing development.
 </td>
@@ -359,7 +352,7 @@ Please report bugs and errors <a href="https://nettskjema.uio.no/answer.html?fid
 <?php
 }
 ?>
-<a target="_blank" href='http://www.hf.uio.no/tekstlab'><img style='border-style: none' src='http://omilia.uio.no/img/logo.png' /></a>
+<a target="_blank" href='http://www.hf.uio.no/tekstlab'><img style='border-style: none' src='img/logo.png' /></a>
 </td>
 </tr></table>
 </td>
@@ -374,7 +367,13 @@ Please report bugs and errors <a href="https://nettskjema.uio.no/answer.html?fid
 </td>
 <td valign='top'>
 
-<?php include_corpus_credentials($corpus); ?>
+<?php
+   // include corpus branding template
+   $credentials_names = get_corpus_config($corpus, 'credentials');
+    foreach ($credentials_names as $fn) {
+        include($fn);
+    }
+ ?>
 
 </td>
 </tr>
