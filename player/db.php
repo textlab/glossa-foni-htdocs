@@ -16,7 +16,7 @@ $file = fopen($conf, "r") or exit ("Kan ikke åpne the goddam konfigurasjonsfila:
 
 while(!feof($file)){
     $line = fgets($file);
-    if (preg_replace('/^\#/i', $line)){ continue; }
+    if (preg_match('/^\#/i', $line)){ continue; }
     $split = explode('=', $line);
     $conf_array[trim($split[0])] = trim($split[1]);
 }
