@@ -8,7 +8,7 @@
 <p>
   <a href="http://www.hf.uio.no/tekstlab">
     <img style="border-style: none"
-         src="html/img/logo.png" />
+         src="img/logo.png" />
   </a>
 </p>
 <p>
