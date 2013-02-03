@@ -85,14 +85,8 @@ foreach (array_keys($_POST) as $key) {
     $not_of_interest = $rest[0];
     $table = $rest[1];
     $column = $rest[2];
-    print "imploding with $key -> $_POST[$key]\n";
-    $value = implode(",", $_POST[$key]);
-    print "imploded value: $value\n";
-    if(!$value){ $value = $_POST[$key];  }
-	
-    #	$columns[$table . "." . $column]  = $value ; 
+    $value = $_POST[$key];	
     $columns[$column]  = $value ; 
-
   }
 
 }
