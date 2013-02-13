@@ -1,7 +1,7 @@
 
 
 
-<input type="hidden" name="phrase_0_corpus" value="ILN_LEKS"></input>
+<input type="hidden" name="phrase_0_corpus" value="BOKMAL"></input>
 
 
 

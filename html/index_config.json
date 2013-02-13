@@ -16,9 +16,9 @@
         "inc"         : [ "bokmal.inc" ],
         "credentials" : [ "bokmal_cred.inc" ]
     },
-    "bokmal_test" : {
-        "js"          : [ "bokmal_test.js" ],
-        "inc"         : [ "bokmal_test.inc" ],
+    "bokmaltest" : {
+        "js"          : [ "bokmaltest.js" ],
+        "inc"         : [ "bokmaltest.inc" ],
         "credentials" : [ "bokmal_cred.inc" ] 
     },
     "bul" : {

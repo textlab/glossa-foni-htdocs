@@ -1,7 +1,7 @@
 var conf = new Array;
 
 var languageOpts = new Array;
-languageOpts = [['BOKMAL_TEST', 'Norsk']];
+languageOpts = [['BOKMALTEST', 'Norsk']];
 conf['charset'] = 'ISO-8859-1';
 conf['type'] = 'monolingual';
 conf['title'] = 'Search the LBK';
