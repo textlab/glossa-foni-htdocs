@@ -1,7 +1,7 @@
 
 
 
-<input type="hidden" name="phrase_0_corpus" value="BOKMAL_TEST"></input>
+<input type="hidden" name="phrase_0_corpus" value="BOKMALTEST"></input>
 
 
 

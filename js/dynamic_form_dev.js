@@ -434,8 +434,8 @@ function ReloadMenu(language) {
        else if (language == 'BOKMAL') {
                reloadMenuBokmal();
        }
-       else if (language == 'BOKMAL_TEST') {
-               reloadMenuBokmal_test();
+       else if (language == 'BOKMALTEST') {
+               reloadMenuBokmaltest();
        }
        else if (language == 'SAMI') {
                reloadMenuSami();

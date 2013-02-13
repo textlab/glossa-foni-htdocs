@@ -1,7 +1,7 @@
 var Menu;
 
-function reloadMenuBokmal_test() {
-Menu['BOKMAL_TEST'] = new Hash(     1, new Hash(
+function reloadMenuBokmaltest() {
+Menu['BOKMALTEST'] = new Hash(     1, new Hash(
         'contents', '<nobr>&nbsp;valg &#187;&nbsp;</nobr>',
   	1, new Hash(
        'contents', 'ord &#187;&nbsp;',
