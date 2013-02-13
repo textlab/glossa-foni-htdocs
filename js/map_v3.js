@@ -32,7 +32,7 @@ var allMarkers = [];
 
 function addMarker(loca){
     var dot = new google.maps.MarkerImage(
-        "http://tekstlab.uio.no/glossa/html/img/red_dot.png",
+        "../html/img/red_dot.png",
 	new google.maps.Size(4,4), // size
 	new google.maps.Point(0,0),   // origin
 	new google.maps.Point(2,2),   // anchor
@@ -98,7 +98,7 @@ function profileLink(arr) {
 
     for(var i in arr) {
 	      str += "<span style=\"font-weight:bold;cursor:pointer;color:green;\" "
-            + "onclick=\"window.open('http://tekstlab.uio.no/glossa//html/profile.php?tid=" + arr[i]
+            + "onclick=\"window.open('../html/profile.php?tid=" + arr[i]
             + "&corpus=" + corpus +"');\">" + arr[i] +"</span>&nbsp;";
     }
 
@@ -196,7 +196,7 @@ MarkerSet.infoWindow = null; // init class variable her.
 
 MarkerSet.prototype.createMarker = function(latlng, map, color, contentString, loc) {
     var image = new google.maps.MarkerImage(
-        "http://tekstlab.uio.no/glossa/html/img/mm_20_" + color + ".png",
+        "../html/img/mm_20_" + color + ".png",
 	      new google.maps.Size(8,13), // size
 	      new google.maps.Point(0,0),   // origin
 	      new google.maps.Point(4,13),   // anchor
@@ -204,7 +204,7 @@ MarkerSet.prototype.createMarker = function(latlng, map, color, contentString, l
     );
 
     var shadow = new google.maps.MarkerImage(
-        "http://tekstlab.uio.no/glossa/html/img/mm_20_shadow.png",
+        "../html/img/mm_20_shadow.png",
 	      new google.maps.Size(12,16),
 	      new google.maps.Point(0,0),   // origin
 	      new google.maps.Point(4,13),   // anchor
