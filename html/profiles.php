@@ -21,10 +21,7 @@
    padding: 4px;
    }
 table.tablesorter thead tr .header {
-  background-image: url(bg.gif);
-  background-repeat: no-repeat;
-  background-position: center right;
- cursor: pointer;
+  cursor: pointer;
 }
 table.tablesorter tbody td {
  color: #3D3D3D;
