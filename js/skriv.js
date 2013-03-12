@@ -1429,27 +1429,27 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
                                'type', 'js',
 
                                1, new Hash(
-                                             'contents', '&&bilde',
+                                             'contents', '&amp;&amp;bilde',
                                              'type', 'js',
                                              'uri', "addOpt('word','&&bilde','&&bilde')"
                                            ),
                                2, new Hash(
-                                             'contents', '&&inf',
+                                             'contents', '&amp;&amp;inf',
                                              'type', 'js',
                                              'uri', "addOpt('word','&&inf','&&inf')"
                                            ),
                                3, new Hash(
-                                             'contents', '&&punkt',
+                                             'contents', '&amp;&amp;punkt',
                                              'type', 'js',
                                              'uri', "addOpt('word','&&punkt','&&punkt')"
                                            ),
                                4, new Hash(
-                                             'contents', '&&tabell',
+                                             'contents', '&amp;&amp;tabell',
                                              'type', 'js',
                                              'uri', "addOpt('word','&&tabell','&&tabell')"
                                            ),
                                5, new Hash(
-                                             'contents', '&&sær',
+                                             'contents', '&amp;&amp;sær',
                                              'type', 'js',
                                              'uri', "addOpt('word','&&sær.*','&&sær')"
                                            )
@@ -1459,42 +1459,42 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
                                'type', 'js',
 
                                1, new Hash(
-                                             'contents', '&&bilde',
+                                             'contents', '&amp;&amp;bilde',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&bilde','&&bilde')"
                                            ),
                                2, new Hash(
-                                             'contents', '&&inf',
+                                             'contents', '&amp;&amp;inf',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&inf','&&inf')"
                                            ),
                                3, new Hash(
-                                             'contents', '&&punkt',
+                                             'contents', '&amp;&amp;punkt',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&punkt','&&punkt')"
                                            ),
                                4, new Hash(
-                                             'contents', '&&tabell',
+                                             'contents', '&amp;&amp;tabell',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&tabell','&&tabell')"
                                            ),
                                5, new Hash(
-                                             'contents', '&&hv',
+                                             'contents', '&amp;&amp;hv',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&hv','&&hv')"
                                            ),
                                6, new Hash(
-                                             'contents', '&&kop',
+                                             'contents', '&amp;&amp;kop',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&kop','&&kop')"
                                            ),
                                7, new Hash(
-                                             'contents', '&&mlr',
+                                             'contents', '&amp;&amp;mlr',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&mlr','&&mlr')"
                                            ),
                                8, new Hash(
-                                             'contents', '&&sam',
+                                             'contents', '&amp;&amp;sam',
                                              'type', 'js',
                                              'uri', "addOpt('orig','&&sam','&&sam')"
                                            )
