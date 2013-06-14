@@ -372,17 +372,17 @@ Menu['OMC3_DE'] = new Hash(     1, new Hash(
 	    2, new Hash(
          'contents', 'finite',
 	      'type', 'js',
-	      'uri', "addOpt('type','finit','finite')"
+	      'uri', "addOpt('tense~defin','finit','finite')"
 ,
        1, new Hash(
             'contents', 'velg',
 	         'type', 'js',
-	         'uri', "addOpt('type','finit','finite')"
+	         'uri', "addOpt('tense~defin','finit','finite')"
 	      ),
 	      2, new Hash(
             'contents', 'utelukk',
 	         'type', 'js',
-	         'uri', "addOpt('type','!finit','!finite')"
+	         'uri', "addOpt('tense~defin','!finit','!finite')"
 	      )
 	   ),
 	    3, new Hash(
