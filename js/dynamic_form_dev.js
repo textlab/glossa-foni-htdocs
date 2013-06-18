@@ -548,4 +548,7 @@ function ReloadMenu(language) {
 		else if (language == 'SKRIV') {
         reloadMenuSkriv();
     }       
+		else if (language == 'NORM') {
+        reloadMenuNorm();
+    }       
 }

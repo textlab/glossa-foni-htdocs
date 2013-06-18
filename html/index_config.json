@@ -98,6 +98,12 @@
         "js"          : [ "mme.js" ],
         "inc"         : [ "mme.inc" ] 
     },
+    "norm" : {
+        "charset"     : "UTF-8",
+        "js"          : [ "norm.js" ],
+        "inc"         : [ "norm.inc" ],
+        "credentials" : [ "norm_cred.inc" ]
+    },
     "nota" : {
         "js"          : [ "nota.js" ],
         "inc"         : [ "nota.inc" ],
