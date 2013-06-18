@@ -42,7 +42,7 @@ document.write("<input id='delRowsButton' type='button' value='delete phrase' on
       <span class="txt2">Both <input type='radio' name='atttype' id='atttype' value='x' /></span>
 <?php
        }
-       elseif($_GET['corpus'] == 'skriv'){
+       elseif($_GET['corpus'] == 'skriv' || $_GET['corpus'] == 'norm'){
 ?>
      </td>
      <td align="right">

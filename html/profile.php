@@ -73,7 +73,7 @@ table.res{
 }
   </style>
   <?php
-  if ($_GET['corpus'] == "skriv") {
+  if ($_GET['corpus'] == "skriv" || $_GET['corpus'] == "norm") {
     print ('<meta http-equiv="content-type" content="text/html; charset=utf-8">');
   }
   ?>
@@ -131,7 +131,7 @@ $alias = preg_split("/[,\t]+/", $alias);
 
 $table = strtoupper($corpus)."author";
 
-if ($corpus == "skriv") {
+if ($corpus == "skriv" || $corpus == "norm") {
   $table = strtoupper($corpus)."text";
 }
 
@@ -158,7 +158,7 @@ if(!$profile){
 
 }
 else{
-    if ($corpus != "skriv") {
+    if ($corpus != "skriv" && $corpus != "norm") {
       print "<table>\n<tr>\n<td valign='top'>\n";
     }
     print "<table border='0' cellspacing='0'>\n";
@@ -172,7 +172,7 @@ else{
 
     }
     print "</table>\n";
-    if ($corpus != "skriv") {
+    if ($corpus != "skriv" && $corpus != "norm") {
 ?>
     </td>
     <td>
