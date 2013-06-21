@@ -7,7 +7,7 @@
   <td valign="top"><script language="javascript">writeWidgetCheck('sex', 'kjonn', 'hidden')</script></td>
 </tr>
 <tr>
-  <td valign="top"><script language="javascript">writeWidgetDoubleTable('nativelanguage', 'morsmål', 'hidden')</script></td>
+  <td valign="top"><script language="javascript">writeWidgetCheck('nativelanguage', 'morsmål', 'hidden')</script></td>
   <td valign="top"><script language="javascript">writeWidgetDoubleTable('assignmenttype', 'oppgavetype', 'hidden')</script></td>
 </tr>
 </table>
