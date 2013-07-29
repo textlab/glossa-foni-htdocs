@@ -21,10 +21,7 @@
    padding: 4px;
    }
 table.tablesorter thead tr .header {
-  background-image: url(bg.gif);
-  background-repeat: no-repeat;
-  background-position: center right;
- cursor: pointer;
+  cursor: pointer;
 }
 table.tablesorter tbody td {
  color: #3D3D3D;
@@ -85,7 +82,14 @@ foreach (array_keys($_POST) as $key) {
     $not_of_interest = $rest[0];
     $table = $rest[1];
     $column = $rest[2];
-    $value = $_POST[$key];	
+
+    if (is_array($_POST[$key])) {
+      $value = implode(",", $_POST[$key]);
+    }
+    else {
+      $value = $_POST[$key];
+    }
+
     $columns[$column]  = $value ; 
   }
 

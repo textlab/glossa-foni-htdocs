@@ -132,60 +132,44 @@ function writeWidgetDoubleTable(widgetId, widgetName, defaultPosition) {
 }
 
 function writeWidgetFromTo(widgetId, widgetName, defaultPosition, note) {
-    // temporary fix ... that doesn't work
-	  widgetContent['pubdate']=new Array();
-	  widgetContent['pubdate'].tablename="text";
-	  widgetContent['pubdate'].colname="pubdate";
-
-	  widgetContent['age']= new Array();
-	  widgetContent['age'].tablename="author";
-	  widgetContent['age'].colname="age";
-
-	  widgetContent['time']= new Array();
-	  widgetContent['time'].tablename="text";
-	  widgetContent['time'].colname="time";
-
-	  var tableName = widgetContent[widgetId].tablename;
-	  var colName = widgetContent[widgetId].colname;
-
+	var tableName = widgetContent[widgetId].tablename;
+	var colName = widgetContent[widgetId].colname;
     var selected = widgetContent[widgetId].selected;
-
     var HTML='';
 
-	  if (defaultPosition == 'hidden') {
-	      HTML +=  "<div style='display:block' id='" + widgetId
+	if (defaultPosition == 'hidden') {
+	    HTML +=  "<div style='display:block' id='" + widgetId
             + "_show' " + "onClick=\"changeVisibility('" + widgetId
             + "_show','none');changeVisibility('" + widgetId
             + "','block');\"><span class='txt' id='" + widgetId
             + "_span'>" + widgetName
             + "</span><img src='../html/img/plus.gif' />&nbsp;&nbsp;</div>"
-		        + "<div  style='display:none' class='doubleTableTable' id='" + widgetId + "'>"
-		}
-	  else {
-	      HTML +=  "<div style='display:none' id='" + widgetId
+		    + "<div  style='display:none' class='doubleTableTable' id='" + widgetId + "'>"
+	} else {
+	    HTML +=  "<div style='display:none' id='" + widgetId
             + "_show' " + "onClick=\"changeVisibility('" + widgetId
             + "_show','none');changeVisibility('" + widgetId
             + "','block');\"><span class='txt2' id='" + widgetId
             + "_span'>" + widgetName
             + "</span><img src='../html/img/plus.gif' />&nbsp;&nbsp;</div>"
-		        + "<div  style='display:block' class='doubleTableTable' id='" + widgetId + "'>"
-		}
-	  
-	  HTML += "<div id='" + widgetId + "_show' " + "onClick=\"resetFromTo('" + widgetId
+		    + "<div  style='display:block' class='doubleTableTable' id='" + widgetId + "'>"
+	}
+	
+	HTML += "<div id='" + widgetId + "_show' " + "onClick=\"resetFromTo('" + widgetId
         + "'); changeVisibility('" + widgetId + "_show','block');changeVisibility('" + widgetId
         + "','none');\"><span class='txt2' id='" + widgetId + "_span'>" + widgetName
         + "</span><img src='../html/img/minus.gif' />&nbsp;&nbsp;</div>";
-	  
-	  HTML += "<input id='" + widgetId + "-from' name='meta_values_" + widgetId + "::" + tableName
+	
+	HTML += "<input id='" + widgetId + "-from' name='meta_values_" + widgetId + "::" + tableName
         + "." + colName + "' size='4'></input> " + strings[language]['from'] + "<br>";
-	  
-	  HTML += "<input id='" + widgetId + "-to' name='meta_values_" + widgetId
+	
+	HTML += "<input id='" + widgetId + "-to' name='meta_values_" + widgetId
         + "::" + tableName + "." + colName + "' size='4'></input> " + strings[language]['to'] + "<br>";
-	  HTML += "<input name='meta_mode_" + widgetId + "' type='hidden' value='range'></HTML>";
-	  
-	  HTML += "</div></div>";
-	  
-	  document.write(HTML);
+	HTML += "<input name='meta_mode_" + widgetId + "' type='hidden' value='range'></HTML>";
+	
+	HTML += "</div></div>";
+	
+	document.write(HTML);
 }
 
 function writeWidgetCheck(widgetId, widgetName, defaultPosition) {

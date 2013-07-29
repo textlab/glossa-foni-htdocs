@@ -1,7 +1,7 @@
 
 
 
-<input type="hidden" name="phrase_0_corpus" value="BOKMAL"></input>
+<input type="hidden" name="phrase_0_corpus" value="BOKMALTEST"></input>
 
 
 
@@ -48,6 +48,6 @@
  <tr>
   <td valign="top"><script language="javascript">writeWidgetDoubleTable('auth-type','type', 'hidden')</script></td>
   <td valign="top"><script language="javascript">writeWidgetDoubleTable('auth-gender','kjønn','hidden')</script></td>
-  <td valign="top"><script language="javascript">writeWidgetFromTo('born','fødselsår', 'hidden')</script></td>
+  <td valign="top"><script language="javascript">writeWidgetFromTo('age','fødselsår', 'hidden')</script></td>
  </tr>
 </table>

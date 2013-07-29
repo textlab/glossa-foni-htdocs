@@ -1,15 +1,15 @@
 var conf = new Array;
 
 var languageOpts = new Array;
-languageOpts = [['BOKMAL_TEST', 'Norsk']];
-conf['charset'] = 'ISO-8859-1';
+languageOpts = [['ELEVTEKSTER', 'Norsk']];
+conf['charset'] = 'UTF-8';
 conf['type'] = 'monolingual';
-conf['title'] = 'Search the LBK';
-conf['corpus_name'] = 'Lexicograpic corpus for Norwegian Bokmål';
-var language='en';
+conf['title'] = 'S&oslash;k i elevtekster';
+conf['corpus_name'] = 'Elevtekster';
+var language='no';
 
-var cgiRoot = 'http://www.tekstlab.uio.no/cgi-bin/glossa/';
-
+var cgiRoot = 'http://tekstlab.uio.no/cgi-bin/glossa/';
+var htmlRoot = 'http://tekstlab.uio.no/glossa/';
 
 // ** shortcuts ** //
 

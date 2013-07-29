@@ -74,13 +74,13 @@ function changeObjectVisibility(objectId, xcoord, ycoord) {
 
     if(styleObject) {
 	      styleObject.display = "block";
-	      ycoord = ycoord + 7
-	      styleObject.top = ycoord;
-	      styleObject.left = xcoord;
+	      ycoord = ycoord + 7;
+	      styleObject.top = ycoord + "px";
+	      styleObject.left = xcoord + "px";
 	      styleObject.zIndex = 10;
 	      return true;
     } else {
-	      // we couldn't find the object, so we can't change its visibility
+        // we couldn't find the object, so we can't change its visibility
 	      return false;
     }
 }
