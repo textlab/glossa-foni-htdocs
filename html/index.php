@@ -13,7 +13,7 @@
  */
 function get_corpus_config($corpus_name, $key) {
     $conf_all = json_decode(file_get_contents('index_config.json'), true);
-
+    
     // Retrieve corpus configuration for $corpus_name or 'default'
     $conf_corpus = array_key_exists($corpus_name, $conf_all) ?
         $conf_all[$corpus_name] : $conf_all['default'];
@@ -69,6 +69,8 @@ $subcorpus = sanitizeParameter($_GET['subcorpus']);
 if($corpus == 'ruija'){$_GET['corpus'] = 'kven';$corpus = 'kven';}
 
 $uilang = get_corpus_config($corpus, 'uilang');
+$speech = get_corpus_config($corpus, 'mode') == "speech" ? true : false;
+$dual   = get_corpus_config($corpus, 'dual');
 
 ?>
  <!--<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css">-->
@@ -98,6 +100,7 @@ var a = "<meta http-equiv='Content-Type' content='text/html;charset=" + charset 
  </script>
 </head>
 <body>
+<?php echo "<b>$subcorpus</b>";?>
 <div style="background-color:gray;color:white">
 <table width='100%' border='0'>
 <tr>
@@ -191,8 +194,10 @@ else{
      </td>
 </tr>
 
-<?php if(strpos($corpus, 'euro_news_fr') === false) { ?>
 
+
+
+<?php if(strpos($corpus, 'euro_news_fr') === false) { ?>
 <!--
 <div id="phoney" style="z-index:500;top:0px;left:0px;border-style:solid;visibility:hidden;">HERE I AM!<br/><br/>LALALAALA!
   <span id="close"><a href="javascript:setVisible('phoney')" style="text-decoration: none"><strong>close</strong></a></span>
@@ -219,95 +224,110 @@ else{
  $lang['no']['choose_subcorpus']='Velg subkorpus'; 
 
 ?>
+
+
 <?php
     if($test){
-      ?>
-      <script>alert('test');</script>
-				<input type="button" id="show_texts_alt" onClick="setAction('profiles.dev.php');" value="<?php /*echo $lang[$uilang]['show_texts']*/ echo "Show Test" ?>" /><br><br>
-      <?php
-    }
- if($corpus == 'kven' || $corpus=='nota' || $corpus=='upus' || $corpus=='scandiasyn' || $corpus == 'amerikanorsk' || $corpus=='scandiademo' || $corpus=='sls' || $corpus=='upus2' || $corpus=='demo' || $corpus=='bigbrother' || $corpus == 'taus' || $corpus == 'engl2'){
 ?>
-   <input type="button" id="show_texts_alt" onClick="setAction('profiles.php');" value="<?php /*echo $lang[$uilang]['show_texts']*/ echo "Show informants" ?>" /><br><br>
+      <script>alert('test');</script>
+      <input type="button" id="show_texts_alt" onClick="setAction('profiles.dev.php');" value="<?php echo "Show Test" ?>" /><br><br>
 <?php
-	 }
+    }
+?>
+
+
+
+<?php
+// ------------ Show texts/informants
+if($speech){
+?>
+   <input type="button" id="show_texts_alt" onClick="setAction('profiles.php');" value="<?php echo "Show informants" ?>" /><br><br>
+<?php
+    }
+
  elseif($corpus == 'run'){
 ?>
 <input type="button" id="show_texts" onClick="setAction('<?php echo $cgiRoot; ?>/meta_direct.cgi');" value="<?php echo $lang[$uilang]['show_texts'] ?>" /><br><br>
    <input type="button" id="show_external_database" onClick="window.open('http://www.nevmenandr.net/run/');" value="Show external text list" /><br><br>
 <?php
-	 }
+     }
+
  else{
 ?>
 <input type="button" id="show_texts" onClick="setAction('<?php echo $cgiRoot; ?>/meta_direct.cgi');" value="<?php echo $lang[$uilang]['show_texts'] ?>" /><br><br>
 <?php
-	 }
-//if($corpus != 'nota'){
-  if($corpus != 'skriv') {
+     }
+// ------------ End of show texts/informants
 ?>
-<input type="button" id="save_subcorpus" onClick="setAction('<?php echo $cgiRoot ?>/meta_save_choose.cgi');" 
-<?php 
 
-     echo "value=\"" . $lang[$uilang]['save_subcorpus'] . "\""; 
-
-?>
- />
+ 
 
 <?php
-  }
-//}
+// ------------- Subcorpus
+    if($corpus != 'skriv') {
 ?>
+      <input type="button" id="save_subcorpus" onClick="setAction('<?php echo $cgiRoot ?>/meta_save_choose.cgi');" <?php echo "value=\"" . $lang[$uilang]['save_subcorpus'] . "\""; ?> />
+<?php
+    }
+?>
+
+
 <br><br>
-
 <?php
-//if($corpus != 'nota' and $corpus != 'demo'){
   if($corpus != 'skriv'){
     echo "<a id='choose_subcorpus' href='" . $cgiRoot . "subcorpus_choose.cgi?corpus=" . $corpus . "'>";
- echo $lang[$uilang]['choose_subcorpus'];
+    echo $lang[$uilang]['choose_subcorpus'];
     echo "</a>";
   }
-//}
+// ------------- End of subcorpus
 ?>
+
+
 </td></tr>
-<?php } ?>
-
 <?php
-#if($corpus != 'nota' and $corpus != 'demo'){
+    }
 ?>
 
 
 
-<tr><td valign='top' style="background-color:#efefef;border-width:1px;border-style:solid;border-color:#afaeae">
 
+
+
+
+
+
+
+<!-- begining of Display, Search within, Flash and QT bit -->
 <?php if(strpos($corpus, 'euro_news_fr') === false) { ?>
+<tr>
+
+<?php if(!$speech){ ?>
+
+<td valign='top' style="background-color:#efefef;border-width:1px;border-style:solid;border-color:#afaeae">
 <span class="txt">
-Display: 
-<select name='structDisplay'>
-<option></option>
-<script language='javascript'>printDisplayOptions()</script>
-</select>
-<?php
-#}
-?>
-
-&nbsp; &nbsp; &nbsp;
-Search within: 
-<select name='searchWithin'>
-<option></option>
- <option value="last"> - last search - </option>
-</select>
-
+Display:&nbsp;<select name='structDisplay'><option></option><script language='javascript'>printDisplayOptions()</script></select>&nbsp; &nbsp; &nbsp;
+Search within: <select name='searchWithin'><option></option> <option value="last"> - last search - </option></select>
 </span>
-
 </td>
+
+	     <?php }
+	 else{ ?>
+
 <td>
-  Flash<input type="radio" name="player" value="flash" checked="true" onchange="player_type = this.value;" />&nbsp;
+Flash<input type="radio" name="player" value="flash" checked="true" onchange="player_type = this.value;" />&nbsp;
 QT<input type="radio" name="player" value="qt" onchange="player_type = this.value;" />
 </td>
+
+  <?php  } ?>
+
 </tr>
-<?php
-}
-?>
+    <?php } ?>
+
+<!-- end of Display, Search within, Flash and QT bit -->
+
+
+
+
 
 <tr><td><font color='red'><b>
 

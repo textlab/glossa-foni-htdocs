@@ -31,7 +31,7 @@ function printJsHead() {
     . "<script language='JavaScript' src='" . $htmlRoot . "/js/dommenu-0.3.5/domMenu.js'></script>\n"
     . "<script language='JavaScript' src='" . $htmlRoot . "/js/language" . ($corpus == 'run' ? '_utf8' : '') . ".js'></script>\n"
     . "<script language='JavaScript' src='" . $htmlRoot . "/js/meta.js'></script>\n"
-    . "<script language='JavaScript' src='" . $htmlRoot . "/js/widgets.js'></script>\n"
+    // . "<script language='JavaScript' src='" . $htmlRoot . "/js/widgets.js'></script>\n"
     . "<script language='JavaScript' src='" . $htmlRoot . "/js/auxfns.js'></script>\n"
     . "<script language='Javascript'>var Menu=new Array;</script>\n"
     . "<script language='JavaScript' src='" . $htmlRoot . "/js/misc.js'></script>\n"

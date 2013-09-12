@@ -213,11 +213,13 @@ function writeWidgetCheck(widgetId, widgetName, defaultPosition) {
 
 
 function writeWidgetRadio(widgetId, widgetName, defaultPosition) {
-
     var selected = widgetContent[widgetId].selected;
     var tableName = widgetContent[widgetId].tablename;
     var colName = widgetContent[widgetId].colname;
-
+    var unselected = widgetContent[widgetId].unselected;
+    if (unselected.length > 0) {
+        defaultPosition="visible";
+    }
     var HTML='';
 
 	 if (defaultPosition == 'hidden') {
@@ -233,11 +235,20 @@ function writeWidgetRadio(widgetId, widgetName, defaultPosition) {
        HTML += "<div id='" + widgetId + "_show' " + "onClick=\"resetCheck('" + widgetId + "'); changeVisibility('" + widgetId + "_show','block');changeVisibility('" + widgetId + "','none');\"><span class='txt2' id='"+widgetId+"_span'>" + widgetName + "</span><img src='../html/img/minus.gif' />&nbsp;&nbsp;</div>";
 
 
+
+       for(var i=0;i<unselected.length;i++) {
+
+		var optionValue=unselected[i][0];
+		var optionName=unselected[i][1];
+	       HTML += "<input type='radio' id='" + widgetId + "_" + i + "' name='meta_values_" + widgetId + "::" + tableName + "." + colName + "' value='" + optionValue + "' checked='true'></input> " + optionName + "<br>";
+
+	}
+
+
        for(var i=0;i<selected.length;i++) {
 
 		var optionValue=selected[i][0];
 		var optionName=selected[i][1];
-
 	       HTML += "<input type='radio' id='" + widgetId + "_" + i + "' name='meta_values_" + widgetId + "::" + tableName + "." + colName + "' value='" + optionValue + "'></input> " + optionName + "<br>";
 
 	}
@@ -330,7 +341,6 @@ function resetCheck (id) {
 
 
 function sortSelect(obj) {
-
         o=new Array();
 
         for (var i=0; i<obj.options.length; i++) {

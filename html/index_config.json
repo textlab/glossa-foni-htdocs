@@ -4,12 +4,15 @@
         "js"          : [ "extras.js", "amerikanorsk.js"  ],
         "inc"         : [ "amerikanorsk.inc" ],
         "credentials" : [ "amerikanorsk_cred.inc" ],
-        "css"         : [ "extras.css" ]
+        "css"         : [ "extras.css" ],
+	"mode"	      : "speech",
+	"dual"	      : [ "Orthographic", "Phonetic" ]
     },
     "bigbrother" : {
         "js"          : [ "bigbrother.js" ],
         "inc"         : [ "bigbrother.inc" ],
-        "credentials" : [ "bigbrother_cred.inc" ]
+        "credentials" : [ "bigbrother_cred.inc" ],
+	"mode"	      : "speech"
     },
     "bokmal" : {
         "js"          : [ "bokmal.js" ],
@@ -31,7 +34,8 @@
     "demo" : {
         "js"          : [ "demo.js" ],
         "inc"         : [ "demo.inc" ],
-        "credentials" : [ "demo_cred.inc" ]
+        "credentials" : [ "demo_cred.inc" ],
+	"mode"	      : "speech"
     },
     "elevtekster" : {
         "js"          : [ "elevtekster.js" ],
@@ -41,7 +45,8 @@
         "uilang"      : "en",
         "js"          : [ "engl2.js" ],
         "inc"         : [ "engl2.inc" ],
-        "credentials" : [ "engl2_cred.inc" ]
+        "credentials" : [ "engl2_cred.inc" ],
+	"mode"	      : "speech"
     },
     "euro_news_fr1" : {
         "js"          : [ "euro_news_fr1.js" ],
@@ -78,7 +83,8 @@
         "uilang"      : "en",
         "js"          : [ "kven.js" ],
         "inc"         : [ "kven.inc" ],
-        "credentials" : [ "kven_cred.inc" ]
+        "credentials" : [ "kven_cred.inc" ],
+	"mode"	      : "speech"
     },
     "latvian" : {
         "charset"     : "CP1257",
@@ -101,7 +107,8 @@
     "nota" : {
         "js"          : [ "nota.js" ],
         "inc"         : [ "nota.inc" ],
-        "credentials" : [ "nota_cred.inc" ]
+        "credentials" : [ "nota_cred.inc" ],
+	"mode"	      : "speech"
     },
     "omc" : {
         "js"          : [
@@ -175,20 +182,25 @@
         ],
         "inc"         : [ "scandiasyn.inc" ] ,
         "credentials" : [ "scandiasyn_cred.inc" ],
-        "css"         : [ "extras.css" ]
+        "css"         : [ "extras.css" ],
+	"mode"	      :	"speech",
+	"dual"	      : [ "Orthographic", "Phonetic" ]
     },
     "skriv" : {
         "charset"     : "UTF-8",
         "js"          : [ "skriv.js" ],
         "inc"         : [ "skriv.inc" ],
-        "credentials" : [ "skriv_cred.inc" ]
+        "credentials" : [ "skriv_cred.inc" ],
+	"dual"	      : [ "Corrected", "Original" ]
     },
     "sls" : { 
         "uilang"      : "en",
         "js"          : [ "extras.js", "sls.js" ],
         "inc"         : [ "sls.inc" ],
         "credentials" : [ "sls_cred.inc" ],
-        "css"         : [ "extras.css" ]
+        "css"         : [ "extras.css" ],
+	"mode"	      : "speech",
+	"dual"	      : [ "Orthographic", "Phonetic" ]
     },
     "snakkis" : {
         "credentials" : [ "snakkis_cred.inc" ]
@@ -203,7 +215,9 @@
         "uilang"      : "en",
         "js"          : [ "taus.js" ],
         "inc"         : [ "taus.inc" ],
-        "credentials" : [ "taus_cred.inc" ]
+        "credentials" : [ "taus_cred.inc" ],
+	"mode"	      : "speech",
+	"dual"	      : [ "Orthographic", "Phonetic" ]
     },
     "test" : {
         "js"          : [ "test.js" ],
@@ -224,11 +238,13 @@
     "upus" : {
         "js"          : [ "upus.js" ],
         "inc"         : [ "upus.inc" ],
-        "credentials" : [ "upus_cred.inc" ]
+        "credentials" : [ "upus_cred.inc" ],
+	"mode"	      : "speech"
     },
     "upus2" : {
         "js"          : [ "upus2.js" ],
-        "inc"         : [ "upus2.inc" ] 
+        "inc"         : [ "upus2.inc" ] ,
+	"mode"	      : "speech"
     },
     "usenet" : {
         "js"          : [ "usenet.js" ],
@@ -242,7 +258,8 @@
         "credentials" : [ "test_cred.inc" ],
         "uilang"      : "no",
         "js"          : [],
-        "inc"         : []
+        "inc"         : [],
+	"mode"	      : "text"
     }   
 }
 
