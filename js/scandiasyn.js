@@ -148,16 +148,6 @@ function reloadMenuScandiasyn() {
 								 )
 						     ),
 					 3, new Hash(
-						     'contents', 'sg:l',
-						     'type', 'js',
-						     'uri', "addOpt('num','sg:l','sg:l')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('num','!sg:l','!sg:l')"
-								 )
-						     ),
-					 4, new Hash(
 						     'contents', 'sg:pl',
 						     'type', 'js',
 						     'uri', "addOpt('num','sg:pl','sg:pl')",
@@ -181,16 +171,6 @@ function reloadMenuScandiasyn() {
 								 )
 						     ),
 					 2, new Hash(
-						     'contents', 'acc:subj',
-						     'type', 'js',
-						     'uri', "addOpt('case','acc:subj','acc:subj')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('case','!acc:subj','!acc:subj')"
-								 )
-						     ),
-					 3, new Hash(
 						     'contents', 'dat',
 						     'type', 'js',
 						     'uri', "addOpt('case','dat','dat')",
@@ -200,7 +180,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('case','!dat','!dat')"
 								 )
 						     ),
-					 4, new Hash(
+					 3, new Hash(
 						     'contents', 'gen',
 						     'type', 'js',
 						     'uri', "addOpt('case','gen','gen')",
@@ -210,7 +190,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('case','!gen','!gen')"
 								 )
 						     ),
-					 5, new Hash(
+					 4, new Hash(
 						     'contents', 'nom',
 						     'type', 'js',
 						     'uri', "addOpt('case','nom','nom')",
@@ -218,26 +198,6 @@ function reloadMenuScandiasyn() {
 								 'contents', 'exclude',
 								 'type', 'js',
 								 'uri', "addOpt('case','!nom','!nom')"
-								 )
-						     ),
-					 6, new Hash(
-						     'contents', 'nom:acc',
-						     'type', 'js',
-						     'uri', "addOpt('case','nom:acc','nom:acc')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('case','!nom:acc','!nom:acc')"
-								 )
-						     ),
-					 7, new Hash(
-						     'contents', 'nom:obj',
-						     'type', 'js',
-						     'uri', "addOpt('case','nom:obj','nom:obj')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('case','!nom:obj','!nom:obj')"
 								 )
 						     )
 					 ),
@@ -297,26 +257,6 @@ function reloadMenuScandiasyn() {
 								 )
 						     ),
 					 3, new Hash(
-						     'contents', 'burping',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','burping','burping')",
-						     1, new Hash(
-								 'contents', 'exclude',
-								 'type', 'js',
-								 'uri', "addOpt('nlex','!burping','!burping')"
-								 )
-						     ),
-					 4, new Hash(
-						     'contents', 'click',
-						     'type', 'js',
-						     'uri', "addOpt('nlex','click','click')",
-						     1, new Hash(
-								 'contents', 'exclude',
-	                                'type', 'js',
-								 'uri', "addOpt('nlex','!click','!click')"
-								 )
-						     ),
-					 5, new Hash(
 						     'contents', 'coughing',
 						     'type', 'js',
 						     'uri', "addOpt('nlex','coughing','coughing')",
@@ -326,7 +266,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('nlex','!coughing','!coughing')"
 								 )
 						     ),
-					 6, new Hash(
+					 4, new Hash(
 						     'contents', 'draws-breath',
 						     'type', 'js',
 						     'uri', "addOpt('nlex','draws-breath','draws-breath')",
@@ -336,7 +276,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('nlex','!draws-breath','!draws-breath')"
 								 )
 						     ),
-					 7, new Hash(
+					 5, new Hash(
 						     'contents', 'front-click',
 						     'type', 'js',
 						     'uri', "addOpt('nlex','front-click','front-click')",
@@ -346,7 +286,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('nlex','!front-click','!front-click')"
 								 )
 						     ),
-					 8, new Hash(
+					 6, new Hash(
 						     'contents', 'groaning',
 						     'type', 'js',
 						     'uri', "addOpt('nlex','groaning','groaning')",
@@ -356,7 +296,7 @@ function reloadMenuScandiasyn() {
 								 'uri', "addOpt('nlex','!groaning','!groaning')"
 								 )
 						     ),
-					 9, new Hash(
+					 7, new Hash(
 						      'contents', 'hawking',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','hawking','hawking')",
@@ -366,7 +306,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!hawking','!hawking')"
 								  )
 						      ),
-					 10, new Hash(
+					 8, new Hash(
 						      'contents', 'interruption',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','interruption','interruption')",
@@ -376,17 +316,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!interruption','!interruption')"
 								  )
 						      ),
-					 11, new Hash(
-						      'contents', 'kissing',
-						      'type', 'js',
-						      'uri', "addOpt('nlex','kissing','kissing')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('nlex','!kissing','!kissing')"
-								  )
-						      ),
-					 12, new Hash(
+					 9, new Hash(
 						      'contents', 'labial-fricative',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','labial-fricative','labial-fricative')",
@@ -396,7 +326,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!labial-fricative','!labial-fricative')"
 								  )
 						      ),
-					 13, new Hash(
+					 10, new Hash(
 						      'contents', 'labial-vibrant',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','labial-vibrant','labial-vibrant')",
@@ -406,7 +336,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!labial-vibrant','!labial-vibrant')"
 								  )
 						      ),
-					 14, new Hash(
+					 11, new Hash(
 						      'contents', 'laughing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','laughing','laughing')",
@@ -416,7 +346,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!laughing','!laughing')"
 								  )
 						      ),
-					 15, new Hash(
+					 12, new Hash(
 						      'contents', 'laughter',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','laughter','laughter')",
@@ -426,7 +356,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!laughter','!laughter')"
 								  )
 						      ),
-					 16, new Hash(
+					 13, new Hash(
 						      'contents', 'onomatopoetic',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','onomatopoetic','onomatopoetic')",
@@ -436,17 +366,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!onomatopoetic','!onomatopoetic')"
 								  )
 						      ),
-					 17, new Hash(
-						      'contents', 'screaming',
-						      'type', 'js',
-						      'uri', "addOpt('nlex','screaming','screaming')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('nlex','!screaming','!screaming')"
-								  )
-						      ),
-					 18, new Hash(
+					 14, new Hash(
 						      'contents', 'sibilant',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sibilant','sibilant')",
@@ -456,7 +376,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sibilant','!sibilant')"
 								  )
 						      ),
-					 19, new Hash(
+					 15, new Hash(
 						      'contents', 'sighing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sighing','sighing')",
@@ -466,37 +386,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sighing','!sighing')"
 								  )
 						      ),
-					 20, new Hash(
-						      'contents', 'singing',
-						      'type', 'js',
-						      'uri', "addOpt('nlex','singing','singing')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('nlex','!singing','!singing')"
-								  )
-						      ),
-					 21, new Hash(
-						      'contents', 'snapping',
-						      'type', 'js',
-						      'uri', "addOpt('nlex','snapping','snapping')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('nlex','!snapping','!snapping')"
-								  )
-						      ),
-					 22, new Hash(
-						      'contents', 'sneezing',
-						      'type', 'js',
-						      'uri', "addOpt('nlex','sneezing','sneezing')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('nlex','!sneezing','!sneezing')"
-								  )
-						      ),
-					 23, new Hash(
+					 16, new Hash(
 						      'contents', 'sniffing',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sniffing','sniffing')",
@@ -506,7 +396,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sniffing','!sniffing')"
 								  )
 						      ),
-					 24, new Hash(
+					 17, new Hash(
 						      'contents', 'spelled',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','spelled','spelled')",
@@ -516,7 +406,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!spelled','!spelled')"
 								  )
 						      ),
-					 25, new Hash(
+					 18, new Hash(
 						      'contents', 'sucking sound',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','sucking-sound','sucking-sound')",
@@ -526,7 +416,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!sucking-sound','!sucking-sound')"
 								  )
 						      ),
-					 26, new Hash(
+					 19, new Hash(
 						      'contents', 'unclear',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','unclear','unclear')",
@@ -536,17 +426,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!unclear','!unclear')"
 								  )
 						      ),
-					 27, new Hash(
-						      'contents', 'uninterpretable',
-						      'type', 'js',
-						      'uri', "addOpt('nlex','uninterpretable','uninterpretable')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('nlex','!uninterpretable','!uninterpretable')"
-								  )
-						      ),
-					 28, new Hash(
+					 20, new Hash(
 						      'contents', 'whistling',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','whistling','whistling')",
@@ -556,7 +436,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('nlex','!whistling','!whistling')"
 								  )
 						      ),
-					 29, new Hash(
+					 21, new Hash(
 						      'contents', 'yawning',
 						      'type', 'js',
 						      'uri', "addOpt('nlex','yawning','yawning')",
@@ -699,26 +579,6 @@ function reloadMenuScandiasyn() {
 			     10, new Hash(
 					  'contents', 'descr',
 					  1, new Hash(
-						      'contents', 'comment',
-						      'type', 'js',
-						      'uri', "addOpt('descr','comment','comment')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('descr','!comment','!comment')"
-								  )
-						      ),
-					  2, new Hash(
-						      'contents', 'mu',
-						      'type', 'js',
-						      'uri', "addOpt('descr','mu','mu')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('descr','!mu','!mu')"
-								  )
-						      ),
-					  3, new Hash(
 						      'contents', 'x',
 						      'type', 'js',
 						      'uri', "addOpt('descr','x','x')",
@@ -728,7 +588,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('descr','!x','!x')"
 								  )
 						      ),
-					  4, new Hash(
+					  2, new Hash(
 						      'contents', 'o',
 						      'type', 'js',
 						      'uri', "addOpt('descr','o','o')",
@@ -848,16 +708,6 @@ function reloadMenuScandiasyn() {
 			     13, new Hash(
 					  'contents', 'pos',
 					  1, new Hash(
-						      'contents', '(spm)',
-						      'type', 'js',
-						      'uri', "addOpt('pos','(spm)','(spm)')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!(spm)','!(spm)')"
-								  )
-						      ),
-					  2, new Hash(
 						      'contents', 'adj',
 						      'type', 'js',
 						      'uri', "addOpt('pos','adj','adj')",
@@ -867,7 +717,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('pos','!adj','!adj')"
 								  )
 						      ),
-					  3, new Hash(
+					  2, new Hash(
 						      'contents', 'adv',
 						      'type', 'js',
 						      'uri', "addOpt('pos','adv','adv')",
@@ -877,17 +727,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('pos','!adv','!adv')"
 								  )
 						      ),
-					  4, new Hash(
-						      'contents', 'adv:interj',
-						      'type', 'js',
-						      'uri', "addOpt('pos','adv:interj','adv:interj')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!adv:interj','!adv:interj')"
-								  )
-						      ),
-					  5, new Hash(
+					  3, new Hash(
 						      'contents', 'adv:subjunc',
 						      'type', 'js',
 						      'uri', "addOpt('pos','adv:subjunc','adv:subjunc')",
@@ -897,17 +737,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('pos','!adv:subjunc','!adv:subjunc')"
 								  )
 						      ),
-					  6, new Hash(
-						      'contents', 'cbl',
-						      'type', 'js',
-						      'uri', "addOpt('pos','cbl','cbl')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!cbl','!cbl')"
-								  )
-						      ),
-					  7, new Hash(
+					  4, new Hash(
 						      'contents', 'conj',
 						      'type', 'js',
 						      'uri', "addOpt('pos','conj','conj')",
@@ -917,17 +747,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('pos','!conj','!conj')"
 								  )
 						      ),
-					  8, new Hash(
-						      'contents', 'conj:adv',
-						      'type', 'js',
-						      'uri', "addOpt('pos','conj:adv','conj:adv')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('pos','!conj:adv','!conj:adv')"
-								  )
-						      ),
-					  9, new Hash(
+					  5, new Hash(
 						      'contents', 'conj:prep:adv',
 						      'type', 'js',
 						      'uri', "addOpt('pos','conj:prep:adv','conj:prep:adv')",
@@ -937,17 +757,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('pos','!conj:prep:adv','!conj:prep:adv')"
 								  )
 						      ),
-					  10, new Hash(
-						       'contents', 'conj:subjunc',
-						       'type', 'js',
-						       'uri', "addOpt('pos','conj:subjunc','conj:subjunc')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!conj:subjunc','!conj:subjunc')"
-								   )
-						       ),
-					  11, new Hash(
+					  6, new Hash(
 						       'contents', 'conj:subjunc:adv',
 						       'type', 'js',
 						       'uri', "addOpt('pos','conj:subjunc:adv','conj:subjunc:adv')",
@@ -957,17 +767,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!conj:subjunc:adv','!conj:subjunc:adv')"
 								   )
 						       ),
-					  12, new Hash(
-						       'contents', 'conj:subjunc:det',
-						       'type', 'js',
-						       'uri', "addOpt('pos','conj:subjunc:det','conj:subjunc:det')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!conj:subjunc:det','!conj:subjunc:det')"
-								   )
-						       ),
-					  13, new Hash(
+					  7, new Hash(
 						       'contents', 'det',
 						       'type', 'js',
 						       'uri', "addOpt('pos','det','det')",
@@ -977,17 +777,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!det','!det')"
 								   )
 						       ),
-					  14, new Hash(
-						       'contents', 'foreign',
-						       'type', 'js',
-						       'uri', "addOpt('pos','foreign','foreign')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!foreign','!foreign')"
-								   )
-						       ),
-					  15, new Hash(
+					  8, new Hash(
 						       'contents', 'inf-marker',
 						       'type', 'js',
 						       'uri', "addOpt('pos','inf-marker','inf-marker')",
@@ -997,7 +787,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!inf-marker','!inf-marker')"
 								   )
 						       ),
-					  16, new Hash(
+					  9, new Hash(
 						       'contents', 'interj',
 						       'type', 'js',
 						       'uri', "addOpt('pos','interj','interj')",
@@ -1007,7 +797,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!interj','!interj')"
 								   )
 						       ),
-					  17, new Hash(
+					  10, new Hash(
 						       'contents', 'noun',
 						       'type', 'js',
 						       'uri', "addOpt('pos','noun','noun')",
@@ -1017,7 +807,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!noun','!noun')"
 								   )
 						       ),
-					  18, new Hash(
+					  11, new Hash(
 						       'contents', 'noun:adj',
 						       'type', 'js',
 						       'uri', "addOpt('pos','noun:adj','noun:adj')",
@@ -1027,17 +817,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!noun:adj','!noun:adj')"
 								   )
 						       ),
-					  19, new Hash(
-						       'contents', 'num',
-						       'type', 'js',
-						       'uri', "addOpt('pos','num','num')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!num','!num')"
-								   )
-						       ),
-					  20, new Hash(
+					  12, new Hash(
 						       'contents', 'pause',
 						       'type', 'js',
 						       'uri', "addOpt('pos','pause','pause')",
@@ -1047,17 +827,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!pause','!pause')"
 								   )
 						       ),
-					  21, new Hash(
-						       'contents', 'pause2',
-						       'type', 'js',
-						       'uri', "addOpt('pos','pause2','pause2')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!pause2','!pause2')"
-								   )
-						       ),
-					  22, new Hash(
+					  13, new Hash(
 						       'contents', 'prep',
 						       'type', 'js',
 						       'uri', "addOpt('pos','prep','prep')",
@@ -1067,7 +837,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!prep','!prep')"
 								   )
 						       ),
-					  23, new Hash(
+					  14, new Hash(
 						       'contents', 'prep:subjunc',
 						       'type', 'js',
 						       'uri', "addOpt('pos','prep:subjunc','prep:subjunc')",
@@ -1077,7 +847,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!prep:subjunc','!prep:subjunc')"
 								   )
 						       ),
-					  24, new Hash(
+					  15, new Hash(
 						       'contents', 'pron',
 						       'type', 'js',
 						       'uri', "addOpt('pos','pron','pron')",
@@ -1087,7 +857,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!pron','!pron')"
 								   )
 						       ),
-					  25, new Hash(
+					  16, new Hash(
 						       'contents', 'pron:det',
 						       'type', 'js',
 						       'uri', "addOpt('pos','pron:det','pron:det')",
@@ -1097,7 +867,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!pron:det','!pron:det')"
 								   )
 						       ),
-					  26, new Hash(
+					  17, new Hash(
 						       'contents', 'subjunc',
 						       'type', 'js',
 						       'uri', "addOpt('pos','subjunc','subjunc')",
@@ -1107,27 +877,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!subjunc','!subjunc')"
 								   )
 						       ),
-					  27, new Hash(
-						       'contents', 'subjunc:adv',
-						       'type', 'js',
-						       'uri', "addOpt('pos','subjunc:adv','subjunc:adv')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!subjunc:adv','!subjunc:adv')"
-								   )
-						       ),
-					  28, new Hash(
-						       'contents', 'subjunc:prep',
-						       'type', 'js',
-						       'uri', "addOpt('pos','subjunc:prep','subjunc:prep')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('pos','!subjunc:prep','!subjunc:prep')"
-								   )
-						       ),
-					  29, new Hash(
+					  18, new Hash(
 						       'contents', 'sånn-word',
 						       'type', 'js',
 						       'uri', "addOpt('pos','sånn-word','sånn-word')",
@@ -1137,7 +887,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!sånn-word','!sånn-word')"
 								   )
 						       ),
-					  30, new Hash(
+					  19, new Hash(
 						       'contents', 'unknown',
 						       'type', 'js',
 						       'uri', "addOpt('pos','unknown','unknown')",
@@ -1147,7 +897,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!unknown','!unknown')"
 								   )
 						       ),
-					  31, new Hash(
+					  20, new Hash(
 						       'contents', 'verb',
 						       'type', 'js',
 						       'uri', "addOpt('pos','verb','verb')",
@@ -1157,7 +907,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('pos','!verb','!verb')"
 								   )
 						       ),
-					  32, new Hash(
+					  21, new Hash(
 						       'contents', 'verb:noun',
 						       'type', 'js',
 						       'uri', "addOpt('pos','verb:noun','verb:noun')",
@@ -1171,16 +921,6 @@ function reloadMenuScandiasyn() {
 			     14, new Hash(
 					  'contents', 'type',
 					  1, new Hash(
-						      'contents', '(pres-part)',
-						      'type', 'js',
-						      'uri', "addOpt('type','(pres-part)','(pres-part)')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('type','!(pres-part)','!(pres-part)')"
-								  )
-						      ),
-					  2, new Hash(
 						      'contents', 'abbrev',
 						      'type', 'js',
 						      'uri', "addOpt('type','abbrev','abbrev')",
@@ -1190,17 +930,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('type','!abbrev','!abbrev')"
 								  )
 						      ),
-					  3, new Hash(
-						      'contents', 'alpha',
-						      'type', 'js',
-						      'uri', "addOpt('type','alpha','alpha')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('type','!alpha','!alpha')"
-								  )
-						      ),
-					  4, new Hash(
+					  2, new Hash(
 						      'contents', 'cm-noun',
 						      'type', 'js',
 						      'uri', "addOpt('type','cm-noun','cm-noun')",
@@ -1210,17 +940,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('type','!cm-noun','!cm-noun')"
 								  )
 						      ),
-					  5, new Hash(
-						      'contents', 'dat:past',
-						      'type', 'js',
-						      'uri', "addOpt('type','dat:past','dat:past')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('type','!dat:past','!dat:past')"
-								  )
-						      ),
-					  6, new Hash(
+					  3, new Hash(
 						      'contents', 'dem',
 						      'type', 'js',
 						      'uri', "addOpt('type','dem','dem')",
@@ -1230,7 +950,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('type','!dem','!dem')"
 								  )
 						      ),
-					  7, new Hash(
+					  4, new Hash(
 						      'contents', 'gov-acc',
 						      'type', 'js',
 						      'uri', "addOpt('type','gov-acc','gov-acc')",
@@ -1240,7 +960,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('type','!gov-acc','!gov-acc')"
 								  )
 						      ),
-					  8, new Hash(
+					  5, new Hash(
 						      'contents', 'gov-dat',
 						      'type', 'js',
 						      'uri', "addOpt('type','gov-dat','gov-dat')",
@@ -1250,17 +970,7 @@ function reloadMenuScandiasyn() {
 								  'uri', "addOpt('type','!gov-dat','!gov-dat')"
 								  )
 						      ),
-					  9, new Hash(
-						      'contents', 'gov-en',
-						      'type', 'js',
-						      'uri', "addOpt('type','gov-en','gov-en')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('type','!gov-en','!gov-en')"
-								  )
-						      ),
-					  10, new Hash(
+					  6, new Hash(
 						       'contents', 'hesit',
 						       'type', 'js',
 						       'uri', "addOpt('type','hesit','hesit')",
@@ -1270,17 +980,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!hesit','!hesit')"
 								   )
 						       ),
-					  11, new Hash(
-						       'contents', 'hum',
-						       'type', 'js',
-						       'uri', "addOpt('type','hum','hum')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!hum','!hum')"
-								   )
-						       ),
-					  12, new Hash(
+					  7, new Hash(
 						       'contents', 'intensifier',
 						       'type', 'js',
 						       'uri', "addOpt('type','intensifier','intensifier')",
@@ -1290,7 +990,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!intensifier','!intensifier')"
 								   )
 						       ),
-					  13, new Hash(
+					  8, new Hash(
 						       'contents', 'no-case',
 						       'type', 'js',
 						       'uri', "addOpt('type','no-case','no-case')",
@@ -1300,57 +1000,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!no-case','!no-case')"
 								   )
 						       ),
-					  14, new Hash(
-						       'contents', 'nom:pres',
-						       'type', 'js',
-						       'uri', "addOpt('type','nom:pres','nom:pres')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!nom:pres','!nom:pres')"
-								   )
-						       ),
-					  15, new Hash(
-						       'contents', 'noun-uninflected',
-						       'type', 'js',
-						       'uri', "addOpt('type','noun-uninflected','noun-uninflected')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!noun-uninflected','!noun-uninflected')"
-								   )
-						       ),
-					  16, new Hash(
-						       'contents', 'numeric',
-						       'type', 'js',
-						       'uri', "addOpt('type','numeric','numeric')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!numeric','!numeric')"
-								   )
-						       ),
-					  17, new Hash(
-						       'contents', 'other-name',
-						       'type', 'js',
-						       'uri', "addOpt('type','other-name','other-name')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!other-name','!other-name')"
-								   )
-						       ),
-					  18, new Hash(
-						       'contents', 'percent',
-						       'type', 'js',
-						       'uri', "addOpt('type','percent','percent')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!percent','!percent')"
-								   )
-						       ),
-					  19, new Hash(
+					  9, new Hash(
 						       'contents', 'pers',
 						       'type', 'js',
 						       'uri', "addOpt('type','pers','pers')",
@@ -1360,27 +1010,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!pers','!pers')"
 								   )
 						       ),
-					  20, new Hash(
-						       'contents', 'pers-name',
-						       'type', 'js',
-						       'uri', "addOpt('type','pers-name','pers-name')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!pers-name','!pers-name')"
-								   )
-						       ),
-					  21, new Hash(
-						       'contents', 'place-name',
-						       'type', 'js',
-						       'uri', "addOpt('type','place-name','place-name')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!place-name','!place-name')"
-								   )
-						       ),
-					  22, new Hash(
+					  10, new Hash(
 						       'contents', 'poss',
 						       'type', 'js',
 						       'uri', "addOpt('type','poss','poss')",
@@ -1390,7 +1020,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!poss','!poss')"
 								   )
 						       ),
-					  23, new Hash(
+					  11, new Hash(
 						       'contents', 'prop',
 						       'type', 'js',
 						       'uri', "addOpt('type','prop','prop')",
@@ -1400,7 +1030,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!prop','!prop')"
 								   )
 						       ),
-					  24, new Hash(
+					  12, new Hash(
 						       'contents', 'q',
 						       'type', 'js',
 						       'uri', "addOpt('type','q','q')",
@@ -1410,7 +1040,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!q','!q')"
 								   )
 						       ),
-					  25, new Hash(
+					  13, new Hash(
 						       'contents', 'quant',
 						       'type', 'js',
 						       'uri', "addOpt('type','quant','quant')",
@@ -1420,7 +1050,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!quant','!quant')"
 								   )
 						       ),
-					  26, new Hash(
+					  14, new Hash(
 						       'contents', 'refl',
 						       'type', 'js',
 						       'uri', "addOpt('type','refl','refl')",
@@ -1430,7 +1060,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!refl','!refl')"
 								   )
 						       ),
-					  27, new Hash(
+					  15, new Hash(
 						       'contents', 'rel',
 						       'type', 'js',
 						       'uri', "addOpt('type','rel','rel')",
@@ -1440,17 +1070,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!rel','!rel')"
 								   )
 						       ),
-					  28, new Hash(
-						       'contents', 'res',
-						       'type', 'js',
-						       'uri', "addOpt('type','res','res')",
-						       1, new Hash(
-								   'contents', 'exclude',
-								   'type', 'js',
-								   'uri', "addOpt('type','!res','!res')"
-								   )
-						       ),
-					  29, new Hash(
+					  16, new Hash(
 						       'contents', 'strong',
 						       'type', 'js',
 						       'uri', "addOpt('type','strong','strong')",
@@ -1460,7 +1080,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!strong','!strong')"
 								   )
 						       ),
-					  30, new Hash(
+					  17, new Hash(
 						       'contents', 'uninflected',
 						       'type', 'js',
 						       'uri', "addOpt('type','uninflected','uninflected')",
@@ -1470,7 +1090,7 @@ function reloadMenuScandiasyn() {
 								   'uri', "addOpt('type','!uninflected','!uninflected')"
 								   )
 						       ),
-					  31, new Hash(
+					  18, new Hash(
 						       'contents', 'weak',
 						       'type', 'js',
 						       'uri', "addOpt('type','weak','weak')",
@@ -1482,19 +1102,6 @@ function reloadMenuScandiasyn() {
 						       )
 					  ),
 			     15, new Hash(
-					  'contents', 'segment',
-					  1, new Hash(
-						      'contents', 'start',
-						      'type', 'js',
-						      'uri', "addOpt('start','start','start')",
-						      1, new Hash(
-								  'contents', 'exclude',
-								  'type', 'js',
-								  'uri', "addOpt('start','!start','!start')"
-								  )
-						      )
-					  ),
-			     16, new Hash(
 					  'contents', 'gender',
 					  1, new Hash(
 						      'contents', 'fem',
@@ -1577,7 +1184,7 @@ function reloadMenuScandiasyn() {
 								  )
 						      )
 					  ),
-			     17, new Hash(
+			     16, new Hash(
 					  'contents', 'phonetic',
 					  'type', 'js',
 					  'uri', "addOpt('w','phon','phonetic')"
