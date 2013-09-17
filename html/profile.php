@@ -73,7 +73,7 @@ table.res{
 }
   </style>
   <?php
-  if ($_GET['corpus'] == "skriv") {
+  if ($_GET['corpus'] == "skriv" || $_GET['corpus'] == "norm") {
     print ('<meta http-equiv="content-type" content="text/html; charset=utf-8">');
   }
   ?>
@@ -121,19 +121,21 @@ $user = $base_config["db_uname"];
 $pass = $base_config["db_pwd"];
 $dbhost = $base_config["db_host"];
 
-$meta = $conf_array["meta_author"];
-$alias = $conf_array["meta_author_alias"];
+if ($corpus == "skriv" || $corpus == "norm") {
+  $tablesuffix = "text";
+} else {
+  $tablesuffix = "author";
+}
+
+$meta = $conf_array["meta_${tablesuffix}"];
+$alias = $conf_array["meta_${tablesuffix}_alias"];
 
 $meta_string = preg_replace ( "/ /", ",", $meta );
 $meta = preg_split("/ /", $meta);
 
 $alias = preg_split("/[,\t]+/", $alias);
 
-$table = strtoupper($corpus)."author";
-
-if ($corpus == "skriv") {
-  $table = strtoupper($corpus)."text";
-}
+$table = strtoupper($corpus).$tablesuffix;
 
 $session = mysql_connect ($dbhost . ':/var/lib/mysql/mysql.sock', $user, $pass)
      or die ('I cannot connect to the database using because: '
@@ -158,7 +160,7 @@ if(!$profile){
 
 }
 else{
-    if ($corpus != "skriv") {
+    if ($corpus != "skriv" && $corpus != "norm") {
       print "<table>\n<tr>\n<td valign='top'>\n";
     }
     print "<table border='0' cellspacing='0'>\n";
@@ -172,7 +174,7 @@ else{
 
     }
     print "</table>\n";
-    if ($corpus != "skriv") {
+    if ($corpus != "skriv" && $corpus != "norm") {
 ?>
     </td>
     <td>
