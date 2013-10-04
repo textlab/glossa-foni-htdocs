@@ -108,7 +108,7 @@
         "charset"     : "UTF-8",
         "js"          : [ "norm.js" ],
         "inc"         : [ "norm.inc" ],
-        "credentials" : [ "norm_cred.inc" ]
+        "credentials" : [ "norm_cred.inc" ],
 	"dual"	      : [ "Orthographic", "Phonetic" ]
     },
     "nota" : {
