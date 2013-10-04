@@ -60,7 +60,10 @@ if($corpus != 'kven' and $corpus != 'nota' and $corpus != 'upus2' and $corpus !=
 ?>
      <td valign="top" style="padding-left:30px">
        <script language="javascript">document.write(strings[language]['context'])</script>:<br>
-       <input type="radio" name="query_context_type" value="sentences"><script language="javascript">document.write(strings[language]['sent'])</script> <input type="radio" name="query_context_type" value="chars" checked><script language="javascript">document.write(strings[language]['word'])</script><br>
+       <?php if ($corpus != 'skriv') { ?>
+       <input type="radio" name="query_context_type" value="sentences"><script language="javascript">document.write(strings[language]['sent'])</script>
+       <?php } ?>
+       <input type="radio" name="query_context_type" value="chars" checked><script language="javascript">document.write(strings[language]['word'])</script><br>
        &nbsp;<input type="TEXT" name="query_context_left" SIZE=1 value="7"><span class="txt2"><script language="javascript">document.write(strings[language]['left'])</script></span>
        &nbsp;<input type="TEXT" name="query_context_right" SIZE=1 value="7"><span class="txt2"><script language="javascript">document.write(strings[language]['right'])</script></span>
      </td>

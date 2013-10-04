@@ -3,7 +3,7 @@
     <tr>
       <td valign="center" width="80px">
         <img style='border-style: none'
-             src='http://www.tekstlab.uio.no/michalkk/skriv/img/skriv-logo.jpg' />
+             src='http://www.tekstlab.uio.no/skriv/img/skriv-logo.jpg' />
       </td>
       <td>
         <strong><strong>
