@@ -264,7 +264,7 @@ if($speech){
 
 <?php
 // ------------- Subcorpus
-    if($corpus != 'skriv') {
+    if($corpus != 'skriv' && $corpus != 'norm') {
 ?>
       <input type="button" id="save_subcorpus" onClick="setAction('<?php echo $cgiRoot ?>/meta_save_choose.cgi');" <?php echo "value=\"" . $lang[$uilang]['save_subcorpus'] . "\""; ?> />
 <?php
@@ -274,7 +274,7 @@ if($speech){
 
 <br><br>
 <?php
-  if($corpus != 'skriv'){
+  if($corpus != 'skriv' && $corpus != 'norm'){
     echo "<a id='choose_subcorpus' href='" . $cgiRoot . "subcorpus_choose.cgi?corpus=" . $corpus . "'>";
     echo $lang[$uilang]['choose_subcorpus'];
     echo "</a>";

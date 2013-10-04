@@ -206,7 +206,7 @@ else{
     <?php
 
     // SKRIV
-    $questionnaire = "michalkk/skriv/sporreskjema/$student_code.txt";
+    $questionnaire = "skriv/sporreskjema/$student_code.txt";
     if (file_exists("/var/www/html/$questionnaire")) {
       print "<a href=\"#\" onclick=\"window.open('/$questionnaire', '_blank')\">Sp&oslash;rreskjema</a>";
     }

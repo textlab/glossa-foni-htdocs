@@ -1,6 +1,6 @@
 var Menu;
-function reloadMenuSkriv() {
-Menu['SKRIV'] = new Hash(     1, new Hash(
+function reloadMenuNorm() {
+Menu['NORM'] = new Hash(     1, new Hash(
         'contents', '<nobr>&nbsp;valg &#187;&nbsp;</nobr>',
 			     1, new Hash(
 					 'contents', 'word',

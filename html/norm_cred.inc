@@ -2,8 +2,8 @@
   <table cellspacing="1" border="0" width="300px">
     <tr>
       <td valign="center" width="80px">
-        <img style='border-style: none'
-             src='http://www.tekstlab.uio.no/skriv/img/skriv-logo.jpg' />
+        <a href="http://norm.skrivesenteret.no/"><img style='border-style: none'
+             src="http://norm.skrivesenteret.no/wp-content/uploads/2012/02/bl%C3%A5-logo1-300x66.jpg" /></a>
       </td>
       <td>
         <strong><strong>
