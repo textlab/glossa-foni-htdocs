@@ -340,189 +340,10 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
 	      )
 	   )
 ),
-  	5, new Hash(
-       'contents', 'Punctuation &#187;&nbsp;',
-	    1, new Hash(
-         'contents', 'colon',
-	      'type', 'js',
-	      'uri', "addOpt('type','colon','colon')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','colon','colon')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!colon','!colon')"
-	      )
-	   ),
-	    2, new Hash(
-         'contents', 'comma',
-	      'type', 'js',
-	      'uri', "addOpt('type','comma','comma')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','comma','comma')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!comma','!comma')"
-	      )
-	   ),
-	    3, new Hash(
-         'contents', 'dash',
-	      'type', 'js',
-	      'uri', "addOpt('type','dash','dash')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','dash','dash')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!dash','!dash')"
-	      )
-	   ),
-	    4, new Hash(
-         'contents', 'ellipsis',
-	      'type', 'js',
-	      'uri', "addOpt('type','ellipsis','ellipsis')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','ellipsis','ellipsis')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!ellipsis','!ellipsis')"
-	      )
-	   ),
-	    5, new Hash(
-         'contents', 'exclamation mark',
-	      'type', 'js',
-	      'uri', "addOpt('type','excl','exclamation mark')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','excl','exclamation mark')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!excl','!exclamation mark')"
-	      )
-	   ),
-	    6, new Hash(
-         'contents', 'period',
-	      'type', 'js',
-	      'uri', "addOpt('type','period','period')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','period','period')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!period','!period')"
-	      )
-	   ),
-	    7, new Hash(
-         'contents', 'parenthesis start',
-	      'type', 'js',
-	      'uri', "addOpt('type','lpar','parenthesis start')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','lpar','parenthesis start')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!lpar','!parenthesis start')"
-	      )
-	   ),
-	    8, new Hash(
-         'contents', 'parenthesis end',
-	      'type', 'js',
-	      'uri', "addOpt('type','rpar','parenthesis end')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','rpar','parenthesis end')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!rpar','!parenthesis end')"
-	      )
-	   ),
-	    9, new Hash(
-         'contents', 'question mark',
-	      'type', 'js',
-	      'uri', "addOpt('type','question','question mark')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','question','question mark')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!question','!question mark')"
-	      )
-	   ),
-	    10, new Hash(
-         'contents', 'quote',
-	      'type', 'js',
-	      'uri', "addOpt('type','quote','quote')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','quote','quote')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!quote','!quote')"
-	      )
-	   ),
-	    11, new Hash(
-         'contents', 'semicolon',
-	      'type', 'js',
-	      'uri', "addOpt('type','semicolon','semicolon')"
-,
-       1, new Hash(
-            'contents', 'velg',
-	         'type', 'js',
-	         'uri', "addOpt('type','semicolon','semicolon')"
-	      ),
-	      2, new Hash(
-            'contents', 'utelukk',
-	         'type', 'js',
-	         'uri', "addOpt('type','!semicolon','!semicolon')"
-	      )
-	   )
-),
-	  6, new Hash(
+	  5, new Hash(
          'contents', '<br>'
          ),
-  	7, new Hash(
+  	6, new Hash(
        'contents', 'features (pronouns) &#187;&nbsp;',
 	    1, new Hash(
          'contents', 'human',
@@ -841,7 +662,7 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
 	      )
 	   )
 ),
-  	8, new Hash(
+  	7, new Hash(
        'contents', 'features (nouns) &#187;&nbsp;',
 	    1, new Hash(
          'contents', 'common noun',
@@ -1061,7 +882,7 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
 	      )
 	   )
 ),
-  	9, new Hash(
+  	8, new Hash(
        'contents', 'features (adjective)  &#187;&nbsp;',
 	  1, new Hash(
          'contents', '<br><center><b>DEGREE</b></center>'
@@ -1182,7 +1003,7 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
 	      )
 	   )
 ),
-  	10, new Hash(
+  	9, new Hash(
        'contents', 'features (determiner) &#187;&nbsp;',
 	    1, new Hash(
          'contents', 'amplifying',
@@ -1297,7 +1118,7 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
 	      )
 	   )
 ),
-  	11, new Hash(
+  	10, new Hash(
        'contents', 'features (verb) &#187;&nbsp;',
 	    1, new Hash(
          'contents', 'imperative',
@@ -1412,17 +1233,17 @@ Menu['SKRIV'] = new Hash(     1, new Hash(
 	      )
 	   )
 ),
-      12, new Hash(
+      11, new Hash(
       'contents', '<br>'
       ),
 
-      13, new Hash(
+      12, new Hash(
                    'contents', 'original',
                    'type', 'js',
                    'uri', "addOpt('w','orig','original')"
                    ),
 
-      14, new Hash(
+      13, new Hash(
                    'contents', 'markering',
                    1, new Hash(
                                'contents', 'korrigert',
