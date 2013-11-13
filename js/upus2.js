@@ -1398,17 +1398,17 @@ Menu['UPUS'] = new Hash(     1, new Hash(
 	    2, new Hash(
          'contents', 'infinitiv',
 	      'type', 'js',
-	      'uri', "addOpt('tid~bestemethet','inf','infinitiv')"
+	      'uri', "addOpt('tid~bestemthet','inf','infinitiv')"
 ,
        1, new Hash(
             'contents', 'velg',
 	         'type', 'js',
-	         'uri', "addOpt('tid~bestemethet','inf','infinitiv')"
+	         'uri', "addOpt('tid~bestemthet','inf','infinitiv')"
 	      ),
 	      2, new Hash(
             'contents', 'utelukk',
 	         'type', 'js',
-	         'uri', "addOpt('tid~bestemethet','!inf','!infinitiv')"
+	         'uri', "addOpt('tid~bestemthet','!inf','!infinitiv')"
 	      )
 	   ),
 	    3, new Hash(
