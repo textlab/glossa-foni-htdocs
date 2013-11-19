@@ -1,5 +1,7 @@
 <?php
 
+include('index.inc');
+
 /*
   Extracts the root URI from the URL of the page in the HTTP header.
   Strips of the trailing 'html/index.php' components.
@@ -18,7 +20,9 @@ function getGlossaRootURI() {
   TODO: Do this properly with a library function or similar
  */
 function sanitizeParameter($param) {
-  return pg_escape_string($param);
+  global $base_config;
+  mysql_connect($base_config["db_host"] . ':/var/lib/mysql/mysql.sock', $base_config["db_uname"], $base_config["db_pwd"]);
+  return mysql_real_escape_string($param);
 }
 
 // * initialize * //
