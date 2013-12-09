@@ -91,6 +91,13 @@
         "js"          : [ "latvian.js" ],
         "inc"         : [ "latvian.inc" ] 
     },
+    "legepasient" : {
+        "js"          : [ "extras.js", "legepasient.js" ],
+        "inc"         : [ "legepasient.inc" ],
+        "credentials" : [ "legepasient_cred.inc" ],
+        "css"         : [ "extras.css" ],
+	"mode"	      : "speech"
+    },
     "mak" : {
         "charset"     : "ISO-8859-5",
         "js"          : [ "mak.js" ],

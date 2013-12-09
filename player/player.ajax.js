@@ -36,6 +36,11 @@ var corpusMedia = function(corpus, key, video){
 }
 
 corpusMedia.prototype.start = function() {
+    if(this.corpus == 'legepasient'){
+	      expand(this.corpus, this.key, 6,6, this.videop);
+	      return;
+    }
+
     if(this.corpus == 'nor1107'){
 	      expand(this.corpus, this.key, 0,100, this.videop);
 	      return;

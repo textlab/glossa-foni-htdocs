@@ -198,11 +198,15 @@ function att_val_array($i, $tok, $atts){
 }
 
 function span($tok){
+    global $corpus;
     $pat = "/\[([^\|]+)/";
     $pretty = "";
     preg_match($pat, $tok, $match);
     $tok = preg_replace("/^\[/", "", $match[0]);
     $tok = preg_replace("/\|$/", "", $tok);
+    if ($corpus == "legepasient") {
+      $tok = strtr($tok, "{}", "[]");
+    }
     return $tok;
 }
 

@@ -1,4 +1,5 @@
 <?php
+  header("Cache-Control: no-store"); // don't remember form content on reload
 
 /**
  * Retrieves a value from the json config for the various corpora.
@@ -241,7 +242,7 @@ else{
 // ------------ Show texts/informants
 if($speech){
 ?>
-   <input type="button" id="show_texts_alt" onClick="setAction('profiles.php');" value="<?php echo "Show informants" ?>" /><br><br>
+   <input type="button" id="show_texts_alt" onClick="setAction('profiles.php');" value="Show informants" /><br><br>
 <?php
     }
 
@@ -264,7 +265,7 @@ if($speech){
 
 <?php
 // ------------- Subcorpus
-    if($corpus != 'skriv' && $corpus != 'norm') {
+    if($corpus != 'skriv' && $corpus != 'norm' && $corpus != 'legepasient') {
 ?>
       <input type="button" id="save_subcorpus" onClick="setAction('<?php echo $cgiRoot ?>/meta_save_choose.cgi');" <?php echo "value=\"" . $lang[$uilang]['save_subcorpus'] . "\""; ?> />
 <?php
@@ -274,7 +275,7 @@ if($speech){
 
 <br><br>
 <?php
-  if($corpus != 'skriv' && $corpus != 'norm'){
+  if($corpus != 'skriv' && $corpus != 'norm' && $corpus != 'legepasient'){
     echo "<a id='choose_subcorpus' href='" . $cgiRoot . "subcorpus_choose.cgi?corpus=" . $corpus . "'>";
     echo $lang[$uilang]['choose_subcorpus'];
     echo "</a>";

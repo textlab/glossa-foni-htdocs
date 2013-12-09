@@ -138,7 +138,7 @@ $profiles = "SELECT $meta_string FROM $table";
 $total = "SELECT SUM(wc) FROM $table"; 
 
 $number_of_informants = "SELECT COUNT(tid), COUNT(distinct place), COUNT(distinct country) FROM $table";
-if($corpus == 'nota'){$number_of_informants = "SELECT COUNT(tid) FROM $table";}
+if($corpus == 'nota' || $corpus=='legepasient'){$number_of_informants = "SELECT COUNT(tid) FROM $table";}
 
 $first = 1;
 
@@ -151,7 +151,7 @@ foreach (array_keys($columns) as $key){
     $opp = $operators[$key];
     if($opp == 'LIKE'){
 	$opp = 'REGEXP';
-	$value = preg_replace( "/,/", "|", $columns[$key] );
+	$value = "^(" . preg_replace( "/,/", "|", $columns[$key] ) . ")$";
     }
     else{ $value = $columns[$key]; }
     if ($opp == 'check'){ $opp = '=';  }
@@ -183,12 +183,14 @@ $nelts = count($meta);
 
 <?php
 if($corpus == 'kven'){$corpus = 'ruija';}
-print "<b>Word count for selected informants: $wcs[0] (total for " . ucfirst($corpus) . " corpus: $total[0])</b>";
+print "<b>Word count for selected informants: $wcs[0] (total for " . ucfirst($corpus) . " corpus: $total[0])</b><br>";
 
+if($tid) {
 if($conf_array["lang"] == 'no'){
     print "<h4>Informasjon om informant <i>$tid</i> i " . ucfirst($corpus) . "korpuset</h4>\n";
 }
 else{print "<h4>Informant details for <i>$tid</i> in the " . ucfirst($corpus) . " corpus</h4>\n";}
+}
 
 
 $sq = mysql_query($profiles);
@@ -199,8 +201,8 @@ $count = mysql_query($number_of_informants);
 $profile = mysql_fetch_row($sq);
 $count = mysql_fetch_row($count);
 
-print "<b>Informants selected: " . $count[0];
-if($corpus != 'nota'){
+print "<b>Selected informants: " . $count[0];
+if($corpus != 'nota' and $corpus != 'legepasient'){
   $places = "places";
   if($count[1] == 1){$places = "place";}
   $countries = "countries";
@@ -232,6 +234,15 @@ else{
 
     while( $profile ){
 
+        if ($corpus == 'legepasient') {
+          if ($profile[1] == 'lege') {
+            $profile[3] = $profile[4] = $profile[6] = '';
+          } elseif ($profile[1] == 'pasient') {
+            $profile[2] = $profile[5] = $profile[9] = '';
+          } else {
+            $profile[2] = $profile[3] = $profile[4] = $profile[5] = $profile[6] = $profile[9] = '';
+          }
+        }
 	print "<tr>\n";
 
 	$profile = join("</td>\n<td>", $profile);

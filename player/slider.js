@@ -15,8 +15,8 @@ var sliderObject = function(div,text1,text2, corpus, key, video){
     $(function() {
 	$( "#"+div ).slider({
 		range: true,
-		    min: -10,
-		    max: 10,
+		    min: corpus=='legepasient' ? -100 : -10,
+		    max: corpus=='legepasient' ? 100 : 10,
 		    values: [ -1, 1 ],
 		    slide: function( event, ui ) {
   		            $( "#"+text1 ).val( "" + ui.values[ 0 ] );
