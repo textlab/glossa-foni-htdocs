@@ -259,6 +259,12 @@
     },
     "quran_mono" : { "charset" : "UTF-8" },
     "quran_parallel" : { "charset" : "UTF-8" },
+    "sami" : {
+        "charset"     : "ISO-8859-4",
+        "js"          : [ "sami.js" ],
+        "inc"         : [ "sami.inc" ],
+        "credentials" : [ "sami_cred.inc" ]
+    },
 
     "default" : {
         "charset"     : "ISO-8859-1",
