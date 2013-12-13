@@ -235,12 +235,8 @@ else{
     while( $profile ){
 
         if ($corpus == 'legepasient') {
-          if ($profile[1] == 'lege') {
-            $profile[3] = $profile[4] = $profile[6] = '';
-          } elseif ($profile[1] == 'pasient') {
-            $profile[2] = $profile[5] = $profile[9] = '';
-          } else {
-            $profile[2] = $profile[3] = $profile[4] = $profile[5] = $profile[6] = $profile[9] = '';
+          if ($profile[4] == '0') {
+            $profile[4] = '';
           }
         }
 	print "<tr>\n";

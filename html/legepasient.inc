@@ -14,30 +14,15 @@
 <hr />
 <table width="100%" border="0">
   <tr>
-    <td width="20%">Leger:</td>
+    <td width="20%">Informantegenskaper:</td>
     <td valign="top">
-      <script language="javascript">writeWidgetDoubleTable('drlang','språk','hidden')</script>
+      <script language="javascript">writeWidgetDoubleTable('lang','språk','hidden')</script>
     </td>
     <td valign="top">
-      <script language="javascript">writeWidgetRadio('drsex','kjønn', 'hidden')</script>
+      <script language="javascript">writeWidgetRadio('sex','kjønn', 'hidden')</script>
     </td>
     <td valign="top">
-      <script language="javascript">writeWidgetDoubleTable('drage','alder', 'hidden')</script>
-    </td>
-   </tr>
-</table>
-<hr />
-<table width="100%" border="0">
-  <tr>
-    <td width="20%">Pasienter:</td>
-    <td valign="top">
-      <script language="javascript">writeWidgetDoubleTable('plang','språk','hidden')</script>
-    </td>
-    <td valign="top">
-      <script language="javascript">writeWidgetRadio('psex','kjønn', 'hidden')</script>
-    </td>
-    <td valign="top">
-      <script language="javascript">writeWidgetDoubleTable('page','alder', 'hidden')</script>
+      <script language="javascript">writeWidgetDoubleTable('age','alder', 'hidden')</script>
     </td>
    </tr>
 </table>
