@@ -1429,29 +1429,39 @@ Menu['NORM'] = new Hash(     1, new Hash(
                                'type', 'js',
 
                                1, new Hash(
-                                             'contents', '&amp;&amp;bilde',
+                                             'contents', '&amp;&amp;TEGNING',
                                              'type', 'js',
-                                             'uri', "addOpt('word','&&bilde','&&bilde')"
+                                             'uri', "addOpt('word','&&TEGNING','&&TEGNING')"
                                            ),
                                2, new Hash(
-                                             'contents', '&amp;&amp;inf',
+                                             'contents', '&amp;&amp;UFORSTÅELIG',
                                              'type', 'js',
-                                             'uri', "addOpt('word','&&inf','&&inf')"
+                                             'uri', "addOpt('word','&&UFORSTÅELIG','&&UFORSTÅELIG')"
                                            ),
                                3, new Hash(
-                                             'contents', '&amp;&amp;punkt',
+                                             'contents', '&amp;&amp;PUNKT',
                                              'type', 'js',
-                                             'uri', "addOpt('word','&&punkt','&&punkt')"
+                                             'uri', "addOpt('word','&&PUNKT.*','&&PUNKT')"
                                            ),
                                4, new Hash(
-                                             'contents', '&amp;&amp;tabell',
+                                             'contents', '&amp;&amp;ODMBS',
                                              'type', 'js',
-                                             'uri', "addOpt('word','&&tabell','&&tabell')"
+                                             'uri', "addOpt('word','&&ODMBS','&&ODMBS')"
                                            ),
                                5, new Hash(
-                                             'contents', '&amp;&amp;sær',
+                                             'contents', '&amp;&amp;ODUBS',
                                              'type', 'js',
-                                             'uri', "addOpt('word','&&sær.*','&&sær')"
+                                             'uri', "addOpt('orig','&&ODUBS','&&ODUBS')"
+                                           ),
+                               6, new Hash(
+                                             'contents', '&amp;&amp;STRØKET',
+                                             'type', 'js',
+                                             'uri', "addOpt('orig','&&STRØKET','&&STRØKET')"
+                                           ),
+                               7, new Hash(
+                                             'contents', '&amp;&amp;SÆR',
+                                             'type', 'js',
+                                             'uri', "addOpt('word','&&SÆR.*','&&SÆR')"
                                            )
                                ),
                    2, new Hash(
@@ -1459,44 +1469,39 @@ Menu['NORM'] = new Hash(     1, new Hash(
                                'type', 'js',
 
                                1, new Hash(
-                                             'contents', '&amp;&amp;bilde',
+                                             'contents', '&amp;&amp;TEGNING',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&bilde','&&bilde')"
+                                             'uri', "addOpt('orig','&&TEGNING','&&TEGNING')"
                                            ),
                                2, new Hash(
-                                             'contents', '&amp;&amp;inf',
+                                             'contents', '&amp;&amp;UFORSTÅELIG',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&inf','&&inf')"
+                                             'uri', "addOpt('orig','&&UFORSTÅELIG','&&UFORSTÅELIG')"
                                            ),
                                3, new Hash(
-                                             'contents', '&amp;&amp;punkt',
+                                             'contents', '&amp;&amp;PUNKT',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&punkt','&&punkt')"
+                                             'uri', "addOpt('orig','&&PUNKT.*','&&PUNKT')"
                                            ),
                                4, new Hash(
-                                             'contents', '&amp;&amp;tabell',
+                                             'contents', '&amp;&amp;ODMBS',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&tabell','&&tabell')"
+                                             'uri', "addOpt('orig','&&ODMBS','&&ODMBS')"
                                            ),
                                5, new Hash(
-                                             'contents', '&amp;&amp;hv',
+                                             'contents', '&amp;&amp;ODUBS',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&hv','&&hv')"
+                                             'uri', "addOpt('orig','&&ODUBS','&&ODUBS')"
                                            ),
                                6, new Hash(
-                                             'contents', '&amp;&amp;kop',
+                                             'contents', '&amp;&amp;STRØKET',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&kop','&&kop')"
+                                             'uri', "addOpt('orig','&&STRØKET','&&STRØKET')"
                                            ),
                                7, new Hash(
-                                             'contents', '&amp;&amp;mlr',
+                                             'contents', '&amp;&amp;SAM',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&mlr','&&mlr')"
-                                           ),
-                               8, new Hash(
-                                             'contents', '&amp;&amp;sam',
-                                             'type', 'js',
-                                             'uri', "addOpt('orig','&&sam','&&sam')"
+                                             'uri', "addOpt('orig','&&SAM','&&SAM')"
                                            )
                                )
                    )
