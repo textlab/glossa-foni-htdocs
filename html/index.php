@@ -54,7 +54,6 @@ function include_corpus_tables($corpus_name) {
 <?php
 // include shared functions
 include("glossa.inc");
-
 /* 
    initialize Glossa 
    set up corpus var, base urls and paths

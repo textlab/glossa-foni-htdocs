@@ -32,16 +32,14 @@
     </style>
     <script type="text/javascript">
 var map;
-function init(lt,lg){
-
+function init(lt,lg,zm){
      var latlng = new google.maps.LatLng(lt, lg); //-34.397, 150.644
      var myOptions = {
-                      zoom: 4,
+                      zoom: zm,
                       center: latlng,
                       mapTypeId: google.maps.MapTypeId.ROADMAP
      };
      map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
      for(var j in allLocations){ // the small dots, for all results
            addMarker(allLocations[j]); 
      }
@@ -158,9 +156,10 @@ var inf_loc = window.opener.mapObj.infLoc;
 var allLocations = window.opener.mapObj.allLocs;
 var initLat = window.opener.mapObj.lat;
 var initLng = window.opener.mapObj.lng;
+var initZoom = window.opener.mapObj.zoom;
 var toksLocs = mapToks2Locs();
 init_loc_inf();
-init(initLat,initLng);
+init(initLat,initLng,initZoom);
     </script>
   </body>
 </html>

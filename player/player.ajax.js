@@ -289,7 +289,7 @@ function expand(corpus,i,l,r,video) {
 	      return;
     }
 
-    var url="http://tekstlab.uio.no/glossa/player/db.php?corpus="+corpus+"&line_key="+i+"&left="+l+"&right="+r+"&video="+video;
+    var url="http://tekstlab.uio.no/glossa-joel-dev/glossa/player/db.php?corpus="+corpus+"&line_key="+i+"&left="+l+"&right="+r+"&video="+video;
     url=url+"&sid="+Math.random();
     xmlhttp.open("GET",url,true);
     xmlhttp.onreadystatechange=stateChanged;
@@ -322,6 +322,9 @@ function stateChanged() {
     if (xmlhttp.readyState==4){
         response =  xmlhttp.responseText;
 	//	document.getElementById("placeholder").innerHTML = (response);
+	var spoon = document.createElement("span");
+	spoon.innerHTML = ""+response+"";
+	document.getElementsByTagName('body')[0].appendChild(spoon);
         var Obj = jQuery.parseJSON(response);
         var mp4 = Obj.mov.movie_loc;
         var start = Obj.mov.start;
