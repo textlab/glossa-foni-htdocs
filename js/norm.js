@@ -1501,7 +1501,7 @@ Menu['NORM'] = new Hash(     1, new Hash(
                                7, new Hash(
                                              'contents', '&amp;&amp;SAM',
                                              'type', 'js',
-                                             'uri', "addOpt('orig','&&SAM','&&SAM')"
+                                             'uri', "addOpt('orig','&&SAM.*','&&SAM')"
                                            )
                                )
                    )
