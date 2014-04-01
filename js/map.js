@@ -263,6 +263,7 @@ function init2(){
 
 function move(loc){
     current = loc;
+    //    alert(coordinates[loc]['lat']+" - "+coordinates[loc]['lng']);
     initialize(coordinates[loc]['lat'],coordinates[loc]['lng']);
 }
 

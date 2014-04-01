@@ -178,7 +178,7 @@ function db2html($rows,$corp) {
       $spans[$j++] = span($tok);
     }
 
-    $divs['spans'][$coundter++] = array('ref' => $ref, 'spans' => $spans, 'begin' => $begin, 'end' => $end);
+    $divs['spans'][$counter++] = array('ref' => $ref, 'spans' => $spans, 'begin' => $begin, 'end' => $end);
   }
 
   $divs['pops'] = $pops;
@@ -201,9 +201,10 @@ function span($tok){
     global $corpus;
     $pat = "/\[([^\|]+)/";
     $pretty = "";
-    preg_match($pat, $tok, $match);
-    $tok = preg_replace("/^\[/", "", $match[0]);
-    $tok = preg_replace("/\|$/", "", $tok);
+    if( preg_match($pat, $tok, $match) == 1){
+      $tok = preg_replace("/^\[/", "", $match[0]);
+      $tok = preg_replace("/\|$/", "", $tok);
+    }
     if ($corpus == "legepasient") {
       $tok = strtr($tok, "{}", "[]");
     }

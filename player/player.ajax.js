@@ -23,6 +23,13 @@ script3.src = 'http://tekstlab.uio.no/glossa/player/jwplayer.js';
 script3.type = 'text/javascript';
 document.getElementsByTagName('head')[0].appendChild(script3);
 
+var script4 = document.createElement('script');
+script4.src = 'http://tekstlab.uio.no/glossa/player/slider.js';
+script4.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script4);
+
+
+
 var media;
 
 var corpusMedia = function(corpus, key, video){
@@ -195,6 +202,7 @@ function createSpan(i, content) {
 }
 
 function createPlayer(movie_loc, start, duration) {
+    console.log(movie_loc);
     var d = duration - start;
     jwplayer("player").setup({
 	      flashplayer: "http://tekstlab.uio.no/glossa/player/player.swf",
@@ -215,7 +223,7 @@ function createPlayer(movie_loc, start, duration) {
 		    wmode:"opaque",
 		    allowfullscreen:false,
 		    windowless:true,
-		    image:"http://www.hf.uio.no/iln/om/organisasjon/tekstlab/BILDER/logo173.png"
+		    image:"http://tekstlab.uio.no/glossa/player/logo173.png"
 	  });
 }
 
@@ -313,6 +321,7 @@ function GetXmlHttpObject(){
 function stateChanged() {
     if (xmlhttp.readyState==4){
         response =  xmlhttp.responseText;
+	//	document.getElementById("placeholder").innerHTML = (response);
         var Obj = jQuery.parseJSON(response);
         var mp4 = Obj.mov.movie_loc;
         var start = Obj.mov.start;

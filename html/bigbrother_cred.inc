@@ -13,3 +13,9 @@
 </tr>
 </table>
 </div>
+<div style="position: relative; left: -220px; top: 32px">
+<ul>
+  <li><a target="_blank" href="transcriptions/bigbrother">Transcriptions</a></li>
+  <li><a target="_blank" href="http://www.tekstlab.uio.no/nota/scandiasyn/help/">News: Search Interface Documentation</a></li>
+</ul>
+</div>

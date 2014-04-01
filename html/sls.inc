@@ -17,7 +17,7 @@
       <script language="javascript">writeWidgetDoubleTable('landscape','region','hidden')</script>
     </td>
     <td valign="top" width="20%">
-      <script language="javascript">writeWidgetDoubleTable('ort','place','hidden')</script>
+      <script language="javascript">writeWidgetDoubleTable('place','place','hidden')</script>
     </td>
    </tr>
 </table>

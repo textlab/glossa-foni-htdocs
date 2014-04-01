@@ -1,5 +1,5 @@
-<div style="position: relative; left: 10px; top: 145px;background:#fff;">
-  <table cellspacing="1" border="0" width="300px">
+<div style="position: relative; left: -180px; top: 20px;background:#fff;">
+  <table>
     <tr>
       <td valign="center" width="80px">
         <a target="_blank" href="http://www.tekstlab.uio.no/nota/oslo/">
@@ -25,4 +25,10 @@
       </td>
     </tr>
   </table>
+</div>
+<div style="position: relative; left: -220px; top: 32px">
+<ul>
+  <li><a target="_blank" href="transcriptions/nota">Transcriptions</a></li>
+  <li><a target="_blank" href="http://www.tekstlab.uio.no/nota/scandiasyn/help/">News: Search Interface Documentation</a></li>
+</ul>
 </div>
