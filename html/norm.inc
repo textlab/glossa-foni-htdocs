@@ -9,6 +9,5 @@
 <tr>
   <td valign="top"><script language="javascript">writeWidgetCheck('nativelanguage', 'morsmål', 'hidden')</script></td>
   <td valign="top"><script language="javascript">writeWidgetCheck('assignmenttype', 'oppgavetype', 'hidden')</script></td>
-  <td valign="top"><script language="javascript">writeWidgetDoubleTable('comments', 'oppgavetekst', 'hidden')</script></td>
 </tr>
 </table>
