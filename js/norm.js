@@ -35,7 +35,7 @@ Menu['NORM'] = new Hash(     1, new Hash(
 						     'uri', "addOpt('w','neg','exclude')"
 						     ),
 					 7, new Hash(
-						     'contents', 'add word form',
+						     'contents', 'add correct word form',
 						     'type', 'js',
 						     'uri', "addOpt('ADDSTRING','word','')"
 						     ),
