@@ -10,15 +10,5 @@
       </td>
     </tr>
     <tr><td colspan="2">&nbsp;</td></tr>
-    <tr>
-      <td valign="center">
-        Developed at
-      </td>
-      <td align="left">
-        <a target="_blank" href='http://www.hf.uio.no/tekstlab'>
-          <img style='border-style: none' src='img/logo.png' />
-        </a>
-      </td>
-    </tr>
   </table>
 </div>
