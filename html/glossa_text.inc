@@ -36,7 +36,14 @@ document.write("<input id='delRowsButton' type='button' value='delete phrase' on
      </td>
      <td valign="top" style="padding-left:15px;text-align:left">
       <span class="txt2"><script language="javascript">document.write(strings[language]['rand'])</script> <input type="checkbox" name="query_results_random"></input></span><br>
-      <span class="txt2"><nobr><script language="javascript">document.write(strings[language]['fastcut'])</script> <input type="checkbox" name="query_results_fastcut" checked></input><nobr></span>
+      <span class="txt2"><nobr><script language="javascript">document.write(strings[language]['fastcut'])</script> <input type="checkbox" name="query_results_fastcut" checked></input><nobr></span><br />
+<?php
+	if($speech){
+?>
+      <span class="txt2"><nobr><script language="javascript">document.write(strings[language]['concordance'])</script> <input type="checkbox" name="query_results_concordance"></input><nobr></span>
+<?php
+      	}
+?>
      </td>
 
 

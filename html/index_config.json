@@ -48,6 +48,14 @@
         "credentials" : [ "engl2_cred.inc" ],
 	"mode"	      : "speech"
     },
+    "tigrinya" : {
+        "uilang"      : "en",
+        "js"          : [ "tigrinya.js" ],
+        "inc"         : [ "tigrinya.inc" ],
+        "credentials" : [ "tigrinya_cred.inc" ],
+	"mode"	      : "speech",
+	"dual"        : [ "IPA","Transliteration" ]
+    },
     "euro_news_fr1" : {
         "js"          : [ "euro_news_fr1.js" ],
         "inc"         : [ "euro_news_fr1.inc" ],

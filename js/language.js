@@ -45,6 +45,9 @@ strings['en']['rand']='Randomize';
 strings['no']['fastcut']='Ingen totalfrekvens';
 strings['en']['fastcut']='Skip tot. freq.';
 
+strings['no']['concordance']='Sent. konkordanser';
+strings['en']['concordance']='Algn. concordances';
+
 strings['no']['sent']='setning';
 strings['en']['sent']='sentence';
 

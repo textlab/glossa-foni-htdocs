@@ -485,6 +485,9 @@ function ReloadMenu(language) {
        else if (language == 'ENGL2') {
                reloadMenuEngl2();
        }
+       else if (language == 'TIGRINYA') {
+               reloadMenuTigrinya();
+       }
        else if (language == 'BIGBROTHER') {
                reloadMenuBigBrother();
        }

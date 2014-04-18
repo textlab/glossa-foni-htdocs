@@ -1,4 +1,5 @@
 var Menu;
+
 function reloadMenuScandiasyn() {
     Menu['SCANDIASYN'] =
         new Hash(

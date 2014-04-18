@@ -54,7 +54,8 @@ function showTag(e, tagId) {
 function getStyleObject(objectId) {
   // checkW3C DOM, then MSIE 4, then NN 4.
   //
-  if(document.getElementById && document.getElementById(objectId)) {
+  
+    if(document.getElementById && document.getElementById(objectId)) {
 	return document.getElementById(objectId).style;
    }
    else if (document.all && document.all(objectId)) {
