@@ -141,7 +141,6 @@ $number_of_informants = "SELECT COUNT(tid), COUNT(distinct place), COUNT(distinc
 if($corpus == 'nota' || $corpus=='legepasient'){$number_of_informants = "SELECT COUNT(tid) FROM $table";}
 if($corpus == 'sls'){$number_of_informants = "SELECT COUNT(tid), COUNT(distinct place) FROM $table";}
 
-
 $first = 1;
 
 foreach (array_keys($columns) as $key){
