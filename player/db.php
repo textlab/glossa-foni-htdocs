@@ -67,7 +67,9 @@ $fn =filename($audio_file, $video, $corpus);
 if($corpus == 'bigbrother'){$movie_loc .= "BB/$fn";}
 elseif($corpus == 'demo'){$movie_loc .= "nota/$fn";}
 elseif($corpus == 'nor1107'){$movie_loc .= "scandiasyn/$fn";}
+elseif($corpus == 'tigrinya'){$movie_loc .= "tigrinya/$fn";}
 else{$movie_loc .= "$corpus/$fn";}
+#print "<script>alert('$movie_loc')</script>";
 
 $res = mysql_query($context);
 $lower_fixed = 0;
@@ -134,7 +136,7 @@ echo json_encode($result);
 // #### e, infine, le funzioni ####
 
 function filename( $file, $vid, $corp ){
-
+  if($corp == 'tigrinya'){return "audio/" . $file; }
     $pat = "/^[A-Z]*_/";
     $file = preg_replace ( $pat, "", $file );
     $pat = "/\.wav/i";
@@ -164,7 +166,7 @@ function db2html($rows,$corp) {
     $begin=$row["begin"];
     $end=$row["end"];
 
-    if($corp == 'nor1107'){
+    if($corp == 'nor1107' or $corp == 'tigrinya'){
       $seg = $row["seg"];
     }
     else{
