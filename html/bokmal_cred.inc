@@ -3,7 +3,7 @@
 
 <h3>Bokmålskorpuset</h3>
 Utviklet av Seksjon for leksikografi <br>
-(avdeling for Bokmål) ved Insitutt for <br>
+(Avdeling for Bokmål) ved Institutt for <br>
 lingvistiske og nordiske studier, UiO; <br> 
 sammen med
 <a href='http://www.hf.uio.no/tekstlab/'>
