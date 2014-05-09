@@ -139,6 +139,8 @@ $total = "SELECT SUM(wc) FROM $table";
 
 $number_of_informants = "SELECT COUNT(tid), COUNT(distinct place), COUNT(distinct country) FROM $table";
 if($corpus == 'nota' || $corpus=='legepasient'){$number_of_informants = "SELECT COUNT(tid) FROM $table";}
+if($corpus == 'sls'){$number_of_informants = "SELECT COUNT(tid), COUNT(distinct place) FROM $table";}
+
 
 $first = 1;
 
@@ -207,7 +209,8 @@ if($corpus != 'nota' and $corpus != 'legepasient'){
   if($count[1] == 1){$places = "place";}
   $countries = "countries";
   if($count[2] == 1){$countries = "country";}
-  print " from ". $count[1] . " " . $places . " in " . $count[2] . " " . $countries;
+  if($count[2] == 0){print " from " . $count[1] . " " . $places .".";}
+  else {print " from ". $count[1] . " " . $places . " in " . $count[2] . " " . $countries;}
  }
 
 print "</b><br />\n";
