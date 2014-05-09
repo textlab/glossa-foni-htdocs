@@ -73,11 +73,11 @@ document.write("<input id='delRowsButton' type='button' value='delete phrase' on
 
 
 <?php
-     if(!$speech or $corpus == 'sls'){
+     if(!$speech){
 ?>
      <td valign="top" style="padding-left:30px">
        <script language="javascript">document.write(strings[language]['context'])</script>:<br>
-       <?php if ($corpus != 'skriv' and $corpus != 'sls') { ?>
+       <?php if ($corpus != 'skriv') { ?>
        <input type="radio" name="query_context_type" value="sentences"><script language="javascript">document.write(strings[language]['sent'])</script>
        <?php } ?>
        <input type="radio" name="query_context_type" value="chars" checked><script language="javascript">document.write(strings[language]['word'])</script><br>
