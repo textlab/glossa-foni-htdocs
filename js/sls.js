@@ -739,13 +739,13 @@ function reloadMenuSLS() {
 								  )
 						      ),
 					  4, new Hash(
-						      'contents', 'o',
+						      'contents', 'b',
 						      'type', 'js',
-						      'uri', "addOpt('descr','o','o')",
+						      'uri', "addOpt('descr','b','b')",
 						      1, new Hash(
 								  'contents', 'exclude',
 								  'type', 'js',
-								  'uri', "addOpt('descr','!o','!o')"
+								  'uri', "addOpt('descr','!b','!b')"
 								  )
 						      ),
 					  5, new Hash(
