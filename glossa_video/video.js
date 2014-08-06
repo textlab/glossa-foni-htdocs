@@ -4,11 +4,24 @@ $(document).ready(function(){
 		var line_key=this.id.replace(/.+_/,"");
 		var corpus=this.id.replace(/_.+/,"");
 		var media_type = this.name;
-		$.getJSON('http://tekstlab.uio.no/glossa-joel-dev/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type='+media_type, function(data) {
+		$.getJSON('http://tekstlab.uio.no/glossa-michalkk-dev/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type='+media_type+'&ctx=5', function(data) {
 			initJplayer(data)
 		});
 	 });
+
+	$('.waveform-button').on('click', function(){
+		var line_key=this.id.replace(/.+_/,"");
+		var corpus=this.id.replace(/_.+/,"");
+		$.getJSON('http://tekstlab.uio.no/glossa-michalkk-dev/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type=audio&ctx=0', function(data) {
+			initWFplayer(data)
+		});
+	 });
  });
+
+var drawWaveformPlayer =
+    function(divID){
+      $('#' + divID).append('<iframe height="400" width="90%" id="waveframe" target="_blank" style="border: 0"></iframe><br />');
+    };
 
 var drawJplayer = 
     function(divID){
@@ -226,6 +239,17 @@ $(function() {
 	    });
     });
 
+initedWF = false;
+
+var initWFplayer = function(mediaObj){
+    if(!initedWF){
+	$('#inspectorwf').show();
+	initedWF = true;
+	drawWaveformPlayer('inspectorwf');
+    }
+
+    $("#waveframe").attr('src', 'http://tekstlab.uio.no/michalkk/sm/demo/page-player/glossaplayer.php?path=' + encodeURIComponent(mediaObj.mov.path) + '&movie_loc=' + encodeURIComponent(mediaObj.mov.movie_loc) + '&start=' + mediaObj.mov.start + '&stop=' + mediaObj.mov.stop);
+}
 
 inited = false;
 

@@ -4,6 +4,7 @@ $id  = $_GET['line_key']; // the sql-table key for the segment returned by CQP
 $media_type = $_GET['media_type'];
 $corpus = $_GET['corpus'];
 $serve = $_GET['serve'];
+$ctx = intval($_GET['ctx']);
 
 
 
@@ -45,8 +46,8 @@ $arr = mysql_fetch_array($f);
 $audio_file = $arr[0];
 
 $fn =filename($audio_file, $media_type, $corpus);
-$left = $id - 5;
-$right = $id + 5;
+$left = $id - $ctx;
+$right = $id + $ctx;
 $rows = "SELECT ref,begin,end,seg FROM $table WHERE id >= $left and id <= $right and audio_file = '$audio_file';";
 
 $rows = mysql_query($rows);
