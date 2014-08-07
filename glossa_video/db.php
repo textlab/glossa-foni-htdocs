@@ -5,6 +5,9 @@ $media_type = $_GET['media_type'];
 $corpus = $_GET['corpus'];
 $serve = $_GET['serve'];
 $ctx = intval($_GET['ctx']);
+if ($ctx > 5) {
+  $ctx = 5;
+}
 
 
 
