@@ -4,7 +4,7 @@ $(document).ready(function(){
 		var line_key=this.id.replace(/.+_/,"");
 		var corpus=this.id.replace(/_.+/,"");
 		var media_type = this.name;
-		$.getJSON('http://tekstlab.uio.no/glossa-michalkk-dev/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type='+media_type+'&ctx=5', function(data) {
+		$.getJSON('http://tekstlab.uio.no/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type='+media_type+'&ctx=5', function(data) {
 			initJplayer(data)
 		});
 	 });
@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$('.waveform-button').on('click', function(){
 		var line_key=this.id.replace(/.+_/,"");
 		var corpus=this.id.replace(/_.+/,"");
-		$.getJSON('http://tekstlab.uio.no/glossa-michalkk-dev/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type=audio&ctx=0', function(data) {
+		$.getJSON('http://tekstlab.uio.no/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type=audio&ctx=0', function(data) {
 			initWFplayer(data)
 		});
 	 });
@@ -248,7 +248,7 @@ var initWFplayer = function(mediaObj){
 	drawWaveformPlayer('inspectorwf');
     }
 
-    $("#waveframe").attr('src', 'http://tekstlab.uio.no/michalkk/sm/demo/page-player/glossaplayer.php?path=' + encodeURIComponent(mediaObj.mov.path) + '&movie_loc=' + encodeURIComponent(mediaObj.mov.movie_loc) + '&start=' + mediaObj.mov.start + '&stop=' + mediaObj.mov.stop);
+    $("#waveframe").attr('src', '/sm/glossaplayer.php?path=' + encodeURIComponent(mediaObj.mov.path) + '&movie_loc=' + encodeURIComponent(mediaObj.mov.movie_loc) + '&start=' + mediaObj.mov.start + '&stop=' + mediaObj.mov.stop);
 }
 
 inited = false;
