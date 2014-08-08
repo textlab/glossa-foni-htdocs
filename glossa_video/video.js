@@ -246,12 +246,12 @@ inited = false;
 var initWFplayer = function(mediaObj){
     $('#inspector').empty().hide();
     inited = false;
-    $("#waveframe").contents().find("body").html("Loading, please wait...")
     $('#inspectorwf').show();
     if(!initedWF){
 	initedWF = true;
 	drawWaveformPlayer('inspectorwf');
     }
+    $("#waveframe").contents().find("body").html("Loading, please wait...");
 
     last_line = parseInt(mediaObj.last_line);
     textBox.init(mediaObj);
