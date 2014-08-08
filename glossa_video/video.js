@@ -4,7 +4,7 @@ $(document).ready(function(){
 		var line_key=this.id.replace(/.+_/,"");
 		var corpus=this.id.replace(/_.+/,"");
 		var media_type = this.name;
-		$.getJSON('http://tekstlab.uio.no/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type='+media_type+'&ctx=5', function(data) {
+		$.getJSON('/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type='+media_type, function(data) {
 			initJplayer(data)
 		});
 	 });
@@ -12,7 +12,7 @@ $(document).ready(function(){
 	$('.waveform-button').on('click', function(){
 		var line_key=this.id.replace(/.+_/,"");
 		var corpus=this.id.replace(/_.+/,"");
-		$.getJSON('http://tekstlab.uio.no/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type=audio&ctx=0', function(data) {
+		$.getJSON('/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type=audio', function(data) {
 			initWFplayer(data)
 		});
 	 });
@@ -20,7 +20,8 @@ $(document).ready(function(){
 
 var drawWaveformPlayer =
     function(divID){
-      $('#' + divID).append('<iframe height="400" width="90%" id="waveframe" target="_blank" style="border: 0"></iframe><br />');
+      $('#' + divID).append('<iframe height="380" width="90%" id="waveframe" target="_blank" style="border: 0"></iframe>');
+      $('#' + divID).append('<br /><div id="text"></div><br />');
     };
 
 var drawJplayer = 
@@ -240,24 +241,35 @@ $(function() {
     });
 
 initedWF = false;
+inited = false;
 
 var initWFplayer = function(mediaObj){
+    $('#inspector').empty().hide();
+    inited = false;
+    $("#waveframe").contents().find("body").html("Loading, please wait...")
+    $('#inspectorwf').show();
     if(!initedWF){
-	$('#inspectorwf').show();
 	initedWF = true;
 	drawWaveformPlayer('inspectorwf');
     }
 
-    $("#waveframe").attr('src', '/sm/glossaplayer.php?path=' + encodeURIComponent(mediaObj.mov.path) + '&movie_loc=' + encodeURIComponent(mediaObj.mov.movie_loc) + '&start=' + mediaObj.mov.start + '&stop=' + mediaObj.mov.stop);
+    last_line = parseInt(mediaObj.last_line);
+    textBox.init(mediaObj);
+    start = parseInt(mediaObj.start_at);
+    stop  = parseInt(mediaObj.end_at);
+    textBox.redraw(start,stop);
+    start = parseFloat($("#jp"+start).data("start_timecode"));
+    stop  = parseFloat($("#jp"+stop).data("end_timecode"));
+    $("#waveframe").attr('src', '/sm/glossaplayer.php?path=' + encodeURIComponent(mediaObj.mov.path) + '&movie_loc=' + encodeURIComponent(mediaObj.mov.movie_loc) + '&start=' + start + '&stop=' + stop);
 }
-
-inited = false;
 
 var initJplayer = function(mediaObj){
     w = "0px";
     h = "0px";
+    $('#inspectorwf').empty().hide();
+    initedWF = false;
+    $('#inspector').show();
     if(!inited){
-	$('#inspector').show();
 	inited = true;
 	drawJplayer('inspector');
     }
