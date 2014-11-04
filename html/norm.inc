@@ -9,5 +9,8 @@
 <tr>
   <td valign="top"><script language="javascript">writeWidgetCheck('nativelanguage', 'morsmål', 'hidden')</script></td>
   <td valign="top"><script language="javascript">writeWidgetCheck('assignmenttype', 'skrivehandling', 'hidden')</script></td>
+  <td valign="top"><script language="javascript">writeWidgetCheck('texttype', 'versjon', 'hidden')</script></td>
+  <td valign="top"><script language="javascript">writeWidgetCheck('category', 'kategori', 'hidden')</script></td>
+  <td valign="top"><script language="javascript">writeWidgetCheck('malform', 'målform', 'hidden')</script></td>
 </tr>
 </table>
