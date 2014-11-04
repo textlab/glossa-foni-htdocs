@@ -7,6 +7,9 @@ $(document).ready(function(){
 		$.getJSON('/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type='+media_type, function(data) {
 			initJplayer(data)
 		});
+                if (corpus === 'legepasient') {
+                  $('<style type="text/css"></style>').html('.jp-interface, .jp-no-solution { display: none; visibility: hidden; };').appendTo('head');
+                }
 	 });
 
 	$('.waveform-button').on('click', function(){
