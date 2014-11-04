@@ -16,14 +16,14 @@ $(document).ready(function(){
 		var line_key=this.id.replace(/.+_/,"");
 		var corpus=this.id.replace(/_.+/,"");
 		$.getJSON('/glossa/glossa_video/db.php?corpus='+corpus+'&line_key='+line_key+'&media_type=audio', function(data) {
-			initWFplayer(data)
+			initWFplayer(data, corpus, line_key)
 		});
 	 });
  });
 
 var drawWaveformPlayer =
     function(divID){
-      $('#' + divID).append('<iframe height="380" width="90%" id="waveframe" target="_blank" style="border: 0"></iframe>');
+      $('#' + divID).append('<iframe height="340" width="90%" id="waveframe" target="_blank" style="border: 0"></iframe>');
       $('#' + divID).append('<br /><div id="text"></div><br />');
     };
 
@@ -246,7 +246,7 @@ $(function() {
 initedWF = false;
 inited = false;
 
-var initWFplayer = function(mediaObj){
+var initWFplayer = function(mediaObj, corpus, line_key){
     $('#inspector').empty().hide();
     inited = false;
     $('#inspectorwf').show();
@@ -263,7 +263,7 @@ var initWFplayer = function(mediaObj){
     textBox.redraw(start,stop);
     start = parseFloat($("#jp"+start).data("start_timecode"));
     stop  = parseFloat($("#jp"+stop).data("end_timecode"));
-    $("#waveframe").attr('src', '/sm/glossaplayer.php?path=' + encodeURIComponent(mediaObj.mov.path) + '&movie_loc=' + encodeURIComponent(mediaObj.mov.movie_loc) + '&start=' + start + '&stop=' + stop);
+    $("#waveframe").attr('src', '/glossa2/wfplayer-' + corpus + '-' + line_key + '-' + start + '-' + stop);
 }
 
 var initJplayer = function(mediaObj){
